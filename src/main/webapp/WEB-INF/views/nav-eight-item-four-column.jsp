@@ -39,16 +39,16 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
     
     <style>
-	    * {
-    		font-family: 'NanumSquareRound';
-	    }
+    * {
+   		font-family: 'NanumSquareRound';
+    }
 
-	    @font-face {
-    font-family: 'NanumSquareRound';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
+    @font-face {
+	    font-family: 'NanumSquareRound';
+	    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+	    font-weight: normal;
+	    font-style: normal;
+	}
 
 	@media screen and (max-width: 768px) {
 		#loading {
@@ -118,7 +118,6 @@
 	.popup_box .popup_btn a.close_day:before, .popup_box .popup_btn a.close_day:after{display:none;}
 	/*오버레이 뒷배경*/
 	.popup_overlay{position:fixed;top:0px;right:0;left:0;bottom:0;z-index:1001;;background:rgba(0,0,0,0.5);}
-	
     </style>
   	</head>
 <body onload="onload()">
@@ -565,8 +564,7 @@
   			</header>
 			
 		  	<section id="sectionsv">
-   			<!--form action="/ai-calc" name="rentalForm" id="rentalForm" method="post" onsubmit="return submitCheck();"-->
-   			<form name="rentalForm" id="rentalForm" method="post">
+   			<form action="/ai-calc" name="rentalForm" id="rentalForm" method="post" onsubmit="return submitCheck();">
    			
    			<!-- container_content -->
    			<div class="container_content">
@@ -695,7 +693,7 @@
               			      
               				<!--calculator_cont01-->
               				<div id="btnloading" class="calculator_cont02 row_flex">
-                				<input type="button" id="btnSave" value="견적서 확인"  onclick="openPop();">
+                				<input type="submit" id="btnSave" value="견적서 확인">
               				</div>
               				<!--calculator_cont02-->
             			</div>
@@ -2480,11 +2478,6 @@
 	  </div>
     </main>
     
-    <script>
-	    $(document).ready(function(){
-	    	
-	    });
-    </script>
     <script>
    	 	$('#loading').hide();
     </script>

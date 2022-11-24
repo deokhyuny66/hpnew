@@ -1,0 +1,70 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<%@page import="java.util.Map"%>
+<%@page import="java.util.List"%>
+<%@page import="javax.mail.Transport"%>
+<%@page import="javax.mail.Message"%>
+<%@page import="javax.mail.Address"%>
+<%@page import="javax.mail.internet.InternetAddress"%>
+<%@page import="javax.mail.internet.MimeMessage"%>
+<%@page import="javax.mail.Session"%>
+<%@page import="com.freeze.mail.SMTPAuthenticatior"%>
+<%@page import="javax.mail.Authenticator"%>
+<%@page import="java.util.Properties"%>
+<%@page import="javax.servlet.http.HttpServletRequest" %>
+<%@page import="org.springframework.web.context.request.NativeWebRequest" %>
+
+<%
+	request.setCharacterEncoding("UTF-8");
+	String nameNM = (String) request.getAttribute("nameNM");
+	String companyNM = (String) request.getAttribute("companyNM");
+	String callNumber = (String) request.getAttribute("callNumber");
+	String emailNM = (String) request.getAttribute("emailNM");
+	String typeNM = (String) request.getAttribute("typeNM");
+	String contactType = (String) request.getAttribute("contactType");
+	String contents = (String) request.getParameter("contents");
+	
+	Properties p = new Properties(); // Á¤º¸¸¦ ´ãÀ» °´Ã¼
+	 
+	p.put("mail.smtp.host", "smtp.gmail.com");
+	p.put("mail.smtp.port", "587");
+	//p.put("mail.smtp.isSSL", "true");
+	p.put("mail.smtp.starttls.enable", "true");
+	p.put("mail.smtp.auth", "true");
+	p.put("mail.smtp.debug", "true");
+	
+	 
+	try{
+		Authenticator auth = new SMTPAuthenticatior();
+		Session ses = Session.getInstance(p, auth);
+		
+		ses.setDebug(true);
+		MimeMessage msg = new MimeMessage(ses);
+
+		msg.setSubject("[¿¿ ¿¿¿ ¿¿]");
+
+		StringBuffer buffer = new StringBuffer();
+		buffer.append("[¿¿¿ ¿¿] <br/>");
+		buffer.append("¿¿ : "+nameNM +"<br/>");
+		buffer.append("¿¿ : "+companyNM +"<br/>");
+		buffer.append("¿¿¿ : "+callNumber +"<br/>");
+		buffer.append("¿¿¿ : "+emailNM +"<br/>");
+		buffer.append("¿¿ : "+typeNM +"<br/>");
+		buffer.append("¿¿¿¿ : "+contactType +"<br/>");
+		buffer.append("¿¿¿¿ : "+contents +"<br/>");
+		
+		Address fromAddr = new InternetAddress("dhyoo@coolinic.com");
+		msg.setFrom(fromAddr); 
+	
+		Address toAddr = new InternetAddress("team@coolinic.com");
+	    msg.addRecipient(Message.RecipientType.TO, toAddr); // ¹Þ´Â »ç¶÷
+	     
+	    msg.setContent(buffer.toString(), "text/html;charset=UTF-8"); // ³»¿ë
+	    Transport.send(msg); // Àü¼Û  
+		response.sendRedirect("http://coolinic.com/#about");
+	}catch(Exception e){
+		e.printStackTrace();
+		return;
+	}
+%>

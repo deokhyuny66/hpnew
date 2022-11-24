@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.freeze.mybatis.dao.CalcDAO">
+	<select id="getCalcSetting" resultType="com.freeze.mybatis.vo.CalcSettingEntity">
+		select * from tb_setting where returns_py = #{returns_py} and temper_type like '%'||#{temper_type}||'%';
+	</select>	
+	
+	<select id="getCalcPrice" resultType="com.freeze.mybatis.vo.CalcPriceEntity">
+		select * from tb_price;
+	</select>	
+</mapper>

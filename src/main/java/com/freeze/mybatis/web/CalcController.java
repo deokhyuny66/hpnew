@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.freeze.mybatis.dao.CalcDAO;
 import com.freeze.mybatis.services.CalcService;
+import com.freeze.mybatis.vo.CalcCDUEntity;
 import com.freeze.mybatis.vo.CalcInputEntity;
 import com.freeze.mybatis.vo.CalcPriceEntity;
 import com.freeze.mybatis.vo.CalcSettingEntity;
@@ -32,6 +33,103 @@ public class CalcController {
 	@RequestMapping("/")
 	public String home() throws Exception {
 		return "nav-eight-item-four-column";
+	}
+	
+	@RequestMapping("/admsp/")
+	public String index() throws Exception {
+		return "/admsp/index";
+	}
+	
+	@RequestMapping("/admsp/products-list")
+	public String productsList() throws Exception {
+		return "/admsp/products-list";
+	}
+	
+	@RequestMapping("/admsp/cdu-list")
+	public String cduList(HttpServletRequest request, Model model) throws Exception {
+		List<CalcCDUEntity> calcCDUEntity = service.getCalcCDU();
+		model.addAttribute("cduEntitylist", calcCDUEntity);
+		return "/admsp/cdu-list";
+	}
+	
+	@RequestMapping("/admsp/cduProc")
+	public void cduProc(HttpServletRequest request) throws Exception {
+		CalcCDUEntity cduen = new CalcCDUEntity();
+		cduen.setPid(request.getParameter("cduPid"));
+		cduen.setPurchase_price(request.getParameter("cduPurchase"));
+		cduen.setUnit_price(request.getParameter("cduUnit"));
+		service.updateCalcCDU(cduen.getPid(),cduen.getPurchase_price(),cduen.getUnit_price());
+		//return "/admsp/cduProc";
+	}
+	
+	@RequestMapping("/admsp/cooler-list")
+	public String coolerList() throws Exception {
+		return "/admsp/cooler-list";
+	}
+	
+	@RequestMapping("/admsp/controll-list")
+	public String controllList() throws Exception {
+		return "/admsp/controll-list";
+	}
+	
+	@RequestMapping("/admsp/blank")
+	public String blank() throws Exception {
+		return "/admsp/blank";
+	}
+	
+	@RequestMapping("/admsp/cards")
+	public String cards() throws Exception {
+		return "/admsp/cards";
+	}
+	
+	@RequestMapping("/admsp/forgot-password")
+	public String forgotPassword() throws Exception {
+		return "/admsp/forgot-password";
+	}
+	
+	@RequestMapping("/admsp/login")
+	public String login() throws Exception {
+		return "/admsp/login";
+	}
+	
+	@RequestMapping("/admsp/charts")
+	public String charts() throws Exception {
+		return "/admsp/charts";
+	}
+	
+	@RequestMapping("/admsp/404")
+	public String notfonud() throws Exception {
+		return "/admsp/404";
+	}
+	
+	@RequestMapping("/admsp/register")
+	public String register() throws Exception {
+		return "/admsp/register";
+	}
+	
+	@RequestMapping("/admsp/utilities-animation")
+	public String utilitiesAnimation() throws Exception {
+		return "/admsp/utilities-animation";
+	}
+	
+	@RequestMapping("/admsp/utilities-border")
+	public String utilitiesBorder() throws Exception {
+		return "/admsp/utilities-border";
+	}
+	
+	@RequestMapping("/admsp/utilities-color")
+	public String utilitiesColor() throws Exception {
+		return "/admsp/utilities-color";
+	}
+	
+	@RequestMapping("/admsp/utilities-other")
+	public String utilitiesOther() throws Exception {
+		return "/admsp/utilities-other";
+	}
+	
+	@RequestMapping("/admsp/buttons")
+	public String buttons() throws Exception {
+		return "/admsp/buttons";
 	}
 	
 	@RequestMapping("/privacy-consent")
@@ -132,7 +230,6 @@ public class CalcController {
 	
 	@RequestMapping("/ai-calc")
 	public String calc(HttpServletRequest request, Model model) throws Exception {
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@");
 		CalcInputEntity cmd = new CalcInputEntity();
 		List<CalcPriceEntity> calcPriceEntity = service.getCalcPrice();
 		DecimalFormat decFormat = new DecimalFormat("###,###");

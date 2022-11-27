@@ -5,10 +5,21 @@
 	
 <mapper namespace="com.freeze.mybatis.dao.CalcDAO">
 	<select id="getCalcSetting" resultType="com.freeze.mybatis.vo.CalcSettingEntity">
-		select * from tb_setting where returns_py = #{returns_py} and temper_type like '%'||#{temper_type}||'%';
+		select * from tb_setting where returns_py = #{returns_py} and temper_type like '%'||#{temper_type}||'%'
 	</select>	
 	
 	<select id="getCalcPrice" resultType="com.freeze.mybatis.vo.CalcPriceEntity">
-		select * from tb_price;
+		select * from tb_price
+	</select>
+	
+	<select id="getCalcCDU" resultType="com.freeze.mybatis.vo.CalcCDUEntity">
+		select * from cdu_t
 	</select>	
+	
+	<update id="updateCalcCDU" parameterType="com.freeze.mybatis.vo.CalcCDUEntity">
+		update cdu_t set
+			purchase_price = #{purchase_price}, 
+			unit_price = #{unit_price}
+		where pid = #{pid}
+	</update>
 </mapper>

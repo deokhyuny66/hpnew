@@ -59,7 +59,6 @@ public class CalcController {
 		cduen.setPurchase_price(request.getParameter("cduPurchase"));
 		cduen.setUnit_price(request.getParameter("cduUnit"));
 		service.updateCalcCDU(cduen.getPid(),cduen.getPurchase_price(),cduen.getUnit_price());
-		//return "/admsp/cduProc";
 	}
 	
 	@RequestMapping("/admsp/cooler-list")

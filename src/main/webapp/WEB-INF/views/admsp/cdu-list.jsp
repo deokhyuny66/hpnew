@@ -407,12 +407,11 @@
                                     <c:forEach items="${cduEntitylist}" var="dto">
                                         <tr>
                                     	<form action="/admsp/cduProc" name="cduForm" id="cduForm" method="post">
-                                            <td>${dto.pid}</td>
+                                            <td>${dto.pid}<input type="hidden" value="${dto.pid}" name="cduPid" id="cduP"></td>
                                             <td>${dto.cdu}</td>
                                             <td>${dto.etc}</td>
                                             <td><input type="text" value="${dto.purchase_price}" name="cduPurchase" id="cduPurchase"></td>
                                             <td><input type="text" value="${dto.unit_price}" name="cduUnit" id="cduUnit"></td>
-                                            <td><input type="hidden" value="${dto.pid}" name="cduPid" id="cduP"></td>
                                             <td><input type="submit" value="변경" name="cduBtn" id="cduBtn"></td>
                                      	</form>
                                         </tr>

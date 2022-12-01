@@ -1,5 +1,6 @@
 package com.freeze.mybatis.services;
 
+import com.freeze.mybatis.vo.CalcBaseEntity;
 import com.freeze.mybatis.vo.CalcCDUEntity;
 import com.freeze.mybatis.vo.CalcPriceEntity;
 import com.freeze.mybatis.vo.CalcSettingEntity;
@@ -25,6 +26,13 @@ public class CalcService
     
     public List<CalcCDUEntity> getCalcCDU() throws Exception {
         return this.mapper.getCalcCDU();
+    }
+    public List<CalcCDUEntity> getOneCalcCDU(String pid) throws Exception {
+        return this.mapper.getOneCalcCDU(pid);
+    }
+    
+    public List<CalcBaseEntity> getBaseCDU() throws Exception {
+        return this.mapper.getCalcBase();
     }
     
     public void updateCalcCDU(String pid, String purchase_price, String unit_price) throws Exception {

@@ -6,16 +6,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.springframework.ui.Model;
+import org.json.JSONObject;
 import org.mybatis.logging.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.freeze.mybatis.dao.CalcDAO;
 import com.freeze.mybatis.services.CalcService;
+import com.freeze.mybatis.vo.CalcBaseEntity;
 import com.freeze.mybatis.vo.CalcCDUEntity;
 import com.freeze.mybatis.vo.CalcInputEntity;
 import com.freeze.mybatis.vo.CalcPriceEntity;
@@ -41,9 +46,29 @@ public class CalcController {
 	}
 	
 	@RequestMapping("/admsp/products-list")
-	public String productsList() throws Exception {
+	public String productsList(HttpServletRequest request, Model model) throws Exception {
+		List<CalcBaseEntity> calcBaseEntity = service.getBaseCDU();
+		List<CalcCDUEntity> calcCDUEntity = service.getCalcCDU();
+		model.addAttribute("cduEntitylist", calcCDUEntity);
+		model.addAttribute("calcBaseEntity", calcBaseEntity);
+		
 		return "/admsp/products-list";
 	}
+	
+	
+	 @RequestMapping(value="/admsp/productsAjax", method=RequestMethod.POST) 
+	 public @ResponseBody String sendAjaxGetVO(@RequestBody CalcCDUEntity cdu) throws Exception {
+		 System.out.println("!!!! : " + cdu.getPid());
+		 List<CalcCDUEntity> calcCDUEntity = service.getOneCalcCDU(cdu.getPid());
+		 System.out.println("AAAA");
+		 String getUnitPrice = calcCDUEntity.get(0).getUnit_price();
+		 if(getUnitPrice.equals(null) || getUnitPrice.equals("") || getUnitPrice.equals(0) || getUnitPrice.equals("0")) {
+			 return "";
+		 }else {
+			 return calcCDUEntity.get(0).getUnit_price(); 
+		 }
+	 }
+	 
 	
 	@RequestMapping("/admsp/cdu-list")
 	public String cduList(HttpServletRequest request, Model model) throws Exception {
@@ -59,6 +84,14 @@ public class CalcController {
 		cduen.setPurchase_price(request.getParameter("cduPurchase"));
 		cduen.setUnit_price(request.getParameter("cduUnit"));
 		service.updateCalcCDU(cduen.getPid(),cduen.getPurchase_price(),cduen.getUnit_price());
+	}
+	
+	@RequestMapping("/admsp/cduRq")
+	public String cduRq(HttpServletRequest request) throws Exception {
+		System.out.println("!!!! : " + request.getParameter("cduForm"));
+		System.out.println("!!!! : " + request.getParameter("cduUnitPrice"));
+		
+		return "/admsp/cduRq";
 	}
 	
 	@RequestMapping("/admsp/cooler-list")

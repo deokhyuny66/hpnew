@@ -16,6 +16,14 @@
 		select * from cdu_t
 	</select>	
 	
+	<select id="getOneCalcCDU" resultType="com.freeze.mybatis.vo.CalcCDUEntity">
+		select * from cdu_t where pid = #{pid}
+	</select>	
+	
+	<select id="getCalcBase" resultType="com.freeze.mybatis.vo.CalcBaseEntity">
+		select * from PYNTYPE
+	</select>	
+	
 	<update id="updateCalcCDU" parameterType="com.freeze.mybatis.vo.CalcCDUEntity">
 		update cdu_t set
 			purchase_price = #{purchase_price}, 

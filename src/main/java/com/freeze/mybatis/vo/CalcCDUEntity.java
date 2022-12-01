@@ -7,8 +7,15 @@ public class CalcCDUEntity {
     private String purchase_price;
     private String unit_price;
     private CalcCDUEntity cduen;
+    private String pk_no;
     
-    public CalcCDUEntity getCduen() {
+    public String getPk_no() {
+		return pk_no;
+	}
+	public void setPk_no(String pk_no) {
+		this.pk_no = pk_no;
+	}
+	public CalcCDUEntity getCduen() {
 		return cduen;
 	}
 	public void setCduen(CalcCDUEntity cduen) {

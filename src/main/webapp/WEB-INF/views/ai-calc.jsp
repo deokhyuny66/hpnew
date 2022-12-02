@@ -286,26 +286,48 @@ textarea {
    			<input type="hidden" name="mtypeProc" id="mtypeProc" value="${mtype}">
    			<input type="hidden" name="msizeProc" id="msizeProc" value="${msize}">
    			<input type="hidden" name="purcheseProc" id="purcheseProc" value="${purchese}">
+   		
    			<input type="hidden" name="cduProc" id="cduProc" value="${cdu}">
+   			<input type="hidden" name="cdu_unit_priceProc" id="cdu_unit_priceProc" value="${cdu_unit_price}">
    			<input type="hidden" name="coolerProc" id="coolerProc" value="${cooler}">
+   			<input type="hidden" name="cooler_unit_priceProc" id="cooler_unit_priceProc" value="${cooler_unit_price}">
    			<input type="hidden" name="controlProc" id="controlProc" value="${control}">
+   			<input type="hidden" name="control_unit_priceProc" id="control_unit_priceProc" value="${control_unit_price}">
    			<input type="hidden" name="ex_valveProc" id="ex_valveProc" value="${ex_valve}">
+   			<input type="hidden" name="ex_valve_unit_priceProc" id="ex_valve_unit_priceProc" value="${ex_valve_unit_price}">
    			<input type="hidden" name="elec_valveProc" id="elec_valveProc" value="${elec_valve}">
-   			<input type="hidden" name="high_pipingProc" id="high_pipingProc" value="${high_piping}">
-   			<input type="hidden" name="row_pipingProc" id="row_pipingProc" value="${row_piping}">
-   			<input type="hidden" name="high_laggingProc" id="high_laggingProc" value="${high_lagging}">
-   			<input type="hidden" name="row_laggingProc" id="row_laggingProc" value="${row_lagging}">
-   			<input type="hidden" name="powerProc" id="powerProc" value="${power}">
+   			<input type="hidden" name="elec_valve_unit_priceProc" id="elec_valve_unit_priceProc" value="${elec_valve_unit_price}">
+   			<input type="hidden" name="elec_valveProc" id="elec_valveProc" value="${elec_valve}">
    			<input type="hidden" name="op_assis1Proc" id="op_assis1Proc" value="${op_assis1}">
+   			<input type="hidden" name="op_assis1_unit_priceProc" id="op_assis1_unit_priceProc" value="${op_assis1_unit_price}">
    			<input type="hidden" name="op_assis2Proc" id="op_assis2Proc" value="${op_assis2}">
+   			<input type="hidden" name="op_assis2_unit_priceProc" id="op_assis2_unit_priceProc" value="${op_assis2_unit_price}">
    			<input type="hidden" name="op_assis3Proc" id="op_assis3Proc" value="${op_assis3}">
-   			<input type="hidden" name="construc_periodProc" id="construc_periodProc" value="${construc_period}">
-   			<input type="hidden" name="panel_priceProc" id="panel_priceProc" value="${panel_price}">
-   			<input type="hidden" name="door_priceProc" id="door_priceProc" value="${door_price}">
-   			<input type="hidden" name="base_priceProc" id="base_priceProc" value="${base_price}">
-   			<input type="hidden" name="sub_priceProc" id="sub_priceProc" value="${sub_price}">
+   			<input type="hidden" name="op_assis3_unit_priceProc" id="op_assis3_unit_priceProc" value="${op_assis3_unit_price}">
+   			<input type="hidden" name="op_assis4Proc" id="op_assis4Proc" value="${op_assis4}">
+   			<input type="hidden" name="op_assis4_unit_priceProc" id="op_assis4_unit_priceProc" value="${op_assis4_unit_price}">
+   			<input type="hidden" name="op_assis5Proc" id="op_assis5Proc" value="${op_assis5}">
+   			<input type="hidden" name="op_assis5_unit_priceProc" id="op_assis5_unit_priceProc" value="${op_assis5_unit_price}">
+   			<input type="hidden" name="op_assis6Proc" id="op_assis6Proc" value="${op_assis6}">
+   			<input type="hidden" name="op_assis6_unit_priceProc" id="op_assis6_unit_priceProc" value="${op_assis6_unit_price}">
+   			<input type="hidden" name="op_assis7Proc" id="op_assis7Proc" value="${op_assis7}">
+   			<input type="hidden" name="op_assis7_unit_priceProc" id="op_assis7_unit_priceProc" value="${op_assis7_unit_price}">
+   			<input type="hidden" name="op_assis8Proc" id="op_assis8Proc" value="${op_assis8}">
+   			<input type="hidden" name="op_assis8_unit_priceProc" id="op_assis8_unit_priceProc" value="${op_assis8_unit_price}">
+   			<input type="hidden" name="op_assis9Proc" id="op_assis9Proc" value="${op_assis9}">
+   			<input type="hidden" name="op_assis9_unit_priceProc" id="op_assis9_unit_priceProc" value="${op_assis9_unit_price}">
+   			<input type="hidden" name="op_assis10Proc" id="op_assis10Proc" value="${op_assis10}">
+   			<input type="hidden" name="op_assis10_unit_priceProc" id="op_assis10_unit_priceProc" value="${op_assis10_unit_price}">
+   			<input type="hidden" name="manday1Proc" id="manday1Proc" value="${manday1}">
+   			<input type="hidden" name="manday1_unit_priceProc" id="manday1_unit_priceProc" value="${manday1_unit_price}">
+   			<input type="hidden" name="manday2Proc" id="manday2Proc" value="${manday2}">
+   			<input type="hidden" name="manday2_unit_priceProc" id="manday2_unit_priceProc" value="${manday2_unit_price}">
+   			<input type="hidden" name="manday3Proc" id="manday3Proc" value="${manday3}">
+   			<input type="hidden" name="manday3_unit_priceProc" id="manday3_unit_priceProc" value="${manday3_unit_price}">
+   			<input type="hidden" name="manday4Proc" id="manday4Proc" value="${manday4}">
+   			<input type="hidden" name="manday4_unit_priceProc" id="manday4_unit_priceProc" value="${manday4_unit_price}">
    			<input type="hidden" name="total_priceProc" id="total_priceProc" value="${total_price}">
-   			
+    
    			<!-- container_content -->
    			<div class="container_content">
      			<div class="row_flex">

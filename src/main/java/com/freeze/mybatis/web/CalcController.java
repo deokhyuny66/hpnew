@@ -57,8 +57,9 @@ public class CalcController {
 	
 	
 	 @RequestMapping(value="/admsp/productsAjax", method=RequestMethod.POST) 
-	 public @ResponseBody String sendAjaxGetVO(@RequestBody CalcCDUEntity cdu) throws Exception {
+	 public @ResponseBody String sendAjaxGetVO(@RequestBody CalcCDUEntity cdu, String cdu_ctn) throws Exception {
 		 System.out.println("!!!! : " + cdu.getPid());
+		 System.out.println(cdu_ctn);
 		 List<CalcCDUEntity> calcCDUEntity = service.getOneCalcCDU(cdu.getPid());
 		 System.out.println("AAAA");
 		 String getUnitPrice = calcCDUEntity.get(0).getUnit_price();
@@ -399,21 +400,47 @@ public class CalcController {
 		model.addAttribute("total_price",decFormat.format(total_price));
 
 		//Setting Model
+		model.addAttribute("pinid",calcSettingEntity.get(0).getPinid());
 		model.addAttribute("cdu",calcSettingEntity.get(0).getCdu());
+		model.addAttribute("cdu_unit_price",calcSettingEntity.get(0).getCdu_unit_price());
 		model.addAttribute("cooler",calcSettingEntity.get(0).getCooler());
+		model.addAttribute("cooler_unit_price",calcSettingEntity.get(0).getControl_unit_price());
 		model.addAttribute("control",calcSettingEntity.get(0).getControl());
+		model.addAttribute("control_unit_price",calcSettingEntity.get(0).getControl_unit_price());
+		
 		model.addAttribute("ex_valve",calcSettingEntity.get(0).getEx_valve());
+		model.addAttribute("ex_valve_unit_price",calcSettingEntity.get(0).getEx_valve_unit_price());
 		model.addAttribute("elec_valve",calcSettingEntity.get(0).getElec_valve());
-		model.addAttribute("high_piping",calcSettingEntity.get(0).getHigh_piping());
-		model.addAttribute("row_piping",calcSettingEntity.get(0).getRow_piping());
-		model.addAttribute("high_lagging",calcSettingEntity.get(0).getHigh_lagging());
-		model.addAttribute("row_lagging",calcSettingEntity.get(0).getRow_lagging());
-		model.addAttribute("power",calcSettingEntity.get(0).getPower());
+		model.addAttribute("elec_valve_unit_price",calcSettingEntity.get(0).getElec_valve_unit_price());
 		model.addAttribute("op_assis1",calcSettingEntity.get(0).getOp_assis1());
+		model.addAttribute("op_assis1_unit_price",calcSettingEntity.get(0).getOp_assis1_unit_price());
 		model.addAttribute("op_assis2",calcSettingEntity.get(0).getOp_assis2());
+		model.addAttribute("op_assis2_unit_price",calcSettingEntity.get(0).getOp_assis2_unit_price());
 		model.addAttribute("op_assis3",calcSettingEntity.get(0).getOp_assis3());
-		model.addAttribute("engin_cnt",calcSettingEntity.get(0).getEngin_cnt());
-		model.addAttribute("construc_period",calcSettingEntity.get(0).getConstruc_period());
+		model.addAttribute("op_assis3_unit_price",calcSettingEntity.get(0).getOp_assis3_unit_price());
+		model.addAttribute("op_assis4",calcSettingEntity.get(0).getOp_assis4());
+		model.addAttribute("op_assis4_unit_price",calcSettingEntity.get(0).getOp_assis4_unit_price());
+		model.addAttribute("op_assis5",calcSettingEntity.get(0).getOp_assis5());
+		model.addAttribute("op_assis5_unit_price",calcSettingEntity.get(0).getOp_assis5_unit_price());
+		model.addAttribute("op_assis6",calcSettingEntity.get(0).getOp_assis6());
+		model.addAttribute("op_assis6_unit_price",calcSettingEntity.get(0).getOp_assis6_unit_price());
+		model.addAttribute("op_assis7",calcSettingEntity.get(0).getOp_assis7());
+		model.addAttribute("op_assis7_unit_price",calcSettingEntity.get(0).getOp_assis7_unit_price());
+		model.addAttribute("op_assis8",calcSettingEntity.get(0).getOp_assis8());
+		model.addAttribute("op_assis8_unit_price",calcSettingEntity.get(0).getOp_assis8_unit_price());
+		model.addAttribute("op_assis9",calcSettingEntity.get(0).getOp_assis9());
+		model.addAttribute("op_assis9_unit_price",calcSettingEntity.get(0).getOp_assis9_unit_price());
+		model.addAttribute("op_assis10",calcSettingEntity.get(0).getOp_assis10());
+		model.addAttribute("op_assis10_unit_price",calcSettingEntity.get(0).getOp_assis10_unit_price());
+		model.addAttribute("manday1",calcSettingEntity.get(0).getManday1());
+		model.addAttribute("manday1_unit_price",calcSettingEntity.get(0).getManday1_unit_price());
+		model.addAttribute("manday2",calcSettingEntity.get(0).getManday2());
+		model.addAttribute("manday2_unit_price",calcSettingEntity.get(0).getManday2_unit_price());
+		model.addAttribute("manday3",calcSettingEntity.get(0).getManday3());
+		model.addAttribute("manday3_unit_price",calcSettingEntity.get(0).getManday3_unit_price());
+		model.addAttribute("manday4",calcSettingEntity.get(0).getManday4());
+		model.addAttribute("manday4_unit_price",calcSettingEntity.get(0).getManday4_unit_price());
+		model.addAttribute("total_price",calcSettingEntity.get(0).getTotal_price());
 		
 		//Input Model
 		model.addAttribute("wid", cmd.getWidVal());

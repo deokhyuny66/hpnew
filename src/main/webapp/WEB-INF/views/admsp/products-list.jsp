@@ -413,7 +413,7 @@
 	                                            
 	                                            <form action="/admsp/cduRq" name="ajaxReqForm" id="ajaxReqForm" method="post">                                          	
 	                                            <td>	  
-	                                            	<select name="cduSelect${statusNo.index}" id="cduSelect${statusNo.index}" onchange="checkerCDUSelectFn(this.id)">
+	                                            	<select name="cduSelect${statusNo.index}" id="cduSelect${statusNo.index}" onchange="checkerCDUSelectFn(this.id,'${base.pntid}')">
 	                                            	<c:forEach var="data" items="${cduEntitylist}">
 													    <option value="${data.pid}">${data.cdu}</option><%-- 이 PID로 Query 조회 함 --%>
 													</c:forEach>
@@ -426,7 +426,7 @@
 													</c:forEach>
 													</select>
 	                                            </td>
-	                                            <td name="cduUnitPrice${statusNo.index}" id="cduUnitPrice${statusNo.index}">${cduEntitylist[statusNo.index].unit_price}</td>
+	                                            <td name="cduUnitPrice${statusNo.index}" id="cduUnitPrice${statusNo.index}">0</td>
 	                                            <td>
 	                                            	<input type="button" value="변경" name="subBtn${statusNo.index}" id="subBtn${statusNo.index}" onclick="cduBtnFn(${statusNo.index})">
 	                                            </td>
@@ -508,9 +508,11 @@
 	<script>
      /* CDU Select Change Checker */
 	 var cduChecker;
+     var pntId;
      var cduCntChecker;
-     function checkerCDUSelectFn(clicked){
+     function checkerCDUSelectFn(clicked,pntids){
     	 cduChecker = clicked;
+    	 pntId = pntids;
      }
      
      function checkerCDUCntSelectFn(clicked){
@@ -519,24 +521,33 @@
      
     /* CDU Btn Onclick Eventer */ 
     function cduBtnFn(cnt){
+    	alert("PNTID : " + pntId);
      	var cduUnitPrice = $("#cduUnitPrice"+cnt).attr("id"); 
     	var cdu_cntChecker = "#"+cduCntChecker+" option:selected";
 		var cdu_checker = "#"+cduChecker+" option:selected";
     	var pid = $(cdu_checker).val();
-    	var param = {"pid":pid};
+    	var cdu_ctn = $(cdu_cntChecker).val();
+    	var param = {"pid":pid, "cdu_ctn":cdu_ctn};
        	 $.ajax({
        			anyne:true,
        			type:'POST',
        			contentType: 'application/json',
+       			
        			data: JSON.stringify(param),
        			url:"/admsp/productsAjax",
+       			
        			dataType: "text",
-       			success : function(data) {	
+       			success : function(data) {
        				alert("변경이 완료되었습니다.");
-       				$("#"+cduUnitPrice).text(data);
+       				if(cdu_ctn == "undefined" || cdu_ctn == null || cdu_ctn == ""){
+       					cdu_ctn = 1;
+       				}else {
+       					alert("관리자에게 문의해주세요.");
+       				}
+       				$("#"+cduUnitPrice).text(data*cdu_ctn);  
        			},
        			error: function(jqXHR, textStatus, errorThrown) {
-       				alert("문제가 발생했으니 재선택해주세요.");
+       				alert("한번 재선택 해주세요.");
        			}
        		});
     }

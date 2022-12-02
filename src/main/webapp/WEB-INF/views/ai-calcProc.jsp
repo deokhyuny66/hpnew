@@ -25,6 +25,11 @@
 	String agree_o = (String) request.getAttribute("agree_o");
 	String agree_p = (String) request.getAttribute("agree_p");
 	
+	String panel_priceProc = (String) request.getAttribute("panel_price");
+	String door_priceProc = (String) request.getAttribute("door_price");
+	String base_priceProc = (String) request.getAttribute("base_price");
+	String sub_priceProc = (String) request.getAttribute("sub_price");
+	
 	String widProc = (String) request.getAttribute("widProc");
 	String vertProc = (String) request.getAttribute("vertProc");
 	String hegProc = (String) request.getAttribute("hegProc");
@@ -36,26 +41,48 @@
 	String mtypeProc = (String) request.getAttribute("mtypeProc");
 	String msizeProc = (String) request.getAttribute("msizeProc");
 	String purcheseProc = (String) request.getAttribute("purcheseProc");
-	String cduProc = (String) request.getAttribute("cduProc");
-	String coolerProc = (String) request.getAttribute("coolerProc");
-	String controlProc = (String) request.getAttribute("controlProc");
-	String ex_valveProc = (String) request.getAttribute("ex_valveProc");
-	String elec_valveProc = (String) request.getAttribute("elec_valveProc");
-	String high_pipingProc = (String) request.getAttribute("high_pipingProc");
-	String row_pipingProc = (String) request.getAttribute("row_pipingProc");
-	String high_laggingProc = (String) request.getAttribute("high_laggingProc");
-	String row_laggingProc = (String) request.getAttribute("row_laggingProc");
-	String powerProc = (String) request.getAttribute("powerProc");
-	String op_assis1Proc = (String) request.getAttribute("op_assis1Proc");
-	String op_assis2Proc = (String) request.getAttribute("op_assis2Proc");
-	String op_assis3Proc = (String) request.getAttribute("op_assis3Proc");
-	String construc_periodProc = (String) request.getAttribute("construc_periodProc");
-	String panel_priceProc = (String) request.getAttribute("panel_priceProc");
-	String door_priceProc = (String) request.getAttribute("door_priceProc");
-	String base_priceProc = (String) request.getAttribute("base_priceProc");
-	String sub_priceProc = (String) request.getAttribute("sub_priceProc");
-	String total_priceProc = (String) request.getAttribute("total_priceProc");
 	
+	String cduProc = (String) request.getAttribute("cduProc");
+	String cdu_unit_priceProc = (String) request.getAttribute("cdu_unit_priceProc");
+	String coolerProc = (String) request.getAttribute("coolerProc");
+	String cooler_unit_priceProc = (String) request.getAttribute("cooler_unit_priceProc");
+	String controlProc = (String) request.getAttribute("controlProc");
+	String control_unit_priceProc = (String) request.getAttribute("control_unit_priceProc");
+	String ex_valveProc = (String) request.getAttribute("ex_valveProc");
+	String ex_valve_unit_priceProc = (String) request.getAttribute("ex_valve_unit_priceProc");
+	String elec_valveProc = (String) request.getAttribute("elec_valveProc");
+	String elec_valve_unit_priceProc = (String) request.getAttribute("elec_valve_unit_priceProc");
+	String op_assis1Proc = (String) request.getAttribute("op_assis1Proc");
+	String op_assis1_unit_priceProc = (String) request.getAttribute("op_assis1_unit_priceProc");
+	String op_assis2Proc = (String) request.getAttribute("op_assis2Proc");
+	String op_assis2_unit_priceProc = (String) request.getAttribute("op_assis2_unit_priceProc");
+	String op_assis3Proc = (String) request.getAttribute("op_assis3Proc");
+	String op_assis3_unit_priceProc = (String) request.getAttribute("op_assis3_unit_priceProc");
+	String op_assis4Proc = (String) request.getAttribute("op_assis4Proc");
+	String op_assis4_unit_priceProc = (String) request.getAttribute("op_assis4_unit_priceProc");
+	String op_assis5Proc = (String) request.getAttribute("op_assis5Proc");
+	String op_assis5_unit_priceProc = (String) request.getAttribute("op_assis5_unit_priceProc");
+	String op_assis6Proc = (String) request.getAttribute("op_assis6Proc");
+	String op_assis6_unit_priceProc = (String) request.getAttribute("op_assis6_unit_priceProc");
+	String op_assis7Proc = (String) request.getAttribute("op_assis7Proc");
+	String op_assis7_unit_priceProc = (String) request.getAttribute("op_assis7_unit_priceProc");
+	String op_assis8Proc = (String) request.getAttribute("op_assis8Proc");
+	String op_assis8_unit_priceProc = (String) request.getAttribute("op_assis8_unit_priceProc");
+	String op_assis9Proc = (String) request.getAttribute("op_assis9Proc");
+	String op_assis9_unit_priceProc = (String) request.getAttribute("op_assis9_unit_priceProc");
+	String op_assis10Proc = (String) request.getAttribute("op_assis10Proc");
+	String op_assis10_unit_priceProc = (String) request.getAttribute("op_assis10_unit_priceProc");
+	
+	String manday1Proc = (String) request.getAttribute("manday1Proc");
+	String manday1_unit_priceProc = (String) request.getAttribute("manday1_unit_priceProc");
+	String manday2Proc = (String) request.getAttribute("manday2Proc");
+	String manday2_unit_priceProc = (String) request.getAttribute("manday2_unit_priceProc");
+	String manday3Proc = (String) request.getAttribute("manday3Proc");
+	String manday3_unit_priceProc = (String) request.getAttribute("manday3_unit_priceProc");
+	String manday4Proc = (String) request.getAttribute("manday4Proc");
+	String manday4_unit_priceProc = (String) request.getAttribute("manday4_unit_priceProc");
+	String total_priceProc = (String) request.getAttribute("total_priceProc");
+
 	Properties p = new Properties(); 
 	 
 	p.put("mail.smtp.host", "smtp.gmail.com");

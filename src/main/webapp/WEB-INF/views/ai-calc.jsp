@@ -7,6 +7,7 @@
 <%@ page import="com.freeze.mybatis.services.CalcService" %>
 <%@ page import="com.freeze.mybatis.dao.CalcDAO" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> <!-- JSTL POM 추가 및 해당 라인 추가 -->
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%
 	request.setCharacterEncoding("utf-8");
 %>
@@ -367,7 +368,7 @@ textarea {
 					            </tr>
 					            <tr>
 					                <td>CDU</td>
-					                <td colspan="3" class="blur">35</td>
+					                <td colspan="3">${cdu}</td>
 					            </tr>
 					            <tr>
 					                <td>COOLER</td>
@@ -450,7 +451,7 @@ textarea {
 					            </tr>
 					            <tr>
 					                <td>CDU</td>
-					                <td colspan="3" class="blur">535,000</td>
+					                <td colspan="3"><fmt:formatNumber value="${cdu_unit_price}" pattern="#,###"/></td>
 					            </tr>
 					            <tr>
 					                <td>COOLER</td>
@@ -510,7 +511,7 @@ textarea {
 					            </tr>
 					            <tr>
 					                <th>총 금액</th>
-					                <th colspan="3">${total_price}</th>
+					                <th colspan="3"><fmt:formatNumber value="${total_price}" pattern="#,###"/></th>
 					            </tr>
 	           				</table>
 	           				<h5 style="color:#777;">해당 견적서는 일부 내역과 금액만 표시되는 스탠다드 견적서이며, 

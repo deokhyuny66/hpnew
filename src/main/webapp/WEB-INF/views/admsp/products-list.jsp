@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -427,7 +428,7 @@
 													</c:forEach>
 													</select>
 	                                            </td>
-	                                            <td><input type="text" value="" name="cduUnitPrice${statusNo.index}" id="cduUnitPrice${statusNo.index}"></td>
+	                                            <td><input type="text" value="0" name="cduUnitPrice${statusNo.index}" id="cduUnitPrice${statusNo.index}" disabled></td>
 	                                            <td>
 	                                            	<input type="button" value="변경" name="subBtn${statusNo.index}" id="subBtn${statusNo.index}" onclick="cduBtnFn(${statusNo.index})">
 	                                            	<input type="button" value="전체변경" name="allBtn${statusNo.index}" id="allBtn${statusNo.index}" onclick="allBtnFn(this.id,${statusNo.index})">
@@ -541,7 +542,6 @@
        			
        			dataType: "text",
        			success : function(data) {
-       				alert("변경이 완료되었습니다.");
        				if(cdu_ctn == "undefined" || cdu_ctn == null || cdu_ctn == ""){
        					cdu_ctn = 1;
        				}else {

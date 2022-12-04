@@ -52,7 +52,6 @@ public class CalcController {
 		List<CalcCDUEntity> calcCDUEntity = service.getCalcCDU();
 		model.addAttribute("cduEntitylist", calcCDUEntity);
 		model.addAttribute("calcBaseEntity", calcBaseEntity);
-		
 		return "/admsp/products-list";
 	}
 	

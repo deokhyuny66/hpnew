@@ -4,6 +4,8 @@ import com.freeze.mybatis.vo.CalcBaseEntity;
 import com.freeze.mybatis.vo.CalcCDUEntity;
 import com.freeze.mybatis.vo.CalcPriceEntity;
 import com.freeze.mybatis.vo.CalcSettingEntity;
+import com.freeze.mybatis.vo.CalcViewEntity;
+
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +35,10 @@ public class CalcService
     
     public List<CalcBaseEntity> getBaseCDU() throws Exception {
         return this.mapper.getCalcBase();
+    }
+    
+    public void updateProductsAll(CalcViewEntity view) throws Exception {
+    	this.mapper.updateProductsAll(view);
     }
     
     public void updateCalcCDU(String pid, String purchase_price, String unit_price) throws Exception {

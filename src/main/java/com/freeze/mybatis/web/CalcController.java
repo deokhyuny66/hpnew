@@ -25,6 +25,7 @@ import com.freeze.mybatis.vo.CalcCDUEntity;
 import com.freeze.mybatis.vo.CalcInputEntity;
 import com.freeze.mybatis.vo.CalcPriceEntity;
 import com.freeze.mybatis.vo.CalcSettingEntity;
+import com.freeze.mybatis.vo.CalcViewEntity;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.*;
@@ -55,13 +56,14 @@ public class CalcController {
 		return "/admsp/products-list";
 	}
 	
+	@RequestMapping(value="/admsp/productsAllAjax", method=RequestMethod.POST)
+	public @ResponseBody void sendAjaxGetAllVO(@RequestBody CalcViewEntity view) throws Exception {
+		service.updateProductsAll(view);
+	}
 	
 	 @RequestMapping(value="/admsp/productsAjax", method=RequestMethod.POST) 
-	 public @ResponseBody String sendAjaxGetVO(@RequestBody CalcCDUEntity cdu, String cdu_ctn) throws Exception {
-		 System.out.println("!!!! : " + cdu.getPid());
-		 System.out.println(cdu_ctn);
+	 public @ResponseBody String sendAjaxGetOneVO(@RequestBody CalcCDUEntity cdu, String cdu_ctn) throws Exception {
 		 List<CalcCDUEntity> calcCDUEntity = service.getOneCalcCDU(cdu.getPid());
-		 System.out.println("AAAA");
 		 String getUnitPrice = calcCDUEntity.get(0).getUnit_price();
 		 if(getUnitPrice.equals(null) || getUnitPrice.equals("") || getUnitPrice.equals(0) || getUnitPrice.equals("0")) {
 			 return "";
@@ -89,9 +91,6 @@ public class CalcController {
 	
 	@RequestMapping("/admsp/cduRq")
 	public String cduRq(HttpServletRequest request) throws Exception {
-		System.out.println("!!!! : " + request.getParameter("cduForm"));
-		System.out.println("!!!! : " + request.getParameter("cduUnitPrice"));
-		
 		return "/admsp/cduRq";
 	}
 	
@@ -454,6 +453,8 @@ public class CalcController {
 		model.addAttribute("mtype", cmd.getMtypeVal());
 		model.addAttribute("msize", cmd.getMsizeVal());
 		model.addAttribute("purchese", cmd.getPurcheseVal());
+		
+		System.out.println("@@@@@@@@@@@@@@@@ : " + calcSettingEntity.get(0).getCdu_unit_price());
 		
 		return "ai-calc";
 	}	

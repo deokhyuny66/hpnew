@@ -24,6 +24,13 @@
 		select * from PYNTYPE
 	</select>	
 	
+	<update id="updateProductsAll" parameterType="com.freeze.mybatis.vo.CalcViewEntity">
+		update SETTING_VIEW_T 
+			set CDU = #{cdu}, 
+				CDU_UNIT_PRICE = #{cdu_unit_price}
+			where PINID = #{pntid}
+	</update>
+	
 	<update id="updateCalcCDU" parameterType="com.freeze.mybatis.vo.CalcCDUEntity">
 		update cdu_t set
 			purchase_price = #{purchase_price}, 

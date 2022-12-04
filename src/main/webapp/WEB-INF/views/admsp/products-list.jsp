@@ -384,32 +384,33 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
+                                        	<th>ID</th>
                                             <th>평수</th>
                                             <th>구분</th>
                                             <th>CUD</th>
                                             <th>수량</th>
                                             <th>금액</th>
                                             <th>반영</th>
-                                            <th>전체적용</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
+                                        	<th>ID</th>
                                             <th>평수</th>
                                             <th>구분</th>
                                             <th>CUD</th>
                                             <th>수량</th>
                                             <th>금액</th>
                                             <th>반영</th>
-                                            <th>전체적용</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                     	<form action="/admsp/products-list" name="prdForm" id="prdForm" method="post">
-	                                        <c:forEach var="base" items="${calcBaseEntity}" begin="1" varStatus="statusNo">
+	                                        <c:forEach var="base" items="${calcBaseEntity}" begin="0" varStatus="statusNo">
 	                                        <tr>
-	                                            <td>${base.returns_py}<input type="hidden" value="${base.returns_py}" name="base_py" id="base_py"></td>
-	                                            <td>${base.temper_type}<input type="hidden" value="${base.temper_type}" name="base_type" id="base_type"></td>
+	                                        	<td>${base.pntid}<input type="hidden" value="${base.pntid}" name="base_pntid${statusNo.index}" id="base_pntid${statusNo.index}"></td>
+	                                            <td>${base.returns_py}<input type="hidden" value="${base.returns_py}" name="base_py${statusNo.index}" id="base_py${statusNo.index}"></td>
+	                                            <td>${base.temper_type}<input type="hidden" value="${base.temper_type}" name="base_type${statusNo.index}" id="base_type${statusNo.index}"></td>
 	                                            
 	                                            <form action="/admsp/cduRq" name="ajaxReqForm" id="ajaxReqForm" method="post">                                          	
 	                                            <td>	  
@@ -426,12 +427,12 @@
 													</c:forEach>
 													</select>
 	                                            </td>
-	                                            <td name="cduUnitPrice${statusNo.index}" id="cduUnitPrice${statusNo.index}">0</td>
+	                                            <td><input type="text" value="" name="cduUnitPrice${statusNo.index}" id="cduUnitPrice${statusNo.index}"></td>
 	                                            <td>
 	                                            	<input type="button" value="변경" name="subBtn${statusNo.index}" id="subBtn${statusNo.index}" onclick="cduBtnFn(${statusNo.index})">
+	                                            	<input type="button" value="전체변경" name="allBtn${statusNo.index}" id="allBtn${statusNo.index}" onclick="allBtnFn(this.id,${statusNo.index})">
 	                                            </td>
 	                                            </form>
-	                                            <td><input type="submit" value="전체변경" name="allBtn" id="allBtn"></td>
 	                                        </tr>
 	                                        </c:forEach>
                                      	</form>
@@ -508,11 +509,13 @@
 	<script>
      /* CDU Select Change Checker */
 	 var cduChecker;
-     var pntId;
+     var pntid_val;
      var cduCntChecker;
+     var cduUnitPirce_val;
+     
      function checkerCDUSelectFn(clicked,pntids){
     	 cduChecker = clicked;
-    	 pntId = pntids;
+    	 pntid_val = pntids;
      }
      
      function checkerCDUCntSelectFn(clicked){
@@ -521,10 +524,10 @@
      
     /* CDU Btn Onclick Eventer */ 
     function cduBtnFn(cnt){
-    	alert("PNTID : " + pntId);
-     	var cduUnitPrice = $("#cduUnitPrice"+cnt).attr("id"); 
-    	var cdu_cntChecker = "#"+cduCntChecker+" option:selected";
+     	cduUnitPriceId = $("#cduUnitPrice"+cnt).attr("id");
+     	
 		var cdu_checker = "#"+cduChecker+" option:selected";
+    	var cdu_cntChecker = "#"+cduCntChecker+" option:selected";
     	var pid = $(cdu_checker).val();
     	var cdu_ctn = $(cdu_cntChecker).val();
     	var param = {"pid":pid, "cdu_ctn":cdu_ctn};
@@ -542,14 +545,49 @@
        				if(cdu_ctn == "undefined" || cdu_ctn == null || cdu_ctn == ""){
        					cdu_ctn = 1;
        				}else {
-       					alert("관리자에게 문의해주세요.");
+       					
        				}
-       				$("#"+cduUnitPrice).text(data*cdu_ctn);  
+       				$("#"+cduUnitPriceId).val(data*cdu_ctn);  
        			},
        			error: function(jqXHR, textStatus, errorThrown) {
        				alert("한번 재선택 해주세요.");
        			}
        		});
+    }
+    
+    function allBtnFn(btnId, cnt) {
+    	/* id값 가져오기 */
+		var cdu_checker = "#"+cduChecker+" option:selected";
+		var base_pntid_val_temp = $("#base_pntid"+cnt).attr("id");
+		var base_py_val_temp = $("#base_py"+cnt).attr("id");
+		var base_type_val_temp = $("#base_type"+cnt).attr("id");
+		var cdu_val = $(cdu_checker).text();
+		var cduUnitPrice_temp = $("#cduUnitPrice"+cnt).attr("id");
+		
+		/* 실제 값 가져오기 */
+		var cduUnitPrice_val = $("#"+cduUnitPrice_temp).val();
+		var base_pntid_val = $("#"+base_pntid_val_temp).val();
+		var base_py_val = $("#"+base_py_val_temp).val();
+		var base_type_val = $("#"+base_type_val_temp).val();
+		
+		/* 아래 Ajax로 보낼 params객체는 Entity 변수명이랑 "Key"의 이름이 같아야 한다. */
+		var params = {"pntid":base_pntid_val, "returns_py":base_py_val, "temper_type":base_type_val, "cdu":cdu_val, "cdu_unit_price":cduUnitPrice_val};
+      	 $.ajax({
+      			anyne:true,
+      			type:'POST',
+      			contentType: 'application/json',
+      			
+      			data: JSON.stringify(params),
+      			url:"/admsp/productsAllAjax",
+      			
+      			dataType: "text",
+      			success : function(data) {
+      				alert("변경이 완료되었습니다.");
+      			},
+      			error: function(jqXHR, textStatus, errorThrown) {
+      				alert("Error.");
+      			}
+      		});
     }
 	</script>
 </body>

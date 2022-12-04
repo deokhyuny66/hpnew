@@ -1,16 +1,17 @@
 package com.freeze.mybatis.vo;
 
-public class CalcBaseEntity {
+public class CalcViewEntity {
 	private String pntid;
+	private String returns_py;
+    private String temper_type;
+	private String cdu;
+    private String cdu_unit_price;
 	public String getPntid() {
 		return pntid;
 	}
 	public void setPntid(String pntid) {
 		this.pntid = pntid;
 	}
-	private String returns_py;
-    private String temper_type;
-
 	public String getReturns_py() {
 		return returns_py;
 	}
@@ -22,5 +23,17 @@ public class CalcBaseEntity {
 	}
 	public void setTemper_type(String temper_type) {
 		this.temper_type = temper_type;
+	}
+	public String getCdu() {
+		return cdu;
+	}
+	public void setCdu(String cdu) {
+		this.cdu = cdu;
+	}
+	public String getCdu_unit_price() {
+		return cdu_unit_price;
+	}
+	public void setCdu_unit_price(String cdu_unit_price) {
+		this.cdu_unit_price = cdu_unit_price;
 	}
 }

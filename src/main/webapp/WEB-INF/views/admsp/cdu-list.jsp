@@ -73,10 +73,14 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">A.I 자동견적서 데이터 설정</h6>
-                        <a class="collapse-item" href="/admsp/products-list">제품</a>
-                        <a class="collapse-item" href="/admsp/cdu-list">CDU</a>
-                        <a class="collapse-item" href="/admsp/cooler-list">COOLER</a>
-                        <a class="collapse-item" href="/admsp/controll-list">CONTROLL</a>
+                        <a class="collapse-item" href="/admsp/products-list">데이터 설정</a>
+                        <a class="collapse-item" href="/admsp/cdu-list">콘덴샤 유니트</a>
+                        <a class="collapse-item" href="/admsp/cooler-list">쿨러</a>
+                        <a class="collapse-item" href="/admsp/controll-list">콘트롤</a>
+                        <a class="collapse-item" href="/admsp/exvalve-list">팽창밸브</a>
+                        <a class="collapse-item" href="/admsp/elecvalve-list">전자밸브</a>
+                        <a class="collapse-item" href="/admsp/opassis-list">동배관</a>
+                        <a class="collapse-item" href="/admsp/mandays-list">MANDAYS</a>
                     </div>
                 </div>
             </li>

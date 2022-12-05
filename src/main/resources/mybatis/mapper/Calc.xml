@@ -4,35 +4,107 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
 <mapper namespace="com.freeze.mybatis.dao.CalcDAO">
+	<!-- 사용자 입력 계산 -->
 	<select id="getCalcSetting" resultType="com.freeze.mybatis.vo.CalcSettingEntity">
 		select * from SETTING_VIEW_T where returns_py = #{returns_py} and temper_type like '%'||#{temper_type}||'%'
 	</select>	
-	
 	<select id="getCalcPrice" resultType="com.freeze.mybatis.vo.CalcPriceEntity">
 		select * from tb_price
 	</select>
 	
-	<select id="getCalcCDU" resultType="com.freeze.mybatis.vo.CalcCDUEntity">
-		select * from cdu_t
-	</select>	
-	
-	<select id="getOneCalcCDU" resultType="com.freeze.mybatis.vo.CalcCDUEntity">
-		select * from cdu_t where pid = #{pid}
-	</select>	
-	
+	<!-- DB 값 전체 조회 -->
 	<select id="getCalcBase" resultType="com.freeze.mybatis.vo.CalcBaseEntity">
 		select * from PYNTYPE
-	</select>	
+	</select>
+	<select id="getCalcCDU" resultType="com.freeze.mybatis.vo.CalcCDUEntity">
+		select * from cdu_t
+	</select>
+	<select id="getCalcCooler" resultType="com.freeze.mybatis.vo.CalcCoolerEntity">
+		select * from cooler_t
+	</select>
+	<select id="getCalcControll" resultType="com.freeze.mybatis.vo.CalcControllEntity">
+		select * from controll_t
+	</select>			
+	<select id="getCalcExvalve" resultType="com.freeze.mybatis.vo.CalcExvalveEntity">
+		select * from exvalve_t
+	</select>
+	<select id="getCalcElecvalve" resultType="com.freeze.mybatis.vo.CalcElecvalveEntity">
+		select * from elecvalve_t
+	</select>
+	<select id="getCalcOpassis" resultType="com.freeze.mybatis.vo.CalcOpassisEntity">
+		select * from opassis_t
+	</select>
+	<select id="getCalcMandays" resultType="com.freeze.mybatis.vo.CalcMandaysEntity">
+		select * from mandays_t
+	</select>				
 	
-	<update id="updateProductsAll" parameterType="com.freeze.mybatis.vo.CalcViewEntity">
+	
+	
+	<!-- 제품 가격 하나만 AJAX로 가져오기 -->
+	<select id="getOneCalcCDU" resultType="com.freeze.mybatis.vo.CalcCDUEntity">
+		select * from cdu_t where pid = #{pid}
+	</select>
+	<select id="getOneCalcCooler" resultType="com.freeze.mybatis.vo.CalcCoolerEntity">
+		select * from cooler_t where pid = #{pid}
+	</select>		
+	
+		
+	
+	<!-- 데이터 세팅 업데이트 -->
+	<update id="updateCduProductsAll" parameterType="com.freeze.mybatis.vo.CalcViewEntity">
 		update SETTING_VIEW_T 
 			set CDU = #{cdu}, 
 				CDU_UNIT_PRICE = #{cdu_unit_price}
 			where PINID = #{pntid}
 	</update>
+	<update id="updateCoolerProductsAll" parameterType="com.freeze.mybatis.vo.CalcViewEntity">
+		update SETTING_VIEW_T 
+			set COOLER = #{cooler}, 
+				COOLER_UNIT_PRICE = #{cooler_unit_price}
+			where PINID = #{pntid}
+	</update>
 	
+	
+	
+	<!-- 개별 DB 업데이트 -->	
 	<update id="updateCalcCDU" parameterType="com.freeze.mybatis.vo.CalcCDUEntity">
 		update cdu_t set
+			purchase_price = #{purchase_price}, 
+			unit_price = #{unit_price}
+		where pid = #{pid}
+	</update>
+	<update id="updateCalcCooler" parameterType="com.freeze.mybatis.vo.CalcCoolerEntity">
+		update cooler_t set
+			purchase_price = #{purchase_price}, 
+			unit_price = #{unit_price}
+		where pid = #{pid}
+	</update>
+	<update id="updateCalcControll" parameterType="com.freeze.mybatis.vo.CalcControllEntity">
+		update controll_t set
+			purchase_price = #{purchase_price}, 
+			unit_price = #{unit_price}
+		where pid = #{pid}
+	</update>
+	<update id="updateCalcExvalve" parameterType="com.freeze.mybatis.vo.CalcExvalveEntity">
+		update exvalve_t set
+			purchase_price = #{purchase_price}, 
+			unit_price = #{unit_price}
+		where pid = #{pid}
+	</update>
+	<update id="updateCalcElecvalve" parameterType="com.freeze.mybatis.vo.CalcElecvalveEntity">
+		update elecvalve_t set
+			purchase_price = #{purchase_price}, 
+			unit_price = #{unit_price}
+		where pid = #{pid}
+	</update>
+	<update id="updateCalcOpassis" parameterType="com.freeze.mybatis.vo.CalcOpassisEntity">
+		update opassis_t set
+			purchase_price = #{purchase_price}, 
+			unit_price = #{unit_price}
+		where pid = #{pid}
+	</update>
+	<update id="updateCalcMandays" parameterType="com.freeze.mybatis.vo.CalcMandaysEntity">
+		update mandays_t set
 			purchase_price = #{purchase_price}, 
 			unit_price = #{unit_price}
 		where pid = #{pid}

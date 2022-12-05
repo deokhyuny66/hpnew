@@ -6,6 +6,21 @@ public class CalcViewEntity {
     private String temper_type;
 	private String cdu;
     private String cdu_unit_price;
+	private String cooler;
+	private String cooler_unit_price;
+    
+    public String getCooler() {
+		return cooler;
+	}
+	public void setCooler(String cooler) {
+		this.cooler = cooler;
+	}
+	public String getCooler_unit_price() {
+		return cooler_unit_price;
+	}
+	public void setCooler_unit_price(String cooler_unit_price) {
+		this.cooler_unit_price = cooler_unit_price;
+	}
 	public String getPntid() {
 		return pntid;
 	}

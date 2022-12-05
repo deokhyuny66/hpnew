@@ -72,7 +72,7 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                    	<h6 class="collapse-header">A.I 자동견적서 데이터 설정</h6>
+                        <h6 class="collapse-header">A.I 자동견적서 데이터 설정</h6>
                         <a class="collapse-item" href="/admsp/products-list">데이터 설정</a>
                         <a class="collapse-item" href="/admsp/cdu-list">콘덴샤 유니트</a>
                         <a class="collapse-item" href="/admsp/cooler-list">쿨러</a>
@@ -374,7 +374,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Controll Tables</h1>
+                    <h1 class="h3 mb-2 text-gray-800">CDU Tables</h1>
                     <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                         For more information about DataTables, please visit the <a target="_blank"
                             href="https://datatables.net">official DataTables documentation</a>.</p>
@@ -390,7 +390,7 @@
                                     <thead>
                                         <tr>
                                             <th>PID</th>
-                                            <th>CONTROLL</th>
+                                            <th>ELEC VALVE</th>
                                             <th>ETC</th>
                                             <th>PURCHASE PRICE</th>
                                             <th>UNIT PRICE</th>
@@ -400,7 +400,7 @@
                                     <tfoot>
                                         <tr>
                                             <th>PID</th>
-                                            <th>CONTROLL</th>
+                                            <th>ELE CVALVE</th>
                                             <th>ETC</th>
                                             <th>PURCHASE PRICE</th>
                                             <th>UNIT PRICE</th>
@@ -408,15 +408,15 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                    <c:forEach items="${controllEntitylist}" var="dto">
+                                    <c:forEach items="${elecvalveEntitylist}" var="dto">
                                         <tr>
-                                    	<form action="/admsp/controllProc" name="controllForm" id="controllForm" method="post">
-                                            <td>${dto.pid}<input type="hidden" value="${dto.pid}" name="controllPid" id="controllP"></td>
-                                            <td>${dto.controll}</td>
+                                    	<form action="/admsp/elecvalveProc" name="elecvalveForm" id="elecvalveForm" method="post">
+                                            <td>${dto.pid}<input type="hidden" value="${dto.pid}" name="elecvalvePid" id="elecvalvePid"></td>
+                                            <td>${dto.elecvalve}</td>
                                             <td>${dto.etc}</td>
-                                            <td><input type="text" value="${dto.purchase_price}" name="controllPurchase" id="controllPurchase"></td>
-                                            <td><input type="text" value="${dto.unit_price}" name="controllUnit" id="controllUnit"></td>
-                                            <td><input type="submit" value="변경" name="controllBtn" id="controllBtn"></td>
+                                            <td><input type="text" value="${dto.purchase_price}" name="elecvalvePurchase" id="elecvalvePurchase"></td>
+                                            <td><input type="text" value="${dto.unit_price}" name="elecvalveUnit" id="elecvalveUnit"></td>
+                                            <td><input type="submit" value="변경" name="elecvalveBtn" id="elecvalveBtn"></td>
                                      	</form>
                                         </tr>
                                      </c:forEach>

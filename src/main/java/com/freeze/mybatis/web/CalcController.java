@@ -22,7 +22,13 @@ import com.freeze.mybatis.dao.CalcDAO;
 import com.freeze.mybatis.services.CalcService;
 import com.freeze.mybatis.vo.CalcBaseEntity;
 import com.freeze.mybatis.vo.CalcCDUEntity;
+import com.freeze.mybatis.vo.CalcControllEntity;
+import com.freeze.mybatis.vo.CalcCoolerEntity;
+import com.freeze.mybatis.vo.CalcElecvalveEntity;
+import com.freeze.mybatis.vo.CalcExvalveEntity;
 import com.freeze.mybatis.vo.CalcInputEntity;
+import com.freeze.mybatis.vo.CalcMandaysEntity;
+import com.freeze.mybatis.vo.CalcOpassisEntity;
 import com.freeze.mybatis.vo.CalcPriceEntity;
 import com.freeze.mybatis.vo.CalcSettingEntity;
 import com.freeze.mybatis.vo.CalcViewEntity;
@@ -46,22 +52,27 @@ public class CalcController {
 		return "/admsp/index";
 	}
 	
+//	구역DB에서 전체 데이터 조회해서 최종 VIEW에 뿌리기
 	@RequestMapping("/admsp/products-list")
 	public String productsList(HttpServletRequest request, Model model) throws Exception {
 		List<CalcBaseEntity> calcBaseEntity = service.getBaseCDU();
 		List<CalcCDUEntity> calcCDUEntity = service.getCalcCDU();
-		model.addAttribute("cduEntitylist", calcCDUEntity);
+		List<CalcCoolerEntity> calcCoolerEntity = service.getCalcCooler();
 		model.addAttribute("calcBaseEntity", calcBaseEntity);
+		model.addAttribute("cduEntitylist", calcCDUEntity);
+		model.addAttribute("coolerEntitylist", calcCoolerEntity);
 		return "/admsp/products-list";
 	}
 	
+//	CDU Products All
 	@RequestMapping(value="/admsp/productsAllAjax", method=RequestMethod.POST)
-	public @ResponseBody void sendAjaxGetAllVO(@RequestBody CalcViewEntity view) throws Exception {
-		service.updateProductsAll(view);
+	public @ResponseBody void sendAjaxGetCDUAll(@RequestBody CalcViewEntity view) throws Exception {
+		service.updateCduProductsAll(view);
 	}
 	
+//	CDU Products
 	 @RequestMapping(value="/admsp/productsAjax", method=RequestMethod.POST) 
-	 public @ResponseBody String sendAjaxGetOneVO(@RequestBody CalcCDUEntity cdu, String cdu_ctn) throws Exception {
+	 public @ResponseBody String sendAjaxGetCDUOne(@RequestBody CalcCDUEntity cdu, String cdu_ctn) throws Exception {
 		 List<CalcCDUEntity> calcCDUEntity = service.getOneCalcCDU(cdu.getPid());
 		 String getUnitPrice = calcCDUEntity.get(0).getUnit_price();
 		 if(getUnitPrice.equals(null) || getUnitPrice.equals("") || getUnitPrice.equals(0) || getUnitPrice.equals("0")) {
@@ -71,37 +82,139 @@ public class CalcController {
 		 }
 	 }
 	 
+//	Cooler Products All
+ 	@RequestMapping(value="/admsp/coolerAllAjax", method=RequestMethod.POST)
+	public @ResponseBody void sendAjaxGetCoolerAll(@RequestBody CalcViewEntity view) throws Exception {
+		service.updateCoolerProductsAll(view);
+	}
 	
+// 	Cooler Products
+	 @RequestMapping(value="/admsp/coolerAjax", method=RequestMethod.POST) 
+	 public @ResponseBody String sendAjaxGetCoolerOne(@RequestBody CalcCoolerEntity cooler, String cooler_ctn) throws Exception {
+		 List<CalcCoolerEntity> calcCoolerEntity = service.getOneCalcCooler(cooler.getPid());
+		 String getUnitPrice = calcCoolerEntity.get(0).getUnit_price();
+		 if(getUnitPrice.equals(null) || getUnitPrice.equals("") || getUnitPrice.equals(0) || getUnitPrice.equals("0")) {
+			 return "";
+		 }else {
+			 return calcCoolerEntity.get(0).getUnit_price();
+		 }
+	 }
+
+//	DB 구역별 가격 업데이트
+	@RequestMapping("/admsp/cduProc")
+	public void cduProc(HttpServletRequest request) throws Exception {
+		CalcCDUEntity cduEnty = new CalcCDUEntity();
+		cduEnty.setPid(request.getParameter("cduPid"));
+		cduEnty.setPurchase_price(request.getParameter("cduPurchase"));
+		cduEnty.setUnit_price(request.getParameter("cduUnit"));
+		service.updateCalcCDU(cduEnty.getPid(),cduEnty.getPurchase_price(),cduEnty.getUnit_price());
+	}
+	@RequestMapping("/admsp/coolerProc")
+	public void coolerProc(HttpServletRequest request) throws Exception {
+		CalcCoolerEntity coolerEnty = new CalcCoolerEntity();
+		coolerEnty.setPid(request.getParameter("coolerPid"));
+		coolerEnty.setPurchase_price(request.getParameter("coolerPurchase"));
+		coolerEnty.setUnit_price(request.getParameter("coolerUnit"));
+		service.updateCalcCooler(coolerEnty.getPid(),coolerEnty.getPurchase_price(),coolerEnty.getUnit_price());
+	}
+	@RequestMapping("/admsp/controllProc")
+	public void controllProc(HttpServletRequest request) throws Exception {
+		CalcControllEntity controllEnty = new CalcControllEntity();
+		controllEnty.setPid(request.getParameter("controllPid"));
+		controllEnty.setPurchase_price(request.getParameter("controllPurchase"));
+		controllEnty.setUnit_price(request.getParameter("controllUnit"));
+		service.updateCalcControll(controllEnty.getPid(),controllEnty.getPurchase_price(),controllEnty.getUnit_price());
+	}
+	@RequestMapping("/admsp/exvalveProc")
+	public void exvalveProc(HttpServletRequest request) throws Exception {
+		CalcExvalveEntity exvalveEnty = new CalcExvalveEntity();
+		exvalveEnty.setPid(request.getParameter("exvalvePid"));
+		exvalveEnty.setPurchase_price(request.getParameter("exvalvePurchase"));
+		exvalveEnty.setUnit_price(request.getParameter("exvalveUnit"));
+		service.updateCalcExvalve(exvalveEnty.getPid(),exvalveEnty.getPurchase_price(),exvalveEnty.getUnit_price());
+	}
+	
+	@RequestMapping("/admsp/elecvalveProc")
+	public void elecvalveProc(HttpServletRequest request) throws Exception {
+		CalcElecvalveEntity elecvalveEnty = new CalcElecvalveEntity();
+		elecvalveEnty.setPid(request.getParameter("elecvalvePid"));
+		elecvalveEnty.setPurchase_price(request.getParameter("elecvalvePurchase"));
+		elecvalveEnty.setUnit_price(request.getParameter("elecvalveUnit"));
+		service.updateCalcElecvalve(elecvalveEnty.getPid(),elecvalveEnty.getPurchase_price(),elecvalveEnty.getUnit_price());
+	}
+	@RequestMapping("/admsp/opassisProc")
+	public void opassisProc(HttpServletRequest request) throws Exception {
+		CalcOpassisEntity opassisEnty = new CalcOpassisEntity();
+		opassisEnty.setPid(request.getParameter("opassisPid"));
+		opassisEnty.setPurchase_price(request.getParameter("opassisPurchase"));
+		opassisEnty.setUnit_price(request.getParameter("opassisUnit"));
+		service.updateCalcOpassis(opassisEnty.getPid(),opassisEnty.getPurchase_price(),opassisEnty.getUnit_price());
+	}
+	@RequestMapping("/admsp/mandaysProc")
+	public void mandaysProc(HttpServletRequest request) throws Exception {
+		CalcMandaysEntity mandaysEnty = new CalcMandaysEntity();
+		mandaysEnty.setPid(request.getParameter("mandaysPid"));
+		mandaysEnty.setPurchase_price(request.getParameter("mandaysPurchase"));
+		mandaysEnty.setUnit_price(request.getParameter("mandaysUnit"));
+		service.updateCalcMandays(mandaysEnty.getPid(),mandaysEnty.getPurchase_price(),mandaysEnty.getUnit_price());
+	}
+	
+//	데이터 세팅 화면에서 최초 버튼 클릭 시 AJAX 처음으로 Request 호출하는 곳 
+	@RequestMapping("/admsp/cduRq")
+	public String cduRq(HttpServletRequest request) throws Exception {
+		return "/admsp/cduRq";
+	}
+	@RequestMapping("/admsp/coolerRq")
+	public String coolerRq(HttpServletRequest request) throws Exception {
+		return "/admsp/coolerRq";
+	}
+	
+//	DB 구역별로 리스트 뿌리기
 	@RequestMapping("/admsp/cdu-list")
 	public String cduList(HttpServletRequest request, Model model) throws Exception {
 		List<CalcCDUEntity> calcCDUEntity = service.getCalcCDU();
 		model.addAttribute("cduEntitylist", calcCDUEntity);
 		return "/admsp/cdu-list";
 	}
-	
-	@RequestMapping("/admsp/cduProc")
-	public void cduProc(HttpServletRequest request) throws Exception {
-		CalcCDUEntity cduen = new CalcCDUEntity();
-		cduen.setPid(request.getParameter("cduPid"));
-		cduen.setPurchase_price(request.getParameter("cduPurchase"));
-		cduen.setUnit_price(request.getParameter("cduUnit"));
-		service.updateCalcCDU(cduen.getPid(),cduen.getPurchase_price(),cduen.getUnit_price());
-	}
-	
-	@RequestMapping("/admsp/cduRq")
-	public String cduRq(HttpServletRequest request) throws Exception {
-		return "/admsp/cduRq";
-	}
-	
 	@RequestMapping("/admsp/cooler-list")
-	public String coolerList() throws Exception {
+	public String coolerList(HttpServletRequest request, Model model) throws Exception {
+		List<CalcCoolerEntity> calcCoolerEntity = service.getCalcCooler();
+		model.addAttribute("coolerEntitylist", calcCoolerEntity);
 		return "/admsp/cooler-list";
 	}
-	
 	@RequestMapping("/admsp/controll-list")
-	public String controllList() throws Exception {
+	public String controllList(HttpServletRequest request, Model model) throws Exception {
+		List<CalcControllEntity> calcControllEntity = service.getCalcControll();
+		model.addAttribute("controllEntitylist", calcControllEntity);
 		return "/admsp/controll-list";
 	}
+	@RequestMapping("/admsp/exvalve-list")
+	public String exvalveList(HttpServletRequest request, Model model) throws Exception {
+		List<CalcExvalveEntity> calcExvalveEntity = service.getCalcExvalve();
+		model.addAttribute("exvalveEntitylist", calcExvalveEntity);
+		return "/admsp/exvalve-list";
+	}
+	@RequestMapping("/admsp/elecvalve-list")
+	public String elecvalveList(HttpServletRequest request, Model model) throws Exception {
+		List<CalcElecvalveEntity> calcElecvalveEntity = service.getCalcElecvalve();
+		model.addAttribute("elecvalveEntitylist", calcElecvalveEntity);
+		return "/admsp/elecvalve-list";
+	}
+	
+	@RequestMapping("/admsp/opassis-list")
+	public String opassisList(HttpServletRequest request, Model model) throws Exception {
+		List<CalcOpassisEntity> calcOpassisEntity = service.getCalcOpassis();
+		model.addAttribute("opassisEntitylist", calcOpassisEntity);
+		return "/admsp/opassis-list";
+	}
+	@RequestMapping("/admsp/mandays-list")
+	public String mandaysList(HttpServletRequest request, Model model) throws Exception {
+		List<CalcMandaysEntity> calcMandaysEntity = service.getCalcMandays();
+		model.addAttribute("mandaysEntitylist", calcMandaysEntity);
+		return "/admsp/mandays-list";
+	}
+	
+	
 	
 	@RequestMapping("/admsp/blank")
 	public String blank() throws Exception {
@@ -194,6 +307,8 @@ public class CalcController {
 		return "contactProc";
 	}
 	
+	
+//	견적서 상세 부분
 	@RequestMapping("/ai-calcProc")
 	public String calcProc(HttpServletRequest request, Model model) throws Exception {
 		//사용자 입력 정보
@@ -259,6 +374,7 @@ public class CalcController {
 		return "ai-calcProc";
 	}
 	
+//	견적서 입력 부분
 	@RequestMapping("/ai-calc")
 	public String calc(HttpServletRequest request, Model model) throws Exception {
 		CalcInputEntity cmd = new CalcInputEntity();

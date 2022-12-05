@@ -390,7 +390,7 @@
                                     <thead>
                                         <tr>
                                             <th>PID</th>
-                                            <th>CONTROLL</th>
+                                            <th>OPASSIS</th>
                                             <th>ETC</th>
                                             <th>PURCHASE PRICE</th>
                                             <th>UNIT PRICE</th>
@@ -400,7 +400,7 @@
                                     <tfoot>
                                         <tr>
                                             <th>PID</th>
-                                            <th>CONTROLL</th>
+                                            <th>OPASSIS</th>
                                             <th>ETC</th>
                                             <th>PURCHASE PRICE</th>
                                             <th>UNIT PRICE</th>
@@ -408,15 +408,15 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                    <c:forEach items="${controllEntitylist}" var="dto">
+                                    <c:forEach items="${opassisEntitylist}" var="dto">
                                         <tr>
-                                    	<form action="/admsp/controllProc" name="controllForm" id="controllForm" method="post">
-                                            <td>${dto.pid}<input type="hidden" value="${dto.pid}" name="controllPid" id="controllP"></td>
-                                            <td>${dto.controll}</td>
+                                    	<form action="/admsp/opassisProc" name="opassisForm" id="opassisForm" method="post">
+                                            <td>${dto.pid}<input type="hidden" value="${dto.pid}" name="opassisPid" id="opassisPid"></td>
+                                            <td>${dto.opassis}</td>
                                             <td>${dto.etc}</td>
-                                            <td><input type="text" value="${dto.purchase_price}" name="controllPurchase" id="controllPurchase"></td>
-                                            <td><input type="text" value="${dto.unit_price}" name="controllUnit" id="controllUnit"></td>
-                                            <td><input type="submit" value="변경" name="controllBtn" id="controllBtn"></td>
+                                            <td><input type="text" value="${dto.purchase_price}" name="opassisPurchase" id="opassisPurchase"></td>
+                                            <td><input type="text" value="${dto.unit_price}" name="opassisUnit" id="opassisUnit"></td>
+                                            <td><input type="submit" value="변경" name="opassisBtn" id="opassisBtn"></td>
                                      	</form>
                                         </tr>
                                      </c:forEach>

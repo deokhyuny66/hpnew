@@ -5,6 +5,8 @@
 <%
 	try{
 		request.setCharacterEncoding("utf-8");
+		/* CalcService cs = new CalcService();
+		cs.updateCalcCDU(pid, purchase_price, unit_price);*/
 		response.sendRedirect("http://localhost:8080/admsp/products-list"); 
 	}catch(Exception e){
 		e.printStackTrace();

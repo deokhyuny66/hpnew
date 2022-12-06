@@ -40,17 +40,20 @@
 	
 	
 	
-	<!-- 제품 가격 하나만 AJAX로 가져오기 -->
+	<!-- 데이터 세팅 - 제품 가격 하나만 AJAX로 가져오기 -->
 	<select id="getOneCalcCDU" resultType="com.freeze.mybatis.vo.CalcCDUEntity">
 		select * from cdu_t where pid = #{pid}
 	</select>
 	<select id="getOneCalcCooler" resultType="com.freeze.mybatis.vo.CalcCoolerEntity">
 		select * from cooler_t where pid = #{pid}
+	</select>
+	<select id="getOneCalcControll" resultType="com.freeze.mybatis.vo.CalcControllEntity">
+		select * from controll_t where pid = #{pid}
 	</select>		
 	
 		
 	
-	<!-- 데이터 세팅 업데이트 -->
+	<!-- 데이터 세팅 - 업데이트 -->
 	<update id="updateCduProductsAll" parameterType="com.freeze.mybatis.vo.CalcViewEntity">
 		update SETTING_VIEW_T 
 			set CDU = #{cdu}, 
@@ -61,6 +64,12 @@
 		update SETTING_VIEW_T 
 			set COOLER = #{cooler}, 
 				COOLER_UNIT_PRICE = #{cooler_unit_price}
+			where PINID = #{pntid}
+	</update>
+	<update id="updateControllProductsAll" parameterType="com.freeze.mybatis.vo.CalcViewEntity">
+		update SETTING_VIEW_T 
+			set CONTROLL = #{controll}, 
+				CONTROLL_UNIT_PRICE = #{controll_unit_price}
 			where PINID = #{pntid}
 	</update>
 	

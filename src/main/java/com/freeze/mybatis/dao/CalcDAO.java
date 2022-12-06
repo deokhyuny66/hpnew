@@ -27,6 +27,7 @@ public interface CalcDAO
 //  VIEW_T에서 AJAX로 가격만 가져와서 구역별로 가격 변경 
     List<CalcCDUEntity> getOneCalcCDU(String pid);
     List<CalcCoolerEntity> getOneCalcCooler(String pid);
+    List<CalcControllEntity> getOneCalcControll(String pid);
 
 //  DB 구역별 전체 조회    
     List<CalcBaseEntity> getCalcBase();    
@@ -50,4 +51,5 @@ public interface CalcDAO
 //  데이터 세팅 VIEW T에 업데이트  
     void updateCduProductsAll(CalcViewEntity view);
     void updateCoolerProductsAll(CalcViewEntity view);
+    void updateControllProductsAll(CalcViewEntity view);
 }

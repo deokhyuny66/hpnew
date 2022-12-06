@@ -39,6 +39,20 @@ public class CalcService
     public void updateCoolerProductsAll(CalcViewEntity view) throws Exception {
     	this.mapper.updateCoolerProductsAll(view);
     }
+    public void updateControllProductsAll(CalcViewEntity view) throws Exception {
+    	this.mapper.updateControllProductsAll(view);
+    }
+    
+//  데이터 세팅 - View 가격 하나씩 가져오기
+    public List<CalcCDUEntity> getOneCalcCDU(String pid) throws Exception {
+        return this.mapper.getOneCalcCDU(pid);
+    }
+    public List<CalcCoolerEntity> getOneCalcCooler(String pid) throws Exception {
+        return this.mapper.getOneCalcCooler(pid);
+    }
+    public List<CalcControllEntity> getOneCalcControll(String pid) throws Exception {
+        return this.mapper.getOneCalcControll(pid);
+    }
     
     
 //  DB구역별 - 데이터 전체 조회
@@ -66,12 +80,7 @@ public class CalcService
     public List<CalcMandaysEntity> getCalcMandays() throws Exception {
         return this.mapper.getCalcMandays();
     }
-    public List<CalcCDUEntity> getOneCalcCDU(String pid) throws Exception {
-        return this.mapper.getOneCalcCDU(pid);
-    }
-    public List<CalcCoolerEntity> getOneCalcCooler(String pid) throws Exception {
-        return this.mapper.getOneCalcCooler(pid);
-    }
+
     
 //  DB 세팅 구역별 가격 업데이트  
     public void updateCalcCDU(String pid, String purchase_price, String unit_price) throws Exception {

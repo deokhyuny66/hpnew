@@ -52,25 +52,28 @@ public class CalcController {
 		return "/admsp/index";
 	}
 	
-//	구역DB에서 전체 데이터 조회해서 최종 VIEW에 뿌리기
+//	데이터 세팅 - 구역 DB에서 전체 데이터 조회해서 최종 VIEW에 뿌리기
+//  여기에서 최종적으로 Service 등록해주고 Object를 전달해줘야 VIEW에 뿌릴수 있음.
 	@RequestMapping("/admsp/products-list")
 	public String productsList(HttpServletRequest request, Model model) throws Exception {
 		List<CalcBaseEntity> calcBaseEntity = service.getBaseCDU();
 		List<CalcCDUEntity> calcCDUEntity = service.getCalcCDU();
 		List<CalcCoolerEntity> calcCoolerEntity = service.getCalcCooler();
+		List<CalcControllEntity> calcControllEntity = service.getCalcControll();
 		model.addAttribute("calcBaseEntity", calcBaseEntity);
 		model.addAttribute("cduEntitylist", calcCDUEntity);
 		model.addAttribute("coolerEntitylist", calcCoolerEntity);
+		model.addAttribute("controllEntitylist", calcControllEntity);
 		return "/admsp/products-list";
 	}
 	
-//	CDU Products All
+//	데이터 세팅 - CDU Products All
 	@RequestMapping(value="/admsp/productsAllAjax", method=RequestMethod.POST)
 	public @ResponseBody void sendAjaxGetCDUAll(@RequestBody CalcViewEntity view) throws Exception {
 		service.updateCduProductsAll(view);
 	}
 	
-//	CDU Products
+//	데이터 세팅 - CDU Products
 	 @RequestMapping(value="/admsp/productsAjax", method=RequestMethod.POST) 
 	 public @ResponseBody String sendAjaxGetCDUOne(@RequestBody CalcCDUEntity cdu, String cdu_ctn) throws Exception {
 		 List<CalcCDUEntity> calcCDUEntity = service.getOneCalcCDU(cdu.getPid());
@@ -82,13 +85,13 @@ public class CalcController {
 		 }
 	 }
 	 
-//	Cooler Products All
+//	데이터 세팅 - Cooler Products All
  	@RequestMapping(value="/admsp/coolerAllAjax", method=RequestMethod.POST)
 	public @ResponseBody void sendAjaxGetCoolerAll(@RequestBody CalcViewEntity view) throws Exception {
 		service.updateCoolerProductsAll(view);
 	}
 	
-// 	Cooler Products
+// 	데이터 세팅 - Cooler Products
 	 @RequestMapping(value="/admsp/coolerAjax", method=RequestMethod.POST) 
 	 public @ResponseBody String sendAjaxGetCoolerOne(@RequestBody CalcCoolerEntity cooler, String cooler_ctn) throws Exception {
 		 List<CalcCoolerEntity> calcCoolerEntity = service.getOneCalcCooler(cooler.getPid());
@@ -99,6 +102,31 @@ public class CalcController {
 			 return calcCoolerEntity.get(0).getUnit_price();
 		 }
 	 }
+	 
+//	데이터 세팅 - Controll Products All
+ 	@RequestMapping(value="/admsp/controllAllAjax", method=RequestMethod.POST)
+	public @ResponseBody void sendAjaxGetControllAll(@RequestBody CalcViewEntity view) throws Exception {
+		service.updateControllProductsAll(view);
+	}
+	
+//	 데이터 세팅 - Controll Products
+	 @RequestMapping(value="/admsp/controllAjax", method=RequestMethod.POST) 
+	 public @ResponseBody String sendAjaxGetControllOne(@RequestBody CalcControllEntity controll, String controll_ctn) throws Exception {
+		 List<CalcControllEntity> calcControllEntity = service.getOneCalcControll(controll.getPid());
+		 String getUnitPrice = calcControllEntity.get(0).getUnit_price();
+		 if(getUnitPrice.equals(null) || getUnitPrice.equals("") || getUnitPrice.equals(0) || getUnitPrice.equals("0")) {
+			 return "";
+		 }else {
+			 return calcControllEntity.get(0).getUnit_price();
+		 }
+	 }
+	 
+//	데이터 세팅 - 화면에서 최초 버튼 클릭 시 AJAX 처음으로 Request 호출하는 곳 
+	@RequestMapping("/admsp/productsRq")
+	public String cduRq(HttpServletRequest request) throws Exception {
+		return "/admsp/productsRq";
+	}
+	 
 
 //	DB 구역별 가격 업데이트
 	@RequestMapping("/admsp/cduProc")
@@ -157,16 +185,6 @@ public class CalcController {
 		mandaysEnty.setPurchase_price(request.getParameter("mandaysPurchase"));
 		mandaysEnty.setUnit_price(request.getParameter("mandaysUnit"));
 		service.updateCalcMandays(mandaysEnty.getPid(),mandaysEnty.getPurchase_price(),mandaysEnty.getUnit_price());
-	}
-	
-//	데이터 세팅 화면에서 최초 버튼 클릭 시 AJAX 처음으로 Request 호출하는 곳 
-	@RequestMapping("/admsp/cduRq")
-	public String cduRq(HttpServletRequest request) throws Exception {
-		return "/admsp/cduRq";
-	}
-	@RequestMapping("/admsp/coolerRq")
-	public String coolerRq(HttpServletRequest request) throws Exception {
-		return "/admsp/coolerRq";
 	}
 	
 //	DB 구역별로 리스트 뿌리기
@@ -518,10 +536,9 @@ public class CalcController {
 		model.addAttribute("cdu",calcSettingEntity.get(0).getCdu());
 		model.addAttribute("cdu_unit_price",calcSettingEntity.get(0).getCdu_unit_price());
 		model.addAttribute("cooler",calcSettingEntity.get(0).getCooler());
-		model.addAttribute("cooler_unit_price",calcSettingEntity.get(0).getControl_unit_price());
+		model.addAttribute("cooler_unit_price",calcSettingEntity.get(0).getCooler_unit_price());
 		model.addAttribute("control",calcSettingEntity.get(0).getControl());
 		model.addAttribute("control_unit_price",calcSettingEntity.get(0).getControl_unit_price());
-		
 		model.addAttribute("ex_valve",calcSettingEntity.get(0).getEx_valve());
 		model.addAttribute("ex_valve_unit_price",calcSettingEntity.get(0).getEx_valve_unit_price());
 		model.addAttribute("elec_valve",calcSettingEntity.get(0).getElec_valve());
@@ -554,7 +571,71 @@ public class CalcController {
 		model.addAttribute("manday3_unit_price",calcSettingEntity.get(0).getManday3_unit_price());
 		model.addAttribute("manday4",calcSettingEntity.get(0).getManday4());
 		model.addAttribute("manday4_unit_price",calcSettingEntity.get(0).getManday4_unit_price());
-		model.addAttribute("total_price",calcSettingEntity.get(0).getTotal_price());
+		
+		System.out.println("1"+calcSettingEntity.get(0).getPinid());
+		System.out.println("2"+calcSettingEntity.get(0).getCdu());
+		System.out.println("3"+calcSettingEntity.get(0).getCdu_unit_price());
+		System.out.println("4"+calcSettingEntity.get(0).getCooler());
+		System.out.println("5"+calcSettingEntity.get(0).getCooler_unit_price());
+		System.out.println("6"+calcSettingEntity.get(0).getControl());
+		System.out.println("7"+calcSettingEntity.get(0).getControl_unit_price());
+		System.out.println("8"+calcSettingEntity.get(0).getEx_valve());
+		System.out.println("9"+calcSettingEntity.get(0).getEx_valve_unit_price());
+		System.out.println("10"+calcSettingEntity.get(0).getElec_valve());
+		System.out.println("11"+calcSettingEntity.get(0).getElec_valve_unit_price());
+		System.out.println("12"+calcSettingEntity.get(0).getOp_assis1());
+		System.out.println("13"+calcSettingEntity.get(0).getOp_assis1_unit_price());
+		System.out.println("14"+calcSettingEntity.get(0).getOp_assis2());
+		System.out.println("15"+calcSettingEntity.get(0).getOp_assis2_unit_price());
+		System.out.println("16"+calcSettingEntity.get(0).getOp_assis3());
+		System.out.println("17"+calcSettingEntity.get(0).getOp_assis3_unit_price());
+		System.out.println("18"+calcSettingEntity.get(0).getOp_assis4());
+		System.out.println("19"+calcSettingEntity.get(0).getOp_assis4_unit_price());
+		System.out.println("20"+calcSettingEntity.get(0).getOp_assis5());
+		System.out.println("21"+calcSettingEntity.get(0).getOp_assis5_unit_price());
+		System.out.println("22"+calcSettingEntity.get(0).getOp_assis6());
+		System.out.println("23"+calcSettingEntity.get(0).getOp_assis6_unit_price());
+		System.out.println("24"+calcSettingEntity.get(0).getOp_assis7());
+		System.out.println("25"+calcSettingEntity.get(0).getOp_assis7_unit_price());
+		System.out.println("26"+calcSettingEntity.get(0).getOp_assis8());
+		System.out.println("27"+calcSettingEntity.get(0).getOp_assis8_unit_price());
+		System.out.println("28"+calcSettingEntity.get(0).getOp_assis9());
+		System.out.println("29"+calcSettingEntity.get(0).getOp_assis9_unit_price());
+		System.out.println("30"+calcSettingEntity.get(0).getOp_assis10());
+		System.out.println("31"+calcSettingEntity.get(0).getOp_assis10_unit_price());
+		System.out.println("32"+calcSettingEntity.get(0).getManday1());
+		System.out.println("33"+calcSettingEntity.get(0).getManday1_unit_price());
+		System.out.println("34"+calcSettingEntity.get(0).getManday2());
+		System.out.println("35"+calcSettingEntity.get(0).getManday2_unit_price());
+		System.out.println("36"+calcSettingEntity.get(0).getManday3());
+		System.out.println("37"+calcSettingEntity.get(0).getManday3_unit_price());
+		System.out.println("38"+calcSettingEntity.get(0).getManday4());
+		System.out.println("39"+calcSettingEntity.get(0).getManday4_unit_price());
+
+		//Total Price
+		int vp1,vp2,vp3,vp4,vp5,vp6,vp7,vp8,vp9,vp10,vp11,vp12,vp13,vp14,vp15,vp16,vp17,vp18,vp19; 
+		vp1 = (calcSettingEntity.get(0).getCdu_unit_price()).isEmpty() ? 0 : Integer.parseInt(calcSettingEntity.get(0).getCdu_unit_price());
+		vp2 = (calcSettingEntity.get(0).getCooler_unit_price()).isEmpty() ? 0 : Integer.parseInt(calcSettingEntity.get(0).getCooler_unit_price());
+		vp3 = (calcSettingEntity.get(0).getControl_unit_price()).isEmpty() ? 0 : Integer.parseInt(calcSettingEntity.get(0).getControl_unit_price());
+		vp4 = (calcSettingEntity.get(0).getEx_valve_unit_price()).isEmpty() ? 0 : Integer.parseInt(calcSettingEntity.get(0).getEx_valve_unit_price());
+		vp5 = (calcSettingEntity.get(0).getElec_valve_unit_price()).isEmpty() ? 0 : Integer.parseInt(calcSettingEntity.get(0).getElec_valve_unit_price());
+		vp6 = (calcSettingEntity.get(0).getOp_assis1_unit_price()).isEmpty() ? 0 : Integer.parseInt(calcSettingEntity.get(0).getOp_assis1_unit_price());
+		vp7 = (calcSettingEntity.get(0).getOp_assis2_unit_price()).isEmpty() ? 0 : Integer.parseInt(calcSettingEntity.get(0).getOp_assis2_unit_price());
+		vp8 = (calcSettingEntity.get(0).getOp_assis3_unit_price()).isEmpty() ? 0 : Integer.parseInt(calcSettingEntity.get(0).getOp_assis3_unit_price());
+		vp9 = (calcSettingEntity.get(0).getOp_assis4_unit_price()).isEmpty() ? 0 : Integer.parseInt(calcSettingEntity.get(0).getOp_assis4_unit_price());
+		vp10 = (calcSettingEntity.get(0).getOp_assis5_unit_price()).isEmpty() ? 0 : Integer.parseInt(calcSettingEntity.get(0).getOp_assis5_unit_price());
+		vp11 = (calcSettingEntity.get(0).getOp_assis6_unit_price()).isEmpty() ? 0 : Integer.parseInt(calcSettingEntity.get(0).getOp_assis6_unit_price());
+		vp12 = (calcSettingEntity.get(0).getOp_assis7_unit_price()).isEmpty() ? 0 : Integer.parseInt(calcSettingEntity.get(0).getOp_assis7_unit_price());
+		vp13 = (calcSettingEntity.get(0).getOp_assis8_unit_price()).isEmpty() ? 0 : Integer.parseInt(calcSettingEntity.get(0).getOp_assis8_unit_price());
+		vp14 = (calcSettingEntity.get(0).getOp_assis9_unit_price()).isEmpty() ? 0 : Integer.parseInt(calcSettingEntity.get(0).getOp_assis9_unit_price());
+		vp15 = (calcSettingEntity.get(0).getOp_assis10_unit_price()).isEmpty() ? 0 : Integer.parseInt(calcSettingEntity.get(0).getOp_assis10_unit_price());
+		vp16 = (calcSettingEntity.get(0).getManday1_unit_price()).isEmpty() ? 0 : Integer.parseInt(calcSettingEntity.get(0).getManday1_unit_price());
+		vp17 = (calcSettingEntity.get(0).getManday2_unit_price()).isEmpty() ? 0 : Integer.parseInt(calcSettingEntity.get(0).getManday2_unit_price());
+		vp18 = (calcSettingEntity.get(0).getManday3_unit_price()).isEmpty() ? 0 : Integer.parseInt(calcSettingEntity.get(0).getManday3_unit_price());
+		vp19 = (calcSettingEntity.get(0).getManday4_unit_price()).isEmpty() ? 0 : Integer.parseInt(calcSettingEntity.get(0).getManday4_unit_price());
+		total_price = total_price + vp1 + vp2 + vp3 + vp4 + vp5 + vp6 + vp7 + 
+				vp8 + vp9 + vp10 + vp11 + vp12 + vp13 + vp14 + vp15 + vp16 + vp17 + vp18 + vp19;
+		model.addAttribute("total_price",total_price);
 		
 		//Input Model
 		model.addAttribute("wid", cmd.getWidVal());
@@ -569,7 +650,7 @@ public class CalcController {
 		model.addAttribute("msize", cmd.getMsizeVal());
 		model.addAttribute("purchese", cmd.getPurcheseVal());
 		
-		System.out.println("@@@@@@@@@@@@@@@@ : " + calcSettingEntity.get(0).getCdu_unit_price());
+		System.out.println("all total : " + total_price);
 		
 		return "ai-calc";
 	}	

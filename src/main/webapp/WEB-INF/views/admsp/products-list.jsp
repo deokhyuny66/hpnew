@@ -26,9 +26,20 @@
     <!-- Custom styles for this page -->
     <link href="/assets/vendor/admsp/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <style>
-    .fixed-table-body {
-	  overflow-x: auto;
-	}
+		table tbody td {
+	   		min-width: 100px;
+	   	}
+	   	#dataTable_paginate {
+	   		position:fixed;
+	   		top:757px;
+	   		right:44px;
+	   	}
+		#dataTable thead th.fixed, #dataTable #prdForm td.fixed {
+		    position: sticky;
+		    left: 0;
+		    z-index: 1;
+		    background-color: #f6f6f6;
+		}
     </style>
 </head>
 
@@ -392,31 +403,41 @@
                                 <table class="table table-bordered w-auto" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                        	<th colspan="6" style="text-align:center;">콘덴샤 유니트</th>
+                                        	<th colspan="3" style="text-align:center;" class="fixed">고유정보</th>
+                                        	<th colspan="3" style="text-align:center;">콘덴샤 유니트</th>
                                         	<th colspan="3" style="text-align:center;">쿨러</th>
+                                        	<th colspan="3" style="text-align:center;">콘트롤</th>
                                         </tr>
                                         <tr>
                                         	<th>ID</th>
                                         	<th>평수</th>
                                             <th>구분</th>
+                                            
                                             <th>콘덴샤유니트</th>
                                             <th>수량</th>
                                             <th>금액</th>
                                             
                                             <th>쿨러</th>
+                                            <th>수량</th>
+                                            <th>금액</th>
+                                            
+                                            <th>콘트롤</th>
                                             <th>수량</th>
                                             <th>금액</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                     	<tr>
-                                        	<th colspan="6" style="text-align:center;">콘덴샤 유니트</th>
+                                        	<th colspan="3" style="text-align:center;" class="fixed">고유정보</th>
+                                        	<th colspan="3" style="text-align:center;">콘덴샤 유니트</th>
                                         	<th colspan="3" style="text-align:center;">쿨러</th>
+                                        	<th colspan="3" style="text-align:center;">콘트롤</th>
                                         </tr>
                                         <tr>
                                         	<th>ID</th>
                                             <th>평수</th>
                                             <th>구분</th>
+                                            
                                             <th>콘덴샤유니트</th>
                                             <th>수량</th>
                                             <th>금액</th>
@@ -424,19 +445,23 @@
                                             <th>쿨러</th>
                                             <th>수량</th>
                                             <th>금액</th>
+                                            
+                                            <th>콘트롤</th>
+                                            <th>수량</th>
+                                            <th>금액</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                     	<form action="/admsp/products-list" name="prdForm" id="prdForm" method="post">
-                                    		<!-- CDU -->
+                                    		<!-- BASE -->
 	                                        <c:forEach var="base" items="${calcBaseEntity}" begin="0" varStatus="statusNo">
 	                                        <tr>
 	                                        	<td>${base.pntid}<input type="hidden" value="${base.pntid}" name="base_pntid${statusNo.index}" id="base_pntid${statusNo.index}"></td>
 	                                            <td>${base.returns_py}<input type="hidden" value="${base.returns_py}" name="base_py${statusNo.index}" id="base_py${statusNo.index}"></td>
-	                                            <td>${base.temper_type}<input type="hidden" value="${base.temper_type}" name="base_type${statusNo.index}" id="base_type${statusNo.index}"></td>
+	                                            <td class="fixed">${base.temper_type}<input type="hidden" value="${base.temper_type}" name="base_type${statusNo.index}" id="base_type${statusNo.index}"></td>
 	                                            
 	                                            <!-- CDU -->
-	                                            <form action="/admsp/cduRq" name="ajaxCduReqForm" id="ajaxCduReqForm" method="post">                                          	
+	                                            <form action="/admsp/productsRq" name="ajaxCduReqForm" id="ajaxCduReqForm" method="post">                                          	
 	                                            <td>	  
 	                                            	<select name="cduSelect${statusNo.index}" id="cduSelect${statusNo.index}" onchange="checkerCDUSelectFn(this.id,'${base.pntid}')">
 	                                            	<c:forEach var="data" items="${cduEntitylist}">
@@ -459,7 +484,7 @@
 	                                            </form>
 	                                            
 	                                            <!-- COOLER -->
-	                                            <form action="/admsp/coolerRq" name="ajaxCoolerReqForm" id="ajaxCoolerReqForm" method="post">                                          	
+	                                            <form action="/admsp/productsRq" name="ajaxCoolerReqForm" id="ajaxCoolerReqForm" method="post">                                          	
 	                                            <td>	  
 	                                            	<select name="coolerSelect${statusNo.index}" id="coolerSelect${statusNo.index}" onchange="checkerCOOLERSelectFn(this.id,'${base.pntid}')">
 	                                            	<c:forEach var="data" items="${coolerEntitylist}">
@@ -478,6 +503,29 @@
 	                                            	<input type="text" value="0" name="coolerUnitPrice${statusNo.index}" id="coolerUnitPrice${statusNo.index}" disabled><br/>
 	                                            	<input type="button" value="변경" name="subcoolerBtn${statusNo.index}" id="subcoolerBtn${statusNo.index}" onclick="coolerBtnFn(${statusNo.index})">
 	                                            	<input type="button" value="반영" name="allcoolerBtn${statusNo.index}" id="allcoolerBtn${statusNo.index}" onclick="allcoolerBtnFn(this.id,${statusNo.index})">
+	                                            </td>
+	                                            </form>
+	                                            
+	                                            <!-- Controll -->
+	                                            <form action="/admsp/productsRq" name="ajaxControllReqForm" id="ajaxControllReqForm" method="post">                                          	
+	                                            <td>	  
+	                                            	<select name="controllSelect${statusNo.index}" id="controllSelect${statusNo.index}" onchange="checkerCONTROLLSelectFn(this.id,'${base.pntid}')">
+	                                            	<c:forEach var="data" items="${controllEntitylist}">
+													    <option value="${data.pid}">${data.controll}</option><%-- 이 PID로 Query 조회 함 --%>
+													</c:forEach>
+													</select>
+	                                            </td>
+	                                            <td>	                                            	
+	                                            	<select name="controllSelectCnt${statusNo.index}" id="controllSelectCnt${statusNo.index}" onchange="checkerCONTROLLCntSelectFn(this.id)">
+	                                            	<c:forEach var="controllSelcnt" begin="1" end="10">
+													    <option value="${controllSelcnt}">${controllSelcnt}</option>
+													</c:forEach>
+													</select>
+	                                            </td>
+	                                            <td>
+	                                            	<input type="text" value="0" name="controllUnitPrice${statusNo.index}" id="controllUnitPrice${statusNo.index}" disabled><br/>
+	                                            	<input type="button" value="변경" name="subcontrollBtn${statusNo.index}" id="subcontrollBtn${statusNo.index}" onclick="controllBtnFn(${statusNo.index})">
+	                                            	<input type="button" value="반영" name="allcontrollBtn${statusNo.index}" id="allcontrollBtn${statusNo.index}" onclick="allcontrollBtnFn(this.id,${statusNo.index})">
 	                                            </td>
 	                                            </form>
 	                                        </tr>
@@ -640,7 +688,6 @@
     
     /* COOLER */
 	var coolerChecker;
-    var pntid_val;
     var coolerCntChecker;
     var coolerUnitPirce_val;
     
@@ -693,9 +740,6 @@
 		var base_type_val_temp = $("#base_type"+cnt).attr("id");
 		var cooler_val = $(cooler_checker).text();
 		var coolerUnitPrice_temp = $("#coolerUnitPrice"+cnt).attr("id");
-		alert(base_pntid_val_temp);
-		alert(base_py_val_temp);
-		alert(base_type_val_temp);
 		/* 실제 값 가져오기 */
 		var coolerUnitPrice_val = $("#"+coolerUnitPrice_temp).val();
 		var base_pntid_val = $("#"+base_pntid_val_temp).val();
@@ -721,6 +765,87 @@
      			}
      		});
    }
+   
+   
+   /* Controll */
+   var controllChecker;
+   var controllCntChecker;
+   var controllUnitPirce_val;
+   
+   function checkerCONTROLLSelectFn(clicked,pntids){
+  	 controllChecker = clicked;
+  	 pntid_val = pntids;
+   }
+   
+   function checkerCONTROLLCntSelectFn(clicked){
+  	 controllCntChecker = clicked;
+   }
+   
+  /* Controll Btn Onclick Eventer */ 
+  function controllBtnFn(cnt){
+   	controllUnitPriceId = $("#controllUnitPrice"+cnt).attr("id");
+   	
+		var controll_checker = "#"+controllChecker+" option:selected";
+	   	var controll_cntChecker = "#"+controllCntChecker+" option:selected";
+	   	var pid = $(controll_checker).val();
+	   	var controll_ctn = $(controll_cntChecker).val();
+	   	var param = {"pid":pid, "controll_ctn":controll_ctn};
+     	 $.ajax({
+     			anyne:true,
+     			type:'POST',
+     			contentType: 'application/json',
+     			
+     			data: JSON.stringify(param),
+     			url:"/admsp/controllAjax",
+     			
+     			dataType: "text",
+     			success : function(data) {
+     				if(controll_ctn == "undefined" || controll_ctn == null || controll_ctn == ""){
+     					controll_ctn = 1;
+     				}else {
+     					
+     				}
+     				$("#"+controllUnitPriceId).val(data*controll_ctn);  
+     			},
+     			error: function(jqXHR, textStatus, errorThrown) {
+     				alert("한번 재선택 해주세요.");
+     			}
+     		});
+  }
+  
+  function allcontrollBtnFn(btnId, cnt) {
+  	/* id값 가져오기 */
+		var controll_checker = "#"+controllChecker+" option:selected";
+		var base_pntid_val_temp = $("#base_pntid"+cnt).attr("id");
+		var base_py_val_temp = $("#base_py"+cnt).attr("id");
+		var base_type_val_temp = $("#base_type"+cnt).attr("id");
+		var controll_val = $(controll_checker).text();
+		var controllUnitPrice_temp = $("#controllUnitPrice"+cnt).attr("id");
+		/* 실제 값 가져오기 */
+		var controllUnitPrice_val = $("#"+controllUnitPrice_temp).val();
+		var base_pntid_val = $("#"+base_pntid_val_temp).val();
+		var base_py_val = $("#"+base_py_val_temp).val();
+		var base_type_val = $("#"+base_type_val_temp).val();
+		
+		/* 아래 Ajax로 보낼 params객체는 Entity 변수명이랑 "Key"의 이름이 같아야 한다. */
+		var params = {"pntid":base_pntid_val, "returns_py":base_py_val, "temper_type":base_type_val, "controll":controll_val, "controll_unit_price":controllUnitPrice_val};
+    	 $.ajax({
+    			anyne:true,
+    			type:'POST',
+    			contentType: 'application/json',
+    			
+    			data: JSON.stringify(params),
+    			url:"/admsp/controllAllAjax",
+    			
+    			dataType: "text",
+    			success : function(data) {
+    				alert("변경이 완료되었습니다.");
+    			},
+    			error: function(jqXHR, textStatus, errorThrown) {
+    				alert("Error.");
+    			}
+    		});
+  }
 	</script>
 </body>
 

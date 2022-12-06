@@ -8,7 +8,21 @@ public class CalcViewEntity {
     private String cdu_unit_price;
 	private String cooler;
 	private String cooler_unit_price;
-    
+	private String controll;
+	private String controll_unit_price;
+	
+	public String getControll() {
+		return controll;
+	}
+	public void setControll(String controll) {
+		this.controll = controll;
+	}
+	public String getControll_unit_price() {
+		return controll_unit_price;
+	}
+	public void setControll_unit_price(String controll_unit_price) {
+		this.controll_unit_price = controll_unit_price;
+	}
     public String getCooler() {
 		return cooler;
 	}

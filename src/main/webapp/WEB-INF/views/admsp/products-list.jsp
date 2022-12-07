@@ -26,19 +26,110 @@
     <!-- Custom styles for this page -->
     <link href="/assets/vendor/admsp/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <style>
-		table tbody td {
-	   		min-width: 100px;
-	   	}
-	   	#dataTable_paginate {
+    	@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+    	* {
+    		font-family: 'Noto Sans KR', sans-serif !important;
+    	}
+    	
+    	/* 버튼 색상 */
+    	:root {
+		  --button-color: #ffffff;
+		  --button-bg-color: #4e73df;
+		  --button-hover-bg-color: #025ce2;
+		}
+	    input[type='button'] {
+		  -webkit-appearance: none;
+		  -moz-appearance: none;
+		  appearance: none;
+		  background: var(--button-bg-color);
+		  color: var(--button-color);
+		  margin: 0;
+		  padding: 0.5rem 1rem;
+		  text-decoration: none;
+		  border: none;
+		  border-radius: 4px;
+		  display: inline-block;
+		  width: auto;
+		  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+		  cursor: pointer;
+		  transition: 0.5s;
+		}
+		.success {
+		  --button-bg-color: #28a745;
+		  --button-hover-bg-color: #218838;
+		}
+		
+		/* INPUT 모양 */
+		.item input[type='text'], .item select {
+		    align-items: center;
+		    justify-content: space-between;
+		    border-radius: 10px;
+		    border: 1px solid rgba(69, 94, 234, 0.3);
+		    cursor: pointer;
+		    height: 35px;
+		    font-size: 13px;
+		    margin-bottom: 5px;
+		}
+		
+    	/* 페이지네이션 위치 */
+   	  	#dataTable_paginate {
 	   		position:fixed;
 	   		top:757px;
 	   		right:44px;
 	   	}
-		#dataTable thead th.fixed, #dataTable #prdForm td.fixed {
-		    position: sticky;
-		    left: 0;
-		    z-index: 1;
-		    background-color: #f6f6f6;
+    
+   		/* 테이블 스크롤 열 고정 */
+		table tbody td {
+	   		min-width: 100px;
+	   	}
+	   	table{
+		  border-collapse: separate;
+		  border-spacing: 0;
+		  width: 800px;
+		  font-color: #000 !important;
+		}
+		table th{
+		  background-color: #888; 
+		  height: 10px; 
+		  color: #fff;
+		  border-right: 1px solid #f6f6f6; 
+		  border-bottom: 1px solid #f6f6f6;
+		}
+		table th:last-child{
+		  border-right: 0;
+		}
+		/*sticky 적용*/
+		table th:first-child{
+		  position: -webkit-sticky; 
+		  position: sticky; 
+		  left: 0;
+		}
+		table td{
+		  background-color: #fff; 
+		  border-right: 1px solid #f6f6f6; 
+		  border-bottom: 1px solid #f6f6f6;
+		  padding: 5px;
+		  font-size: 13px !important;
+		  color: #000 !important;
+		  /* text-align: center; */
+		}
+		table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td {
+		    /* border-bottom-width: 0; */
+		}
+		/*sticky 적용*/
+		table td:first-child{
+		  background-color: #c8c8c8;
+		  position: -webkit-sticky; 
+		  position: sticky; 
+		  left: 0;
+		}
+		table td:last-child{
+		  border-right: 0;
+		}
+		
+		.btnWitch {
+			position:relative;
+			left:63px;
 		}
     </style>
 </head>
@@ -394,24 +485,22 @@
                             href="https://datatables.net">official DataTables documentation</a>.</p>
 
                     <!-- DataTales Example -->
-                    <div class="card shadow mb-4 fixed-table-container">
+                    <div class="card shadow mb-4 fixed-table-container" >
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
                         </div>
                         <div class="card-body fixed-table-body">
-                            <div class="table-responsive">
+                            <div class="table-responsive item">
                                 <table class="table table-bordered w-auto" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                        	<th colspan="3" style="text-align:center;" class="fixed">고유정보</th>
+                                        	<th colspan="1" style="text-align:center;">고유정보</th>
                                         	<th colspan="3" style="text-align:center;">콘덴샤 유니트</th>
                                         	<th colspan="3" style="text-align:center;">쿨러</th>
                                         	<th colspan="3" style="text-align:center;">콘트롤</th>
                                         </tr>
                                         <tr>
-                                        	<th>ID</th>
-                                        	<th>평수</th>
-                                            <th>구분</th>
+                                        	<th style="position: sticky;left: 0; top: 0;z-index: 10;">평수</th>
                                             
                                             <th>콘덴샤유니트</th>
                                             <th>수량</th>
@@ -428,15 +517,13 @@
                                     </thead>
                                     <tfoot>
                                     	<tr>
-                                        	<th colspan="3" style="text-align:center;" class="fixed">고유정보</th>
+                                        	<th colspan="1" style="text-align:center;">고유정보</th>
                                         	<th colspan="3" style="text-align:center;">콘덴샤 유니트</th>
                                         	<th colspan="3" style="text-align:center;">쿨러</th>
                                         	<th colspan="3" style="text-align:center;">콘트롤</th>
                                         </tr>
                                         <tr>
-                                        	<th>ID</th>
                                             <th>평수</th>
-                                            <th>구분</th>
                                             
                                             <th>콘덴샤유니트</th>
                                             <th>수량</th>
@@ -456,9 +543,14 @@
                                     		<!-- BASE -->
 	                                        <c:forEach var="base" items="${calcBaseEntity}" begin="0" varStatus="statusNo">
 	                                        <tr>
-	                                        	<td>${base.pntid}<input type="hidden" value="${base.pntid}" name="base_pntid${statusNo.index}" id="base_pntid${statusNo.index}"></td>
-	                                            <td>${base.returns_py}<input type="hidden" value="${base.returns_py}" name="base_py${statusNo.index}" id="base_py${statusNo.index}"></td>
-	                                            <td class="fixed">${base.temper_type}<input type="hidden" value="${base.temper_type}" name="base_type${statusNo.index}" id="base_type${statusNo.index}"></td>
+	                                            <td>
+	                                            	<div style="display:none !important;">${base.pntid}<input type="hidden" value="${base.pntid}" name="base_pntid${statusNo.index}" id="base_pntid${statusNo.index}"></div>
+	                                            	<div>
+	                                            		${base.returns_py}평<br/>${base.temper_type}
+	                                            		<input type="hidden" value="${base.returns_py}" name="base_py${statusNo.index}" id="base_py${statusNo.index}">
+	                                            		<input type="hidden" value="${base.temper_type}" name="base_type${statusNo.index}" id="base_type${statusNo.index}">
+	                                            	</div>
+	                                            </td>
 	                                            
 	                                            <!-- CDU -->
 	                                            <form action="/admsp/productsRq" name="ajaxCduReqForm" id="ajaxCduReqForm" method="post">                                          	
@@ -477,9 +569,9 @@
 													</select>
 	                                            </td>
 	                                            <td>
-	                                            	<input type="text" value="0" name="cduUnitPrice${statusNo.index}" id="cduUnitPrice${statusNo.index}" disabled><br/>
-	                                            	<input type="button" value="변경" name="subcduBtn${statusNo.index}" id="subcduBtn${statusNo.index}" onclick="cduBtnFn(${statusNo.index})">
-	                                            	<input type="button" value="반영" name="allcduBtn${statusNo.index}" id="allcduBtn${statusNo.index}" onclick="allcduBtnFn(this.id,${statusNo.index})">
+	                                            	<input type="text" value="0" class="cduUnitDS" name="cduUnitPrice${statusNo.index}" id="cduUnitPrice${statusNo.index}" disabled><br/>
+	                                            	<input type="button" value="변경" class="btnWitch" name="subcduBtn${statusNo.index}" id="subcduBtn${statusNo.index}" onclick="cduBtnFn(${statusNo.index})">
+	                                            	<input type="button" class="success" value="적용" style="float:right;" name="allcduBtn${statusNo.index}" id="allcduBtn${statusNo.index}" onclick="allcduBtnFn(this.id,${statusNo.index})">
 	                                            </td>
 	                                            </form>
 	                                            
@@ -501,8 +593,8 @@
 	                                            </td>
 	                                            <td>
 	                                            	<input type="text" value="0" name="coolerUnitPrice${statusNo.index}" id="coolerUnitPrice${statusNo.index}" disabled><br/>
-	                                            	<input type="button" value="변경" name="subcoolerBtn${statusNo.index}" id="subcoolerBtn${statusNo.index}" onclick="coolerBtnFn(${statusNo.index})">
-	                                            	<input type="button" value="반영" name="allcoolerBtn${statusNo.index}" id="allcoolerBtn${statusNo.index}" onclick="allcoolerBtnFn(this.id,${statusNo.index})">
+	                                            	<input type="button" value="변경" class="btnWitch" name="subcoolerBtn${statusNo.index}" id="subcoolerBtn${statusNo.index}" onclick="coolerBtnFn(${statusNo.index})">
+	                                            	<input type="button" class="success" value="적용" style="float:right;" name="allcoolerBtn${statusNo.index}" id="allcoolerBtn${statusNo.index}" onclick="allcoolerBtnFn(this.id,${statusNo.index})">
 	                                            </td>
 	                                            </form>
 	                                            
@@ -524,8 +616,8 @@
 	                                            </td>
 	                                            <td>
 	                                            	<input type="text" value="0" name="controllUnitPrice${statusNo.index}" id="controllUnitPrice${statusNo.index}" disabled><br/>
-	                                            	<input type="button" value="변경" name="subcontrollBtn${statusNo.index}" id="subcontrollBtn${statusNo.index}" onclick="controllBtnFn(${statusNo.index})">
-	                                            	<input type="button" value="반영" name="allcontrollBtn${statusNo.index}" id="allcontrollBtn${statusNo.index}" onclick="allcontrollBtnFn(this.id,${statusNo.index})">
+	                                            	<input type="button" value="변경" class="btnWitch" name="subcontrollBtn${statusNo.index}" id="subcontrollBtn${statusNo.index}" onclick="controllBtnFn(${statusNo.index})">
+	                                            	<input type="button" class="success" value="적용" style="float:right;" name="allcontrollBtn${statusNo.index}" id="allcontrollBtn${statusNo.index}" onclick="allcontrollBtnFn(this.id,${statusNo.index})">
 	                                            </td>
 	                                            </form>
 	                                        </tr>

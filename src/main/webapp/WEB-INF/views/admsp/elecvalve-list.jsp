@@ -26,7 +26,43 @@
 
     <!-- Custom styles for this page -->
     <link href="/assets/vendor/admsp/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-
+		<style>
+		@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+    	* {
+    		font-family: 'Noto Sans KR', sans-serif !important;
+    	}
+    	input[type='text'] {
+		    align-items: center;
+		    justify-content: space-between;
+		    border-radius: 10px;
+		    border: 1px solid rgba(69, 94, 234, 0.3);
+		    height: 35px;
+		    font-size: 13px;
+		    margin-bottom: 5px;
+		}
+		:root {
+		  --button-color: #ffffff;
+		  --button-bg-color: #4e73df;
+		  --button-hover-bg-color: #025ce2;
+		}
+	    input[type='submit'] {
+		  -webkit-appearance: none;
+		  -moz-appearance: none;
+		  appearance: none;
+		  background: var(--button-bg-color);
+		  color: var(--button-color);
+		  margin: 0;
+		  padding: 0.5rem 1rem;
+		  text-decoration: none;
+		  border: none;
+		  border-radius: 4px;
+		  display: inline-block;
+		  width: auto;
+		  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+		  cursor: pointer;
+		  transition: 0.5s;
+		}
+	</style>
 </head>
 
 <body id="page-top">

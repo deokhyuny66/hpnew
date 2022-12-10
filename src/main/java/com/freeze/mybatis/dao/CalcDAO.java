@@ -57,5 +57,5 @@ public interface CalcDAO
     void updateControllProductsAll(CalcViewEntity view);
 	void updateExvalveProductsAll(CalcViewEntity view);
 	void updateElecvalveProductsAll(CalcViewEntity view);
-	void updateOpassisProductsAll(CalcViewEntity view);
+	void updateOpassis1ProductsAll(CalcViewEntity view);
 }

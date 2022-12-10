@@ -93,7 +93,7 @@
 				ELEC_VALVE_UNIT_PRICE = #{elecvalve_unit_price}
 			where PINID = #{pntid}
 	</update>
-	<update id="updateOpassisProductsAll" parameterType="com.freeze.mybatis.vo.CalcViewEntity">
+	<update id="updateOpassis1ProductsAll" parameterType="com.freeze.mybatis.vo.CalcViewEntity">
 		update SETTING_VIEW_T 
 			set OP_ASSIS1 = #{opassis}, 
 				OP_ASSIS1_UNIT_PRICE = #{opassis_unit_price}

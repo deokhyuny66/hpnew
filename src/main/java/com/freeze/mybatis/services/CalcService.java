@@ -48,8 +48,8 @@ public class CalcService
     public void updateElecvalveProductsAll(CalcViewEntity view) throws Exception {
     	this.mapper.updateElecvalveProductsAll(view);
     }
-    public void updateOpassisProductsAll(CalcViewEntity view) throws Exception {
-    	this.mapper.updateOpassisProductsAll(view);
+    public void updateOpassis1ProductsAll(CalcViewEntity view) throws Exception {
+    	this.mapper.updateOpassis1ProductsAll(view);
     }
     
 //  데이터 세팅 - View 가격 하나씩 가져오기

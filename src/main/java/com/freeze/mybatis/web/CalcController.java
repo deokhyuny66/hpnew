@@ -74,13 +74,13 @@ public class CalcController {
 	}
 	
 //	데이터 세팅 - CDU Products All
-	@RequestMapping(value="/admsp/productsAllAjax", method=RequestMethod.POST)
+	@RequestMapping(value="/admsp/cduAllAjax", method=RequestMethod.POST)
 	public @ResponseBody void sendAjaxGetCDUAll(@RequestBody CalcViewEntity view) throws Exception {
 		service.updateCduProductsAll(view);
 	}
 	
 //	데이터 세팅 - CDU Products
-	 @RequestMapping(value="/admsp/productsAjax", method=RequestMethod.POST) 
+	 @RequestMapping(value="/admsp/cduAjax", method=RequestMethod.POST) 
 	 public @ResponseBody String sendAjaxGetCDUOne(@RequestBody CalcCDUEntity cdu, String cdu_ctn) throws Exception {
 		 List<CalcCDUEntity> calcCDUEntity = service.getOneCalcCDU(cdu.getPid());
 		 String getUnitPrice = calcCDUEntity.get(0).getUnit_price();
@@ -163,14 +163,14 @@ public class CalcController {
 			 }
 		 }
 
-//		데이터 세팅 - Opassis Products All
-	 	@RequestMapping(value="/admsp/opassisAllAjax", method=RequestMethod.POST)
+//		데이터 세팅 - Opassis1 Products All
+	 	@RequestMapping(value="/admsp/opassis1AllAjax", method=RequestMethod.POST)
 		public @ResponseBody void sendAjaxGetOpassisAll(@RequestBody CalcViewEntity view) throws Exception {
-			service.updateOpassisProductsAll(view);
+			service.updateOpassis1ProductsAll(view);
 		}
 			
-//		데이터 세팅 - Opassis Products
-		 @RequestMapping(value="/admsp/opassisAjax", method=RequestMethod.POST) 
+//		데이터 세팅 - Opassis1 Products
+		 @RequestMapping(value="/admsp/opassis1Ajax", method=RequestMethod.POST) 
 		 public @ResponseBody String sendAjaxGetOpassisOne(@RequestBody CalcOpassisEntity opassis, String opassis_ctn) throws Exception {
 			 List<CalcOpassisEntity> calcOpassisEntity = service.getOneCalcOpassis(opassis.getPid());
 			 String getUnitPrice = calcOpassisEntity.get(0).getUnit_price();

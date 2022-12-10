@@ -799,6 +799,7 @@
      var pntid_val;
      var cduCntChecker;
      var cduUnitPirce_val;
+     var cdu_val;
      
      function checkerCDUSelectFn(clicked,pntids){
     	 cduChecker = clicked;
@@ -813,16 +814,17 @@
     function cduBtnFn(cnt){
      	cduUnitPriceId = $("#cduUnitPrice"+cnt).attr("id");
     	var cdu_cntChecker = "#"+cduCntChecker+" option:selected";
-    	var pid = $("#cduSelect"+cnt+' option:selected').val();
+    	var cdu_pid = $("#cduSelect"+cnt+' option:selected').val();
+    	cdu_val = $("#cduSelect"+cnt+' option:selected').text();
     	var cdu_ctn = $(cdu_cntChecker).val();
-    	var param = {"pid":pid, "cdu_ctn":cdu_ctn};
+    	var param = {"pid":cdu_pid, "cdu_ctn":cdu_ctn};
        	 $.ajax({
        			anyne:true,
        			type:'POST',
        			contentType: 'application/json',
        			
        			data: JSON.stringify(param),
-       			url:"/admsp/productsAjax",
+       			url:"/admsp/cduAjax",
        			
        			dataType: "text",
        			success : function(data) {
@@ -845,7 +847,6 @@
 		var base_pntid_val_temp = $("#base_pntid"+cnt).attr("id");
 		var base_py_val_temp = $("#base_py"+cnt).attr("id");
 		var base_type_val_temp = $("#base_type"+cnt).attr("id");
-		var cdu_val = $(cdu_checker).text();
 		var cduUnitPrice_temp = $("#cduUnitPrice"+cnt).attr("id");
 		
 		/* 실제 값 가져오기 */
@@ -862,7 +863,7 @@
       			contentType: 'application/json',
       			
       			data: JSON.stringify(params),
-      			url:"/admsp/productsAllAjax",
+      			url:"/admsp/cduAllAjax",
       			
       			dataType: "text",
       			success : function(data) {
@@ -880,6 +881,7 @@
 	var coolerChecker;
     var coolerCntChecker;
     var coolerUnitPirce_val;
+    var cooler_val;
     
     function checkerCOOLERSelectFn(clicked,pntids){
    	 coolerChecker = clicked;
@@ -890,11 +892,12 @@
    	 coolerCntChecker = clicked;
     }
     
-   /* CDU Btn Onclick Eventer */ 
+   /* COOLER Btn Onclick Eventer */ 
    function coolerBtnFn(cnt){
     	coolerUnitPriceId = $("#coolerUnitPrice"+cnt).attr("id");
 	   	var cooler_cntChecker = "#"+coolerCntChecker+" option:selected";
     	var pid = $("#coolerSelect"+cnt+' option:selected').val();
+    	cooler_val = $("#coolerSelect"+cnt+' option:selected').text();
 	   	var cooler_ctn = $(cooler_cntChecker).val();
 	   	var param = {"pid":pid, "cooler_ctn":cooler_ctn};
       	 $.ajax({
@@ -926,7 +929,6 @@
 		var base_pntid_val_temp = $("#base_pntid"+cnt).attr("id");
 		var base_py_val_temp = $("#base_py"+cnt).attr("id");
 		var base_type_val_temp = $("#base_type"+cnt).attr("id");
-		var cooler_val = $(cooler_checker).text();
 		var coolerUnitPrice_temp = $("#coolerUnitPrice"+cnt).attr("id");
 		/* 실제 값 가져오기 */
 		var coolerUnitPrice_val = $("#"+coolerUnitPrice_temp).val();
@@ -959,6 +961,7 @@
    var controllChecker;
    var controllCntChecker;
    var controllUnitPirce_val;
+   var controll_val;
    
    function checkerCONTROLLSelectFn(clicked,pntids){
   	 controllChecker = clicked;
@@ -974,6 +977,7 @@
    		controllUnitPriceId = $("#controllUnitPrice"+cnt).attr("id");
 	   	var controll_cntChecker = "#"+controllCntChecker+" option:selected";
 	   	var pid = $("#controllSelect"+cnt+' option:selected').val();
+	   	controll_val = $("#controllSelect"+cnt+' option:selected').text();
 	   	var controll_ctn = $(controll_cntChecker).val();
 	   	var param = {"pid":pid, "controll_ctn":controll_ctn};
      	 $.ajax({
@@ -1005,7 +1009,6 @@
 		var base_pntid_val_temp = $("#base_pntid"+cnt).attr("id");
 		var base_py_val_temp = $("#base_py"+cnt).attr("id");
 		var base_type_val_temp = $("#base_type"+cnt).attr("id");
-		var controll_val = $(controll_checker).text();
 		var controllUnitPrice_temp = $("#controllUnitPrice"+cnt).attr("id");
 		/* 실제 값 가져오기 */
 		var controllUnitPrice_val = $("#"+controllUnitPrice_temp).val();
@@ -1038,6 +1041,7 @@
   var exvalveChecker;
   var exvalveCntChecker;
   var exvalveUnitPirce_val;
+  var exvalve_val;
   
   function checkerEXVALVESelectFn(clicked,pntids){
  	 exvalveChecker = clicked;
@@ -1054,6 +1058,7 @@
 	 exvalveUnitPriceId = $("#exvalveUnitPrice"+cnt).attr("id");
 	   	var exvalve_cntChecker = "#"+exvalveCntChecker+" option:selected";
 	   	var pid = $("#exvalveSelect"+cnt+' option:selected').val();
+	   	exvalve_val = $("#exvalveSelect"+cnt+' option:selected').text();
 	   	var exvalve_ctn = $(exvalve_cntChecker).val();
 	   	var param = {"pid":pid, "exvalve_ctn":exvalve_ctn};
     	 $.ajax({
@@ -1085,7 +1090,6 @@
 		var base_pntid_val_temp = $("#base_pntid"+cnt).attr("id");
 		var base_py_val_temp = $("#base_py"+cnt).attr("id");
 		var base_type_val_temp = $("#base_type"+cnt).attr("id");
-		var exvalve_val = $(exvalve_checker).text();
 		var exvalveUnitPrice_temp = $("#exvalveUnitPrice"+cnt).attr("id");
 		/* 실제 값 가져오기 */
 		var exvalveUnitPrice_val = $("#"+exvalveUnitPrice_temp).val();
@@ -1094,7 +1098,7 @@
 		var base_type_val = $("#"+base_type_val_temp).val();
 		
 		/* 아래 Ajax로 보낼 params객체는 Entity 변수명이랑 "Key"의 이름이 같아야 한다. */
-		var params = {"pntid":base_pntid_val, "returns_py":base_py_val, "temper_type":base_type_val, "controll":controll_val, "exvalve_unit_price":exvalveUnitPrice_val};
+		var params = {"pntid":base_pntid_val, "returns_py":base_py_val, "temper_type":base_type_val, "exvalve":exvalve_val, "exvalve_unit_price":exvalveUnitPrice_val};
    	 $.ajax({
    			anyne:true,
    			type:'POST',
@@ -1118,6 +1122,7 @@
  var elecvalveChecker;
  var elecvalveCntChecker;
  var elecvalveUnitPirce_val;
+ var elecvalve_val;
  
  function checkerELECVALVESelectFn(clicked,pntids){
 	 elecvalveChecker = clicked;
@@ -1135,6 +1140,7 @@ function elecvalveBtnFn(cnt){
 	   	var elecvalve_cntChecker = "#"+elecvalveCntChecker+" option:selected";
 	   	var elecvalve_ctn = $(elecvalve_cntChecker).val();
 	   	var pid = $("#elecvalveSelect"+cnt+' option:selected').val();
+	   	elecvalve_val = $("#elecvalveSelect"+cnt+' option:selected').text();
 	   	var param = {"pid":pid, "elecvalve_ctn":elecvalve_ctn};
    	 $.ajax({
    			anyne:true,
@@ -1165,7 +1171,6 @@ function allelecvalveBtnFn(btnId, cnt) {
 		var base_pntid_val_temp = $("#base_pntid"+cnt).attr("id");
 		var base_py_val_temp = $("#base_py"+cnt).attr("id");
 		var base_type_val_temp = $("#base_type"+cnt).attr("id");
-		var elecvalve_val = $(elecvalve_checker).text();
 		var elecvalveUnitPrice_temp = $("#elecvalveUnitPrice"+cnt).attr("id");
 		/* 실제 값 가져오기 */
 		var elecvalveUnitPrice_val = $("#"+elecvalveUnitPrice_temp).val();
@@ -1197,6 +1202,7 @@ function allelecvalveBtnFn(btnId, cnt) {
 var opassisChecker;
 var opassisCntChecker;
 var opassisUnitPirce_val;
+var opassis_val;
 
 function checkerOPASSISSelectFn(clicked,pntids){
 	opassisChecker = clicked;
@@ -1214,6 +1220,7 @@ function opassisBtnFn(cnt){
 	   	var opassis_cntChecker = "#"+opassisCntChecker+" option:selected";
 	   	var opassis_ctn = $(opassis_cntChecker).val();
 	   	var pid = $("#opassisSelect"+cnt+' option:selected').val();
+	   	opassis_val = $("#opassisSelect"+cnt+' option:selected').text();
 	   	var param = {"pid":pid, "opassis_ctn":opassis_ctn};
   	 $.ajax({
   			anyne:true,
@@ -1221,7 +1228,7 @@ function opassisBtnFn(cnt){
   			contentType: 'application/json',
   			
   			data: JSON.stringify(param),
-  			url:"/admsp/opassisAjax",
+  			url:"/admsp/opassis1Ajax",
   			
   			dataType: "text",
   			success : function(data) {
@@ -1245,7 +1252,6 @@ function allopassisBtnFn(btnId, cnt) {
 		var base_pntid_val_temp = $("#base_pntid"+cnt).attr("id");
 		var base_py_val_temp = $("#base_py"+cnt).attr("id");
 		var base_type_val_temp = $("#base_type"+cnt).attr("id");
-		var opassis_val = $(opassis_checker).text();
 		var opassisUnitPrice_temp = $("#opassisUnitPrice"+cnt).attr("id");
 		/* 실제 값 가져오기 */
 		var opassisUnitPrice_val = $("#"+opassisUnitPrice_temp).val();
@@ -1261,7 +1267,7 @@ function allopassisBtnFn(btnId, cnt) {
  			contentType: 'application/json',
  			
  			data: JSON.stringify(params),
- 			url:"/admsp/opassisAllAjax",
+ 			url:"/admsp/opassis1AllAjax",
  			
  			dataType: "text",
  			success : function(data) {

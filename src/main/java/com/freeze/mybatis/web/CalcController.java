@@ -60,10 +60,16 @@ public class CalcController {
 		List<CalcCDUEntity> calcCDUEntity = service.getCalcCDU();
 		List<CalcCoolerEntity> calcCoolerEntity = service.getCalcCooler();
 		List<CalcControllEntity> calcControllEntity = service.getCalcControll();
+		List<CalcExvalveEntity> calcExvalveEntity = service.getCalcExvalve();
+		List<CalcElecvalveEntity> calcElecvalveEntity = service.getCalcElecvalve();
+		List<CalcOpassisEntity> calcOpassisEntity = service.getCalcOpassis();
 		model.addAttribute("calcBaseEntity", calcBaseEntity);
 		model.addAttribute("cduEntitylist", calcCDUEntity);
 		model.addAttribute("coolerEntitylist", calcCoolerEntity);
 		model.addAttribute("controllEntitylist", calcControllEntity);
+		model.addAttribute("exvalveEntitylist", calcExvalveEntity);
+		model.addAttribute("elecvalveEntitylist", calcElecvalveEntity);
+		model.addAttribute("opassisEntitylist", calcOpassisEntity);
 		return "/admsp/products-list";
 	}
 	
@@ -120,6 +126,60 @@ public class CalcController {
 			 return calcControllEntity.get(0).getUnit_price();
 		 }
 	 }
+	 
+//		데이터 세팅 - Exvalve Products All
+	 	@RequestMapping(value="/admsp/exvalveAllAjax", method=RequestMethod.POST)
+		public @ResponseBody void sendAjaxGetExvalveAll(@RequestBody CalcViewEntity view) throws Exception {
+			service.updateExvalveProductsAll(view);
+		}
+		
+//		 데이터 세팅 - Exvalve Products
+		 @RequestMapping(value="/admsp/exvalveAjax", method=RequestMethod.POST) 
+		 public @ResponseBody String sendAjaxGetExvalveOne(@RequestBody CalcExvalveEntity exvalve, String exvalve_ctn) throws Exception {
+			 List<CalcExvalveEntity> calcExvalveEntity = service.getOneCalcExvalve(exvalve.getPid());
+			 String getUnitPrice = calcExvalveEntity.get(0).getUnit_price();
+			 if(getUnitPrice.equals(null) || getUnitPrice.equals("") || getUnitPrice.equals(0) || getUnitPrice.equals("0")) {
+				 return "";
+			 }else {
+				 return calcExvalveEntity.get(0).getUnit_price();
+			 }
+		 }
+		 
+//		데이터 세팅 - Elecvalve Products All
+	 	@RequestMapping(value="/admsp/elecvalveAllAjax", method=RequestMethod.POST)
+		public @ResponseBody void sendAjaxGetElecvalveAll(@RequestBody CalcViewEntity view) throws Exception {
+			service.updateElecvalveProductsAll(view);
+		}
+		
+//		데이터 세팅 - Elecvalve Products
+		 @RequestMapping(value="/admsp/elecvalveAjax", method=RequestMethod.POST) 
+		 public @ResponseBody String sendAjaxGetElecvalveOne(@RequestBody CalcElecvalveEntity elecvalve, String elecvalve_ctn) throws Exception {
+			 List<CalcElecvalveEntity> calcElecvalveEntity = service.getOneCalcElecvalve(elecvalve.getPid());
+			 String getUnitPrice = calcElecvalveEntity.get(0).getUnit_price();
+			 if(getUnitPrice.equals(null) || getUnitPrice.equals("") || getUnitPrice.equals(0) || getUnitPrice.equals("0")) {
+				 return "";
+			 }else {
+				 return calcElecvalveEntity.get(0).getUnit_price();
+			 }
+		 }
+
+//		데이터 세팅 - Opassis Products All
+	 	@RequestMapping(value="/admsp/opassisAllAjax", method=RequestMethod.POST)
+		public @ResponseBody void sendAjaxGetOpassisAll(@RequestBody CalcViewEntity view) throws Exception {
+			service.updateOpassisProductsAll(view);
+		}
+			
+//		데이터 세팅 - Opassis Products
+		 @RequestMapping(value="/admsp/opassisAjax", method=RequestMethod.POST) 
+		 public @ResponseBody String sendAjaxGetOpassisOne(@RequestBody CalcOpassisEntity opassis, String opassis_ctn) throws Exception {
+			 List<CalcOpassisEntity> calcOpassisEntity = service.getOneCalcOpassis(opassis.getPid());
+			 String getUnitPrice = calcOpassisEntity.get(0).getUnit_price();
+			 if(getUnitPrice.equals(null) || getUnitPrice.equals("") || getUnitPrice.equals(0) || getUnitPrice.equals("0")) {
+				 return "";
+			 }else {
+				 return calcOpassisEntity.get(0).getUnit_price();
+			 }
+		 }
 	 
 //	데이터 세팅 - 화면에서 최초 버튼 클릭 시 AJAX 처음으로 Request 호출하는 곳 
 	@RequestMapping("/admsp/productsRq")
@@ -519,11 +579,9 @@ public class CalcController {
 		door_price = msize_price; //도어 가격
 		base_price = (int) (floor_area * Integer.parseInt(calcPriceEntity.get(0).getBase())); //베이스 가격
 		sub_price = (int) (total_area * Integer.parseInt(calcPriceEntity.get(0).getSub())); //부자재 가격
-		int total_price =  panel_price + door_price + base_price + sub_price;
-
+		int total_price = panel_price + door_price + base_price + sub_price;
 		temper_type = cmd.getTempVal().substring(0,2);
 		List<CalcSettingEntity> calcSettingEntity = service.getCalcSetting(pyls,temper_type);
-		
 		//Price Model
 		model.addAttribute("panel_price",decFormat.format(panel_price));
 		model.addAttribute("door_price",decFormat.format(door_price));
@@ -537,8 +595,8 @@ public class CalcController {
 		model.addAttribute("cdu_unit_price",calcSettingEntity.get(0).getCdu_unit_price());
 		model.addAttribute("cooler",calcSettingEntity.get(0).getCooler());
 		model.addAttribute("cooler_unit_price",calcSettingEntity.get(0).getCooler_unit_price());
-		model.addAttribute("control",calcSettingEntity.get(0).getControl());
-		model.addAttribute("control_unit_price",calcSettingEntity.get(0).getControl_unit_price());
+		model.addAttribute("controll",calcSettingEntity.get(0).getControll());
+		model.addAttribute("controll_unit_price",calcSettingEntity.get(0).getControll_unit_price());
 		model.addAttribute("ex_valve",calcSettingEntity.get(0).getEx_valve());
 		model.addAttribute("ex_valve_unit_price",calcSettingEntity.get(0).getEx_valve_unit_price());
 		model.addAttribute("elec_valve",calcSettingEntity.get(0).getElec_valve());
@@ -577,8 +635,9 @@ public class CalcController {
 		System.out.println("3"+calcSettingEntity.get(0).getCdu_unit_price());
 		System.out.println("4"+calcSettingEntity.get(0).getCooler());
 		System.out.println("5"+calcSettingEntity.get(0).getCooler_unit_price());
-		System.out.println("6"+calcSettingEntity.get(0).getControl());
-		System.out.println("7"+calcSettingEntity.get(0).getControl_unit_price());
+		System.out.println("6"+calcSettingEntity.get(0).getControll());
+		System.out.println("7"+calcSettingEntity.get(0).getControll_unit_price());
+		
 		System.out.println("8"+calcSettingEntity.get(0).getEx_valve());
 		System.out.println("9"+calcSettingEntity.get(0).getEx_valve_unit_price());
 		System.out.println("10"+calcSettingEntity.get(0).getElec_valve());
@@ -616,7 +675,7 @@ public class CalcController {
 		int vp1,vp2,vp3,vp4,vp5,vp6,vp7,vp8,vp9,vp10,vp11,vp12,vp13,vp14,vp15,vp16,vp17,vp18,vp19; 
 		vp1 = (calcSettingEntity.get(0).getCdu_unit_price()).isEmpty() ? 0 : Integer.parseInt(calcSettingEntity.get(0).getCdu_unit_price());
 		vp2 = (calcSettingEntity.get(0).getCooler_unit_price()).isEmpty() ? 0 : Integer.parseInt(calcSettingEntity.get(0).getCooler_unit_price());
-		vp3 = (calcSettingEntity.get(0).getControl_unit_price()).isEmpty() ? 0 : Integer.parseInt(calcSettingEntity.get(0).getControl_unit_price());
+		vp3 = (calcSettingEntity.get(0).getControll_unit_price()).isEmpty() ? 0 : Integer.parseInt(calcSettingEntity.get(0).getControll_unit_price());
 		vp4 = (calcSettingEntity.get(0).getEx_valve_unit_price()).isEmpty() ? 0 : Integer.parseInt(calcSettingEntity.get(0).getEx_valve_unit_price());
 		vp5 = (calcSettingEntity.get(0).getElec_valve_unit_price()).isEmpty() ? 0 : Integer.parseInt(calcSettingEntity.get(0).getElec_valve_unit_price());
 		vp6 = (calcSettingEntity.get(0).getOp_assis1_unit_price()).isEmpty() ? 0 : Integer.parseInt(calcSettingEntity.get(0).getOp_assis1_unit_price());
@@ -633,8 +692,10 @@ public class CalcController {
 		vp17 = (calcSettingEntity.get(0).getManday2_unit_price()).isEmpty() ? 0 : Integer.parseInt(calcSettingEntity.get(0).getManday2_unit_price());
 		vp18 = (calcSettingEntity.get(0).getManday3_unit_price()).isEmpty() ? 0 : Integer.parseInt(calcSettingEntity.get(0).getManday3_unit_price());
 		vp19 = (calcSettingEntity.get(0).getManday4_unit_price()).isEmpty() ? 0 : Integer.parseInt(calcSettingEntity.get(0).getManday4_unit_price());
-		total_price = total_price + vp1 + vp2 + vp3 + vp4 + vp5 + vp6 + vp7 + 
-				vp8 + vp9 + vp10 + vp11 + vp12 + vp13 + vp14 + vp15 + vp16 + vp17 + vp18 + vp19;
+		
+		total_price += vp1 + vp2 + vp3 + vp4 + vp5 + vp6 + vp7 + 
+				vp8 + vp9 + vp10 + vp11 + vp12 + vp13 + vp14 + vp15 + vp16 + vp17 + vp18 + vp19
+				+ panel_price + door_price + base_price + sub_price;
 		model.addAttribute("total_price",total_price);
 		
 		//Input Model

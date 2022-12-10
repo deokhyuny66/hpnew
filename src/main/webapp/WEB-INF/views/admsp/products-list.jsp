@@ -122,6 +122,7 @@
 		  position: -webkit-sticky; 
 		  position: sticky; 
 		  left: 0;
+		  z-index: 10 !important;
 		}
 		table td:last-child{
 		  border-right: 0;
@@ -498,6 +499,9 @@
                                         	<th colspan="3" style="text-align:center;">콘덴샤 유니트</th>
                                         	<th colspan="3" style="text-align:center;">쿨러</th>
                                         	<th colspan="3" style="text-align:center;">콘트롤</th>
+                                        	<th colspan="3" style="text-align:center;">팽창밸브</th>
+                                        	<th colspan="3" style="text-align:center;">전자밸브</th>
+                                        	<th colspan="3" style="text-align:center;">고압배관</th>
                                         </tr>
                                         <tr>
                                         	<th style="position: sticky;left: 0; top: 0;z-index: 10;">평수</th>
@@ -513,6 +517,18 @@
                                             <th>콘트롤</th>
                                             <th>수량</th>
                                             <th>금액</th>
+                                            
+                                            <th>팽창밸브</th>
+                                            <th>수량</th>
+                                            <th>금액</th>
+                                            
+                                            <th>전자밸브</th>
+                                            <th>수량</th>
+                                            <th>금액</th>
+                                            
+                                            <th>고압배관</th>
+                                            <th>총 배관거리</th>
+                                            <th>금액</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -521,6 +537,9 @@
                                         	<th colspan="3" style="text-align:center;">콘덴샤 유니트</th>
                                         	<th colspan="3" style="text-align:center;">쿨러</th>
                                         	<th colspan="3" style="text-align:center;">콘트롤</th>
+                                        	<th colspan="3" style="text-align:center;">팽창밸브</th>
+                                        	<th colspan="3" style="text-align:center;">전자밸브</th>
+                                        	<th colspan="3" style="text-align:center;">고압배관</th>
                                         </tr>
                                         <tr>
                                             <th>평수</th>
@@ -535,6 +554,18 @@
                                             
                                             <th>콘트롤</th>
                                             <th>수량</th>
+                                            <th>금액</th>
+                                            
+                                            <th>팽창밸브</th>
+                                            <th>수량</th>
+                                            <th>금액</th>
+                                            
+                                            <th>전자밸브</th>
+                                            <th>수량</th>
+                                            <th>금액</th>
+                                            
+                                            <th>고압배관</th>
+                                            <th>총 배관거리</th>
                                             <th>금액</th>
                                         </tr>
                                     </tfoot>
@@ -557,7 +588,7 @@
 	                                            <td>	  
 	                                            	<select name="cduSelect${statusNo.index}" id="cduSelect${statusNo.index}" onchange="checkerCDUSelectFn(this.id,'${base.pntid}')">
 	                                            	<c:forEach var="data" items="${cduEntitylist}">
-													    <option value="${data.pid}">${data.cdu}</option><%-- 이 PID로 Query 조회 함 --%>
+													    <option value="${data.pid}" <c:if test="${data.pid eq 'CDUP001'}">selected</c:if>>${data.cdu}</option><%-- 이 PID로 Query 조회 함 --%>
 													</c:forEach>
 													</select>
 	                                            </td>
@@ -580,7 +611,7 @@
 	                                            <td>	  
 	                                            	<select name="coolerSelect${statusNo.index}" id="coolerSelect${statusNo.index}" onchange="checkerCOOLERSelectFn(this.id,'${base.pntid}')">
 	                                            	<c:forEach var="data" items="${coolerEntitylist}">
-													    <option value="${data.pid}">${data.cooler}</option><%-- 이 PID로 Query 조회 함 --%>
+													    <option value="${data.pid}" <c:if test="${data.pid eq 'COOLERP001'}">selected</c:if>>${data.cooler}</option><%-- 이 PID로 Query 조회 함 --%>
 													</c:forEach>
 													</select>
 	                                            </td>
@@ -603,7 +634,7 @@
 	                                            <td>	  
 	                                            	<select name="controllSelect${statusNo.index}" id="controllSelect${statusNo.index}" onchange="checkerCONTROLLSelectFn(this.id,'${base.pntid}')">
 	                                            	<c:forEach var="data" items="${controllEntitylist}">
-													    <option value="${data.pid}">${data.controll}</option><%-- 이 PID로 Query 조회 함 --%>
+													    <option value="${data.pid}" <c:if test="${data.pid eq 'CONTP001'}">selected</c:if>>${data.controll}</option><%-- 이 PID로 Query 조회 함 --%>
 													</c:forEach>
 													</select>
 	                                            </td>
@@ -618,6 +649,75 @@
 	                                            	<input type="text" value="0" name="controllUnitPrice${statusNo.index}" id="controllUnitPrice${statusNo.index}" disabled><br/>
 	                                            	<input type="button" value="변경" class="btnWitch" name="subcontrollBtn${statusNo.index}" id="subcontrollBtn${statusNo.index}" onclick="controllBtnFn(${statusNo.index})">
 	                                            	<input type="button" class="success" value="적용" style="float:right;" name="allcontrollBtn${statusNo.index}" id="allcontrollBtn${statusNo.index}" onclick="allcontrollBtnFn(this.id,${statusNo.index})">
+	                                            </td>
+	                                            </form>
+	                                            
+	                                            <!-- ExValve -->
+	                                            <form action="/admsp/productsRq" name="ajaxExvalveReqForm" id="ajaxExvalveReqForm" method="post">                                          	
+	                                            <td>	  
+	                                            	<select name="exvalveSelect${statusNo.index}" id="exvalveSelect${statusNo.index}" onchange="checkerEXVALVESelectFn(this.id,'${base.pntid}')">
+	                                            	<c:forEach var="data" items="${exvalveEntitylist}">
+													    <option value="${data.pid}" <c:if test="${data.pid eq 'EXVAP001'}">selected</c:if>>${data.exvalve}</option><%-- 이 PID로 Query 조회 함 --%>
+													</c:forEach>
+													</select>
+	                                            </td>
+	                                            <td>	                                            	
+	                                            	<select name="exvalveSelectCnt${statusNo.index}" id="exvalveSelectCnt${statusNo.index}" onchange="checkerEXVALVECntSelectFn(this.id)">
+	                                            	<c:forEach var="exvalveSelcnt" begin="1" end="10">
+													    <option value="${exvalveSelcnt}">${exvalveSelcnt}</option>
+													</c:forEach>
+													</select>
+	                                            </td>
+	                                            <td>
+	                                            	<input type="text" value="0" name="exvalveUnitPrice${statusNo.index}" id="exvalveUnitPrice${statusNo.index}" disabled><br/>
+	                                            	<input type="button" value="변경" class="btnWitch" name="subexvalveBtn${statusNo.index}" id="subexvalveBtn${statusNo.index}" onclick="exvalveBtnFn(${statusNo.index})">
+	                                            	<input type="button" class="success" value="적용" style="float:right;" name="allexvalveBtn${statusNo.index}" id="allexvalveBtn${statusNo.index}" onclick="allexvalveBtnFn(this.id,${statusNo.index})">
+	                                            </td>
+	                                            </form>
+	                                            
+	                                            <!-- ElecValve -->
+	                                            <form action="/admsp/productsRq" name="ajaxElecvalveReqForm" id="ajaxElecvalveReqForm" method="post">                                          	
+	                                            <td>	  
+	                                            	<select name="elecvalveSelect${statusNo.index}" id="elecvalveSelect${statusNo.index}" onchange="checkerELECVALVESelectFn(this.id,'${base.pntid}')">
+	                                            	<c:forEach var="data" items="${elecvalveEntitylist}">
+													    <option value="${data.pid}" <c:if test="${data.pid eq 'ELECVAP001'}">selected</c:if>>${data.elecvalve}</option><%-- 이 PID로 Query 조회 함 --%>
+													</c:forEach>
+													</select>
+	                                            </td>
+	                                            <td>	                                            	
+	                                            	<select name="elecvalveSelectCnt${statusNo.index}" id="elecvalveSelectCnt${statusNo.index}" onchange="checkerELECVALVECntSelectFn(this.id)">
+	                                            	<c:forEach var="elecvalveSelcnt" begin="1" end="10">
+													    <option value="${elecvalveSelcnt}">${elecvalveSelcnt}</option>
+													</c:forEach>
+													</select>
+	                                            </td>
+	                                            <td>
+	                                            	<input type="text" value="0" name="elecvalveUnitPrice${statusNo.index}" id="elecvalveUnitPrice${statusNo.index}" disabled><br/>
+	                                            	<input type="button" value="변경" class="btnWitch" name="subelecvalveBtn${statusNo.index}" id="subelecvalveBtn${statusNo.index}" onclick="elecvalveBtnFn(${statusNo.index})">
+	                                            	<input type="button" class="success" value="적용" style="float:right;" name="allelecvalveBtn${statusNo.index}" id="allelecvalveBtn${statusNo.index}" onclick="allelecvalveBtnFn(this.id,${statusNo.index})">
+	                                            </td>
+	                                            </form>
+	                                            
+	                                             <!-- OPassis -->
+	                                            <form action="/admsp/productsRq" name="ajaxOpassisReqForm" id="ajaxOpassisReqForm" method="post">                                          	
+	                                            <td>	  
+	                                            	<select name="opassiselect${statusNo.index}" id="opassisSelect${statusNo.index}" onchange="checkerOPASSISSelectFn(this.id,'${base.pntid}')">
+	                                            	<c:forEach var="data" items="${opassisEntitylist}">
+													    <option value="${data.pid}" <c:if test="${data.pid eq 'OPP001'}">selected</c:if>>${data.opassis}</option><%-- 이 PID로 Query 조회 함 --%>
+													</c:forEach>
+													</select>
+	                                            </td>
+	                                            <td>	                                            	
+	                                            	<select name="opassisSelectCnt${statusNo.index}" id="opassisSelectCnt${statusNo.index}" onchange="checkerOPASSISCntSelectFn(this.id)">
+	                                            	<c:forEach var="opassisSelcnt" begin="15" end="370" step="5">
+													    <option value="${opassisSelcnt}">${opassisSelcnt}</option>
+													</c:forEach>
+													</select>
+	                                            </td>
+	                                            <td>
+	                                            	<input type="text" value="0" name="opassisUnitPrice${statusNo.index}" id="opassisUnitPrice${statusNo.index}" disabled><br/>
+	                                            	<input type="button" value="변경" class="btnWitch" name="subopassisBtn${statusNo.index}" id="subopassisBtn${statusNo.index}" onclick="opassisBtnFn(${statusNo.index})">
+	                                            	<input type="button" class="success" value="적용" style="float:right;" name="allopassisBtn${statusNo.index}" id="allopassisBtn${statusNo.index}" onclick="allopassisBtnFn(this.id,${statusNo.index})">
 	                                            </td>
 	                                            </form>
 	                                        </tr>
@@ -712,10 +812,8 @@
     /* CDU Btn Onclick Eventer */ 
     function cduBtnFn(cnt){
      	cduUnitPriceId = $("#cduUnitPrice"+cnt).attr("id");
-     	
-		var cdu_checker = "#"+cduChecker+" option:selected";
     	var cdu_cntChecker = "#"+cduCntChecker+" option:selected";
-    	var pid = $(cdu_checker).val();
+    	var pid = $("#cduSelect"+cnt+' option:selected').val();
     	var cdu_ctn = $(cdu_cntChecker).val();
     	var param = {"pid":pid, "cdu_ctn":cdu_ctn};
        	 $.ajax({
@@ -736,7 +834,7 @@
        				$("#"+cduUnitPriceId).val(data*cdu_ctn);  
        			},
        			error: function(jqXHR, textStatus, errorThrown) {
-       				alert("한번 재선택 해주세요.");
+       				alert("오류가 발생했습니다.");
        			}
        		});
     }
@@ -795,10 +893,8 @@
    /* CDU Btn Onclick Eventer */ 
    function coolerBtnFn(cnt){
     	coolerUnitPriceId = $("#coolerUnitPrice"+cnt).attr("id");
-    	
-		var cooler_checker = "#"+coolerChecker+" option:selected";
 	   	var cooler_cntChecker = "#"+coolerCntChecker+" option:selected";
-	   	var pid = $(cooler_checker).val();
+    	var pid = $("#coolerSelect"+cnt+' option:selected').val();
 	   	var cooler_ctn = $(cooler_cntChecker).val();
 	   	var param = {"pid":pid, "cooler_ctn":cooler_ctn};
       	 $.ajax({
@@ -819,7 +915,7 @@
       				$("#"+coolerUnitPriceId).val(data*cooler_ctn);  
       			},
       			error: function(jqXHR, textStatus, errorThrown) {
-      				alert("한번 재선택 해주세요.");
+      				alert("오류가 발생했습니다.");
       			}
       		});
    }
@@ -875,11 +971,9 @@
    
   /* Controll Btn Onclick Eventer */ 
   function controllBtnFn(cnt){
-   	controllUnitPriceId = $("#controllUnitPrice"+cnt).attr("id");
-   	
-		var controll_checker = "#"+controllChecker+" option:selected";
+   		controllUnitPriceId = $("#controllUnitPrice"+cnt).attr("id");
 	   	var controll_cntChecker = "#"+controllCntChecker+" option:selected";
-	   	var pid = $(controll_checker).val();
+	   	var pid = $("#controllSelect"+cnt+' option:selected').val();
 	   	var controll_ctn = $(controll_cntChecker).val();
 	   	var param = {"pid":pid, "controll_ctn":controll_ctn};
      	 $.ajax({
@@ -900,7 +994,7 @@
      				$("#"+controllUnitPriceId).val(data*controll_ctn);  
      			},
      			error: function(jqXHR, textStatus, errorThrown) {
-     				alert("한번 재선택 해주세요.");
+     				alert("오류가 발생했습니다.");
      			}
      		});
   }
@@ -938,6 +1032,247 @@
     			}
     		});
   }
+  
+  
+  /* EX Vavle */
+  var exvalveChecker;
+  var exvalveCntChecker;
+  var exvalveUnitPirce_val;
+  
+  function checkerEXVALVESelectFn(clicked,pntids){
+ 	 exvalveChecker = clicked;
+ 	 pntid_val = pntids;
+  }
+  
+  function checkerEXVALVECntSelectFn(clicked){
+ 	 exvalveCntChecker = clicked;
+  }
+  
+  
+ /* EXVAVLE Btn Onclick Eventer */ 
+ function exvalveBtnFn(cnt){
+	 exvalveUnitPriceId = $("#exvalveUnitPrice"+cnt).attr("id");
+	   	var exvalve_cntChecker = "#"+exvalveCntChecker+" option:selected";
+	   	var pid = $("#exvalveSelect"+cnt+' option:selected').val();
+	   	var exvalve_ctn = $(exvalve_cntChecker).val();
+	   	var param = {"pid":pid, "exvalve_ctn":exvalve_ctn};
+    	 $.ajax({
+    			anyne:true,
+    			type:'POST',
+    			contentType: 'application/json',
+    			
+    			data: JSON.stringify(param),
+    			url:"/admsp/exvalveAjax",
+    			
+    			dataType: "text",
+    			success : function(data) {
+    				if(exvalve_ctn == "undefined" || exvalve_ctn == null || exvalve_ctn == ""){
+    					exvalve_ctn = 1;
+    				}else {
+    					
+    				}
+    				$("#"+exvalveUnitPriceId).val(data*exvalve_ctn);  
+    			},
+    			error: function(jqXHR, textStatus, errorThrown) {
+    				alert("오류가 발생했습니다.");
+    			}
+    		});
+ }
+ 
+ function allexvalveBtnFn(btnId, cnt) {
+ 	/* id값 가져오기 */
+		var exvalve_checker = "#"+exvalveChecker+" option:selected";
+		var base_pntid_val_temp = $("#base_pntid"+cnt).attr("id");
+		var base_py_val_temp = $("#base_py"+cnt).attr("id");
+		var base_type_val_temp = $("#base_type"+cnt).attr("id");
+		var exvalve_val = $(exvalve_checker).text();
+		var exvalveUnitPrice_temp = $("#exvalveUnitPrice"+cnt).attr("id");
+		/* 실제 값 가져오기 */
+		var exvalveUnitPrice_val = $("#"+exvalveUnitPrice_temp).val();
+		var base_pntid_val = $("#"+base_pntid_val_temp).val();
+		var base_py_val = $("#"+base_py_val_temp).val();
+		var base_type_val = $("#"+base_type_val_temp).val();
+		
+		/* 아래 Ajax로 보낼 params객체는 Entity 변수명이랑 "Key"의 이름이 같아야 한다. */
+		var params = {"pntid":base_pntid_val, "returns_py":base_py_val, "temper_type":base_type_val, "controll":controll_val, "exvalve_unit_price":exvalveUnitPrice_val};
+   	 $.ajax({
+   			anyne:true,
+   			type:'POST',
+   			contentType: 'application/json',
+   			
+   			data: JSON.stringify(params),
+   			url:"/admsp/exvalveAllAjax",
+   			
+   			dataType: "text",
+   			success : function(data) {
+   				alert("변경이 완료되었습니다.");
+   			},
+   			error: function(jqXHR, textStatus, errorThrown) {
+   				alert("Error.");
+   			}
+   		});
+ }
+ 
+ 
+ /* ELEC Vavle */
+ var elecvalveChecker;
+ var elecvalveCntChecker;
+ var elecvalveUnitPirce_val;
+ 
+ function checkerELECVALVESelectFn(clicked,pntids){
+	 elecvalveChecker = clicked;
+	 pntid_val = pntids;
+ }
+ 
+ function checkerELECVALVECntSelectFn(clicked){
+	 elecvalveCntChecker = clicked;
+ }
+ 
+ 
+/* ELEC VAVLE Btn Onclick Eventer */ 
+function elecvalveBtnFn(cnt){
+		elecvalveUnitPriceId = $("#elecvalveUnitPrice"+cnt).attr("id");
+	   	var elecvalve_cntChecker = "#"+elecvalveCntChecker+" option:selected";
+	   	var elecvalve_ctn = $(elecvalve_cntChecker).val();
+	   	var pid = $("#elecvalveSelect"+cnt+' option:selected').val();
+	   	var param = {"pid":pid, "elecvalve_ctn":elecvalve_ctn};
+   	 $.ajax({
+   			anyne:true,
+   			type:'POST',
+   			contentType: 'application/json',
+   			
+   			data: JSON.stringify(param),
+   			url:"/admsp/elecvalveAjax",
+   			
+   			dataType: "text",
+   			success : function(data) {
+   				if(elecvalve_ctn == "undefined" || elecvalve_ctn == null || elecvalve_ctn == ""){
+   					elecvalve_ctn = 1;
+   				}else {
+   					
+   				}
+   				$("#"+elecvalveUnitPriceId).val(data*elecvalve_ctn);  
+   			},
+   			error: function(jqXHR, textStatus, errorThrown) {
+   				alert("오류가 발생했습니다.");
+   			}
+   		});
+}
+
+function allelecvalveBtnFn(btnId, cnt) {
+	/* id값 가져오기 */
+		var elecvalve_checker = "#"+elecvalveChecker+" option:selected";
+		var base_pntid_val_temp = $("#base_pntid"+cnt).attr("id");
+		var base_py_val_temp = $("#base_py"+cnt).attr("id");
+		var base_type_val_temp = $("#base_type"+cnt).attr("id");
+		var elecvalve_val = $(elecvalve_checker).text();
+		var elecvalveUnitPrice_temp = $("#elecvalveUnitPrice"+cnt).attr("id");
+		/* 실제 값 가져오기 */
+		var elecvalveUnitPrice_val = $("#"+elecvalveUnitPrice_temp).val();
+		var base_pntid_val = $("#"+base_pntid_val_temp).val();
+		var base_py_val = $("#"+base_py_val_temp).val();
+		var base_type_val = $("#"+base_type_val_temp).val();
+		
+		/* 아래 Ajax로 보낼 params객체는 Entity 변수명이랑 "Key"의 이름이 같아야 한다. */
+		var params = {"pntid":base_pntid_val, "returns_py":base_py_val, "temper_type":base_type_val, "elecvalve":elecvalve_val, "elecvalve_unit_price":elecvalveUnitPrice_val};
+  	 $.ajax({
+  			anyne:true,
+  			type:'POST',
+  			contentType: 'application/json',
+  			
+  			data: JSON.stringify(params),
+  			url:"/admsp/elecvalveAllAjax",
+  			
+  			dataType: "text",
+  			success : function(data) {
+  				alert("변경이 완료되었습니다.");
+  			},
+  			error: function(jqXHR, textStatus, errorThrown) {
+  				alert("Error.");
+  			}
+  		});
+}
+
+/* Opassis Vavle */
+var opassisChecker;
+var opassisCntChecker;
+var opassisUnitPirce_val;
+
+function checkerOPASSISSelectFn(clicked,pntids){
+	opassisChecker = clicked;
+	 pntid_val = pntids;
+}
+
+function checkerOPASSISCntSelectFn(clicked){
+	 opassisCntChecker = clicked;
+}
+
+
+/* OPASSIS Btn Onclick Eventer */ 
+function opassisBtnFn(cnt){
+	opassisUnitPriceId = $("#opassisUnitPrice"+cnt).attr("id");
+	   	var opassis_cntChecker = "#"+opassisCntChecker+" option:selected";
+	   	var opassis_ctn = $(opassis_cntChecker).val();
+	   	var pid = $("#opassisSelect"+cnt+' option:selected').val();
+	   	var param = {"pid":pid, "opassis_ctn":opassis_ctn};
+  	 $.ajax({
+  			anyne:true,
+  			type:'POST',
+  			contentType: 'application/json',
+  			
+  			data: JSON.stringify(param),
+  			url:"/admsp/opassisAjax",
+  			
+  			dataType: "text",
+  			success : function(data) {
+  				if(opassis_ctn == "undefined" || opassis_ctn == null || opassis_ctn == ""){
+  					opassis_ctn = 1;
+  				}else {
+  					
+  				}
+  				$("#"+opassisUnitPriceId).val(data*opassis_ctn);  
+  			},
+  			error: function(jqXHR, textStatus, errorThrown) {
+  				alert("오류가 발생했습니다.");
+  			}
+  		});
+}
+
+
+function allopassisBtnFn(btnId, cnt) {
+	/* id값 가져오기 */
+		var opassis_checker = "#"+opassisChecker+" option:selected";
+		var base_pntid_val_temp = $("#base_pntid"+cnt).attr("id");
+		var base_py_val_temp = $("#base_py"+cnt).attr("id");
+		var base_type_val_temp = $("#base_type"+cnt).attr("id");
+		var opassis_val = $(opassis_checker).text();
+		var opassisUnitPrice_temp = $("#opassisUnitPrice"+cnt).attr("id");
+		/* 실제 값 가져오기 */
+		var opassisUnitPrice_val = $("#"+opassisUnitPrice_temp).val();
+		var base_pntid_val = $("#"+base_pntid_val_temp).val();
+		var base_py_val = $("#"+base_py_val_temp).val();
+		var base_type_val = $("#"+base_type_val_temp).val();
+		
+		/* 아래 Ajax로 보낼 params객체는 Entity 변수명이랑 "Key"의 이름이 같아야 한다. */
+		var params = {"pntid":base_pntid_val, "returns_py":base_py_val, "temper_type":base_type_val, "opassis":opassis_val, "opassis_unit_price":opassisUnitPrice_val};
+ 	 $.ajax({
+ 			anyne:true,
+ 			type:'POST',
+ 			contentType: 'application/json',
+ 			
+ 			data: JSON.stringify(params),
+ 			url:"/admsp/opassisAllAjax",
+ 			
+ 			dataType: "text",
+ 			success : function(data) {
+ 				alert("변경이 완료되었습니다.");
+ 			},
+ 			error: function(jqXHR, textStatus, errorThrown) {
+ 				alert("Error.");
+ 			}
+ 		});
+}
+
 	</script>
 </body>
 

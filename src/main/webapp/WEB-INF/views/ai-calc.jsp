@@ -219,7 +219,6 @@ footer #btnSave2 {
     width: 40% !important;
     font-weight: bold !important;
     border: none !important;
-    height: 48px !important;
     cursor: pointer !important;
 }
 
@@ -372,59 +371,75 @@ textarea {
 					            </tr>
 					            <tr>
 					                <td>COOLER</td>
-					                <td colspan="3" class="blur">2HP</td>
+					                <td colspan="3">${cooler}</td>
 					            </tr>
 					            <tr>
 					                <td>콘트롤</td>
-					                <td colspan="3" class="blur">6HP</td>
+					                <td colspan="3">${controll}</td>
 					            </tr>
 					            <tr>
 					                <td>팽창밸브</td>
-					                <td colspan="3" class="blur">200V</td>
+					                <td colspan="3">${ex_valve}</td>
 					            </tr>
 					            <tr>
 					                <td>전자밸브</td>
-					                <td colspan="3" class="blur">2.6V</td>
+					                <td colspan="3">${elec_valve}</td>
 					            </tr>
 					            <tr>
 					                <td>고압배관</td>
-					                <td colspan="3" class="blur">High</td>
+					                <td colspan="3">${op_assis1}</td>
 					            </tr>
 					            <tr>
 					                <td>저압배관</td>
-					                <td colspan="3" class="blur">Row</td>
+					                <td colspan="3">${op_assis2}</td>
 					            </tr>
 					            <tr>
 					                <td>고압 보온재</td>
-					                <td colspan="3" class="blur">Lagging High</td>
+					                <td colspan="3">${op_assis3}</td>
 					            </tr>
 					            <tr>
 					                <td>저압 보온재</td>
-					                <td colspan="3" class="blur">Lagging Row</td>
+					                <td colspan="3">${op_assis4}</td>
 					            </tr>
 					            <tr>
-					                <td>전원선</td>
-					                <td colspan="3" class="blur">220V</td>
+					                <td>콤프 전원선</td>
+					                <td colspan="3">${op_assis5}</td>
 					            </tr>
 					            <tr>
-					                <td>조작 보조선 1</td>
-					                <td colspan="3" class="blur">2.14A</td>
+					                <td>히터 전원선</td>
+					                <td colspan="3">${op_assis6}</td>
 					            </tr>
 					            <tr>
-					                <td>조작 보조선 2</td>
-					                <td colspan="3" class="blur">5.4A</td>
+					                <td>유니트 조작 보조선 1</td>
+					                <td colspan="3">${op_assis7}</td>
 					            </tr>
 					            <tr>
-					                <td>조작 보조선 3</td>
-					                <td colspan="3" class="blur">9A</td>
+					                <td>유니트 조작 보조선 2</td>
+					                <td colspan="3">${op_assis8}</td>
 					            </tr>
 					            <tr>
-					                <td>엔지니어 수</td>
-					                <td colspan="3" class="blur">고급엔지니어 2명</td>
+					                <td>쿨러 조작 보조선 1</td>
+					                <td colspan="3">${op_assis9}</td>
 					            </tr>
 					            <tr>
-					                <td>공사기간</td>
-					                <td colspan="3" class="blur">1일/3일 = 총4일</td>
+					                <td>쿨러 조작 보조선 1</td>
+					                <td colspan="3">${op_assis10}</td>
+					            </tr>
+					            <tr>
+					                <td>멤버스 1</td>
+					                <td colspan="3">${manday1}</td>
+					            </tr>
+					            <tr>
+					                <td>멤버스 2</td>
+					                <td colspan="3">${manday2}</td>
+					            </tr>
+					            <tr>
+					                <td>멤버스 3</td>
+					                <td colspan="3">${manday3}</td>
+					            </tr>
+					            <tr>
+					                <td>멤버스 4</td>
+					                <td colspan="3">${manday4}</td>
 					            </tr>
 	           				</table>
          				</div>
@@ -455,59 +470,75 @@ textarea {
 					            </tr>
 					            <tr>
 					                <td>COOLER</td>
-					                <td colspan="3" class="blur">1,250,000</td>
+					                <td colspan="3"><fmt:formatNumber value="${cooler_unit_price}" pattern="#,###"/></td>
 					            </tr>
 					            <tr>
 					                <td>콘트롤</td>
-					                <td colspan="3" class="blur">400,000</td>
+					                <td colspan="3"><fmt:formatNumber value="${controll_unit_price}" pattern="#,###"/></td>
 					            </tr>
 					            <tr>
 					                <td>팽창밸브</td>
-					                <td colspan="3" class="blur">50,000</td>
+					                <td colspan="3"><fmt:formatNumber value="${ex_valve_unit_price}" pattern="#,###"/></td>
 					            </tr>
 					            <tr>
 					                <td>전자밸브</td>
-					                <td colspan="3" class="blur">50,000</td>
+					                <td colspan="3"><fmt:formatNumber value="${elec_valve_unit_price}" pattern="#,###"/></td>
 					            </tr>
 					            <tr>
 					                <td>고압배관</td>
-					                <td colspan="3" class="blur">35,000</td>
+					                <td colspan="3"><fmt:formatNumber value="${op_assis1_unit_price}" pattern="#,###"/></td>
 					            </tr>
 					            <tr>
 					                <td>저압배관</td>
-					                <td colspan="3" class="blur">15,000</td>
+					                <td colspan="3"><fmt:formatNumber value="${op_assis2_unit_price}" pattern="#,###"/></td>
 					            </tr>
 					            <tr>
 					                <td>고압 보온재</td>
-					                <td colspan="3" class="blur">1M 25,000</td>
+					                <td colspan="3"><fmt:formatNumber value="${op_assis3_unit_price}" pattern="#,###"/></td>
 					            </tr>
 					            <tr>
 					                <td>저압 보온재</td>
-					                <td colspan="3" class="blur">1M 15,000</td>
+					                <td colspan="3"><fmt:formatNumber value="${op_assis4_unit_price}" pattern="#,###"/></td>
 					            </tr>
 					            <tr>
-					                <td>전원선</td>
-					                <td colspan="3" class="blur">1M 10,000</td>
+					                <td>콤프 전원선</td>
+					                <td colspan="3"><fmt:formatNumber value="${op_assis5_unit_price}" pattern="#,###"/></td>
 					            </tr>
 					            <tr>
-					                <td>조작 보조선 1</td>
-					                <td colspan="3" class="blur">5,090</td>
+					                <td>히터 전원선</td>
+					                <td colspan="3"><fmt:formatNumber value="${op_assis6_unit_price}" pattern="#,###"/></td>
 					            </tr>
 					            <tr>
-					                <td>조작 보조선 2</td>
-					                <td colspan="3" class="blur">5,500</td>
+					                <td>유니트 조작 보조선 1</td>
+					                <td colspan="3"><fmt:formatNumber value="${op_assis7_unit_price}" pattern="#,###"/></td>
 					            </tr>
 					            <tr>
-					                <td>조작 보조선 3</td>
-					                <td colspan="3" class="blur">6,250</td>
+					                <td>유니트 조작 보조선 2</td>
+					                <td colspan="3"><fmt:formatNumber value="${op_assis8_unit_price}" pattern="#,###"/></td>
 					            </tr>
 					            <tr>
-					                <td>엔지니어 수</td>
-					                <td colspan="3" class="blur">총 4일/600,000</td>
+					                <td>쿨러 조작 보조선 1</td>
+					                <td colspan="3"><fmt:formatNumber value="${op_assis9_unit_price}" pattern="#,###"/></td>
 					            </tr>
 					            <tr>
-					                <td>공사기간</td>
-					                <td colspan="3" class="blur">1일/3일 = 총4일</td>
+					                <td>쿨러 조작 보조선 1</td>
+					                <td colspan="3"><fmt:formatNumber value="${op_assis10_unit_price}" pattern="#,###"/></td>
+					            </tr>
+					            <tr>
+					                <td>멤버스 1</td>
+					                <td colspan="3"><fmt:formatNumber value="${manday1_unit_price}" pattern="#,###"/></td>
+					            </tr>
+					            <tr>
+					                <td>멤버스 2</td>
+					                <td colspan="3"><fmt:formatNumber value="${manday2_unit_price}" pattern="#,###"/></td>
+					            </tr>
+					            <tr>
+					                <td>멤버스 3</td>
+					                <td colspan="3"><fmt:formatNumber value="${manday3_unit_price}" pattern="#,###"/></td>
+					            </tr>
+					            <tr>
+					                <td>멤버스 4</td>
+					                <td colspan="3"><fmt:formatNumber value="${manday4_unit_price}" pattern="#,###"/></td>
 					            </tr>
 					            <tr>
 					                <th>총 금액</th>

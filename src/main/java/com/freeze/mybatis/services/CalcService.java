@@ -42,6 +42,15 @@ public class CalcService
     public void updateControllProductsAll(CalcViewEntity view) throws Exception {
     	this.mapper.updateControllProductsAll(view);
     }
+    public void updateExvalveProductsAll(CalcViewEntity view) throws Exception {
+    	this.mapper.updateExvalveProductsAll(view);
+    }
+    public void updateElecvalveProductsAll(CalcViewEntity view) throws Exception {
+    	this.mapper.updateElecvalveProductsAll(view);
+    }
+    public void updateOpassisProductsAll(CalcViewEntity view) throws Exception {
+    	this.mapper.updateOpassisProductsAll(view);
+    }
     
 //  데이터 세팅 - View 가격 하나씩 가져오기
     public List<CalcCDUEntity> getOneCalcCDU(String pid) throws Exception {
@@ -52,6 +61,15 @@ public class CalcService
     }
     public List<CalcControllEntity> getOneCalcControll(String pid) throws Exception {
         return this.mapper.getOneCalcControll(pid);
+    }
+    public List<CalcExvalveEntity> getOneCalcExvalve(String pid) throws Exception {
+        return this.mapper.getOneCalcExvalve(pid);
+    }
+    public List<CalcElecvalveEntity> getOneCalcElecvalve(String pid) throws Exception {
+        return this.mapper.getOneCalcElecvalve(pid);
+    }
+    public List<CalcOpassisEntity> getOneCalcOpassis(String pid) throws Exception {
+        return this.mapper.getOneCalcOpassis(pid);
     }
     
     

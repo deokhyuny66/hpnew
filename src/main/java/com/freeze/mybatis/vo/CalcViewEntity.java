@@ -10,6 +10,49 @@ public class CalcViewEntity {
 	private String cooler_unit_price;
 	private String controll;
 	private String controll_unit_price;
+	private String exvalve;
+	private String exvalve_unit_price;
+	private String elecvalve;
+	private String elecvalve_unit_price;
+	private String opassis;
+	private String opassis_unit_price;
+	
+	public String getOpassis() {
+		return opassis;
+	}
+	public void setOpassis(String opassis) {
+		this.opassis = opassis;
+	}
+	public String getOpassis_unit_price() {
+		return opassis_unit_price;
+	}
+	public void setOpassis_unit_price(String opassis_unit_price) {
+		this.opassis_unit_price = opassis_unit_price;
+	}
+	public String getElecvalve() {
+		return elecvalve;
+	}
+	public void setElecvalve(String elecvalve) {
+		this.elecvalve = elecvalve;
+	}
+	public String getElecvalve_unit_price() {
+		return elecvalve_unit_price;
+	}
+	public void setElecvalve_unit_price(String elecvalve_unit_price) {
+		this.elecvalve_unit_price = elecvalve_unit_price;
+	}
+	public String getExvalve() {
+		return exvalve;
+	}
+	public void setExvalve(String exvalve) {
+		this.exvalve = exvalve;
+	}
+	public String getExvalve_unit_price() {
+		return exvalve_unit_price;
+	}
+	public void setExvalve_unit_price(String exvalve_unit_price) {
+		this.exvalve_unit_price = exvalve_unit_price;
+	}
 	
 	public String getControll() {
 		return controll;

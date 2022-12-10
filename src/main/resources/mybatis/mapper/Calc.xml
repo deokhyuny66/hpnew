@@ -49,7 +49,16 @@
 	</select>
 	<select id="getOneCalcControll" resultType="com.freeze.mybatis.vo.CalcControllEntity">
 		select * from controll_t where pid = #{pid}
-	</select>		
+	</select>
+	<select id="getOneCalcExvalve" resultType="com.freeze.mybatis.vo.CalcExvalveEntity">
+		select * from exvalve_t where pid = #{pid}
+	</select>
+	<select id="getOneCalcElecvalve" resultType="com.freeze.mybatis.vo.CalcElecvalveEntity">
+		select * from elecvalve_t where pid = #{pid}
+	</select>
+	<select id="getOneCalcOpassis" resultType="com.freeze.mybatis.vo.CalcOpassisEntity">
+		select * from opassis_t where pid = #{pid}
+	</select>					
 	
 		
 	
@@ -70,6 +79,24 @@
 		update SETTING_VIEW_T 
 			set CONTROLL = #{controll}, 
 				CONTROLL_UNIT_PRICE = #{controll_unit_price}
+			where PINID = #{pntid}
+	</update>
+	<update id="updateExvalveProductsAll" parameterType="com.freeze.mybatis.vo.CalcViewEntity">
+		update SETTING_VIEW_T 
+			set EX_VALVE = #{exvalve}, 
+				EX_VALVE_UNIT_PRICE = #{exvalve_unit_price}
+			where PINID = #{pntid}
+	</update>
+	<update id="updateElecvalveProductsAll" parameterType="com.freeze.mybatis.vo.CalcViewEntity">
+		update SETTING_VIEW_T 
+			set ELEC_VALVE = #{elecvalve}, 
+				ELEC_VALVE_UNIT_PRICE = #{elecvalve_unit_price}
+			where PINID = #{pntid}
+	</update>
+	<update id="updateOpassisProductsAll" parameterType="com.freeze.mybatis.vo.CalcViewEntity">
+		update SETTING_VIEW_T 
+			set OP_ASSIS1 = #{opassis}, 
+				OP_ASSIS1_UNIT_PRICE = #{opassis_unit_price}
 			where PINID = #{pntid}
 	</update>
 	

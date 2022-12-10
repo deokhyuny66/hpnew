@@ -9,8 +9,8 @@ public class CalcSettingEntity
     private String cdu_unit_price;
     private String cooler;
     private String cooler_unit_price;
-    private String control;
-    private String control_unit_price;
+    private String controll;
+    private String controll_unit_price;
     private String ex_valve;
     private String ex_valve_unit_price;
     private String elec_valve;
@@ -101,20 +101,20 @@ public class CalcSettingEntity
 		this.cooler_unit_price = cooler_unit_price;
 	}
 
-	public String getControl() {
-		return control;
+	public String getControll() {
+		return controll;
 	}
 
-	public void setControl(String control) {
-		this.control = control;
+	public void setControll(String controll) {
+		this.controll = controll;
 	}
 
-	public String getControl_unit_price() {
-		return control_unit_price;
+	public String getControll_unit_price() {
+		return controll_unit_price;
 	}
 
-	public void setControl_unit_price(String control_unit_price) {
-		this.control_unit_price = control_unit_price;
+	public void setControll_unit_price(String controll_unit_price) {
+		this.controll_unit_price = controll_unit_price;
 	}
 
 	public String getEx_valve() {

@@ -70,13 +70,6 @@
 		    font-size: 13px;
 		    margin-bottom: 5px;
 		}
-		
-    	/* 페이지네이션 위치 */
-   	  	#dataTable_paginate {
-	   		position:fixed;
-	   		top:757px;
-	   		right:44px;
-	   	}
     
    		/* 테이블 스크롤 열 고정 */
 		table tbody td {
@@ -132,6 +125,46 @@
 			position:relative;
 			left:63px;
 		}
+		
+		#dataTable_paginate {
+		    position: fixed !important;
+		    top: 778px;
+		    right: 30px;
+		}
+		div.dataTables_wrapper div.dataTables_filter {
+		    position: fixed;
+		    top: 250px;
+    		right: 30px	
+		}
+		#dataTable_length {
+			margin-top:10px;
+			margin-bottom:-10px;
+		}
+	
+		/* 테이블 터치 좌우 스크롤 하기 */	
+		.itemss {
+		  overflow-x: scroll;
+		  overflow-y: hidden;
+		  white-space: nowrap;
+		  user-select: none;
+		  cursor: pointer;
+		  /* transition: all 0.2s; */
+		  /* transform: scale(0.98); */
+		  /* will-change: transform; */
+		  background: rgba(255,255,255,0.1);
+		}
+		
+		.itemss.active {
+		  background: rgba(255,255,255,0.3);
+		  cursor: grabbing;
+		  cursor: -webkit-grabbing;
+		}
+		.itemz:nth-child(even) { transform: scaleX(1.31) rotateY(40deg); }
+		.itemz:nth-child(odd) { transform: scaleX(1.31) rotateY(-40deg); }
+
+	  	.card-body {
+	  		padding: 0;
+	  	}
     </style>
 </head>
 
@@ -486,13 +519,13 @@
                             href="https://datatables.net">official DataTables documentation</a>.</p>
 
                     <!-- DataTales Example -->
-                    <div class="card shadow mb-4 fixed-table-container" >
+                    <div class="card shadow mb-4 fixed-table-container">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
                         </div>
                         <div class="card-body fixed-table-body">
-                            <div class="table-responsive item">
-                                <table class="table table-bordered w-auto" id="dataTable" width="100%" cellspacing="0">
+                            <div class="table-responsive item itemss"> 
+                                <table class="table table-bordered w-auto itemz" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                         	<th colspan="1" style="text-align:center;">고유정보</th>
@@ -725,7 +758,7 @@
                                      	</form>
                                     </tbody>
                                 </table>
-                            </div>
+                            </div> <!-- End. Div -->
                         </div>
                     </div>
 
@@ -794,6 +827,38 @@
     <!-- Page level custom scripts -->
     <script src="/assets/js/admsp/demo/datatables-demo.js"></script>
 	<script>
+	  /* 테이블 마우스 터치 좌우 스크롤하기 */
+	  const slider = document.querySelector('.itemss');
+	  let isMouseDown = false;
+	  let startX, scrollLeft;
+
+	  slider.addEventListener('mousedown', (e) => {
+	    isMouseDown = true;
+	    slider.classList.add('active');
+
+	    startX = e.pageX - slider.offsetLeft;
+	    scrollLeft = slider.scrollLeft;
+	  });
+	  
+	  slider.addEventListener('mouseleave', () => {
+	    isMouseDown = false;
+	    slider.classList.remove('active');
+	  });
+	  
+	  slider.addEventListener('mouseup', () => {
+	    isMouseDown = false;
+	    slider.classList.remove('active');
+	  });
+
+	  slider.addEventListener('mousemove', (e) => {
+	    if (!isMouseDown) return;
+
+	    e.preventDefault();
+	    const x = e.pageX - slider.offsetLeft;
+	    const walk = (x - startX) * 1;
+	    slider.scrollLeft = scrollLeft - walk;
+	  });
+	
      /* CDU */
 	 var cduChecker;
      var pntid_val;

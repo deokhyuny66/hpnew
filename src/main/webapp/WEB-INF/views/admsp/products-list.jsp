@@ -25,146 +25,11 @@
 
     <!-- Custom styles for this page -->
     <link href="/assets/vendor/admsp/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="/assets/css/admsp/admsp.css?ver=2" rel="stylesheet">
     <style>
-    	@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
-    	* {
-    		font-family: 'Noto Sans KR', sans-serif !important;
-    	}
-    	
-    	/* 버튼 색상 */
-    	:root {
-		  --button-color: #ffffff;
-		  --button-bg-color: #4e73df;
-		  --button-hover-bg-color: #025ce2;
-		}
-	    input[type='button'] {
-		  -webkit-appearance: none;
-		  -moz-appearance: none;
-		  appearance: none;
-		  background: var(--button-bg-color);
-		  color: var(--button-color);
-		  margin: 0;
-		  padding: 0.5rem 1rem;
-		  text-decoration: none;
-		  border: none;
-		  border-radius: 4px;
-		  display: inline-block;
-		  width: auto;
-		  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-		  cursor: pointer;
-		  transition: 0.5s;
-		}
-		.success {
-		  --button-bg-color: #28a745;
-		  --button-hover-bg-color: #218838;
-		}
-		
-		/* INPUT 모양 */
-		.item input[type='text'], .item select {
-		    align-items: center;
-		    justify-content: space-between;
-		    border-radius: 10px;
-		    border: 1px solid rgba(69, 94, 234, 0.3);
-		    cursor: pointer;
-		    height: 35px;
-		    font-size: 13px;
-		    margin-bottom: 5px;
-		}
-    
-   		/* 테이블 스크롤 열 고정 */
-		table tbody td {
-	   		min-width: 100px;
-	   	}
-	   	table{
-		  border-collapse: separate;
-		  border-spacing: 0;
-		  width: 800px;
-		  font-color: #000 !important;
-		}
-		table th{
-		  background-color: #888; 
-		  height: 10px; 
-		  color: #fff;
-		  border-right: 1px solid #f6f6f6; 
-		  border-bottom: 1px solid #f6f6f6;
-		}
-		table th:last-child{
-		  border-right: 0;
-		}
-		/*sticky 적용*/
-		table th:first-child{
-		  position: -webkit-sticky; 
-		  position: sticky; 
-		  left: 0;
-		}
-		table td{
-		  background-color: #fff; 
-		  border-right: 1px solid #f6f6f6; 
-		  border-bottom: 1px solid #f6f6f6;
-		  padding: 5px;
-		  font-size: 13px !important;
-		  color: #000 !important;
-		  /* text-align: center; */
-		}
-		table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td {
-		    /* border-bottom-width: 0; */
-		}
-		/*sticky 적용*/
-		table td:first-child{
-		  background-color: #c8c8c8;
-		  position: -webkit-sticky; 
-		  position: sticky; 
-		  left: 0;
-		  z-index: 10 !important;
-		}
-		table td:last-child{
-		  border-right: 0;
-		}
-		
-		.btnWitch {
-			position:relative;
-			left:63px;
-		}
-		
-		#dataTable_paginate {
-		    position: fixed !important;
-		    top: 778px;
-		    right: 30px;
-		}
-		div.dataTables_wrapper div.dataTables_filter {
-		    position: fixed;
-		    top: 250px;
-    		right: 30px	
-		}
-		#dataTable_length {
-			margin-top:10px;
-			margin-bottom:-10px;
-		}
-	
-		/* 테이블 터치 좌우 스크롤 하기 */	
-		.itemss {
-		  overflow-x: scroll;
-		  overflow-y: hidden;
-		  white-space: nowrap;
-		  user-select: none;
-		  cursor: pointer;
-		  /* transition: all 0.2s; */
-		  /* transform: scale(0.98); */
-		  /* will-change: transform; */
-		  background: rgba(255,255,255,0.1);
-		}
-		
-		.itemss.active {
-		  background: rgba(255,255,255,0.3);
-		  cursor: grabbing;
-		  cursor: -webkit-grabbing;
-		}
-		.itemz:nth-child(even) { transform: scaleX(1.31) rotateY(40deg); }
-		.itemz:nth-child(odd) { transform: scaleX(1.31) rotateY(-40deg); }
-
-	  	.card-body {
-	  		padding: 0;
-	  	}
+    #dataTables_wrapper > div.row {
+    	padding-left: 20px !important;
+    }
     </style>
 </head>
 
@@ -535,33 +400,98 @@
                                         	<th colspan="3" style="text-align:center;">팽창밸브</th>
                                         	<th colspan="3" style="text-align:center;">전자밸브</th>
                                         	<th colspan="3" style="text-align:center;">고압배관</th>
+                                        	<th colspan="3" style="text-align:center;">저압배관</th>
+                                        	<th colspan="3" style="text-align:center;">고압보온재</th>
+                                        	<th colspan="3" style="text-align:center;">저압보온재</th>
+                                        	<th colspan="3" style="text-align:center;">콤프전원선</th>
+                                        	<th colspan="3" style="text-align:center;">히터전원선</th>
+                                        	<th colspan="3" style="text-align:center;">유니트조작 보조선 1</th>
+                                        	<th colspan="3" style="text-align:center;">유니트조작 보조선 2</th>
+                                        	<th colspan="3" style="text-align:center;">쿨러조작 보조선 1</th>
+                                        	<th colspan="3" style="text-align:center;">쿨러조작 보조선 2</th>
+                                        	<th colspan="3" style="text-align:center;">MANDAYS 1</th>
+                                        	<th colspan="3" style="text-align:center;">MANDAYS 2</th>
+                                        	<th colspan="3" style="text-align:center;">MANDAYS 3</th>
+                                        	<th colspan="3" style="text-align:center;">MANDAYS 4</th>
                                         </tr>
                                         <tr>
                                         	<th style="position: sticky;left: 0; top: 0;z-index: 10;">평수</th>
                                             
-                                            <th>콘덴샤유니트</th>
+                                            <th>제품</th>
                                             <th>수량</th>
                                             <th>금액</th>
                                             
-                                            <th>쿨러</th>
+                                            <th>제품</th>
                                             <th>수량</th>
                                             <th>금액</th>
                                             
-                                            <th>콘트롤</th>
+                                            <th>제품</th>
                                             <th>수량</th>
                                             <th>금액</th>
                                             
-                                            <th>팽창밸브</th>
+                                            <th>제품</th>
                                             <th>수량</th>
                                             <th>금액</th>
                                             
-                                            <th>전자밸브</th>
+                                            <th>제품</th>
                                             <th>수량</th>
                                             <th>금액</th>
                                             
-                                            <th>고압배관</th>
+                                            <th>제품</th>
                                             <th>총 배관거리</th>
                                             <th>금액</th>
+                                            
+                                            <th>제품</th>
+                                            <th>총 배관거리</th>
+                                            <th>금액</th>
+                                            
+                                            <th>제품</th>
+                                            <th>총 배관거리</th>
+                                            <th>금액</th>
+                                            
+                                            <th>제품</th>
+                                            <th>총 배관거리</th>
+                                            <th>금액</th>
+                                            
+                                            <th>제품</th>
+                                            <th>거리</th>
+                                            <th>금액</th>
+                                            
+                                            <th>제품</th>
+                                            <th>거리</th>
+                                            <th>금액</th>
+                                            
+                                            <th>제품</th>
+                                            <th>거리</th>
+                                            <th>금액</th>
+                                            
+                                            <th>제품</th>
+                                            <th>거리</th>
+                                            <th>금액</th>
+                                            
+                                            <th>제품</th>
+                                            <th>거리</th>
+                                            <th>금액</th>
+                                            
+                                            <th>제품</th>
+                                            <th>거리</th>
+                                            <th>금액</th>
+                                            
+                                            <th>Man</th>
+                                            <th>Day</th>
+                                            <th>인건비</th>
+                                            
+                                            <th>Man</th>
+                                            <th>Day</th>
+                                            <th>인건비</th>
+                                            
+                                            <th>Man</th>
+                                            <th>Day</th>
+                                            <th>인건비</th>
+                                            
+                                            <th>Man</th>
+                                            <th>Day</th>
+                                            <th>인건비</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -573,189 +503,514 @@
                                         	<th colspan="3" style="text-align:center;">팽창밸브</th>
                                         	<th colspan="3" style="text-align:center;">전자밸브</th>
                                         	<th colspan="3" style="text-align:center;">고압배관</th>
+                                        	<th colspan="3" style="text-align:center;">저압배관</th>
+                                        	<th colspan="3" style="text-align:center;">고압보온재</th>
+                                        	<th colspan="3" style="text-align:center;">저압보온재</th>
+                                        	<th colspan="3" style="text-align:center;">콤프전원선</th>
+                                        	<th colspan="3" style="text-align:center;">히터전원선</th>
+                                        	<th colspan="3" style="text-align:center;">유니트조작 보조선 1</th>
+                                        	<th colspan="3" style="text-align:center;">유니트조작 보조선 2</th>
+                                        	<th colspan="3" style="text-align:center;">쿨러조작 보조선 1</th>
+                                        	<th colspan="3" style="text-align:center;">쿨러조작 보조선 2</th>
+                                        	<th colspan="3" style="text-align:center;">MANDAYS 1</th>
+                                        	<th colspan="3" style="text-align:center;">MANDAYS 2</th>
+                                        	<th colspan="3" style="text-align:center;">MANDAYS 3</th>
+                                        	<th colspan="3" style="text-align:center;">MANDAYS 4</th>
                                         </tr>
                                         <tr>
                                             <th>평수</th>
                                             
-                                            <th>콘덴샤유니트</th>
+                                            <th>제품</th>
                                             <th>수량</th>
                                             <th>금액</th>
                                             
-                                            <th>쿨러</th>
+                                            <th>제품</th>
                                             <th>수량</th>
                                             <th>금액</th>
                                             
-                                            <th>콘트롤</th>
+                                            <th>제품</th>
                                             <th>수량</th>
                                             <th>금액</th>
                                             
-                                            <th>팽창밸브</th>
+                                            <th>제품</th>
                                             <th>수량</th>
                                             <th>금액</th>
                                             
-                                            <th>전자밸브</th>
+                                            <th>제품</th>
                                             <th>수량</th>
                                             <th>금액</th>
                                             
-                                            <th>고압배관</th>
+                                            <th>제품</th>
                                             <th>총 배관거리</th>
                                             <th>금액</th>
+                                            
+                                            <th>제품</th>
+                                            <th>총 배관거리</th>
+                                            <th>금액</th>
+                                            
+                                            <th>제품</th>
+                                            <th>총 배관거리</th>
+                                            <th>금액</th>
+                                            
+                                            <th>제품</th>
+                                            <th>총 배관거리</th>
+                                            <th>금액</th>
+                                            
+                                            <th>제품</th>
+                                            <th>거리</th>
+                                            <th>금액</th>
+                                            
+                                            <th>제품</th>
+                                            <th>거리</th>
+                                            <th>금액</th>
+                                            
+                                            <th>제품</th>
+                                            <th>거리</th>
+                                            <th>금액</th>
+                                            
+                                            <th>제품</th>
+                                            <th>거리</th>
+                                            <th>금액</th>
+                                            
+                                            <th>제품</th>
+                                            <th>거리</th>
+                                            <th>금액</th>
+                                            
+                                            <th>제품</th>
+                                            <th>거리</th>
+                                            <th>금액</th>
+                                            
+                                            <th>Man</th>
+                                            <th>Day</th>
+                                            <th>인건비</th>
+                                            
+                                            <th>Man</th>
+                                            <th>Day</th>
+                                            <th>인건비</th>
+                                            
+                                            <th>Man</th>
+                                            <th>Day</th>
+                                            <th>인건비</th>
+                                            
+                                            <th>Man</th>
+                                            <th>Day</th>
+                                            <th>인건비</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                    	<form action="/admsp/products-list" name="prdForm" id="prdForm" method="post">
-                                    		<!-- BASE -->
-	                                        <c:forEach var="base" items="${calcBaseEntity}" begin="0" varStatus="statusNo">
-	                                        <tr>
-	                                            <td>
-	                                            	<div style="display:none !important;">${base.pntid}<input type="hidden" value="${base.pntid}" name="base_pntid${statusNo.index}" id="base_pntid${statusNo.index}"></div>
-	                                            	<div>
-	                                            		${base.returns_py}평<br/>${base.temper_type}
-	                                            		<input type="hidden" value="${base.returns_py}" name="base_py${statusNo.index}" id="base_py${statusNo.index}">
-	                                            		<input type="hidden" value="${base.temper_type}" name="base_type${statusNo.index}" id="base_type${statusNo.index}">
-	                                            	</div>
-	                                            </td>
-	                                            
-	                                            <!-- CDU -->
-	                                            <form action="/admsp/productsRq" name="ajaxCduReqForm" id="ajaxCduReqForm" method="post">                                          	
-	                                            <td>	  
-	                                            	<select name="cduSelect${statusNo.index}" id="cduSelect${statusNo.index}" onchange="checkerCDUSelectFn(this.id,'${base.pntid}')">
-	                                            	<c:forEach var="data" items="${cduEntitylist}">
-													    <option value="${data.pid}" <c:if test="${data.pid eq 'CDUP001'}">selected</c:if>>${data.cdu}</option><%-- 이 PID로 Query 조회 함 --%>
-													</c:forEach>
-													</select>
-	                                            </td>
-	                                            <td>	                                            	
-	                                            	<select name="cduSelectCnt${statusNo.index}" id="cduSelectCnt${statusNo.index}" onchange="checkerCDUCntSelectFn(this.id)">
-	                                            	<c:forEach var="cduSelcnt" begin="1" end="10">
-													    <option value="${cduSelcnt}">${cduSelcnt}</option>
-													</c:forEach>
-													</select>
-	                                            </td>
-	                                            <td>
-	                                            	<input type="text" value="0" class="cduUnitDS" name="cduUnitPrice${statusNo.index}" id="cduUnitPrice${statusNo.index}" disabled><br/>
-	                                            	<input type="button" value="변경" class="btnWitch" name="subcduBtn${statusNo.index}" id="subcduBtn${statusNo.index}" onclick="cduBtnFn(${statusNo.index})">
-	                                            	<input type="button" class="success" value="적용" style="float:right;" name="allcduBtn${statusNo.index}" id="allcduBtn${statusNo.index}" onclick="allcduBtnFn(this.id,${statusNo.index})">
-	                                            </td>
-	                                            </form>
-	                                            
-	                                            <!-- COOLER -->
-	                                            <form action="/admsp/productsRq" name="ajaxCoolerReqForm" id="ajaxCoolerReqForm" method="post">                                          	
-	                                            <td>	  
-	                                            	<select name="coolerSelect${statusNo.index}" id="coolerSelect${statusNo.index}" onchange="checkerCOOLERSelectFn(this.id,'${base.pntid}')">
-	                                            	<c:forEach var="data" items="${coolerEntitylist}">
-													    <option value="${data.pid}" <c:if test="${data.pid eq 'COOLERP001'}">selected</c:if>>${data.cooler}</option><%-- 이 PID로 Query 조회 함 --%>
-													</c:forEach>
-													</select>
-	                                            </td>
-	                                            <td>	                                            	
-	                                            	<select name="coolerSelectCnt${statusNo.index}" id="coolerSelectCnt${statusNo.index}" onchange="checkerCOOLERCntSelectFn(this.id)">
-	                                            	<c:forEach var="coolerSelcnt" begin="1" end="10">
-													    <option value="${coolerSelcnt}">${coolerSelcnt}</option>
-													</c:forEach>
-													</select>
-	                                            </td>
-	                                            <td>
-	                                            	<input type="text" value="0" name="coolerUnitPrice${statusNo.index}" id="coolerUnitPrice${statusNo.index}" disabled><br/>
-	                                            	<input type="button" value="변경" class="btnWitch" name="subcoolerBtn${statusNo.index}" id="subcoolerBtn${statusNo.index}" onclick="coolerBtnFn(${statusNo.index})">
-	                                            	<input type="button" class="success" value="적용" style="float:right;" name="allcoolerBtn${statusNo.index}" id="allcoolerBtn${statusNo.index}" onclick="allcoolerBtnFn(this.id,${statusNo.index})">
-	                                            </td>
-	                                            </form>
-	                                            
-	                                            <!-- Controll -->
-	                                            <form action="/admsp/productsRq" name="ajaxControllReqForm" id="ajaxControllReqForm" method="post">                                          	
-	                                            <td>	  
-	                                            	<select name="controllSelect${statusNo.index}" id="controllSelect${statusNo.index}" onchange="checkerCONTROLLSelectFn(this.id,'${base.pntid}')">
-	                                            	<c:forEach var="data" items="${controllEntitylist}">
-													    <option value="${data.pid}" <c:if test="${data.pid eq 'CONTP001'}">selected</c:if>>${data.controll}</option><%-- 이 PID로 Query 조회 함 --%>
-													</c:forEach>
-													</select>
-	                                            </td>
-	                                            <td>	                                            	
-	                                            	<select name="controllSelectCnt${statusNo.index}" id="controllSelectCnt${statusNo.index}" onchange="checkerCONTROLLCntSelectFn(this.id)">
-	                                            	<c:forEach var="controllSelcnt" begin="1" end="10">
-													    <option value="${controllSelcnt}">${controllSelcnt}</option>
-													</c:forEach>
-													</select>
-	                                            </td>
-	                                            <td>
-	                                            	<input type="text" value="0" name="controllUnitPrice${statusNo.index}" id="controllUnitPrice${statusNo.index}" disabled><br/>
-	                                            	<input type="button" value="변경" class="btnWitch" name="subcontrollBtn${statusNo.index}" id="subcontrollBtn${statusNo.index}" onclick="controllBtnFn(${statusNo.index})">
-	                                            	<input type="button" class="success" value="적용" style="float:right;" name="allcontrollBtn${statusNo.index}" id="allcontrollBtn${statusNo.index}" onclick="allcontrollBtnFn(this.id,${statusNo.index})">
-	                                            </td>
-	                                            </form>
-	                                            
-	                                            <!-- ExValve -->
-	                                            <form action="/admsp/productsRq" name="ajaxExvalveReqForm" id="ajaxExvalveReqForm" method="post">                                          	
-	                                            <td>	  
-	                                            	<select name="exvalveSelect${statusNo.index}" id="exvalveSelect${statusNo.index}" onchange="checkerEXVALVESelectFn(this.id,'${base.pntid}')">
-	                                            	<c:forEach var="data" items="${exvalveEntitylist}">
-													    <option value="${data.pid}" <c:if test="${data.pid eq 'EXVAP001'}">selected</c:if>>${data.exvalve}</option><%-- 이 PID로 Query 조회 함 --%>
-													</c:forEach>
-													</select>
-	                                            </td>
-	                                            <td>	                                            	
-	                                            	<select name="exvalveSelectCnt${statusNo.index}" id="exvalveSelectCnt${statusNo.index}" onchange="checkerEXVALVECntSelectFn(this.id)">
-	                                            	<c:forEach var="exvalveSelcnt" begin="1" end="10">
-													    <option value="${exvalveSelcnt}">${exvalveSelcnt}</option>
-													</c:forEach>
-													</select>
-	                                            </td>
-	                                            <td>
-	                                            	<input type="text" value="0" name="exvalveUnitPrice${statusNo.index}" id="exvalveUnitPrice${statusNo.index}" disabled><br/>
-	                                            	<input type="button" value="변경" class="btnWitch" name="subexvalveBtn${statusNo.index}" id="subexvalveBtn${statusNo.index}" onclick="exvalveBtnFn(${statusNo.index})">
-	                                            	<input type="button" class="success" value="적용" style="float:right;" name="allexvalveBtn${statusNo.index}" id="allexvalveBtn${statusNo.index}" onclick="allexvalveBtnFn(this.id,${statusNo.index})">
-	                                            </td>
-	                                            </form>
-	                                            
-	                                            <!-- ElecValve -->
-	                                            <form action="/admsp/productsRq" name="ajaxElecvalveReqForm" id="ajaxElecvalveReqForm" method="post">                                          	
-	                                            <td>	  
-	                                            	<select name="elecvalveSelect${statusNo.index}" id="elecvalveSelect${statusNo.index}" onchange="checkerELECVALVESelectFn(this.id,'${base.pntid}')">
-	                                            	<c:forEach var="data" items="${elecvalveEntitylist}">
-													    <option value="${data.pid}" <c:if test="${data.pid eq 'ELECVAP001'}">selected</c:if>>${data.elecvalve}</option><%-- 이 PID로 Query 조회 함 --%>
-													</c:forEach>
-													</select>
-	                                            </td>
-	                                            <td>	                                            	
-	                                            	<select name="elecvalveSelectCnt${statusNo.index}" id="elecvalveSelectCnt${statusNo.index}" onchange="checkerELECVALVECntSelectFn(this.id)">
-	                                            	<c:forEach var="elecvalveSelcnt" begin="1" end="10">
-													    <option value="${elecvalveSelcnt}">${elecvalveSelcnt}</option>
-													</c:forEach>
-													</select>
-	                                            </td>
-	                                            <td>
-	                                            	<input type="text" value="0" name="elecvalveUnitPrice${statusNo.index}" id="elecvalveUnitPrice${statusNo.index}" disabled><br/>
-	                                            	<input type="button" value="변경" class="btnWitch" name="subelecvalveBtn${statusNo.index}" id="subelecvalveBtn${statusNo.index}" onclick="elecvalveBtnFn(${statusNo.index})">
-	                                            	<input type="button" class="success" value="적용" style="float:right;" name="allelecvalveBtn${statusNo.index}" id="allelecvalveBtn${statusNo.index}" onclick="allelecvalveBtnFn(this.id,${statusNo.index})">
-	                                            </td>
-	                                            </form>
-	                                            
-	                                             <!-- OPassis -->
-	                                            <form action="/admsp/productsRq" name="ajaxOpassisReqForm" id="ajaxOpassisReqForm" method="post">                                          	
-	                                            <td>	  
-	                                            	<select name="opassiselect${statusNo.index}" id="opassisSelect${statusNo.index}" onchange="checkerOPASSISSelectFn(this.id,'${base.pntid}')">
-	                                            	<c:forEach var="data" items="${opassisEntitylist}">
-													    <option value="${data.pid}" <c:if test="${data.pid eq 'OPP001'}">selected</c:if>>${data.opassis}</option><%-- 이 PID로 Query 조회 함 --%>
-													</c:forEach>
-													</select>
-	                                            </td>
-	                                            <td>	                                            	
-	                                            	<select name="opassisSelectCnt${statusNo.index}" id="opassisSelectCnt${statusNo.index}" onchange="checkerOPASSISCntSelectFn(this.id)">
-	                                            	<c:forEach var="opassisSelcnt" begin="15" end="370" step="5">
-													    <option value="${opassisSelcnt}">${opassisSelcnt}</option>
-													</c:forEach>
-													</select>
-	                                            </td>
-	                                            <td>
-	                                            	<input type="text" value="0" name="opassisUnitPrice${statusNo.index}" id="opassisUnitPrice${statusNo.index}" disabled><br/>
-	                                            	<input type="button" value="변경" class="btnWitch" name="subopassisBtn${statusNo.index}" id="subopassisBtn${statusNo.index}" onclick="opassisBtnFn(${statusNo.index})">
-	                                            	<input type="button" class="success" value="적용" style="float:right;" name="allopassisBtn${statusNo.index}" id="allopassisBtn${statusNo.index}" onclick="allopassisBtnFn(this.id,${statusNo.index})">
-	                                            </td>
-	                                            </form>
-	                                        </tr>
-	                                        </c:forEach>
-                                     	</form>
+                                   		<!-- BASE -->
+                                        <c:forEach var="base" items="${calcBaseEntity}" begin="0" varStatus="statusNo">
+                                        <tr>
+                                            <td>
+                                            	<div style="display:none !important;">${base.pntid}<input type="hidden" value="${base.pntid}" name="base_pntid${statusNo.index}" id="base_pntid${statusNo.index}"></div>
+                                            	<div>
+                                            		${base.returns_py}평<br/>${base.temper_type}
+                                            		<input type="hidden" value="${base.returns_py}" name="base_py${statusNo.index}" id="base_py${statusNo.index}">
+                                            		<input type="hidden" value="${base.temper_type}" name="base_type${statusNo.index}" id="base_type${statusNo.index}">
+                                            	</div>
+                                            </td>
+                                            
+                                            <!-- CDU -->                                          	
+                                            <td>	  
+                                            	<select name="cduSelect${statusNo.index}" id="cduSelect${statusNo.index}" onchange="checkerCDUSelectFn(this.id,'${base.pntid}')">
+                                            	<c:forEach var="data" items="${cduEntitylist}">
+												    <option value="${data.pid}" <c:if test="${data.pid eq 'CDUP001'}">selected</c:if>>${data.cdu}</option><%-- 이 PID로 Query 조회 함 --%>
+												</c:forEach>
+												</select>
+                                            </td>
+                                            <td>	                                            	
+                                            	<select name="cduSelectCnt${statusNo.index}" id="cduSelectCnt${statusNo.index}" onchange="checkerCDUCntSelectFn(this.id)">
+                                            	<c:forEach var="cduSelcnt" begin="1" end="10">
+												    <option value="${cduSelcnt}">${cduSelcnt}</option>
+												</c:forEach>
+												</select>
+                                            </td>
+                                            <td>
+                                            	<input type="text" value="0" class="cduUnitDS" name="cduUnitPrice${statusNo.index}" id="cduUnitPrice${statusNo.index}" disabled><br/>
+                                            	<input type="button" value="변경" class="btnWitch" name="subcduBtn${statusNo.index}" id="subcduBtn${statusNo.index}" onclick="cduBtnFn(${statusNo.index})">
+                                            	<input type="button" class="success" value="적용" style="float:right;" name="allcduBtn${statusNo.index}" id="allcduBtn${statusNo.index}" onclick="allcduBtnFn(this.id,${statusNo.index})">
+                                            </td>
+                                            
+                                            <!-- COOLER -->                                          	
+                                            <td>	  
+                                            	<select name="coolerSelect${statusNo.index}" id="coolerSelect${statusNo.index}" onchange="checkerCOOLERSelectFn(this.id,'${base.pntid}')">
+                                            	<c:forEach var="data" items="${coolerEntitylist}">
+												    <option value="${data.pid}" <c:if test="${data.pid eq 'COOLERP001'}">selected</c:if>>${data.cooler}</option><%-- 이 PID로 Query 조회 함 --%>
+												</c:forEach>
+												</select>
+                                            </td>
+                                            <td>	                                            	
+                                            	<select name="coolerSelectCnt${statusNo.index}" id="coolerSelectCnt${statusNo.index}" onchange="checkerCOOLERCntSelectFn(this.id)">
+                                            	<c:forEach var="coolerSelcnt" begin="1" end="10">
+												    <option value="${coolerSelcnt}">${coolerSelcnt}</option>
+												</c:forEach>
+												</select>
+                                            </td>
+                                            <td>
+                                            	<input type="text" value="0" name="coolerUnitPrice${statusNo.index}" id="coolerUnitPrice${statusNo.index}" disabled><br/>
+                                            	<input type="button" value="변경" class="btnWitch" name="subcoolerBtn${statusNo.index}" id="subcoolerBtn${statusNo.index}" onclick="coolerBtnFn(${statusNo.index})">
+                                            	<input type="button" class="success" value="적용" style="float:right;" name="allcoolerBtn${statusNo.index}" id="allcoolerBtn${statusNo.index}" onclick="allcoolerBtnFn(this.id,${statusNo.index})">
+                                            </td>
+                                            
+                                            <!-- Controll -->                                          	
+                                            <td>	  
+                                            	<select name="controllSelect${statusNo.index}" id="controllSelect${statusNo.index}" onchange="checkerCONTROLLSelectFn(this.id,'${base.pntid}')">
+                                            	<c:forEach var="data" items="${controllEntitylist}">
+												    <option value="${data.pid}" <c:if test="${data.pid eq 'CONTP001'}">selected</c:if>>${data.controll}</option><%-- 이 PID로 Query 조회 함 --%>
+												</c:forEach>
+												</select>
+                                            </td>
+                                            <td>	                                            	
+                                            	<select name="controllSelectCnt${statusNo.index}" id="controllSelectCnt${statusNo.index}" onchange="checkerCONTROLLCntSelectFn(this.id)">
+                                            	<c:forEach var="controllSelcnt" begin="1" end="10">
+												    <option value="${controllSelcnt}">${controllSelcnt}</option>
+												</c:forEach>
+												</select>
+                                            </td>
+                                            <td>
+                                            	<input type="text" value="0" name="controllUnitPrice${statusNo.index}" id="controllUnitPrice${statusNo.index}" disabled><br/>
+                                            	<input type="button" value="변경" class="btnWitch" name="subcontrollBtn${statusNo.index}" id="subcontrollBtn${statusNo.index}" onclick="controllBtnFn(${statusNo.index})">
+                                            	<input type="button" class="success" value="적용" style="float:right;" name="allcontrollBtn${statusNo.index}" id="allcontrollBtn${statusNo.index}" onclick="allcontrollBtnFn(this.id,${statusNo.index})">
+                                            </td>
+                                            
+                                            <!-- ExValve -->                                          	
+                                            <td>	  
+                                            	<select name="exvalveSelect${statusNo.index}" id="exvalveSelect${statusNo.index}" onchange="checkerEXVALVESelectFn(this.id,'${base.pntid}')">
+                                            	<c:forEach var="data" items="${exvalveEntitylist}">
+												    <option value="${data.pid}" <c:if test="${data.pid eq 'EXVAP001'}">selected</c:if>>${data.exvalve}</option><%-- 이 PID로 Query 조회 함 --%>
+												</c:forEach>
+												</select>
+                                            </td>
+                                            <td>	                                            	
+                                            	<select name="exvalveSelectCnt${statusNo.index}" id="exvalveSelectCnt${statusNo.index}" onchange="checkerEXVALVECntSelectFn(this.id)">
+                                            	<c:forEach var="exvalveSelcnt" begin="1" end="10">
+												    <option value="${exvalveSelcnt}">${exvalveSelcnt}</option>
+												</c:forEach>
+												</select>
+                                            </td>
+                                            <td>
+                                            	<input type="text" value="0" name="exvalveUnitPrice${statusNo.index}" id="exvalveUnitPrice${statusNo.index}" disabled><br/>
+                                            	<input type="button" value="변경" class="btnWitch" name="subexvalveBtn${statusNo.index}" id="subexvalveBtn${statusNo.index}" onclick="exvalveBtnFn(${statusNo.index})">
+                                            	<input type="button" class="success" value="적용" style="float:right;" name="allexvalveBtn${statusNo.index}" id="allexvalveBtn${statusNo.index}" onclick="allexvalveBtnFn(this.id,${statusNo.index})">
+                                            </td>
+                                            
+                                            <!-- ElecValve -->                                          	
+                                            <td>	  
+                                            	<select name="elecvalveSelect${statusNo.index}" id="elecvalveSelect${statusNo.index}" onchange="checkerELECVALVESelectFn(this.id,'${base.pntid}')">
+                                            	<c:forEach var="data" items="${elecvalveEntitylist}">
+												    <option value="${data.pid}" <c:if test="${data.pid eq 'ELECVAP001'}">selected</c:if>>${data.elecvalve}</option><%-- 이 PID로 Query 조회 함 --%>
+												</c:forEach>
+												</select>
+                                            </td>
+                                            <td>	                                            	
+                                            	<select name="elecvalveSelectCnt${statusNo.index}" id="elecvalveSelectCnt${statusNo.index}" onchange="checkerELECVALVECntSelectFn(this.id)">
+                                            	<c:forEach var="elecvalveSelcnt" begin="1" end="10">
+												    <option value="${elecvalveSelcnt}">${elecvalveSelcnt}</option>
+												</c:forEach>
+												</select>
+                                            </td>
+                                            <td>
+                                            	<input type="text" value="0" name="elecvalveUnitPrice${statusNo.index}" id="elecvalveUnitPrice${statusNo.index}" disabled><br/>
+                                            	<input type="button" value="변경" class="btnWitch" name="subelecvalveBtn${statusNo.index}" id="subelecvalveBtn${statusNo.index}" onclick="elecvalveBtnFn(${statusNo.index})">
+                                            	<input type="button" class="success" value="적용" style="float:right;" name="allelecvalveBtn${statusNo.index}" id="allelecvalveBtn${statusNo.index}" onclick="allelecvalveBtnFn(this.id,${statusNo.index})">
+                                            </td>
+                                            
+                                            <!-- OPassis1 -->                                          	
+                                            <td>	  
+                                            	<select name="opassis1Select${statusNo.index}" id="opassis1Select${statusNo.index}" onchange="checkerOPASSISSelectFn(this.id,'${base.pntid}')">
+                                            	<c:forEach var="data" items="${opassisEntitylist}">
+												    <option value="${data.pid}" <c:if test="${data.pid eq 'OPP001'}">selected</c:if>>${data.opassis}</option><%-- 이 PID로 Query 조회 함 --%>
+												</c:forEach>
+												</select>
+                                            </td>
+                                            <td>	                                            	
+                                            	<select name="opassis1SelectCnt${statusNo.index}" id="opassis1SelectCnt${statusNo.index}" onchange="checkerOPASSISCntSelectFn(this.id)">
+                                            	<c:forEach var="opassisSelcnt" begin="15" end="370" step="5">
+												    <option value="${opassisSelcnt}">${opassisSelcnt}</option>
+												</c:forEach>
+												</select>
+                                            </td>
+                                            <td>
+                                            	<input type="text" value="0" name="opassis1UnitPrice${statusNo.index}" id="opassis1UnitPrice${statusNo.index}" disabled><br/>
+                                            	<input type="button" value="변경" class="btnWitch" name="subopassis1Btn${statusNo.index}" id="subopassis1Btn${statusNo.index}" onclick="opassis1BtnFn(${statusNo.index})">
+                                            	<input type="button" class="success" value="적용" style="float:right;" name="allopassis1Btn${statusNo.index}" id="allopassis1Btn${statusNo.index}" onclick="allopassis1BtnFn(this.id,${statusNo.index})">
+                                            </td>
+                                            
+                                            <!-- OPassis2 -->                                          	
+                                            <td>	  
+                                            	<select name="opassis2Select${statusNo.index}" id="opassis2Select${statusNo.index}" onchange="checkerOPASSISSelectFn(this.id,'${base.pntid}')">
+                                            	<c:forEach var="data" items="${opassisEntitylist}">
+												    <option value="${data.pid}" <c:if test="${data.pid eq 'OPP001'}">selected</c:if>>${data.opassis}</option><%-- 이 PID로 Query 조회 함 --%>
+												</c:forEach>
+												</select>
+                                            </td>
+                                            <td>	                                            	
+                                            	<select name="opassis2SelectCnt${statusNo.index}" id="opassis2SelectCnt${statusNo.index}" onchange="checkerOPASSISCntSelectFn(this.id)">
+                                            	<c:forEach var="opassisSelcnt" begin="15" end="370" step="5">
+												    <option value="${opassisSelcnt}">${opassisSelcnt}</option>
+												</c:forEach>
+												</select>
+                                            </td>
+                                            <td>
+                                            	<input type="text" value="0" name="opassis2UnitPrice${statusNo.index}" id="opassis2UnitPrice${statusNo.index}" disabled><br/>
+                                            	<input type="button" value="변경" class="btnWitch" name="subopassis2Btn${statusNo.index}" id="subopassis2Btn${statusNo.index}" onclick="opassis2BtnFn(${statusNo.index})">
+                                            	<input type="button" class="success" value="적용" style="float:right;" name="allopassis2Btn${statusNo.index}" id="allopassis2Btn${statusNo.index}" onclick="allopassis2BtnFn(this.id,${statusNo.index})">
+                                            </td>
+                                            
+                                            <!-- OPassis3 -->                                          	
+                                            <td>	  
+                                            	<select name="opassis3Select${statusNo.index}" id="opassis3Select${statusNo.index}" onchange="checkerOPASSISSelectFn(this.id,'${base.pntid}')">
+                                            	<c:forEach var="data" items="${opassisEntitylist}">
+												    <option value="${data.pid}" <c:if test="${data.pid eq 'OPP001'}">selected</c:if>>${data.opassis}</option><%-- 이 PID로 Query 조회 함 --%>
+												</c:forEach>
+												</select>
+                                            </td>
+                                            <td>	                                            	
+                                            	<select name="opassis3SelectCnt${statusNo.index}" id="opassis3SelectCnt${statusNo.index}" onchange="checkerOPASSISCntSelectFn(this.id)">
+                                            	<c:forEach var="opassisSelcnt" begin="15" end="370" step="5">
+												    <option value="${opassisSelcnt}">${opassisSelcnt}</option>
+												</c:forEach>
+												</select>
+                                            </td>
+                                            <td>
+                                            	<input type="text" value="0" name="opassis3UnitPrice${statusNo.index}" id="opassis3UnitPrice${statusNo.index}" disabled><br/>
+                                            	<input type="button" value="변경" class="btnWitch" name="subopassis3Btn${statusNo.index}" id="subopassis3Btn${statusNo.index}" onclick="opassis3BtnFn(${statusNo.index})">
+                                            	<input type="button" class="success" value="적용" style="float:right;" name="allopassis3Btn${statusNo.index}" id="allopassis3Btn${statusNo.index}" onclick="allopassis3BtnFn(this.id,${statusNo.index})">
+                                            </td>
+                                            
+                                            <!-- OPassis4 -->                                          	
+                                            <td>	  
+                                            	<select name="opassis4Select${statusNo.index}" id="opassis4Select${statusNo.index}" onchange="checkerOPASSISSelectFn(this.id,'${base.pntid}')">
+                                            	<c:forEach var="data" items="${opassisEntitylist}">
+												    <option value="${data.pid}" <c:if test="${data.pid eq 'OPP001'}">selected</c:if>>${data.opassis}</option><%-- 이 PID로 Query 조회 함 --%>
+												</c:forEach>
+												</select>
+                                            </td>
+                                            <td>	                                            	
+                                            	<select name="opassis4SelectCnt${statusNo.index}" id="opassis4SelectCnt${statusNo.index}" onchange="checkerOPASSISCntSelectFn(this.id)">
+                                            	<c:forEach var="opassisSelcnt" begin="15" end="370" step="5">
+												    <option value="${opassisSelcnt}">${opassisSelcnt}</option>
+												</c:forEach>
+												</select>
+                                            </td>
+                                            <td>
+                                            	<input type="text" value="0" name="opassis4UnitPrice${statusNo.index}" id="opassis4UnitPrice${statusNo.index}" disabled><br/>
+                                            	<input type="button" value="변경" class="btnWitch" name="subopassis4Btn${statusNo.index}" id="subopassis4Btn${statusNo.index}" onclick="opassis4BtnFn(${statusNo.index})">
+                                            	<input type="button" class="success" value="적용" style="float:right;" name="allopassis4Btn${statusNo.index}" id="allopassis4Btn${statusNo.index}" onclick="allopassis4BtnFn(this.id,${statusNo.index})">
+                                            </td>
+                                            
+                                            <!-- OPassis5 -->                                          	
+                                            <td>	  
+                                            	<select name="opassis5Select${statusNo.index}" id="opassis5Select${statusNo.index}" onchange="checkerOPASSISSelectFn(this.id,'${base.pntid}')">
+                                            	<c:forEach var="data" items="${opassisEntitylist}">
+												    <option value="${data.pid}" <c:if test="${data.pid eq 'OPP001'}">selected</c:if>>${data.opassis}</option><%-- 이 PID로 Query 조회 함 --%>
+												</c:forEach>
+												</select>
+                                            </td>
+                                            <td>	                                            	
+                                            	<select name="opassis5SelectCnt${statusNo.index}" id="opassis5SelectCnt${statusNo.index}" onchange="checkerOPASSISCntSelectFn(this.id)">
+                                            	<c:forEach var="opassisSelcnt" begin="15" end="370" step="5">
+												    <option value="${opassisSelcnt}">${opassisSelcnt}</option>
+												</c:forEach>
+												</select>
+                                            </td>
+                                            <td>
+                                            	<input type="text" value="0" name="opassis5UnitPrice${statusNo.index}" id="opassis5UnitPrice${statusNo.index}" disabled><br/>
+                                            	<input type="button" value="변경" class="btnWitch" name="subopassis5Btn${statusNo.index}" id="subopassis5Btn${statusNo.index}" onclick="opassis5BtnFn(${statusNo.index})">
+                                            	<input type="button" class="success" value="적용" style="float:right;" name="allopassis5Btn${statusNo.index}" id="allopassis5Btn${statusNo.index}" onclick="allopassis5BtnFn(this.id,${statusNo.index})">
+                                            </td>
+                                            
+                                            <!-- OPassis6 -->                                          	
+                                            <td>	  
+                                            	<select name="opassis6Select${statusNo.index}" id="opassis6Select${statusNo.index}" onchange="checkerOPASSISSelectFn(this.id,'${base.pntid}')">
+                                            	<c:forEach var="data" items="${opassisEntitylist}">
+												    <option value="${data.pid}" <c:if test="${data.pid eq 'OPP001'}">selected</c:if>>${data.opassis}</option><%-- 이 PID로 Query 조회 함 --%>
+												</c:forEach>
+												</select>
+                                            </td>
+                                            <td>	                                            	
+                                            	<select name="opassis6SelectCnt${statusNo.index}" id="opassis6SelectCnt${statusNo.index}" onchange="checkerOPASSISCntSelectFn(this.id)">
+                                            	<c:forEach var="opassisSelcnt" begin="15" end="370" step="5">
+												    <option value="${opassisSelcnt}">${opassisSelcnt}</option>
+												</c:forEach>
+												</select>
+                                            </td>
+                                            <td>
+                                            	<input type="text" value="0" name="opassis6UnitPrice${statusNo.index}" id="opassis6UnitPrice${statusNo.index}" disabled><br/>
+                                            	<input type="button" value="변경" class="btnWitch" name="subopassis6Btn${statusNo.index}" id="subopassis6Btn${statusNo.index}" onclick="opassis6BtnFn(${statusNo.index})">
+                                            	<input type="button" class="success" value="적용" style="float:right;" name="allopassis6Btn${statusNo.index}" id="allopassis6Btn${statusNo.index}" onclick="allopassis6BtnFn(this.id,${statusNo.index})">
+                                            </td>
+                                            
+                                            <!-- OPassis7 -->                                          	
+                                            <td>	  
+                                            	<select name="opassis7Select${statusNo.index}" id="opassis7Select${statusNo.index}" onchange="checkerOPASSISSelectFn(this.id,'${base.pntid}')">
+                                            	<c:forEach var="data" items="${opassisEntitylist}">
+												    <option value="${data.pid}" <c:if test="${data.pid eq 'OPP001'}">selected</c:if>>${data.opassis}</option><%-- 이 PID로 Query 조회 함 --%>
+												</c:forEach>
+												</select>
+                                            </td>
+                                            <td>	                                            	
+                                            	<select name="opassis7SelectCnt${statusNo.index}" id="opassis7SelectCnt${statusNo.index}" onchange="checkerOPASSISCntSelectFn(this.id)">
+                                            	<c:forEach var="opassisSelcnt" begin="15" end="370" step="5">
+												    <option value="${opassisSelcnt}">${opassisSelcnt}</option>
+												</c:forEach>
+												</select>
+                                            </td>
+                                            <td>
+                                            	<input type="text" value="0" name="opassis7UnitPrice${statusNo.index}" id="opassis7UnitPrice${statusNo.index}" disabled><br/>
+                                            	<input type="button" value="변경" class="btnWitch" name="subopassis7Btn${statusNo.index}" id="subopassis7Btn${statusNo.index}" onclick="opassis7BtnFn(${statusNo.index})">
+                                            	<input type="button" class="success" value="적용" style="float:right;" name="allopassis7Btn${statusNo.index}" id="allopassis7Btn${statusNo.index}" onclick="allopassis7BtnFn(this.id,${statusNo.index})">
+                                            </td>
+                                            
+                                            <!-- OPassis8 -->                                          	
+                                            <td>	  
+                                            	<select name="opassis8Select${statusNo.index}" id="opassis8Select${statusNo.index}" onchange="checkerOPASSISSelectFn(this.id,'${base.pntid}')">
+                                            	<c:forEach var="data" items="${opassisEntitylist}">
+												    <option value="${data.pid}" <c:if test="${data.pid eq 'OPP001'}">selected</c:if>>${data.opassis}</option><%-- 이 PID로 Query 조회 함 --%>
+												</c:forEach>
+												</select>
+                                            </td>
+                                            <td>	                                            	
+                                            	<select name="opassis8SelectCnt${statusNo.index}" id="opassis8SelectCnt${statusNo.index}" onchange="checkerOPASSISCntSelectFn(this.id)">
+                                            	<c:forEach var="opassisSelcnt" begin="15" end="370" step="5">
+												    <option value="${opassisSelcnt}">${opassisSelcnt}</option>
+												</c:forEach>
+												</select>
+                                            </td>
+                                            <td>
+                                            	<input type="text" value="0" name="opassis8UnitPrice${statusNo.index}" id="opassis8UnitPrice${statusNo.index}" disabled><br/>
+                                            	<input type="button" value="변경" class="btnWitch" name="subopassis8Btn${statusNo.index}" id="subopassis8Btn${statusNo.index}" onclick="opassis8BtnFn(${statusNo.index})">
+                                            	<input type="button" class="success" value="적용" style="float:right;" name="allopassis8Btn${statusNo.index}" id="allopassis8Btn${statusNo.index}" onclick="allopassis8BtnFn(this.id,${statusNo.index})">
+                                            </td>
+                                            
+                                            <!-- OPassis9 -->                                          	
+                                            <td>	  
+                                            	<select name="opassis9Select${statusNo.index}" id="opassis9Select${statusNo.index}" onchange="checkerOPASSISSelectFn(this.id,'${base.pntid}')">
+                                            	<c:forEach var="data" items="${opassisEntitylist}">
+												    <option value="${data.pid}" <c:if test="${data.pid eq 'OPP001'}">selected</c:if>>${data.opassis}</option><%-- 이 PID로 Query 조회 함 --%>
+												</c:forEach>
+												</select>
+                                            </td>
+                                            <td>	                                            	
+                                            	<select name="opassis9SelectCnt${statusNo.index}" id="opassis9SelectCnt${statusNo.index}" onchange="checkerOPASSISCntSelectFn(this.id)">
+                                            	<c:forEach var="opassisSelcnt" begin="15" end="370" step="5">
+												    <option value="${opassisSelcnt}">${opassisSelcnt}</option>
+												</c:forEach>
+												</select>
+                                            </td>
+                                            <td>
+                                            	<input type="text" value="0" name="opassis9UnitPrice${statusNo.index}" id="opassis9UnitPrice${statusNo.index}" disabled><br/>
+                                            	<input type="button" value="변경" class="btnWitch" name="subopassis9Btn${statusNo.index}" id="subopassis9Btn${statusNo.index}" onclick="opassis9BtnFn(${statusNo.index})">
+                                            	<input type="button" class="success" value="적용" style="float:right;" name="allopassis9Btn${statusNo.index}" id="allopassis9Btn${statusNo.index}" onclick="allopassis9BtnFn(this.id,${statusNo.index})">
+                                            </td>
+                                            
+                                            <!-- OPassis10 -->                                          	
+                                            <td>	  
+                                            	<select name="opassis10Select${statusNo.index}" id="opassis10Select${statusNo.index}" onchange="checkerOPASSISSelectFn(this.id,'${base.pntid}')">
+                                            	<c:forEach var="data" items="${opassisEntitylist}">
+												    <option value="${data.pid}" <c:if test="${data.pid eq 'OPP001'}">selected</c:if>>${data.opassis}</option><%-- 이 PID로 Query 조회 함 --%>
+												</c:forEach>
+												</select>
+                                            </td>
+                                            <td>	                                            	
+                                            	<select name="opassis10SelectCnt${statusNo.index}" id="opassis10SelectCnt${statusNo.index}" onchange="checkerOPASSISCntSelectFn(this.id)">
+                                            	<c:forEach var="opassisSelcnt" begin="15" end="370" step="5">
+												    <option value="${opassisSelcnt}">${opassisSelcnt}</option>
+												</c:forEach>
+												</select>
+                                            </td>
+                                            <td>
+                                            	<input type="text" value="0" name="opassis10UnitPrice${statusNo.index}" id="opassis10UnitPrice${statusNo.index}" disabled><br/>
+                                            	<input type="button" value="변경" class="btnWitch" name="subopassis10Btn${statusNo.index}" id="subopassis10Btn${statusNo.index}" onclick="opassis10BtnFn(${statusNo.index})">
+                                            	<input type="button" class="success" value="적용" style="float:right;" name="allopassis10Btn${statusNo.index}" id="allopassis10Btn${statusNo.index}" onclick="allopassis10BtnFn(this.id,${statusNo.index})">
+                                            </td>
+                                            
+                                            <!-- Mandays1 -->                                          	
+                                            <td>	  
+                                            	<select name="manday1Select${statusNo.index}" id="manday1Select${statusNo.index}" onchange="checkerMANDAYSelectFn(this.id,'${base.pntid}')">
+                                            	<c:forEach var="data" items="${mandaysEntitylist}">
+												    <option value="${data.pid}" <c:if test="${data.pid eq 'MANP001'}">selected</c:if>>${data.manday}</option><%-- 이 PID로 Query 조회 함 --%>
+												</c:forEach>
+												</select>
+                                            </td>
+                                            <td>	                                            	
+                                            	<select name="omanday1SelectCnt${statusNo.index}" id="manday1SelectCnt${statusNo.index}" onchange="checkerMANDAYCntSelectFn(this.id)">
+                                            	<c:forEach var="mandaySelcnt" begin="1" end="50" step="1">
+												    <option value="${mandaySelcnt}">${mandaySelcnt}</option>
+												</c:forEach>
+												</select>
+                                            </td>
+                                            <td>
+                                            	<input type="text" value="0" name="manday1UnitPrice${statusNo.index}" id="manday1UnitPrice${statusNo.index}" disabled><br/>
+                                            	<input type="button" value="변경" class="btnWitch" name="submanday1Btn${statusNo.index}" id="submanday1Btn${statusNo.index}" onclick="manday1BtnFn(${statusNo.index})">
+                                            	<input type="button" class="success" value="적용" style="float:right;" name="allmanday1Btn${statusNo.index}" id="allmanday1Btn${statusNo.index}" onclick="allmanday1BtnFn(this.id,${statusNo.index})">
+                                            </td>
+                                            
+                                            <!-- Mandays2 -->                                          	
+                                            <td>	  
+                                            	<select name="manday2Select${statusNo.index}" id="manday2Select${statusNo.index}" onchange="checkerMANDAYSelectFn(this.id,'${base.pntid}')">
+                                            	<c:forEach var="data" items="${mandaysEntitylist}">
+												    <option value="${data.pid}" <c:if test="${data.pid eq 'MANP001'}">selected</c:if>>${data.manday}</option><%-- 이 PID로 Query 조회 함 --%>
+												</c:forEach>
+												</select>
+                                            </td>
+                                            <td>	                                            	
+                                            	<select name="omanday2SelectCnt${statusNo.index}" id="manday2SelectCnt${statusNo.index}" onchange="checkerMANDAYCntSelectFn(this.id)">
+                                            	<c:forEach var="mandaySelcnt" begin="1" end="50" step="1">
+												    <option value="${mandaySelcnt}">${mandaySelcnt}</option>
+												</c:forEach>
+												</select>
+                                            </td>
+                                            <td>
+                                            	<input type="text" value="0" name="manday2UnitPrice${statusNo.index}" id="manday2UnitPrice${statusNo.index}" disabled><br/>
+                                            	<input type="button" value="변경" class="btnWitch" name="submanday2Btn${statusNo.index}" id="submanday2Btn${statusNo.index}" onclick="manday2BtnFn(${statusNo.index})">
+                                            	<input type="button" class="success" value="적용" style="float:right;" name="allmanday2Btn${statusNo.index}" id="allmanday2Btn${statusNo.index}" onclick="allmanday2BtnFn(this.id,${statusNo.index})">
+                                            </td>
+                                            
+                                            <!-- Mandays3 -->                                          	
+                                            <td>	  
+                                            	<select name="manday3Select${statusNo.index}" id="manday3Select${statusNo.index}" onchange="checkerMANDAYSelectFn(this.id,'${base.pntid}')">
+                                            	<c:forEach var="data" items="${mandaysEntitylist}">
+												    <option value="${data.pid}" <c:if test="${data.pid eq 'MANP001'}">selected</c:if>>${data.manday}</option><%-- 이 PID로 Query 조회 함 --%>
+												</c:forEach>
+												</select>
+                                            </td>
+                                            <td>	                                            	
+                                            	<select name="omanday3SelectCnt${statusNo.index}" id="manday3SelectCnt${statusNo.index}" onchange="checkerMANDAYCntSelectFn(this.id)">
+                                            	<c:forEach var="mandaySelcnt" begin="1" end="50" step="1">
+												    <option value="${mandaySelcnt}">${mandaySelcnt}</option>
+												</c:forEach>
+												</select>
+                                            </td>
+                                            <td>
+                                            	<input type="text" value="0" name="manday3UnitPrice${statusNo.index}" id="manday3UnitPrice${statusNo.index}" disabled><br/>
+                                            	<input type="button" value="변경" class="btnWitch" name="submanday3Btn${statusNo.index}" id="submanday3Btn${statusNo.index}" onclick="manday3BtnFn(${statusNo.index})">
+                                            	<input type="button" class="success" value="적용" style="float:right;" name="allmanday3Btn${statusNo.index}" id="allmanday3Btn${statusNo.index}" onclick="allmanday3BtnFn(this.id,${statusNo.index})">
+                                            </td>
+                                            
+                                            <!-- Mandays4 -->                                          	
+                                            <td>	  
+                                            	<select name="manday4Select${statusNo.index}" id="manday4Select${statusNo.index}" onchange="checkerMANDAYSelectFn(this.id,'${base.pntid}')">
+                                            	<c:forEach var="data" items="${mandaysEntitylist}">
+												    <option value="${data.pid}" <c:if test="${data.pid eq 'MANP001'}">selected</c:if>>${data.manday}</option><%-- 이 PID로 Query 조회 함 --%>
+												</c:forEach>
+												</select>
+                                            </td>
+                                            <td>	                                            	
+                                            	<select name="omanday4SelectCnt${statusNo.index}" id="manday4SelectCnt${statusNo.index}" onchange="checkerMANDAYCntSelectFn(this.id)">
+                                            	<c:forEach var="mandaySelcnt" begin="1" end="50" step="1">
+												    <option value="${mandaySelcnt}">${mandaySelcnt}</option>
+												</c:forEach>
+												</select>
+                                            </td>
+                                            <td>
+                                            	<input type="text" value="0" name="manday4UnitPrice${statusNo.index}" id="manday4UnitPrice${statusNo.index}" disabled><br/>
+                                            	<input type="button" value="변경" class="btnWitch" name="submanday4Btn${statusNo.index}" id="submanday4Btn${statusNo.index}" onclick="manday4BtnFn(${statusNo.index})">
+                                            	<input type="button" class="success" value="적용" style="float:right;" name="allmanday4Btn${statusNo.index}" id="allmanday4Btn${statusNo.index}" onclick="allmanday4BtnFn(this.id,${statusNo.index})">
+                                            </td>
+                                            
+                                        </tr>
+                                        </c:forEach>
                                     </tbody>
                                 </table>
                             </div> <!-- End. Div -->
@@ -810,6 +1065,7 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
+    <script src="/assets/js/admsp/admspjs.js"></script>
     <script src="/assets/vendor/admsp/jquery/jquery.min.js"></script>
     <script src="/assets/vendor/admsp/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -826,525 +1082,6 @@
 
     <!-- Page level custom scripts -->
     <script src="/assets/js/admsp/demo/datatables-demo.js"></script>
-	<script>
-	  /* 테이블 마우스 터치 좌우 스크롤하기 */
-	  const slider = document.querySelector('.itemss');
-	  let isMouseDown = false;
-	  let startX, scrollLeft;
-
-	  slider.addEventListener('mousedown', (e) => {
-	    isMouseDown = true;
-	    slider.classList.add('active');
-
-	    startX = e.pageX - slider.offsetLeft;
-	    scrollLeft = slider.scrollLeft;
-	  });
-	  
-	  slider.addEventListener('mouseleave', () => {
-	    isMouseDown = false;
-	    slider.classList.remove('active');
-	  });
-	  
-	  slider.addEventListener('mouseup', () => {
-	    isMouseDown = false;
-	    slider.classList.remove('active');
-	  });
-
-	  slider.addEventListener('mousemove', (e) => {
-	    if (!isMouseDown) return;
-
-	    e.preventDefault();
-	    const x = e.pageX - slider.offsetLeft;
-	    const walk = (x - startX) * 1;
-	    slider.scrollLeft = scrollLeft - walk;
-	  });
-	
-     /* CDU */
-	 var cduChecker;
-     var pntid_val;
-     var cduCntChecker;
-     var cduUnitPirce_val;
-     var cdu_val;
-     
-     function checkerCDUSelectFn(clicked,pntids){
-    	 cduChecker = clicked;
-    	 pntid_val = pntids;
-     }
-     
-     function checkerCDUCntSelectFn(clicked){
-    	 cduCntChecker = clicked;
-     }
-     
-    /* CDU Btn Onclick Eventer */ 
-    function cduBtnFn(cnt){
-     	cduUnitPriceId = $("#cduUnitPrice"+cnt).attr("id");
-    	var cdu_cntChecker = "#"+cduCntChecker+" option:selected";
-    	var cdu_pid = $("#cduSelect"+cnt+' option:selected').val();
-    	cdu_val = $("#cduSelect"+cnt+' option:selected').text();
-    	var cdu_ctn = $(cdu_cntChecker).val();
-    	var param = {"pid":cdu_pid, "cdu_ctn":cdu_ctn};
-       	 $.ajax({
-       			anyne:true,
-       			type:'POST',
-       			contentType: 'application/json',
-       			
-       			data: JSON.stringify(param),
-       			url:"/admsp/cduAjax",
-       			
-       			dataType: "text",
-       			success : function(data) {
-       				if(cdu_ctn == "undefined" || cdu_ctn == null || cdu_ctn == ""){
-       					cdu_ctn = 1;
-       				}else {
-       					
-       				}
-       				$("#"+cduUnitPriceId).val(data*cdu_ctn);  
-       			},
-       			error: function(jqXHR, textStatus, errorThrown) {
-       				alert("오류가 발생했습니다.");
-       			}
-       		});
-    }
-    
-    function allcduBtnFn(btnId, cnt) {
-    	/* id값 가져오기 */
-		var cdu_checker = "#"+cduChecker+" option:selected";
-		var base_pntid_val_temp = $("#base_pntid"+cnt).attr("id");
-		var base_py_val_temp = $("#base_py"+cnt).attr("id");
-		var base_type_val_temp = $("#base_type"+cnt).attr("id");
-		var cduUnitPrice_temp = $("#cduUnitPrice"+cnt).attr("id");
-		
-		/* 실제 값 가져오기 */
-		var cduUnitPrice_val = $("#"+cduUnitPrice_temp).val();
-		var base_pntid_val = $("#"+base_pntid_val_temp).val();
-		var base_py_val = $("#"+base_py_val_temp).val();
-		var base_type_val = $("#"+base_type_val_temp).val();
-		
-		/* 아래 Ajax로 보낼 params객체는 Entity 변수명이랑 "Key"의 이름이 같아야 한다. */
-		var params = {"pntid":base_pntid_val, "returns_py":base_py_val, "temper_type":base_type_val, "cdu":cdu_val, "cdu_unit_price":cduUnitPrice_val};
-      	 $.ajax({
-      			anyne:true,
-      			type:'POST',
-      			contentType: 'application/json',
-      			
-      			data: JSON.stringify(params),
-      			url:"/admsp/cduAllAjax",
-      			
-      			dataType: "text",
-      			success : function(data) {
-      				alert("변경이 완료되었습니다.");
-      			},
-      			error: function(jqXHR, textStatus, errorThrown) {
-      				alert("Error.");
-      			}
-      		});
-    }
-    
-    
-    
-    /* COOLER */
-	var coolerChecker;
-    var coolerCntChecker;
-    var coolerUnitPirce_val;
-    var cooler_val;
-    
-    function checkerCOOLERSelectFn(clicked,pntids){
-   	 coolerChecker = clicked;
-   	 pntid_val = pntids;
-    }
-    
-    function checkerCOOLERCntSelectFn(clicked){
-   	 coolerCntChecker = clicked;
-    }
-    
-   /* COOLER Btn Onclick Eventer */ 
-   function coolerBtnFn(cnt){
-    	coolerUnitPriceId = $("#coolerUnitPrice"+cnt).attr("id");
-	   	var cooler_cntChecker = "#"+coolerCntChecker+" option:selected";
-    	var pid = $("#coolerSelect"+cnt+' option:selected').val();
-    	cooler_val = $("#coolerSelect"+cnt+' option:selected').text();
-	   	var cooler_ctn = $(cooler_cntChecker).val();
-	   	var param = {"pid":pid, "cooler_ctn":cooler_ctn};
-      	 $.ajax({
-      			anyne:true,
-      			type:'POST',
-      			contentType: 'application/json',
-      			
-      			data: JSON.stringify(param),
-      			url:"/admsp/coolerAjax",
-      			
-      			dataType: "text",
-      			success : function(data) {
-      				if(cooler_ctn == "undefined" || cooler_ctn == null || cooler_ctn == ""){
-      					cooler_ctn = 1;
-      				}else {
-      					
-      				}
-      				$("#"+coolerUnitPriceId).val(data*cooler_ctn);  
-      			},
-      			error: function(jqXHR, textStatus, errorThrown) {
-      				alert("오류가 발생했습니다.");
-      			}
-      		});
-   }
-   
-   function allcoolerBtnFn(btnId, cnt) {
-   	/* id값 가져오기 */
-		var cooler_checker = "#"+coolerChecker+" option:selected";
-		var base_pntid_val_temp = $("#base_pntid"+cnt).attr("id");
-		var base_py_val_temp = $("#base_py"+cnt).attr("id");
-		var base_type_val_temp = $("#base_type"+cnt).attr("id");
-		var coolerUnitPrice_temp = $("#coolerUnitPrice"+cnt).attr("id");
-		/* 실제 값 가져오기 */
-		var coolerUnitPrice_val = $("#"+coolerUnitPrice_temp).val();
-		var base_pntid_val = $("#"+base_pntid_val_temp).val();
-		var base_py_val = $("#"+base_py_val_temp).val();
-		var base_type_val = $("#"+base_type_val_temp).val();
-		
-		/* 아래 Ajax로 보낼 params객체는 Entity 변수명이랑 "Key"의 이름이 같아야 한다. */
-		var params = {"pntid":base_pntid_val, "returns_py":base_py_val, "temper_type":base_type_val, "cooler":cooler_val, "cooler_unit_price":coolerUnitPrice_val};
-     	 $.ajax({
-     			anyne:true,
-     			type:'POST',
-     			contentType: 'application/json',
-     			
-     			data: JSON.stringify(params),
-     			url:"/admsp/coolerAllAjax",
-     			
-     			dataType: "text",
-     			success : function(data) {
-     				alert("변경이 완료되었습니다.");
-     			},
-     			error: function(jqXHR, textStatus, errorThrown) {
-     				alert("Error.");
-     			}
-     		});
-   }
-   
-   
-   /* Controll */
-   var controllChecker;
-   var controllCntChecker;
-   var controllUnitPirce_val;
-   var controll_val;
-   
-   function checkerCONTROLLSelectFn(clicked,pntids){
-  	 controllChecker = clicked;
-  	 pntid_val = pntids;
-   }
-   
-   function checkerCONTROLLCntSelectFn(clicked){
-  	 controllCntChecker = clicked;
-   }
-   
-  /* Controll Btn Onclick Eventer */ 
-  function controllBtnFn(cnt){
-   		controllUnitPriceId = $("#controllUnitPrice"+cnt).attr("id");
-	   	var controll_cntChecker = "#"+controllCntChecker+" option:selected";
-	   	var pid = $("#controllSelect"+cnt+' option:selected').val();
-	   	controll_val = $("#controllSelect"+cnt+' option:selected').text();
-	   	var controll_ctn = $(controll_cntChecker).val();
-	   	var param = {"pid":pid, "controll_ctn":controll_ctn};
-     	 $.ajax({
-     			anyne:true,
-     			type:'POST',
-     			contentType: 'application/json',
-     			
-     			data: JSON.stringify(param),
-     			url:"/admsp/controllAjax",
-     			
-     			dataType: "text",
-     			success : function(data) {
-     				if(controll_ctn == "undefined" || controll_ctn == null || controll_ctn == ""){
-     					controll_ctn = 1;
-     				}else {
-     					
-     				}
-     				$("#"+controllUnitPriceId).val(data*controll_ctn);  
-     			},
-     			error: function(jqXHR, textStatus, errorThrown) {
-     				alert("오류가 발생했습니다.");
-     			}
-     		});
-  }
-  
-  function allcontrollBtnFn(btnId, cnt) {
-  	/* id값 가져오기 */
-		var controll_checker = "#"+controllChecker+" option:selected";
-		var base_pntid_val_temp = $("#base_pntid"+cnt).attr("id");
-		var base_py_val_temp = $("#base_py"+cnt).attr("id");
-		var base_type_val_temp = $("#base_type"+cnt).attr("id");
-		var controllUnitPrice_temp = $("#controllUnitPrice"+cnt).attr("id");
-		/* 실제 값 가져오기 */
-		var controllUnitPrice_val = $("#"+controllUnitPrice_temp).val();
-		var base_pntid_val = $("#"+base_pntid_val_temp).val();
-		var base_py_val = $("#"+base_py_val_temp).val();
-		var base_type_val = $("#"+base_type_val_temp).val();
-		
-		/* 아래 Ajax로 보낼 params객체는 Entity 변수명이랑 "Key"의 이름이 같아야 한다. */
-		var params = {"pntid":base_pntid_val, "returns_py":base_py_val, "temper_type":base_type_val, "controll":controll_val, "controll_unit_price":controllUnitPrice_val};
-    	 $.ajax({
-    			anyne:true,
-    			type:'POST',
-    			contentType: 'application/json',
-    			
-    			data: JSON.stringify(params),
-    			url:"/admsp/controllAllAjax",
-    			
-    			dataType: "text",
-    			success : function(data) {
-    				alert("변경이 완료되었습니다.");
-    			},
-    			error: function(jqXHR, textStatus, errorThrown) {
-    				alert("Error.");
-    			}
-    		});
-  }
-  
-  
-  /* EX Vavle */
-  var exvalveChecker;
-  var exvalveCntChecker;
-  var exvalveUnitPirce_val;
-  var exvalve_val;
-  
-  function checkerEXVALVESelectFn(clicked,pntids){
- 	 exvalveChecker = clicked;
- 	 pntid_val = pntids;
-  }
-  
-  function checkerEXVALVECntSelectFn(clicked){
- 	 exvalveCntChecker = clicked;
-  }
-  
-  
- /* EXVAVLE Btn Onclick Eventer */ 
- function exvalveBtnFn(cnt){
-	 exvalveUnitPriceId = $("#exvalveUnitPrice"+cnt).attr("id");
-	   	var exvalve_cntChecker = "#"+exvalveCntChecker+" option:selected";
-	   	var pid = $("#exvalveSelect"+cnt+' option:selected').val();
-	   	exvalve_val = $("#exvalveSelect"+cnt+' option:selected').text();
-	   	var exvalve_ctn = $(exvalve_cntChecker).val();
-	   	var param = {"pid":pid, "exvalve_ctn":exvalve_ctn};
-    	 $.ajax({
-    			anyne:true,
-    			type:'POST',
-    			contentType: 'application/json',
-    			
-    			data: JSON.stringify(param),
-    			url:"/admsp/exvalveAjax",
-    			
-    			dataType: "text",
-    			success : function(data) {
-    				if(exvalve_ctn == "undefined" || exvalve_ctn == null || exvalve_ctn == ""){
-    					exvalve_ctn = 1;
-    				}else {
-    					
-    				}
-    				$("#"+exvalveUnitPriceId).val(data*exvalve_ctn);  
-    			},
-    			error: function(jqXHR, textStatus, errorThrown) {
-    				alert("오류가 발생했습니다.");
-    			}
-    		});
- }
- 
- function allexvalveBtnFn(btnId, cnt) {
- 	/* id값 가져오기 */
-		var exvalve_checker = "#"+exvalveChecker+" option:selected";
-		var base_pntid_val_temp = $("#base_pntid"+cnt).attr("id");
-		var base_py_val_temp = $("#base_py"+cnt).attr("id");
-		var base_type_val_temp = $("#base_type"+cnt).attr("id");
-		var exvalveUnitPrice_temp = $("#exvalveUnitPrice"+cnt).attr("id");
-		/* 실제 값 가져오기 */
-		var exvalveUnitPrice_val = $("#"+exvalveUnitPrice_temp).val();
-		var base_pntid_val = $("#"+base_pntid_val_temp).val();
-		var base_py_val = $("#"+base_py_val_temp).val();
-		var base_type_val = $("#"+base_type_val_temp).val();
-		
-		/* 아래 Ajax로 보낼 params객체는 Entity 변수명이랑 "Key"의 이름이 같아야 한다. */
-		var params = {"pntid":base_pntid_val, "returns_py":base_py_val, "temper_type":base_type_val, "exvalve":exvalve_val, "exvalve_unit_price":exvalveUnitPrice_val};
-   	 $.ajax({
-   			anyne:true,
-   			type:'POST',
-   			contentType: 'application/json',
-   			
-   			data: JSON.stringify(params),
-   			url:"/admsp/exvalveAllAjax",
-   			
-   			dataType: "text",
-   			success : function(data) {
-   				alert("변경이 완료되었습니다.");
-   			},
-   			error: function(jqXHR, textStatus, errorThrown) {
-   				alert("Error.");
-   			}
-   		});
- }
- 
- 
- /* ELEC Vavle */
- var elecvalveChecker;
- var elecvalveCntChecker;
- var elecvalveUnitPirce_val;
- var elecvalve_val;
- 
- function checkerELECVALVESelectFn(clicked,pntids){
-	 elecvalveChecker = clicked;
-	 pntid_val = pntids;
- }
- 
- function checkerELECVALVECntSelectFn(clicked){
-	 elecvalveCntChecker = clicked;
- }
- 
- 
-/* ELEC VAVLE Btn Onclick Eventer */ 
-function elecvalveBtnFn(cnt){
-		elecvalveUnitPriceId = $("#elecvalveUnitPrice"+cnt).attr("id");
-	   	var elecvalve_cntChecker = "#"+elecvalveCntChecker+" option:selected";
-	   	var elecvalve_ctn = $(elecvalve_cntChecker).val();
-	   	var pid = $("#elecvalveSelect"+cnt+' option:selected').val();
-	   	elecvalve_val = $("#elecvalveSelect"+cnt+' option:selected').text();
-	   	var param = {"pid":pid, "elecvalve_ctn":elecvalve_ctn};
-   	 $.ajax({
-   			anyne:true,
-   			type:'POST',
-   			contentType: 'application/json',
-   			
-   			data: JSON.stringify(param),
-   			url:"/admsp/elecvalveAjax",
-   			
-   			dataType: "text",
-   			success : function(data) {
-   				if(elecvalve_ctn == "undefined" || elecvalve_ctn == null || elecvalve_ctn == ""){
-   					elecvalve_ctn = 1;
-   				}else {
-   					
-   				}
-   				$("#"+elecvalveUnitPriceId).val(data*elecvalve_ctn);  
-   			},
-   			error: function(jqXHR, textStatus, errorThrown) {
-   				alert("오류가 발생했습니다.");
-   			}
-   		});
-}
-
-function allelecvalveBtnFn(btnId, cnt) {
-	/* id값 가져오기 */
-		var elecvalve_checker = "#"+elecvalveChecker+" option:selected";
-		var base_pntid_val_temp = $("#base_pntid"+cnt).attr("id");
-		var base_py_val_temp = $("#base_py"+cnt).attr("id");
-		var base_type_val_temp = $("#base_type"+cnt).attr("id");
-		var elecvalveUnitPrice_temp = $("#elecvalveUnitPrice"+cnt).attr("id");
-		/* 실제 값 가져오기 */
-		var elecvalveUnitPrice_val = $("#"+elecvalveUnitPrice_temp).val();
-		var base_pntid_val = $("#"+base_pntid_val_temp).val();
-		var base_py_val = $("#"+base_py_val_temp).val();
-		var base_type_val = $("#"+base_type_val_temp).val();
-		
-		/* 아래 Ajax로 보낼 params객체는 Entity 변수명이랑 "Key"의 이름이 같아야 한다. */
-		var params = {"pntid":base_pntid_val, "returns_py":base_py_val, "temper_type":base_type_val, "elecvalve":elecvalve_val, "elecvalve_unit_price":elecvalveUnitPrice_val};
-  	 $.ajax({
-  			anyne:true,
-  			type:'POST',
-  			contentType: 'application/json',
-  			
-  			data: JSON.stringify(params),
-  			url:"/admsp/elecvalveAllAjax",
-  			
-  			dataType: "text",
-  			success : function(data) {
-  				alert("변경이 완료되었습니다.");
-  			},
-  			error: function(jqXHR, textStatus, errorThrown) {
-  				alert("Error.");
-  			}
-  		});
-}
-
-/* Opassis Vavle */
-var opassisChecker;
-var opassisCntChecker;
-var opassisUnitPirce_val;
-var opassis_val;
-
-function checkerOPASSISSelectFn(clicked,pntids){
-	opassisChecker = clicked;
-	 pntid_val = pntids;
-}
-
-function checkerOPASSISCntSelectFn(clicked){
-	 opassisCntChecker = clicked;
-}
-
-
-/* OPASSIS Btn Onclick Eventer */ 
-function opassisBtnFn(cnt){
-	opassisUnitPriceId = $("#opassisUnitPrice"+cnt).attr("id");
-	   	var opassis_cntChecker = "#"+opassisCntChecker+" option:selected";
-	   	var opassis_ctn = $(opassis_cntChecker).val();
-	   	var pid = $("#opassisSelect"+cnt+' option:selected').val();
-	   	opassis_val = $("#opassisSelect"+cnt+' option:selected').text();
-	   	var param = {"pid":pid, "opassis_ctn":opassis_ctn};
-  	 $.ajax({
-  			anyne:true,
-  			type:'POST',
-  			contentType: 'application/json',
-  			
-  			data: JSON.stringify(param),
-  			url:"/admsp/opassis1Ajax",
-  			
-  			dataType: "text",
-  			success : function(data) {
-  				if(opassis_ctn == "undefined" || opassis_ctn == null || opassis_ctn == ""){
-  					opassis_ctn = 1;
-  				}else {
-  					
-  				}
-  				$("#"+opassisUnitPriceId).val(data*opassis_ctn);  
-  			},
-  			error: function(jqXHR, textStatus, errorThrown) {
-  				alert("오류가 발생했습니다.");
-  			}
-  		});
-}
-
-
-function allopassisBtnFn(btnId, cnt) {
-	/* id값 가져오기 */
-		var opassis_checker = "#"+opassisChecker+" option:selected";
-		var base_pntid_val_temp = $("#base_pntid"+cnt).attr("id");
-		var base_py_val_temp = $("#base_py"+cnt).attr("id");
-		var base_type_val_temp = $("#base_type"+cnt).attr("id");
-		var opassisUnitPrice_temp = $("#opassisUnitPrice"+cnt).attr("id");
-		/* 실제 값 가져오기 */
-		var opassisUnitPrice_val = $("#"+opassisUnitPrice_temp).val();
-		var base_pntid_val = $("#"+base_pntid_val_temp).val();
-		var base_py_val = $("#"+base_py_val_temp).val();
-		var base_type_val = $("#"+base_type_val_temp).val();
-		
-		/* 아래 Ajax로 보낼 params객체는 Entity 변수명이랑 "Key"의 이름이 같아야 한다. */
-		var params = {"pntid":base_pntid_val, "returns_py":base_py_val, "temper_type":base_type_val, "opassis":opassis_val, "opassis_unit_price":opassisUnitPrice_val};
- 	 $.ajax({
- 			anyne:true,
- 			type:'POST',
- 			contentType: 'application/json',
- 			
- 			data: JSON.stringify(params),
- 			url:"/admsp/opassis1AllAjax",
- 			
- 			dataType: "text",
- 			success : function(data) {
- 				alert("변경이 완료되었습니다.");
- 			},
- 			error: function(jqXHR, textStatus, errorThrown) {
- 				alert("Error.");
- 			}
- 		});
-}
-
-	</script>
 </body>
 
 </html>

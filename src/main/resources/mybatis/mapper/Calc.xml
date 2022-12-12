@@ -58,6 +58,9 @@
 	</select>
 	<select id="getOneCalcOpassis" resultType="com.freeze.mybatis.vo.CalcOpassisEntity">
 		select * from opassis_t where pid = #{pid}
+	</select>
+	<select id="getOneCalcMandays" resultType="com.freeze.mybatis.vo.CalcMandaysEntity">
+		select * from mandays_t where pid = #{pid}
 	</select>					
 	
 		
@@ -95,10 +98,89 @@
 	</update>
 	<update id="updateOpassis1ProductsAll" parameterType="com.freeze.mybatis.vo.CalcViewEntity">
 		update SETTING_VIEW_T 
-			set OP_ASSIS1 = #{opassis}, 
-				OP_ASSIS1_UNIT_PRICE = #{opassis_unit_price}
+			set OP_ASSIS1 = #{opassis1}, 
+				OP_ASSIS1_UNIT_PRICE = #{opassis1_unit_price}
 			where PINID = #{pntid}
 	</update>
+	<update id="updateOpassis2ProductsAll" parameterType="com.freeze.mybatis.vo.CalcViewEntity">
+		update SETTING_VIEW_T 
+			set OP_ASSIS2 = #{opassis2}, 
+				OP_ASSIS2_UNIT_PRICE = #{opassis2_unit_price}
+			where PINID = #{pntid}
+	</update>
+	<update id="updateOpassis3ProductsAll" parameterType="com.freeze.mybatis.vo.CalcViewEntity">
+		update SETTING_VIEW_T 
+			set OP_ASSIS3 = #{opassis3}, 
+				OP_ASSIS3_UNIT_PRICE = #{opassis3_unit_price}
+			where PINID = #{pntid}
+	</update>
+	<update id="updateOpassis4ProductsAll" parameterType="com.freeze.mybatis.vo.CalcViewEntity">
+		update SETTING_VIEW_T 
+			set OP_ASSIS4 = #{opassis4}, 
+				OP_ASSIS4_UNIT_PRICE = #{opassis4_unit_price}
+			where PINID = #{pntid}
+	</update>
+	<update id="updateOpassis5ProductsAll" parameterType="com.freeze.mybatis.vo.CalcViewEntity">
+		update SETTING_VIEW_T 
+			set OP_ASSIS5 = #{opassis5}, 
+				OP_ASSIS5_UNIT_PRICE = #{opassis5_unit_price}
+			where PINID = #{pntid}
+	</update>
+	<update id="updateOpassis6ProductsAll" parameterType="com.freeze.mybatis.vo.CalcViewEntity">
+		update SETTING_VIEW_T 
+			set OP_ASSIS6 = #{opassis6}, 
+				OP_ASSIS6_UNIT_PRICE = #{opassis6_unit_price}
+			where PINID = #{pntid}
+	</update>
+	<update id="updateOpassis7ProductsAll" parameterType="com.freeze.mybatis.vo.CalcViewEntity">
+		update SETTING_VIEW_T 
+			set OP_ASSIS7 = #{opassis7}, 
+				OP_ASSIS7_UNIT_PRICE = #{opassis7_unit_price}
+			where PINID = #{pntid}
+	</update>
+	<update id="updateOpassis8ProductsAll" parameterType="com.freeze.mybatis.vo.CalcViewEntity">
+		update SETTING_VIEW_T 
+			set OP_ASSIS8 = #{opassis8}, 
+				OP_ASSIS8_UNIT_PRICE = #{opassis8_unit_price}
+			where PINID = #{pntid}
+	</update>
+	<update id="updateOpassis9ProductsAll" parameterType="com.freeze.mybatis.vo.CalcViewEntity">
+		update SETTING_VIEW_T 
+			set OP_ASSIS9 = #{opassis9}, 
+				OP_ASSIS9_UNIT_PRICE = #{opassis9_unit_price}
+			where PINID = #{pntid}
+	</update>
+	<update id="updateOpassis10ProductsAll" parameterType="com.freeze.mybatis.vo.CalcViewEntity">
+		update SETTING_VIEW_T 
+			set OP_ASSIS10 = #{opassis10}, 
+				OP_ASSIS10_UNIT_PRICE = #{opassis10_unit_price}
+			where PINID = #{pntid}
+	</update>
+	<update id="updateMandays1ProductsAll" parameterType="com.freeze.mybatis.vo.CalcViewEntity">
+		update SETTING_VIEW_T 
+			set MANDAY1 = #{manday1}, 
+				MANDAY1_UNIT_PRICE = #{manday1_unit_price}
+			where PINID = #{pntid}
+	</update>
+	<update id="updateMandays2ProductsAll" parameterType="com.freeze.mybatis.vo.CalcViewEntity">
+		update SETTING_VIEW_T 
+			set MANDAY2 = #{manday2}, 
+				MANDAY2_UNIT_PRICE = #{manday2_unit_price}
+			where PINID = #{pntid}
+	</update>
+	<update id="updateMandays3ProductsAll" parameterType="com.freeze.mybatis.vo.CalcViewEntity">
+		update SETTING_VIEW_T 
+			set MANDAY3 = #{manday3}, 
+				MANDAY3_UNIT_PRICE = #{manday3_unit_price}
+			where PINID = #{pntid}
+	</update>
+	<update id="updateMandays4ProductsAll" parameterType="com.freeze.mybatis.vo.CalcViewEntity">
+		update SETTING_VIEW_T 
+			set MANDAY4 = #{manday4}, 
+				MANDAY4_UNIT_PRICE = #{manday4_unit_price}
+			where PINID = #{pntid}
+	</update>
+	
 	
 	
 	

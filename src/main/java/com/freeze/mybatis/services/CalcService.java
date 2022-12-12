@@ -51,6 +51,45 @@ public class CalcService
     public void updateOpassis1ProductsAll(CalcViewEntity view) throws Exception {
     	this.mapper.updateOpassis1ProductsAll(view);
     }
+    public void updateOpassis2ProductsAll(CalcViewEntity view) throws Exception {
+    	this.mapper.updateOpassis2ProductsAll(view);
+    }
+    public void updateOpassis3ProductsAll(CalcViewEntity view) throws Exception {
+    	this.mapper.updateOpassis3ProductsAll(view);
+    }
+    public void updateOpassis4ProductsAll(CalcViewEntity view) throws Exception {
+    	this.mapper.updateOpassis4ProductsAll(view);
+    }
+    public void updateOpassis5ProductsAll(CalcViewEntity view) throws Exception {
+    	this.mapper.updateOpassis5ProductsAll(view);
+    }
+    public void updateOpassis6ProductsAll(CalcViewEntity view) throws Exception {
+    	this.mapper.updateOpassis6ProductsAll(view);
+    }
+    public void updateOpassis7ProductsAll(CalcViewEntity view) throws Exception {
+    	this.mapper.updateOpassis7ProductsAll(view);
+    }
+    public void updateOpassis8ProductsAll(CalcViewEntity view) throws Exception {
+    	this.mapper.updateOpassis8ProductsAll(view);
+    }
+    public void updateOpassis9ProductsAll(CalcViewEntity view) throws Exception {
+    	this.mapper.updateOpassis9ProductsAll(view);
+    }
+    public void updateOpassis10ProductsAll(CalcViewEntity view) throws Exception {
+    	this.mapper.updateOpassis10ProductsAll(view);
+    }
+    public void updateMandays1ProductsAll(CalcViewEntity view) throws Exception {
+    	this.mapper.updateMandays1ProductsAll(view);
+    }
+    public void updateMandays2ProductsAll(CalcViewEntity view) throws Exception {
+    	this.mapper.updateMandays2ProductsAll(view);
+    }
+    public void updateMandays3ProductsAll(CalcViewEntity view) throws Exception {
+    	this.mapper.updateMandays3ProductsAll(view);
+    }
+    public void updateMandays4ProductsAll(CalcViewEntity view) throws Exception {
+    	this.mapper.updateMandays4ProductsAll(view);
+    }
     
 //  데이터 세팅 - View 가격 하나씩 가져오기
     public List<CalcCDUEntity> getOneCalcCDU(String pid) throws Exception {
@@ -70,6 +109,9 @@ public class CalcService
     }
     public List<CalcOpassisEntity> getOneCalcOpassis(String pid) throws Exception {
         return this.mapper.getOneCalcOpassis(pid);
+    }
+    public List<CalcMandaysEntity> getOneCalcMandays(String pid) throws Exception {
+        return this.mapper.getOneCalcMandays(pid);
     }
     
     

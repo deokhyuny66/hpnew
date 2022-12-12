@@ -63,6 +63,7 @@ public class CalcController {
 		List<CalcExvalveEntity> calcExvalveEntity = service.getCalcExvalve();
 		List<CalcElecvalveEntity> calcElecvalveEntity = service.getCalcElecvalve();
 		List<CalcOpassisEntity> calcOpassisEntity = service.getCalcOpassis();
+		List<CalcMandaysEntity> calcMandaysEntity = service.getCalcMandays();
 		model.addAttribute("calcBaseEntity", calcBaseEntity);
 		model.addAttribute("cduEntitylist", calcCDUEntity);
 		model.addAttribute("coolerEntitylist", calcCoolerEntity);
@@ -70,6 +71,7 @@ public class CalcController {
 		model.addAttribute("exvalveEntitylist", calcExvalveEntity);
 		model.addAttribute("elecvalveEntitylist", calcElecvalveEntity);
 		model.addAttribute("opassisEntitylist", calcOpassisEntity);
+		model.addAttribute("mandaysEntitylist", calcMandaysEntity);
 		return "/admsp/products-list";
 	}
 	
@@ -165,13 +167,13 @@ public class CalcController {
 
 //		데이터 세팅 - Opassis1 Products All
 	 	@RequestMapping(value="/admsp/opassis1AllAjax", method=RequestMethod.POST)
-		public @ResponseBody void sendAjaxGetOpassisAll(@RequestBody CalcViewEntity view) throws Exception {
+		public @ResponseBody void sendAjaxGetOpassis1All(@RequestBody CalcViewEntity view) throws Exception {
 			service.updateOpassis1ProductsAll(view);
 		}
 			
 //		데이터 세팅 - Opassis1 Products
 		 @RequestMapping(value="/admsp/opassis1Ajax", method=RequestMethod.POST) 
-		 public @ResponseBody String sendAjaxGetOpassisOne(@RequestBody CalcOpassisEntity opassis, String opassis_ctn) throws Exception {
+		 public @ResponseBody String sendAjaxGetOpassis1One(@RequestBody CalcOpassisEntity opassis, String opassis_ctn) throws Exception {
 			 List<CalcOpassisEntity> calcOpassisEntity = service.getOneCalcOpassis(opassis.getPid());
 			 String getUnitPrice = calcOpassisEntity.get(0).getUnit_price();
 			 if(getUnitPrice.equals(null) || getUnitPrice.equals("") || getUnitPrice.equals(0) || getUnitPrice.equals("0")) {
@@ -180,7 +182,241 @@ public class CalcController {
 				 return calcOpassisEntity.get(0).getUnit_price();
 			 }
 		 }
-	 
+		 
+//		데이터 세팅 - Opassis2 Products All
+	 	@RequestMapping(value="/admsp/opassis2AllAjax", method=RequestMethod.POST)
+		public @ResponseBody void sendAjaxGetOpassis2All(@RequestBody CalcViewEntity view) throws Exception {
+			service.updateOpassis2ProductsAll(view);
+		}
+			
+//		데이터 세팅 - Opassis2 Products
+		 @RequestMapping(value="/admsp/opassis2Ajax", method=RequestMethod.POST) 
+		 public @ResponseBody String sendAjaxGetOpassis2One(@RequestBody CalcOpassisEntity opassis, String opassis_ctn) throws Exception {
+			 List<CalcOpassisEntity> calcOpassisEntity = service.getOneCalcOpassis(opassis.getPid());
+			 String getUnitPrice = calcOpassisEntity.get(0).getUnit_price();
+			 if(getUnitPrice.equals(null) || getUnitPrice.equals("") || getUnitPrice.equals(0) || getUnitPrice.equals("0")) {
+				 return "";
+			 }else {
+				 return calcOpassisEntity.get(0).getUnit_price();
+			 }
+		 }
+		 
+//		데이터 세팅 - Opassis3 Products All
+	 	@RequestMapping(value="/admsp/opassis3AllAjax", method=RequestMethod.POST)
+		public @ResponseBody void sendAjaxGetOpassis3All(@RequestBody CalcViewEntity view) throws Exception {
+			service.updateOpassis3ProductsAll(view);
+		}
+			
+//		데이터 세팅 - Opassis3 Products
+		 @RequestMapping(value="/admsp/opassis3Ajax", method=RequestMethod.POST) 
+		 public @ResponseBody String sendAjaxGetOpassis3One(@RequestBody CalcOpassisEntity opassis, String opassis_ctn) throws Exception {
+			 List<CalcOpassisEntity> calcOpassisEntity = service.getOneCalcOpassis(opassis.getPid());
+			 String getUnitPrice = calcOpassisEntity.get(0).getUnit_price();
+			 if(getUnitPrice.equals(null) || getUnitPrice.equals("") || getUnitPrice.equals(0) || getUnitPrice.equals("0")) {
+				 return "";
+			 }else {
+				 return calcOpassisEntity.get(0).getUnit_price();
+			 }
+		 }
+		 
+//		데이터 세팅 - Opassis4 Products All
+	 	@RequestMapping(value="/admsp/opassis4AllAjax", method=RequestMethod.POST)
+		public @ResponseBody void sendAjaxGetOpassis4All(@RequestBody CalcViewEntity view) throws Exception {
+			service.updateOpassis4ProductsAll(view);
+		}
+			
+//		데이터 세팅 - Opassis4 Products
+		 @RequestMapping(value="/admsp/opassis4Ajax", method=RequestMethod.POST) 
+		 public @ResponseBody String sendAjaxGetOpassis4One(@RequestBody CalcOpassisEntity opassis, String opassis_ctn) throws Exception {
+			 List<CalcOpassisEntity> calcOpassisEntity = service.getOneCalcOpassis(opassis.getPid());
+			 String getUnitPrice = calcOpassisEntity.get(0).getUnit_price();
+			 if(getUnitPrice.equals(null) || getUnitPrice.equals("") || getUnitPrice.equals(0) || getUnitPrice.equals("0")) {
+				 return "";
+			 }else {
+				 return calcOpassisEntity.get(0).getUnit_price();
+			 }
+		 }
+		 
+//		데이터 세팅 - Opassis5 Products All
+	 	@RequestMapping(value="/admsp/opassis5AllAjax", method=RequestMethod.POST)
+		public @ResponseBody void sendAjaxGetOpassis5All(@RequestBody CalcViewEntity view) throws Exception {
+			service.updateOpassis5ProductsAll(view);
+		}
+			
+//		데이터 세팅 - Opassis5 Products
+		 @RequestMapping(value="/admsp/opassis5Ajax", method=RequestMethod.POST) 
+		 public @ResponseBody String sendAjaxGetOpassis5One(@RequestBody CalcOpassisEntity opassis, String opassis_ctn) throws Exception {
+			 List<CalcOpassisEntity> calcOpassisEntity = service.getOneCalcOpassis(opassis.getPid());
+			 String getUnitPrice = calcOpassisEntity.get(0).getUnit_price();
+			 if(getUnitPrice.equals(null) || getUnitPrice.equals("") || getUnitPrice.equals(0) || getUnitPrice.equals("0")) {
+				 return "";
+			 }else {
+				 return calcOpassisEntity.get(0).getUnit_price();
+			 }
+		 }
+		 
+//		데이터 세팅 - Opassis6 Products All
+	 	@RequestMapping(value="/admsp/opassis6AllAjax", method=RequestMethod.POST)
+		public @ResponseBody void sendAjaxGetOpassis6All(@RequestBody CalcViewEntity view) throws Exception {
+			service.updateOpassis6ProductsAll(view);
+		}
+			
+//		데이터 세팅 - Opassis5 Products
+		 @RequestMapping(value="/admsp/opassis6Ajax", method=RequestMethod.POST) 
+		 public @ResponseBody String sendAjaxGetOpassis6One(@RequestBody CalcOpassisEntity opassis, String opassis_ctn) throws Exception {
+			 List<CalcOpassisEntity> calcOpassisEntity = service.getOneCalcOpassis(opassis.getPid());
+			 String getUnitPrice = calcOpassisEntity.get(0).getUnit_price();
+			 if(getUnitPrice.equals(null) || getUnitPrice.equals("") || getUnitPrice.equals(0) || getUnitPrice.equals("0")) {
+				 return "";
+			 }else {
+				 return calcOpassisEntity.get(0).getUnit_price();
+			 }
+		 }
+		 
+//		데이터 세팅 - Opassis7 Products All
+	 	@RequestMapping(value="/admsp/opassis7AllAjax", method=RequestMethod.POST)
+		public @ResponseBody void sendAjaxGetOpassis7All(@RequestBody CalcViewEntity view) throws Exception {
+			service.updateOpassis7ProductsAll(view);
+		}
+			
+//		데이터 세팅 - Opassis7 Products
+		 @RequestMapping(value="/admsp/opassis7Ajax", method=RequestMethod.POST) 
+		 public @ResponseBody String sendAjaxGetOpassis7One(@RequestBody CalcOpassisEntity opassis, String opassis_ctn) throws Exception {
+			 List<CalcOpassisEntity> calcOpassisEntity = service.getOneCalcOpassis(opassis.getPid());
+			 String getUnitPrice = calcOpassisEntity.get(0).getUnit_price();
+			 if(getUnitPrice.equals(null) || getUnitPrice.equals("") || getUnitPrice.equals(0) || getUnitPrice.equals("0")) {
+				 return "";
+			 }else {
+				 return calcOpassisEntity.get(0).getUnit_price();
+			 }
+		 }
+		 
+//		데이터 세팅 - Opassis8 Products All
+	 	@RequestMapping(value="/admsp/opassis8AllAjax", method=RequestMethod.POST)
+		public @ResponseBody void sendAjaxGetOpassis8All(@RequestBody CalcViewEntity view) throws Exception {
+			service.updateOpassis8ProductsAll(view);
+		}
+			
+//		데이터 세팅 - Opassis8 Products
+		 @RequestMapping(value="/admsp/opassis8Ajax", method=RequestMethod.POST) 
+		 public @ResponseBody String sendAjaxGetOpassis8One(@RequestBody CalcOpassisEntity opassis, String opassis_ctn) throws Exception {
+			 List<CalcOpassisEntity> calcOpassisEntity = service.getOneCalcOpassis(opassis.getPid());
+			 String getUnitPrice = calcOpassisEntity.get(0).getUnit_price();
+			 if(getUnitPrice.equals(null) || getUnitPrice.equals("") || getUnitPrice.equals(0) || getUnitPrice.equals("0")) {
+				 return "";
+			 }else {
+				 return calcOpassisEntity.get(0).getUnit_price();
+			 }
+		 }
+		 
+//		데이터 세팅 - Opassis9 Products All
+	 	@RequestMapping(value="/admsp/opassis9AllAjax", method=RequestMethod.POST)
+		public @ResponseBody void sendAjaxGetOpassis9All(@RequestBody CalcViewEntity view) throws Exception {
+			service.updateOpassis9ProductsAll(view);
+		}
+			
+//		데이터 세팅 - Opassis8 Products
+		 @RequestMapping(value="/admsp/opassis9Ajax", method=RequestMethod.POST) 
+		 public @ResponseBody String sendAjaxGetOpassis9One(@RequestBody CalcOpassisEntity opassis, String opassis_ctn) throws Exception {
+			 List<CalcOpassisEntity> calcOpassisEntity = service.getOneCalcOpassis(opassis.getPid());
+			 String getUnitPrice = calcOpassisEntity.get(0).getUnit_price();
+			 if(getUnitPrice.equals(null) || getUnitPrice.equals("") || getUnitPrice.equals(0) || getUnitPrice.equals("0")) {
+				 return "";
+			 }else {
+				 return calcOpassisEntity.get(0).getUnit_price();
+			 }
+		 }
+		 
+//		데이터 세팅 - Opassis10 Products All
+	 	@RequestMapping(value="/admsp/opassis10AllAjax", method=RequestMethod.POST)
+		public @ResponseBody void sendAjaxGetOpassis10All(@RequestBody CalcViewEntity view) throws Exception {
+			service.updateOpassis10ProductsAll(view);
+		}
+			
+//		데이터 세팅 - Opassis10 Products
+		 @RequestMapping(value="/admsp/opassis10Ajax", method=RequestMethod.POST) 
+		 public @ResponseBody String sendAjaxGetOpassis10One(@RequestBody CalcOpassisEntity opassis, String opassis_ctn) throws Exception {
+			 List<CalcOpassisEntity> calcOpassisEntity = service.getOneCalcOpassis(opassis.getPid());
+			 String getUnitPrice = calcOpassisEntity.get(0).getUnit_price();
+			 if(getUnitPrice.equals(null) || getUnitPrice.equals("") || getUnitPrice.equals(0) || getUnitPrice.equals("0")) {
+				 return "";
+			 }else {
+				 return calcOpassisEntity.get(0).getUnit_price();
+			 }
+		 }
+		 
+//		데이터 세팅 - Mandays1 Products All
+	 	@RequestMapping(value="/admsp/manday1AllAjax", method=RequestMethod.POST)
+		public @ResponseBody void sendAjaxGetMandays1All(@RequestBody CalcViewEntity view) throws Exception {
+			service.updateMandays1ProductsAll(view);
+		}
+			
+//		데이터 세팅 - Mandays1 Products
+		 @RequestMapping(value="/admsp/manday1Ajax", method=RequestMethod.POST) 
+		 public @ResponseBody String sendAjaxGetMandays1One(@RequestBody CalcMandaysEntity manday, String manday_ctn) throws Exception {
+			 List<CalcMandaysEntity> calcMandaysEntity = service.getOneCalcMandays(manday.getPid());
+			 String getUnitPrice = calcMandaysEntity.get(0).getUnit_price();
+			 if(getUnitPrice.equals(null) || getUnitPrice.equals("") || getUnitPrice.equals(0) || getUnitPrice.equals("0")) {
+				 return "";
+			 }else {
+				 return calcMandaysEntity.get(0).getUnit_price();
+			 }
+		 }
+		 
+//		데이터 세팅 - Mandays2 Products All
+	 	@RequestMapping(value="/admsp/manday2AllAjax", method=RequestMethod.POST)
+		public @ResponseBody void sendAjaxGetMandays2All(@RequestBody CalcViewEntity view) throws Exception {
+			service.updateMandays2ProductsAll(view);
+		}
+			
+//		데이터 세팅 - Mandays2 Products
+		 @RequestMapping(value="/admsp/manday2Ajax", method=RequestMethod.POST) 
+		 public @ResponseBody String sendAjaxGetMandays2One(@RequestBody CalcMandaysEntity manday, String manday_ctn) throws Exception {
+			 List<CalcMandaysEntity> calcMandaysEntity = service.getOneCalcMandays(manday.getPid());
+			 String getUnitPrice = calcMandaysEntity.get(0).getUnit_price();
+			 if(getUnitPrice.equals(null) || getUnitPrice.equals("") || getUnitPrice.equals(0) || getUnitPrice.equals("0")) {
+				 return "";
+			 }else {
+				 return calcMandaysEntity.get(0).getUnit_price();
+			 }
+		 }
+		 
+//		데이터 세팅 - Mandays3 Products All
+	 	@RequestMapping(value="/admsp/manday3AllAjax", method=RequestMethod.POST)
+		public @ResponseBody void sendAjaxGetMandays3All(@RequestBody CalcViewEntity view) throws Exception {
+			service.updateMandays3ProductsAll(view);
+		}
+			
+//		데이터 세팅 - Mandays3 Products
+		 @RequestMapping(value="/admsp/manday3Ajax", method=RequestMethod.POST) 
+		 public @ResponseBody String sendAjaxGetMandays3One(@RequestBody CalcMandaysEntity manday, String manday_ctn) throws Exception {
+			 List<CalcMandaysEntity> calcMandaysEntity = service.getOneCalcMandays(manday.getPid());
+			 String getUnitPrice = calcMandaysEntity.get(0).getUnit_price();
+			 if(getUnitPrice.equals(null) || getUnitPrice.equals("") || getUnitPrice.equals(0) || getUnitPrice.equals("0")) {
+				 return "";
+			 }else {
+				 return calcMandaysEntity.get(0).getUnit_price();
+			 }
+		 }
+		 
+//		데이터 세팅 - Mandays4 Products All
+	 	@RequestMapping(value="/admsp/manday4AllAjax", method=RequestMethod.POST)
+		public @ResponseBody void sendAjaxGetMandays4All(@RequestBody CalcViewEntity view) throws Exception {
+			service.updateMandays4ProductsAll(view);
+		}
+			
+//		데이터 세팅 - Mandays4 Products
+		 @RequestMapping(value="/admsp/manday4Ajax", method=RequestMethod.POST) 
+		 public @ResponseBody String sendAjaxGetMandays4One(@RequestBody CalcMandaysEntity manday, String manday_ctn) throws Exception {
+			 List<CalcMandaysEntity> calcMandaysEntity = service.getOneCalcMandays(manday.getPid());
+			 String getUnitPrice = calcMandaysEntity.get(0).getUnit_price();
+			 if(getUnitPrice.equals(null) || getUnitPrice.equals("") || getUnitPrice.equals(0) || getUnitPrice.equals("0")) {
+				 return "";
+			 }else {
+				 return calcMandaysEntity.get(0).getUnit_price();
+			 }
+		 }
+ 
 //	데이터 세팅 - 화면에서 최초 버튼 클릭 시 AJAX 처음으로 Request 호출하는 곳 
 	@RequestMapping("/admsp/productsRq")
 	public String cduRq(HttpServletRequest request) throws Exception {
@@ -238,12 +474,12 @@ public class CalcController {
 		opassisEnty.setUnit_price(request.getParameter("opassisUnit"));
 		service.updateCalcOpassis(opassisEnty.getPid(),opassisEnty.getPurchase_price(),opassisEnty.getUnit_price());
 	}
-	@RequestMapping("/admsp/mandaysProc")
+	@RequestMapping("/admsp/mandayProc")
 	public void mandaysProc(HttpServletRequest request) throws Exception {
 		CalcMandaysEntity mandaysEnty = new CalcMandaysEntity();
-		mandaysEnty.setPid(request.getParameter("mandaysPid"));
-		mandaysEnty.setPurchase_price(request.getParameter("mandaysPurchase"));
-		mandaysEnty.setUnit_price(request.getParameter("mandaysUnit"));
+		mandaysEnty.setPid(request.getParameter("mandayPid"));
+		mandaysEnty.setPurchase_price(request.getParameter("mandayPurchase"));
+		mandaysEnty.setUnit_price(request.getParameter("mandayUnit"));
 		service.updateCalcMandays(mandaysEnty.getPid(),mandaysEnty.getPurchase_price(),mandaysEnty.getUnit_price());
 	}
 	

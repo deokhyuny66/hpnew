@@ -31,6 +31,7 @@ public interface CalcDAO
     List<CalcExvalveEntity> getOneCalcExvalve(String pid);
     List<CalcElecvalveEntity> getOneCalcElecvalve(String pid);
     List<CalcOpassisEntity> getOneCalcOpassis(String pid);
+    List<CalcMandaysEntity> getOneCalcMandays(String pid);
 
 //  DB 구역별 전체 조회    
     List<CalcBaseEntity> getCalcBase();    
@@ -58,4 +59,17 @@ public interface CalcDAO
 	void updateExvalveProductsAll(CalcViewEntity view);
 	void updateElecvalveProductsAll(CalcViewEntity view);
 	void updateOpassis1ProductsAll(CalcViewEntity view);
+	void updateOpassis2ProductsAll(CalcViewEntity view);
+	void updateOpassis3ProductsAll(CalcViewEntity view);
+	void updateOpassis4ProductsAll(CalcViewEntity view);
+	void updateOpassis5ProductsAll(CalcViewEntity view);
+	void updateOpassis6ProductsAll(CalcViewEntity view);
+	void updateOpassis7ProductsAll(CalcViewEntity view);
+	void updateOpassis8ProductsAll(CalcViewEntity view);
+	void updateOpassis9ProductsAll(CalcViewEntity view);
+	void updateOpassis10ProductsAll(CalcViewEntity view);
+	void updateMandays1ProductsAll(CalcViewEntity view);
+	void updateMandays2ProductsAll(CalcViewEntity view);
+	void updateMandays3ProductsAll(CalcViewEntity view);
+	void updateMandays4ProductsAll(CalcViewEntity view);
 }

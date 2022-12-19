@@ -795,20 +795,20 @@ public class CalcController {
 		
 		//가격 내용
 		msize = cmd.getMsizeVal().substring(0,2);
-		if(msize.equals("90")) {
+		if(msize.equals("90")) { //900 x 
 			msize_price = 550000;
-		}else if(msize.equals("10")) {
+		}else if(msize.equals("10")) { //1000 x
 			msize_price = 600000;
-		}else if(msize.equals("12")) {
+		}else if(msize.equals("12")) { //1200 x
 			msize_price = 1400000;
-		}else if(msize.equals("14")) {
+		}else if(msize.equals("14")) { //1400 x
 			msize_price = 2800000;
-		}else if(msize.equals("24")) {
+		}else if(msize.equals("24")) { //2400 x
 			msize_price = 2800000;
-		}else if(msize.equals("32")) {
+		}else if(msize.equals("26")) { //2600 x
 			msize_price = 3200000;
 		}else {
-			msize_price = 0;
+			msize_price = 0; //평수에 맞게 스탠다드 적용 시에 금액은 확인 필요.
 		}
 		
 		panel_price = (int) (total_area * Integer.parseInt(calcPriceEntity.get(0).getPanel())); //우레탄 판넬 가격

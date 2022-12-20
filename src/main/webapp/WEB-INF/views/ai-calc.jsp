@@ -253,8 +253,43 @@ textarea {
     width: 100%;
 }
 
+.blurEffect {
+  filter: blur(4px);
+  -webkit-filter: blur(4px);
+}
+.stop-dragging {
+  -ms-user-select: none; 
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+    // F12 버튼 방지
+    $(document).ready(function(){
+        $(document).bind('keydown',function(e){
+            if ( e.keyCode == 123 /* F12 */) {
+                e.preventDefault();
+                e.returnValue = false;
+            }
+        });
+    });
+    
+    // 우측 클릭 방지
+    document.onmousedown=disableclick;
+    status="우측 클릭은 보안상의 이유로 차단됩니다.";
+    
+    function disableclick(event){
+        if (event.button==2) {
+            alert(status);
+            return false;
+        }
+    }
+</script>
+
 </head>
 <body>
 	  <div id="loadings" style="margin-left: 0px;">
@@ -367,79 +402,79 @@ textarea {
 					            </tr>
 					            <tr>
 					                <td>CDU</td>
-					                <td colspan="3">${cdu}</td>
+					                <td colspan="3" class="blurEffect stop-dragging">${cdu}</td>
 					            </tr>
 					            <tr>
 					                <td>COOLER</td>
-					                <td colspan="3">${cooler}</td>
+					                <td colspan="3" class="blurEffect stop-dragging">${cooler}</td>
 					            </tr>
 					            <tr>
 					                <td>콘트롤</td>
-					                <td colspan="3">${controll}</td>
+					                <td colspan="3" class="blurEffect stop-dragging">${controll}</td>
 					            </tr>
 					            <tr>
 					                <td>팽창밸브</td>
-					                <td colspan="3">${ex_valve}</td>
+					                <td colspan="3" class="blurEffect stop-dragging">${ex_valve}</td>
 					            </tr>
 					            <tr>
 					                <td>전자밸브</td>
-					                <td colspan="3">${elec_valve}</td>
+					                <td colspan="3" class="blurEffect stop-dragging">${elec_valve}</td>
 					            </tr>
 					            <tr>
 					                <td>고압배관</td>
-					                <td colspan="3">${op_assis1}</td>
+					                <td colspan="3" class="blurEffect stop-dragging">${op_assis1}</td>
 					            </tr>
 					            <tr>
 					                <td>저압배관</td>
-					                <td colspan="3">${op_assis2}</td>
+					                <td colspan="3" class="blurEffect stop-dragging">${op_assis2}</td>
 					            </tr>
 					            <tr>
 					                <td>고압 보온재</td>
-					                <td colspan="3">${op_assis3}</td>
+					                <td colspan="3" class="blurEffect stop-dragging">${op_assis3}</td>
 					            </tr>
 					            <tr>
 					                <td>저압 보온재</td>
-					                <td colspan="3">${op_assis4}</td>
+					                <td colspan="3" class="blurEffect stop-dragging">${op_assis4}</td>
 					            </tr>
 					            <tr>
 					                <td>콤프 전원선</td>
-					                <td colspan="3">${op_assis5}</td>
+					                <td colspan="3" class="blurEffect stop-dragging">${op_assis5}</td>
 					            </tr>
 					            <tr>
 					                <td>히터 전원선</td>
-					                <td colspan="3">${op_assis6}</td>
+					                <td colspan="3" class="blurEffect stop-dragging">${op_assis6}</td>
 					            </tr>
 					            <tr>
 					                <td>유니트 조작 보조선 1</td>
-					                <td colspan="3">${op_assis7}</td>
+					                <td colspan="3" class="blurEffect stop-dragging">${op_assis7}</td>
 					            </tr>
 					            <tr>
 					                <td>유니트 조작 보조선 2</td>
-					                <td colspan="3">${op_assis8}</td>
+					                <td colspan="3" class="blurEffect stop-dragging">${op_assis8}</td>
 					            </tr>
 					            <tr>
 					                <td>쿨러 조작 보조선 1</td>
-					                <td colspan="3">${op_assis9}</td>
+					                <td colspan="3" class="blurEffect stop-dragging">${op_assis9}</td>
 					            </tr>
 					            <tr>
 					                <td>쿨러 조작 보조선 1</td>
-					                <td colspan="3">${op_assis10}</td>
+					                <td colspan="3" class="blurEffect stop-dragging">${op_assis10}</td>
 					            </tr>
 					            <tr>
 					                <td>멤버스 1</td>
-					                <td colspan="3">${manday1}</td>
+					                <td colspan="3" class="blurEffect stop-dragging">${manday1}</td>
 					            </tr>
 					            <tr>
 					                <td>멤버스 2</td>
-					                <td colspan="3">${manday2}</td>
+					                <td colspan="3" class="blurEffect stop-dragging">${manday2}</td>
 					            </tr>
 					            <tr>
 					                <td>멤버스 3</td>
-					                <td colspan="3">${manday3}</td>
+					                <td colspan="3" class="blurEffect stop-dragging">${manday3}</td>
 					            </tr>
 					            <tr>
 					                <td>멤버스 4</td>
-					                <td colspan="3">${manday4}</td>
+					                <td colspan="3" class="blurEffect stop-dragging">${manday4}</td>
 					            </tr>
 	           				</table>
          				</div>
@@ -466,79 +501,79 @@ textarea {
 					            </tr>
 					            <tr>
 					                <td>CDU</td>
-					                <td colspan="3"><fmt:formatNumber value="${cdu_unit_price}" pattern="#,###"/></td>
+					                <td colspan="3" class="blurEffect stop-dragging"><fmt:formatNumber value="${cdu_unit_price}" pattern="#,###"/></td>
 					            </tr>
 					            <tr>
 					                <td>COOLER</td>
-					                <td colspan="3"><fmt:formatNumber value="${cooler_unit_price}" pattern="#,###"/></td>
+					                <td colspan="3" class="blurEffect stop-dragging"><fmt:formatNumber value="${cooler_unit_price}" pattern="#,###"/></td>
 					            </tr>
 					            <tr>
 					                <td>콘트롤</td>
-					                <td colspan="3"><fmt:formatNumber value="${controll_unit_price}" pattern="#,###"/></td>
+					                <td colspan="3" class="blurEffect stop-dragging"><fmt:formatNumber value="${controll_unit_price}" pattern="#,###"/></td>
 					            </tr>
 					            <tr>
 					                <td>팽창밸브</td>
-					                <td colspan="3"><fmt:formatNumber value="${ex_valve_unit_price}" pattern="#,###"/></td>
+					                <td colspan="3" class="blurEffect stop-dragging"><fmt:formatNumber value="${ex_valve_unit_price}" pattern="#,###"/></td>
 					            </tr>
 					            <tr>
 					                <td>전자밸브</td>
-					                <td colspan="3"><fmt:formatNumber value="${elec_valve_unit_price}" pattern="#,###"/></td>
+					                <td colspan="3" class="blurEffect stop-dragging"><fmt:formatNumber value="${elec_valve_unit_price}" pattern="#,###"/></td>
 					            </tr>
 					            <tr>
 					                <td>고압배관</td>
-					                <td colspan="3"><fmt:formatNumber value="${op_assis1_unit_price}" pattern="#,###"/></td>
+					                <td colspan="3" class="blurEffect stop-dragging"><fmt:formatNumber value="${op_assis1_unit_price}" pattern="#,###"/></td>
 					            </tr>
 					            <tr>
 					                <td>저압배관</td>
-					                <td colspan="3"><fmt:formatNumber value="${op_assis2_unit_price}" pattern="#,###"/></td>
+					                <td colspan="3" class="blurEffect stop-dragging"><fmt:formatNumber value="${op_assis2_unit_price}" pattern="#,###"/></td>
 					            </tr>
 					            <tr>
 					                <td>고압 보온재</td>
-					                <td colspan="3"><fmt:formatNumber value="${op_assis3_unit_price}" pattern="#,###"/></td>
+					                <td colspan="3" class="blurEffect stop-dragging"><fmt:formatNumber value="${op_assis3_unit_price}" pattern="#,###"/></td>
 					            </tr>
 					            <tr>
 					                <td>저압 보온재</td>
-					                <td colspan="3"><fmt:formatNumber value="${op_assis4_unit_price}" pattern="#,###"/></td>
+					                <td colspan="3" class="blurEffect stop-dragging"><fmt:formatNumber value="${op_assis4_unit_price}" pattern="#,###"/></td>
 					            </tr>
 					            <tr>
 					                <td>콤프 전원선</td>
-					                <td colspan="3"><fmt:formatNumber value="${op_assis5_unit_price}" pattern="#,###"/></td>
+					                <td colspan="3" class="blurEffect stop-dragging"><fmt:formatNumber value="${op_assis5_unit_price}" pattern="#,###"/></td>
 					            </tr>
 					            <tr>
 					                <td>히터 전원선</td>
-					                <td colspan="3"><fmt:formatNumber value="${op_assis6_unit_price}" pattern="#,###"/></td>
+					                <td colspan="3" class="blurEffect stop-dragging"><fmt:formatNumber value="${op_assis6_unit_price}" pattern="#,###"/></td>
 					            </tr>
 					            <tr>
 					                <td>유니트 조작 보조선 1</td>
-					                <td colspan="3"><fmt:formatNumber value="${op_assis7_unit_price}" pattern="#,###"/></td>
+					                <td colspan="3" class="blurEffect stop-dragging"><fmt:formatNumber value="${op_assis7_unit_price}" pattern="#,###"/></td>
 					            </tr>
 					            <tr>
 					                <td>유니트 조작 보조선 2</td>
-					                <td colspan="3"><fmt:formatNumber value="${op_assis8_unit_price}" pattern="#,###"/></td>
+					                <td colspan="3" class="blurEffect stop-dragging"><fmt:formatNumber value="${op_assis8_unit_price}" pattern="#,###"/></td>
 					            </tr>
 					            <tr>
 					                <td>쿨러 조작 보조선 1</td>
-					                <td colspan="3"><fmt:formatNumber value="${op_assis9_unit_price}" pattern="#,###"/></td>
+					                <td colspan="3" class="blurEffect stop-dragging"><fmt:formatNumber value="${op_assis9_unit_price}" pattern="#,###"/></td>
 					            </tr>
 					            <tr>
-					                <td>쿨러 조작 보조선 1</td>
-					                <td colspan="3"><fmt:formatNumber value="${op_assis10_unit_price}" pattern="#,###"/></td>
+					                <td>쿨러 조작 보조선 2</td>
+					                <td colspan="3" class="blurEffect stop-dragging"><fmt:formatNumber value="${op_assis10_unit_price}" pattern="#,###"/></td>
 					            </tr>
 					            <tr>
 					                <td>멤버스 1</td>
-					                <td colspan="3"><fmt:formatNumber value="${manday1_unit_price}" pattern="#,###"/></td>
+					                <td colspan="3" class="blurEffect stop-dragging"><fmt:formatNumber value="${manday1_unit_price}" pattern="#,###"/></td>
 					            </tr>
 					            <tr>
 					                <td>멤버스 2</td>
-					                <td colspan="3"><fmt:formatNumber value="${manday2_unit_price}" pattern="#,###"/></td>
+					                <td colspan="3" class="blurEffect stop-dragging"><fmt:formatNumber value="${manday2_unit_price}" pattern="#,###"/></td>
 					            </tr>
 					            <tr>
 					                <td>멤버스 3</td>
-					                <td colspan="3"><fmt:formatNumber value="${manday3_unit_price}" pattern="#,###"/></td>
+					                <td colspan="3" class="blurEffect stop-dragging"><fmt:formatNumber value="${manday3_unit_price}" pattern="#,###"/></td>
 					            </tr>
 					            <tr>
 					                <td>멤버스 4</td>
-					                <td colspan="3"><fmt:formatNumber value="${manday4_unit_price}" pattern="#,###"/></td>
+					                <td colspan="3" class="blurEffect stop-dragging"><fmt:formatNumber value="${manday4_unit_price}" pattern="#,###"/></td>
 					            </tr>
 					            <tr>
 					                <th>총 금액</th>

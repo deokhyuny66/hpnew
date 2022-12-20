@@ -26,6 +26,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     }
     
+    /* 
+     문제상황 : 로그인이 적용 되면, ai-calc/ai-calcProc 페이지를 못찾음.
+     해  결 : 아래 무시해주는 경로 적어주면 됨.
+    */
     @Override
     public void configure(WebSecurity web) throws Exception {
        // web.ignoring().requestMatchers(PathRequest.toStaticResources().atCommonLocations());

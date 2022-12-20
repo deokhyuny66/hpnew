@@ -41,6 +41,11 @@
     <style>
     * {
    		font-family: 'NanumSquareRound';
+   		-ms-user-select: none; 
+	  	-moz-user-select: -moz-none;
+	  	-khtml-user-select: none;
+	  	-webkit-user-select: none;
+	  	user-select: none;
     }
 
     @font-face {
@@ -119,6 +124,28 @@
 	/*오버레이 뒷배경*/
 	.popup_overlay{position:fixed;top:0px;right:0;left:0;bottom:0;z-index:1001;;background:rgba(0,0,0,0.5);}
     </style>
+    <script type="text/javascript">
+    // F12 버튼 방지
+    $(document).ready(function(){
+        $(document).bind('keydown',function(e){
+            if ( e.keyCode == 123 /* F12 */) {
+                e.preventDefault();
+                e.returnValue = false;
+            }
+        });
+    });
+    
+    // 우측 클릭 방지
+    document.onmousedown=disableclick;
+    status="우측 클릭은 보안상의 이유로 차단됩니다.";
+    
+    function disableclick(event){
+        if (event.button==2) {
+            alert(status);
+            return false;
+        }
+    }
+	</script>
   	</head>
 <body onload="onload()">
     <main>

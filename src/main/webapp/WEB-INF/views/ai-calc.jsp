@@ -321,12 +321,17 @@ textarea {
    			<input type="hidden" name="mtypeProc" id="mtypeProc" value="${mtype}">
    			<input type="hidden" name="msizeProc" id="msizeProc" value="${msize}">
    			<input type="hidden" name="purcheseProc" id="purcheseProc" value="${purchese}">
-   		
+   			
+   			<input type="hidden" name="panel_priceProc" id="panel_priceProc" value="${panel_price}">
+   			<input type="hidden" name="door_priceProc" id="door_priceProc" value="${door_price}">
+   			<input type="hidden" name="base_priceProc" id="base_priceProc" value="${base_price}">
+   			<input type="hidden" name="sub_priceProc" id="sub_priceProc" value="${sub_price}">
+   			
    			<input type="hidden" name="cduProc" id="cduProc" value="${cdu}">
    			<input type="hidden" name="cdu_unit_priceProc" id="cdu_unit_priceProc" value="${cdu_unit_price}">
    			<input type="hidden" name="coolerProc" id="coolerProc" value="${cooler}">
    			<input type="hidden" name="cooler_unit_priceProc" id="cooler_unit_priceProc" value="${cooler_unit_price}">
-   			<input type="hidden" name="controlProc" id="controlProc" value="${control}">
+   			<input type="hidden" name="controlProc" id="controlProc" value="${controll}">
    			<input type="hidden" name="control_unit_priceProc" id="control_unit_priceProc" value="${control_unit_price}">
    			<input type="hidden" name="ex_valveProc" id="ex_valveProc" value="${ex_valve}">
    			<input type="hidden" name="ex_valve_unit_priceProc" id="ex_valve_unit_priceProc" value="${ex_valve_unit_price}">
@@ -457,7 +462,7 @@ textarea {
 					                <td colspan="3" class="blurEffect stop-dragging">${op_assis9}</td>
 					            </tr>
 					            <tr>
-					                <td>쿨러 조작 보조선 1</td>
+					                <td>쿨러 조작 보조선 2</td>
 					                <td colspan="3" class="blurEffect stop-dragging">${op_assis10}</td>
 					            </tr>
 					            <tr>

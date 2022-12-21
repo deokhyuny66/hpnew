@@ -25,10 +25,10 @@
 	String agree_o = (String) request.getAttribute("agree_o");
 	String agree_p = (String) request.getAttribute("agree_p");
 	
-	String panel_priceProc = (String) request.getAttribute("panel_price");
-	String door_priceProc = (String) request.getAttribute("door_price");
-	String base_priceProc = (String) request.getAttribute("base_price");
-	String sub_priceProc = (String) request.getAttribute("sub_price");
+	String panel_priceProc = (String) request.getAttribute("panel_priceProc");
+	String door_priceProc = (String) request.getAttribute("door_priceProc");
+	String base_priceProc = (String) request.getAttribute("base_priceProc");
+	String sub_priceProc = (String) request.getAttribute("sub_priceProc");
 	
 	String widProc = (String) request.getAttribute("widProc");
 	String vertProc = (String) request.getAttribute("vertProc");
@@ -129,13 +129,52 @@
 		buffer.append("용도 : "+storeProc +"<br/>");
 		buffer.append("출입구 : "+mtypeProc +"<br/>");
 		buffer.append("출입구 사이즈 : "+msizeProc +"<br/>");
-		buffer.append("구매형태 : "+purcheseProc +"<br/><br/>");
+		buffer.append("구매형태 : "+purcheseProc +"<br/>");
+		buffer.append("CDU : "+cduProc +"<br/>");
+		buffer.append("COOLER : "+coolerProc +"<br/>");
+		buffer.append("콘트롤 : "+controlProc +"<br/>");
+		buffer.append("팽창밸브 : "+ex_valveProc +"<br/>");
+		buffer.append("전자밸브 : "+elec_valveProc +"<br/>");
+		buffer.append("고압배관 : "+op_assis1Proc +"<br/>");
+		buffer.append("저압배관 : "+op_assis2Proc +"<br/>");
+		buffer.append("고압 보온재 : "+op_assis3Proc +"<br/>");
+		buffer.append("저압 보온재 : "+op_assis4Proc +"<br/>");
+		buffer.append("콤프 전원선 : "+op_assis5Proc +"<br/>");
+		buffer.append("히터 전원선 : "+op_assis6Proc +"<br/>");
+		buffer.append("유니트 조작 보조선 1 : "+op_assis7Proc +"<br/>");
+		buffer.append("유니트 조작 보조선 1 : "+op_assis8Proc +"<br/>");
+		buffer.append("쿨러 조작 보조선 1 : "+op_assis9Proc +"<br/>");
+		buffer.append("쿨러 조작 보조선 2 : "+op_assis10Proc +"<br/>");
+		buffer.append("멤버스 1 : "+manday1Proc +"<br/>");
+		buffer.append("멤버스 2 : "+manday2Proc +"<br/>");
+		buffer.append("멤버스 3 : "+manday3Proc +"<br/>");
+		buffer.append("멤버스 4 : "+manday4Proc +"<br/><br/>");
 		
 		buffer.append("[결과 금액] <br/>");
 		buffer.append("우레탄 판넬 : "+panel_priceProc +"<br/>");
 		buffer.append("도어 : "+door_priceProc +"<br/>");
 		buffer.append("베이스 : "+base_priceProc +"<br/>");
 		buffer.append("부자재 : "+sub_priceProc +"<br/>");
+		buffer.append("CDU : "+cdu_unit_priceProc +"<br/>");
+		buffer.append("COOLER : "+cooler_unit_priceProc +"<br/>");
+		buffer.append("콘트롤 : "+control_unit_priceProc +"<br/>");
+		buffer.append("팽창밸브 : "+ex_valve_unit_priceProc +"<br/>");
+		buffer.append("전자밸브 : "+elec_valve_unit_priceProc +"<br/>");
+		buffer.append("고압배관 : "+op_assis1_unit_priceProc +"<br/>");
+		buffer.append("저압배관 : "+op_assis2_unit_priceProc +"<br/>");
+		buffer.append("고압 보온재 : "+op_assis3_unit_priceProc +"<br/>");
+		buffer.append("저압 보온재 : "+op_assis4_unit_priceProc +"<br/>");
+		buffer.append("콤프 전원선 : "+op_assis5_unit_priceProc +"<br/>");
+		buffer.append("히터 전원선 : "+op_assis6_unit_priceProc +"<br/>");
+		buffer.append("유니트 조작 보조선 1 : "+op_assis7_unit_priceProc +"<br/>");
+		buffer.append("유니트 조작 보조선 2 : "+op_assis8_unit_priceProc +"<br/>");
+		buffer.append("쿨러 조작 보조선 1 : "+op_assis9_unit_priceProc +"<br/>");
+		buffer.append("쿨러 조작 보조선 2 : "+op_assis10_unit_priceProc +"<br/>");
+		buffer.append("멤버스 1 : "+manday1_unit_priceProc +"<br/>");
+		buffer.append("멤버스 2 : "+manday2_unit_priceProc +"<br/>");
+		buffer.append("멤버스 3 : "+manday3_unit_priceProc +"<br/>");
+		buffer.append("멤버스 4 : "+manday4_unit_priceProc +"<br/><br/>");
+		
 		buffer.append("총 금액 : "+total_priceProc +"<br/>");
 		
 		Address fromAddr = new InternetAddress("dhyoo@coolinic.com");

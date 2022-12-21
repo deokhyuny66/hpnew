@@ -648,14 +648,52 @@ public class CalcController {
 		String floor_areaProc = request.getParameter("floor_areaProc");
 		String total_areaProc = request.getParameter("total_areaProc");
 		String pylsProc = request.getParameter("pylsProc");
+		String cduProc = request.getParameter("cduProc");
+		String coolerProc = request.getParameter("coolerProc");
+		String controlProc = request.getParameter("controlProc");
+		String ex_valveProc = request.getParameter("ex_valveProc");
+		String elec_valveProc = request.getParameter("elec_valveProc");
+		String op_assis1Proc = request.getParameter("op_assis1Proc");
+		String op_assis2Proc = request.getParameter("op_assis2Proc");
+		String op_assis3Proc = request.getParameter("op_assis3Proc");
+		String op_assis4Proc = request.getParameter("op_assis4Proc");
+		String op_assis5Proc = request.getParameter("op_assis5Proc");
+		String op_assis6Proc = request.getParameter("op_assis6Proc");
+		String op_assis7Proc = request.getParameter("op_assis7Proc");
+		String op_assis8Proc = request.getParameter("op_assis8Proc");
+		String op_assis9Proc = request.getParameter("op_assis9Proc");
+		String op_assis10Proc = request.getParameter("op_assis10Proc");
+		String manday1Proc = request.getParameter("manday1Proc");
+		String manday2Proc = request.getParameter("manday2Proc");
+		String manday3Proc = request.getParameter("manday3Proc");
+		String manday4Proc = request.getParameter("manday4Proc");
 		
 		//결과 금액
 		String panel_priceProc = request.getParameter("panel_priceProc");
 		String door_priceProc = request.getParameter("door_priceProc");
 		String base_priceProc = request.getParameter("base_priceProc");
 		String sub_priceProc = request.getParameter("sub_priceProc");
-		String total_priceProc = request.getParameter("total_priceProc");
+		String cdu_unit_priceProc = request.getParameter("cdu_unit_priceProc");
+		String cooler_unit_priceProc = request.getParameter("cooler_unit_priceProc");
+		String control_unit_priceProc = request.getParameter("control_unit_priceProc");
+		String ex_valve_unit_priceProc = request.getParameter("ex_valve_unit_priceProc");
+		String elec_valve_unit_priceProc = request.getParameter("elec_valve_unit_priceProc");
+		String op_assis1_unit_priceProc = request.getParameter("op_assis1_unit_priceProc");
+		String op_assis2_unit_priceProc = request.getParameter("op_assis2_unit_priceProc");
+		String op_assis3_unit_priceProc = request.getParameter("op_assis3_unit_priceProc");
+		String op_assis4_unit_priceProc = request.getParameter("op_assis4_unit_priceProc");
+		String op_assis5_unit_priceProc = request.getParameter("op_assis5_unit_priceProc");
+		String op_assis6_unit_priceProc = request.getParameter("op_assis6_unit_priceProc");
+		String op_assis7_unit_priceProc = request.getParameter("op_assis7_unit_priceProc");
+		String op_assis8_unit_priceProc = request.getParameter("op_assis8_unit_priceProc");
+		String op_assis9_unit_priceProc = request.getParameter("op_assis9_unit_priceProc");
+		String op_assis10_unit_priceProc = request.getParameter("op_assis10_unit_priceProc");
+		String manday1_unit_priceProc = request.getParameter("manday1_unit_priceProc");
+		String manday2_unit_priceProc = request.getParameter("manday2_unit_priceProc");
+		String manday3_unit_priceProc = request.getParameter("manday3_unit_priceProc");
+		String manday4_unit_priceProc = request.getParameter("manday4_unit_priceProc");
 
+		String total_priceProc = request.getParameter("total_priceProc");
 		
 		//사용자 입력 정보
 		model.addAttribute("nameNM",nameNM);
@@ -674,6 +712,25 @@ public class CalcController {
 		model.addAttribute("mtypeProc",mtypeProc);
 		model.addAttribute("msizeProc",msizeProc);
 		model.addAttribute("purcheseProc",purcheseProc);
+		model.addAttribute("cduProc",cduProc);
+		model.addAttribute("coolerProc",coolerProc);
+		model.addAttribute("controlProc",controlProc);
+		model.addAttribute("ex_valveProc",ex_valveProc);
+		model.addAttribute("elec_valveProc",elec_valveProc);
+		model.addAttribute("op_assis1Proc",op_assis1Proc);
+		model.addAttribute("op_assis2Proc",op_assis2Proc);
+		model.addAttribute("op_assis3Proc",op_assis3Proc);
+		model.addAttribute("op_assis4Proc",op_assis4Proc);
+		model.addAttribute("op_assis5Proc",op_assis5Proc);
+		model.addAttribute("op_assis6Proc",op_assis6Proc);
+		model.addAttribute("op_assis7Proc",op_assis7Proc);
+		model.addAttribute("op_assis8Proc",op_assis8Proc);
+		model.addAttribute("op_assis9Proc",op_assis9Proc);
+		model.addAttribute("op_assis10Proc",op_assis10Proc);
+		model.addAttribute("manday1Proc",manday1Proc);
+		model.addAttribute("manday2Proc",manday2Proc);
+		model.addAttribute("manday3Proc",manday3Proc);
+		model.addAttribute("manday4Proc",manday4Proc);
 		
 		model.addAttribute("floor_areaProc",floor_areaProc);
 		model.addAttribute("total_areaProc",total_areaProc);
@@ -683,6 +740,26 @@ public class CalcController {
 		model.addAttribute("door_priceProc",door_priceProc);
 		model.addAttribute("base_priceProc",base_priceProc);
 		model.addAttribute("sub_priceProc",sub_priceProc);
+		model.addAttribute("cdu_unit_priceProc",cdu_unit_priceProc);
+		model.addAttribute("cooler_unit_priceProc",cooler_unit_priceProc);
+		model.addAttribute("control_unit_priceProc",control_unit_priceProc);
+		model.addAttribute("ex_valve_unit_priceProc",ex_valve_unit_priceProc);
+		model.addAttribute("elec_valve_unit_priceProc",elec_valve_unit_priceProc);
+		model.addAttribute("op_assis1_unit_priceProc",op_assis1_unit_priceProc);
+		model.addAttribute("op_assis2_unit_priceProc",op_assis2_unit_priceProc);
+		model.addAttribute("op_assis3_unit_priceProc",op_assis3_unit_priceProc);
+		model.addAttribute("op_assis4_unit_priceProc",op_assis4_unit_priceProc);
+		model.addAttribute("op_assis5_unit_priceProc",op_assis5_unit_priceProc);
+		model.addAttribute("op_assis6_unit_priceProc",op_assis6_unit_priceProc);
+		model.addAttribute("op_assis7_unit_priceProc",op_assis7_unit_priceProc);
+		model.addAttribute("op_assis8_unit_priceProc",op_assis8_unit_priceProc);
+		model.addAttribute("op_assis9_unit_priceProc",op_assis9_unit_priceProc);
+		model.addAttribute("op_assis10_unit_priceProc",op_assis10_unit_priceProc);
+		model.addAttribute("manday1_unit_priceProc",manday1_unit_priceProc);
+		model.addAttribute("manday2_unit_priceProc",manday2_unit_priceProc);
+		model.addAttribute("manday3_unit_priceProc",manday3_unit_priceProc);
+		model.addAttribute("manday4_unit_priceProc",manday4_unit_priceProc);
+		
 		model.addAttribute("total_priceProc",total_priceProc);
 		
 		return "ai-calcProc";
@@ -864,48 +941,7 @@ public class CalcController {
 		model.addAttribute("manday3",calcSettingEntity.get(0).getManday3());
 		model.addAttribute("manday3_unit_price",calcSettingEntity.get(0).getManday3_unit_price());
 		model.addAttribute("manday4",calcSettingEntity.get(0).getManday4());
-		model.addAttribute("manday4_unit_price",calcSettingEntity.get(0).getManday4_unit_price());
-		
-		System.out.println("1"+calcSettingEntity.get(0).getPinid());
-		System.out.println("2"+calcSettingEntity.get(0).getCdu());
-		System.out.println("3"+calcSettingEntity.get(0).getCdu_unit_price());
-		System.out.println("4"+calcSettingEntity.get(0).getCooler());
-		System.out.println("5"+calcSettingEntity.get(0).getCooler_unit_price());
-		System.out.println("6"+calcSettingEntity.get(0).getControll());
-		System.out.println("7"+calcSettingEntity.get(0).getControll_unit_price());
-		
-		System.out.println("8"+calcSettingEntity.get(0).getEx_valve());
-		System.out.println("9"+calcSettingEntity.get(0).getEx_valve_unit_price());
-		System.out.println("10"+calcSettingEntity.get(0).getElec_valve());
-		System.out.println("11"+calcSettingEntity.get(0).getElec_valve_unit_price());
-		System.out.println("12"+calcSettingEntity.get(0).getOp_assis1());
-		System.out.println("13"+calcSettingEntity.get(0).getOp_assis1_unit_price());
-		System.out.println("14"+calcSettingEntity.get(0).getOp_assis2());
-		System.out.println("15"+calcSettingEntity.get(0).getOp_assis2_unit_price());
-		System.out.println("16"+calcSettingEntity.get(0).getOp_assis3());
-		System.out.println("17"+calcSettingEntity.get(0).getOp_assis3_unit_price());
-		System.out.println("18"+calcSettingEntity.get(0).getOp_assis4());
-		System.out.println("19"+calcSettingEntity.get(0).getOp_assis4_unit_price());
-		System.out.println("20"+calcSettingEntity.get(0).getOp_assis5());
-		System.out.println("21"+calcSettingEntity.get(0).getOp_assis5_unit_price());
-		System.out.println("22"+calcSettingEntity.get(0).getOp_assis6());
-		System.out.println("23"+calcSettingEntity.get(0).getOp_assis6_unit_price());
-		System.out.println("24"+calcSettingEntity.get(0).getOp_assis7());
-		System.out.println("25"+calcSettingEntity.get(0).getOp_assis7_unit_price());
-		System.out.println("26"+calcSettingEntity.get(0).getOp_assis8());
-		System.out.println("27"+calcSettingEntity.get(0).getOp_assis8_unit_price());
-		System.out.println("28"+calcSettingEntity.get(0).getOp_assis9());
-		System.out.println("29"+calcSettingEntity.get(0).getOp_assis9_unit_price());
-		System.out.println("30"+calcSettingEntity.get(0).getOp_assis10());
-		System.out.println("31"+calcSettingEntity.get(0).getOp_assis10_unit_price());
-		System.out.println("32"+calcSettingEntity.get(0).getManday1());
-		System.out.println("33"+calcSettingEntity.get(0).getManday1_unit_price());
-		System.out.println("34"+calcSettingEntity.get(0).getManday2());
-		System.out.println("35"+calcSettingEntity.get(0).getManday2_unit_price());
-		System.out.println("36"+calcSettingEntity.get(0).getManday3());
-		System.out.println("37"+calcSettingEntity.get(0).getManday3_unit_price());
-		System.out.println("38"+calcSettingEntity.get(0).getManday4());
-		System.out.println("39"+calcSettingEntity.get(0).getManday4_unit_price());
+		model.addAttribute("manday4_unit_price",calcSettingEntity.get(0).getManday4_unit_price());	
 
 		//Total Price
 		int vp1,vp2,vp3,vp4,vp5,vp6,vp7,vp8,vp9,vp10,vp11,vp12,vp13,vp14,vp15,vp16,vp17,vp18,vp19; 
@@ -946,8 +982,6 @@ public class CalcController {
 		model.addAttribute("mtype", cmd.getMtypeVal());
 		model.addAttribute("msize", cmd.getMsizeVal());
 		model.addAttribute("purchese", cmd.getPurcheseVal());
-		
-		System.out.println("all total : " + total_price);
 		
 		return "ai-calc";
 	}	

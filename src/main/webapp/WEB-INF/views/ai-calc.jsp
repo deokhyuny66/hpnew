@@ -17,15 +17,15 @@
 <meta charset="UTF-8">
 <title>쿨리닉</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
- <link href="/assets/css/main/slides.css?ver=1" rel="stylesheet" type="text/css">
- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css?ver=1" rel="stylesheet" type="text/css">
- <link href="/assets/css/theme.css?ver=4" rel="stylesheet">
- <link href="/assets/lib/prismjs/prism.css?ver=1" rel="stylesheet">
- <link href="/assets/lib/loaders.css/loaders.min.css?ver=1" rel="stylesheet">
- <link href="/assets/css/detail/comm_detail.css?ver=1" rel="stylesheet">
- <link href="/assets/css/calc/commons.css?ver=2" rel="stylesheet" type="text/css">
- <link href="/assets/css/calc/est.css?ver=2" rel="stylesheet" type="text/css">
- <link href="/assets/css/calc/comm_calc.css?ver=1" rel="stylesheet" type="text/css">
+ <link href="/static/assets/css/main/slides.css?ver=2" rel="stylesheet" type="text/css">
+ <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css?ver=2" rel="stylesheet" type="text/css">
+ <link href="/static/assets/css/theme.css?ver=8" rel="stylesheet">
+ <link href="/static/assets/lib/prismjs/prism.css?ver=2" rel="stylesheet">
+ <link href="/static/assets/lib/loaders.css/loaders.min.css?ver=2" rel="stylesheet">
+ <link href="/static/assets/css/detail/comm_detail.css?ver=2" rel="stylesheet">
+ <link href="/static/assets/css/calc/commons.css?ver=3" rel="stylesheet" type="text/css">
+ <link href="/static/assets/css/calc/est.css?ver=3" rel="stylesheet" type="text/css">
+ <link href="/static/assets/css/calc/comm_calc.css?ver=2" rel="stylesheet" type="text/css">
  <link href="https://fonts.googleapis.com/css?family=PT+Mono%7cPT+Serif:400,400i%7cLato:100,300,400,700,800,900" rel="stylesheet">
 <style>
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
@@ -293,7 +293,7 @@ textarea {
 </head>
 <body>
 	  <div id="loadings" style="margin-left: 0px;">
-  		<img src="/assets/img/lodding.gif">
+  		<img src="/static/assets/img/lodding.gif">
   		<p style="color:#fff;">요청이 완료 되었습니다.<br/>감사합니다.</p>
 	  </div>
 	  
@@ -332,7 +332,7 @@ textarea {
    			<input type="hidden" name="coolerProc" id="coolerProc" value="${cooler}">
    			<input type="hidden" name="cooler_unit_priceProc" id="cooler_unit_priceProc" value="${cooler_unit_price}">
    			<input type="hidden" name="controlProc" id="controlProc" value="${controll}">
-   			<input type="hidden" name="control_unit_priceProc" id="control_unit_priceProc" value="${control_unit_price}">
+   			<input type="hidden" name="controll_unit_priceProc" id="controll_unit_priceProc" value="${controll_unit_price}">
    			<input type="hidden" name="ex_valveProc" id="ex_valveProc" value="${ex_valve}">
    			<input type="hidden" name="ex_valve_unit_priceProc" id="ex_valve_unit_priceProc" value="${ex_valve_unit_price}">
    			<input type="hidden" name="elec_valveProc" id="elec_valveProc" value="${elec_valve}">
@@ -406,11 +406,11 @@ textarea {
 					                <td colspan="3">${purchese}</td>
 					            </tr>
 					            <tr>
-					                <td>CDU</td>
+					                <td>유니트</td>
 					                <td colspan="3" class="blurEffect stop-dragging">${cdu}</td>
 					            </tr>
 					            <tr>
-					                <td>COOLER</td>
+					                <td>쿨러</td>
 					                <td colspan="3" class="blurEffect stop-dragging">${cooler}</td>
 					            </tr>
 					            <tr>
@@ -505,11 +505,11 @@ textarea {
 					                <td colspan="3">${sub_price}</td>
 					            </tr>
 					            <tr>
-					                <td>CDU</td>
+					                <td>유니트</td>
 					                <td colspan="3" class="blurEffect stop-dragging"><fmt:formatNumber value="${cdu_unit_price}" pattern="#,###"/></td>
 					            </tr>
 					            <tr>
-					                <td>COOLER</td>
+					                <td>쿨러</td>
 					                <td colspan="3" class="blurEffect stop-dragging"><fmt:formatNumber value="${cooler_unit_price}" pattern="#,###"/></td>
 					            </tr>
 					            <tr>
@@ -689,7 +689,7 @@ textarea {
             </section>
 
             <footer class="page-footer">
-              <div class="bg-holder" style="background-image:url(/assets/img/sidebars/ai-s.jpg);background-position: 0 41%; transform: scale(1.1);">
+              <div class="bg-holder" style="background-image:url(/static/assets/img/sidebars/ai-s.jpg);background-position: 0 41%; transform: scale(1.1);">
               </div>
               <div class="row justify-content-center">
                 <div class="col-lg-10">
@@ -702,7 +702,7 @@ textarea {
           </div>
           <div class="col-lg-3 col-12 t-0 order-0 order-lg-1 position-absolute position-lg-relative" onclick="location.href='https://coolinic.com/#ai'">
             <div class="h-lg-100vh sticky-top py-4 sticky-area">
-              <div class="bg-holder" style="background-image:url(/assets/img/sidebars/ai-s.jpg);">
+              <div class="bg-holder" style="background-image:url(/static/assets/img/sidebars/ai-s.jpg);">
               </div>
               <!--/.bg-holder-->
 

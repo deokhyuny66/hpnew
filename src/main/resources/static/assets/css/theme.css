@@ -14010,74 +14010,74 @@ a.text-dark:hover, a.text-dark:focus {
 }
  */
 #bg-holder-about {
-	background-image:url("/assets/img/navigation/about-d.jpg");
+	background-image:url("/static/assets/img/navigation/about-d.jpg");
 }
 #bg-holder-about:hover {
-	background-image:url("/assets/img/navigation/about-d.jpg");
+	background-image:url("/static/assets/img/navigation/about-d.jpg");
 	-webkit-transform: scale(1.15);
   	-ms-transform: scale(1.15);
   	transform: scale(1.15);
 }
 #bg-holder-ai {
-	background-image:url("/assets/img/navigation/ai-d.jpg");
+	background-image:url("/static/assets/img/navigation/ai-d.jpg");
 }
 
 #bg-holder-ai:hover {
-  	background-image:url("/assets/img/navigation/ai-d.jpg");
+  	background-image:url("/static/assets/img/navigation/ai-d.jpg");
   	-webkit-transform: scale(1.15);
   	-ms-transform: scale(1.15);
   	transform: scale(1.15);
 }
 #bg-holder-3years {
-	background-image:url("/assets/img/navigation/warehouse-d.png");
+	background-image:url("/static/assets/img/navigation/warehouse-d.png");
 }
 #bg-holder-3years:hover {
-	background-image:url("/assets/img/navigation/warehouse-d.png");
+	background-image:url("/static/assets/img/navigation/warehouse-d.png");
 	-webkit-transform: scale(1.15);
   	-ms-transform: scale(1.15);
   	transform: scale(1.15);
 }
 #bg-holder-as {
-	background-image:url("/assets/img/navigation/as-d.jpg");
+	background-image:url("/static/assets/img/navigation/as-d.jpg");
 }
 #bg-holder-as:hover {
-	background-image:url("/assets/img/navigation/as-d.jpg");
+	background-image:url("/static/assets/img/navigation/as-d.jpg");
 	-webkit-transform: scale(1.15);
   	-ms-transform: scale(1.15);
   	transform: scale(1.15);
 }
 #bg-holder-contact {
-	background-image:url("/assets/img/navigation/golden-d.jpg");
+	background-image:url("/static/assets/img/navigation/golden-d.jpg");
 }
 #bg-holder-contact:hover {
-	background-image:url("/assets/img/navigation/golden-d.jpg");
+	background-image:url("/static/assets/img/navigation/golden-d.jpg");
 	-webkit-transform: scale(1.15);
   	-ms-transform: scale(1.15);
   	transform: scale(1.15);
 }
 #bg-holder-rms {
-	background-image:url("/assets/img/navigation/rms-d.jpg");
+	background-image:url("/static/assets/img/navigation/rms-d.jpg");
 }
 #bg-holder-rms:hover {
-	background-image:url("/assets/img/navigation/rms-d.jpg");
+	background-image:url("/static/assets/img/navigation/rms-d.jpg");
 	-webkit-transform: scale(1.15);
   	-ms-transform: scale(1.15);
   	transform: scale(1.15);
 }
 #bg-holder-ads {
-	background-image:url("/assets/img/navigation/ads-d.jpg");
+	background-image:url("/static/assets/img/navigation/ads-d.jpg");
 }
 #bg-holder-ads:hover {
-	background-image:url("/assets/img/navigation/ads-d.jpg");
+	background-image:url("/static/assets/img/navigation/ads-d.jpg");
 	-webkit-transform: scale(1.15);
   	-ms-transform: scale(1.15);
   	transform: scale(1.15);
 }
 #bg-holder-integration {
-	background-image:url("/assets/img/navigation/integration.jpg")
+	background-image:url("/static/assets/img/navigation/integration.jpg")
 }
 #bg-holder-integration:hover {
-	background-image:url("/assets/img/navigation/integration.jpg");
+	background-image:url("/static/assets/img/navigation/integration.jpg");
 	-webkit-transform: scale(1.15);
   	-ms-transform: scale(1.15);
   	transform: scale(1.15);

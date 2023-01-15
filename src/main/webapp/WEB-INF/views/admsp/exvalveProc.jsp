@@ -3,7 +3,7 @@
 <%
 	try{
 		request.setCharacterEncoding("utf-8");
-		response.sendRedirect("http://localhost:8080/admsp/exvalve-list"); 
+		response.sendRedirect("https://coolinic.com/admsp/exvalve-list"); 
 	}catch(Exception e){
 		e.printStackTrace();
 		return;

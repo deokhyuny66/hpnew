@@ -47,7 +47,7 @@
 	String coolerProc = (String) request.getAttribute("coolerProc");
 	String cooler_unit_priceProc = (String) request.getAttribute("cooler_unit_priceProc");
 	String controlProc = (String) request.getAttribute("controlProc");
-	String control_unit_priceProc = (String) request.getAttribute("control_unit_priceProc");
+	String controll_unit_priceProc = (String) request.getAttribute("controll_unit_priceProc");
 	String ex_valveProc = (String) request.getAttribute("ex_valveProc");
 	String ex_valve_unit_priceProc = (String) request.getAttribute("ex_valve_unit_priceProc");
 	String elec_valveProc = (String) request.getAttribute("elec_valveProc");
@@ -130,8 +130,8 @@
 		buffer.append("출입구 : "+mtypeProc +"<br/>");
 		buffer.append("출입구 사이즈 : "+msizeProc +"<br/>");
 		buffer.append("구매형태 : "+purcheseProc +"<br/>");
-		buffer.append("CDU : "+cduProc +"<br/>");
-		buffer.append("COOLER : "+coolerProc +"<br/>");
+		buffer.append("유니트 : "+cduProc +"<br/>");
+		buffer.append("쿨러 : "+coolerProc +"<br/>");
 		buffer.append("콘트롤 : "+controlProc +"<br/>");
 		buffer.append("팽창밸브 : "+ex_valveProc +"<br/>");
 		buffer.append("전자밸브 : "+elec_valveProc +"<br/>");
@@ -155,9 +155,9 @@
 		buffer.append("도어 : "+door_priceProc +"<br/>");
 		buffer.append("베이스 : "+base_priceProc +"<br/>");
 		buffer.append("부자재 : "+sub_priceProc +"<br/>");
-		buffer.append("CDU : "+cdu_unit_priceProc +"<br/>");
-		buffer.append("COOLER : "+cooler_unit_priceProc +"<br/>");
-		buffer.append("콘트롤 : "+control_unit_priceProc +"<br/>");
+		buffer.append("유니트 : "+cdu_unit_priceProc +"<br/>");
+		buffer.append("쿨러 : "+cooler_unit_priceProc +"<br/>");
+		buffer.append("콘트롤 : "+controll_unit_priceProc +"<br/>");
 		buffer.append("팽창밸브 : "+ex_valve_unit_priceProc +"<br/>");
 		buffer.append("전자밸브 : "+elec_valve_unit_priceProc +"<br/>");
 		buffer.append("고압배관 : "+op_assis1_unit_priceProc +"<br/>");
@@ -185,7 +185,7 @@
 	     
 	    msg.setContent(buffer.toString(), "text/html;charset=UTF-8"); 
 	    Transport.send(msg); 
-		response.sendRedirect("http://localhost:8080/#ai");
+		response.sendRedirect("https://coolinic.com/#ai");
 	}catch(Exception e){
 		e.printStackTrace();
 		return;

@@ -14,13 +14,13 @@
     <title>SB Admin 2 - Charts</title>
 
     <!-- Custom fonts for this template-->
-    <link href="/assets/vendor/admsp/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="/static/assets/vendor/admsp/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="/assets/css/admsp/sb-admin-2.min.css" rel="stylesheet">
+    <link href="/static/assets/css/admsp/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
 
@@ -269,7 +269,7 @@
                                 </h6>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="/assets/img/admsp/undraw_profile_1.svg"
+                                        <img class="rounded-circle" src="/static/assets/img/admsp/undraw_profile_1.svg"
                                             alt="...">
                                         <div class="status-indicator bg-success"></div>
                                     </div>
@@ -281,7 +281,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="/assets/img/admsp/undraw_profile_2.svg"
+                                        <img class="rounded-circle" src="/static/assets/img/admsp/undraw_profile_2.svg"
                                             alt="...">
                                         <div class="status-indicator"></div>
                                     </div>
@@ -293,7 +293,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="/assets/img/admsp/undraw_profile_3.svg"
+                                        <img class="rounded-circle" src="/static/assets/img/admsp/undraw_profile_3.svg"
                                             alt="...">
                                         <div class="status-indicator bg-warning"></div>
                                     </div>
@@ -327,7 +327,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
                                 <img class="img-profile rounded-circle"
-                                    src="/assets/img/admsp/undraw_profile.svg">
+                                    src="/static/assets/img/admsp/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -383,7 +383,7 @@
                                     </div>
                                     <hr>
                                     Styling for the area chart can be found in the
-                                    <code>//assets/js/admsp/demo/chart-area-demo.js</code> file.
+                                    <code>//static/assets/js/admsp/demo/chart-area-demo.js</code> file.
                                 </div>
                             </div>
 
@@ -398,7 +398,7 @@
                                     </div>
                                     <hr>
                                     Styling for the bar chart can be found in the
-                                    <code>//assets/js/admsp/demo/chart-bar-demo.js</code> file.
+                                    <code>//static/assets/js/admsp/demo/chart-bar-demo.js</code> file.
                                 </div>
                             </div>
 
@@ -418,7 +418,7 @@
                                     </div>
                                     <hr>
                                     Styling for the donut chart can be found in the
-                                    <code>//assets/js/admsp/demo/chart-pie-demo.js</code> file.
+                                    <code>//static/assets/js/admsp/demo/chart-pie-demo.js</code> file.
                                 </div>
                             </div>
                         </div>
@@ -472,22 +472,22 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="/assets/vendor/admsp/jquery/jquery.min.js"></script>
-    <script src="/assets/vendor/admsp/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/assets/vendor/admsp/jquery/jquery.min.js"></script>
+    <script src="/static/assets/vendor/admsp/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="/assets/vendor/admsp/jquery-easing/jquery.easing.min.js"></script>
+    <script src="/static/assets/vendor/admsp/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="/assets/js/admsp/sb-admin-2.min.js"></script>
+    <script src="/static/assets/js/admsp/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="/assets/vendor/admsp/chart./js/Chart.min.js"></script>
+    <script src="/static/assets/vendor/admsp/chart./js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="/assets/js/admsp/demo/chart-area-demo.js"></script>
-    <script src="/assets/js/admsp/demo/chart-pie-demo.js"></script>
-    <script src="/assets/js/admsp/demo/chart-bar-demo.js"></script>
+    <script src="/static/assets/js/admsp/demo/chart-area-demo.js"></script>
+    <script src="/static/assets/js/admsp/demo/chart-pie-demo.js"></script>
+    <script src="/static/assets/js/admsp/demo/chart-bar-demo.js"></script>
 
 </body>
 

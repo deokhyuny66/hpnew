@@ -61,7 +61,7 @@
 	     
 	    msg.setContent(buffer.toString(), "text/html;charset=UTF-8"); // 내용
 	    Transport.send(msg); // 전송  
-		response.sendRedirect("http://localhost:8080/#about");
+		response.sendRedirect("https://coolinic.com/#about");
 	}catch(Exception e){
 		e.printStackTrace();
 		return;

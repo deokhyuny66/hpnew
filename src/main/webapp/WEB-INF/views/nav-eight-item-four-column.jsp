@@ -4,35 +4,35 @@
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
 
-  <head>
+  <head profile="http:?/www.w3.org/2005/10/profile">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>쿨리닉</title>
 	<meta name="naver-site-verification" content="c4d160404d35b3dd58db99a616b868ef1d060812" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/logos.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/logos.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/logos.png">
-    <link rel="shortcut icon" href="/assets/img/favicons/logos.ico">
-    <link rel="manifest" href="/assets/img/favicons/manifest.json">
-    <meta name="msapplication-TileImage" content="/assets/img/favicons/logos.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/assets/img/favicons/logos.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/assets/img/favicons/logos.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/assets/img/favicons/logos.png">
+    <link rel="shortcut icon" href="/static/assets/img/favicons/logos.ico">
+    <link rel="manifest" href="/static/assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="/static/assets/img/favicons/logos.png">
     <meta name="theme-color" content="#ffffff">
     <meta name="description" content="콜드체인 전문 브랜드, 쿨리닉" />
 	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <link href="/assets/css/main/slides.css?ver=1" rel="stylesheet" type="text/css">  
-    <link href="/assets/css/theme.css?ver=8" rel="stylesheet">
-    <link href="/assets/lib/prismjs/prism.css?ver=1" rel="stylesheet">
-    <link href="/assets/lib/loaders.css/loaders.min.css?ver=1" rel="stylesheet">
-    <link href="/assets/css/detail/jquery.fancybox.min.css?ver=1" rel="stylesheet">
-    <link href="/assets/css/detail/comm_detail.css?ver=1" rel="stylesheet">
-    <link href="/assets/lib/remodal/remodal.css?ver=1" rel="stylesheet">
-    <link href="/assets/lib/remodal/remodal-default-theme.css?ver=1" rel="stylesheet">
-    <link href="/assets/lib/owl.carousel/owl.carousel.css?ver=1" rel="stylesheet">
-    <link href="/assets/css/detail/lightbox.min.css?ver=2" rel="stylesheet">
-    <link href="/assets/css/calc/commons.css?ver=2" rel="stylesheet" type="text/css">
-    <link href="/assets/css/calc/est.css?ver=3" rel="stylesheet" type="text/css">
-    <link href="/assets/css/calc/comm_calc.css?ver=1" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=PT+Mono%7cPT+Serif:400,400i%7cLato:100,300,400,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/main/slides.css">
+    <link href="/static/assets/css/theme.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/assets/lib/prismjs/prism.css?ver=2">
+    <link rel="stylesheet" type="text/css" href="/static/assets/lib/loaders.css/loaders.min.css?ver=2">
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/detail/jquery.fancybox.min.css?ver=2">
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/detail/comm_detail.css?ver=2">
+    <link rel="stylesheet" type="text/css" href="/static/assets/lib/remodal/remodal.css?ver=2">
+    <link rel="stylesheet" type="text/css" href="/static/assets/lib/remodal/remodal-default-theme.css?ver=2">
+    <link rel="stylesheet" type="text/css" href="/static/assets/lib/owl.carousel/owl.carousel.css?ver=2">
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/detail/lightbox.min.css?ver=3">
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/calc/commons.css?ver=3">
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/calc/est.css?ver=4">
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/calc/comm_calc.css?ver=2">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=PT+Mono%7cPT+Serif:400,400i%7cLato:100,300,400,700,800,900">
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <link
     rel="stylesheet"
@@ -126,13 +126,11 @@
     </style>
     <script type="text/javascript">
     // F12 버튼 방지
-    $(document).ready(function(){
-        $(document).bind('keydown',function(e){
-            if ( e.keyCode == 123 /* F12 */) {
-                e.preventDefault();
-                e.returnValue = false;
-            }
-        });
+    $(document).bind('keydown',function(e){
+        if ( e.keyCode == 123 /* F12 */) {
+            e.preventDefault();
+            e.returnValue = false;
+        }
     });
     
     // 우측 클릭 방지
@@ -147,7 +145,8 @@
     }
 	</script>
   	</head>
-<body onload="onload()">
+<!-- body onload="onload()"-->
+<body>
     <main>
       
       <div id="preloader">
@@ -162,7 +161,7 @@
           <div class="position-relative px-3 w-lg-50 position-lg-absolute" id="baseContent">
             <div class="row align-items-center minh-50vh justify-content-center minh-lg-100vh">
               <div>
-				<img src="/assets/img/detail/headers/main02.jpg">	
+				<img src="/static/assets/img/detail/headers/main02.jpg">	
               </div>
               <!--/.bg-holder-->
  
@@ -216,7 +215,7 @@
 	  <!-- 회사소개 -->
       <!-- <section> begin ============================-->
       <section class="py-0 overflow-hidden" id="digital-header" style="width:100%;height:5%;">
-        	<div class="bg-holder digital-header" style="background-image:url(/assets/img/detail/headers/main02.jpg);" data-zanim-xs='{"delay":0,"animation":"zoom-out"}' data-zanim-trigger="scroll"></div>
+        	<div class="bg-holder digital-header" style="background-image:url(/static/assets/img/detail/headers/main02.jpg);" data-zanim-xs='{"delay":0,"animation":"zoom-out"}' data-zanim-trigger="scroll"></div>
         <!--/.bg-holder-->
         <div class="container" style="height:0px;">
           <div class="row min-vh-90 align-items-center py-8 justify-content-center text-center">
@@ -243,7 +242,7 @@
 	          <div class="row inner">
 	            <div class="col-12 pl-lg-7">
 	              <div class="row align-items-end">
-	                <div class="col-lg-6 order-lg-2 text-center align-self-center"><img class="img-fluid" src="/assets/img/detail/illustration/aboutdt-01.svg" alt="" width="400" /></div>
+	                <div class="col-lg-6 order-lg-2 text-center align-self-center"><img class="img-fluid" src="/static/assets/img/detail/illustration/aboutdt-01.svg" alt="" width="400" /></div>
 	                <div class="col-lg-6 border-lg-left border-lg-bottom border-300 pb-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
 	                  <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">01</span>
 	                    <h3>콜드체인 영역은 왜, 전문브랜드가 없을까요?</h3>
@@ -261,7 +260,7 @@
 	                </div>
 	              </div>
 	              <div class="row">
-	                <div class="col-lg-6 border-lg-right border-lg-bottom border-300 text-center py-lg-8"><img class="img-fluid" src="/assets/img/detail/illustration/aboutdt-02.svg" alt="" width="400" /></div>
+	                <div class="col-lg-6 border-lg-right border-lg-bottom border-300 text-center py-lg-8"><img class="img-fluid" src="/static/assets/img/detail/illustration/aboutdt-02.svg" alt="" width="400" /></div>
 	                <div class="col-lg-6 mt-4 mt-lg-0 mb-8 mb-lg-0 my-lg-8">
 	                  <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">02</span>
 	                    <h3>수요와 공급의 해결, 플랫폼</h3>
@@ -278,7 +277,7 @@
 	                </div>
 	              </div>
 	              <div class="row">
-	                <div class="col-lg-6 order-lg-2 text-center align-self-center"><img class="img-fluid" src="/assets/img/detail/illustration/aboutdt-030.png" alt="" width="400" /></div>
+	                <div class="col-lg-6 order-lg-2 text-center align-self-center"><img class="img-fluid" src="/static/assets/img/detail/illustration/aboutdt-030.png" alt="" width="400" /></div>
 	                <div class="col-lg-6 border-lg-left border-lg-bottom border-300 py-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
 	                  <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">03</span>
 	                    <h3>일의 표준화, 기준을 제시합니다</h3>
@@ -294,7 +293,7 @@
 	                </div>
 	              </div>
 	              <div class="row">
-	                <div class="col-lg-6 border-lg-right border-300 text-center py-lg-8"><img class="img-fluid" src="/assets/img/detail/illustration/mice.png" alt="" width="400" /></div>
+	                <div class="col-lg-6 border-lg-right border-300 text-center py-lg-8"><img class="img-fluid" src="/static/assets/img/detail/illustration/mice.png" alt="" width="400" /></div>
 	                <div class="col-lg-6 mt-4 mt-lg-0 mb-8 mb-lg-0 my-lg-8">
 	                  <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">04</span>
 	                    <h3>독보적인 시스템을 더합니다</h3>
@@ -341,7 +340,7 @@
 	            
             <div class="col-lg-12 pr-lg-4 mb-6">
               <div class="media" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/assets/img/detail/icons/calculate.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
+                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/calculate.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body" style="text-align:left;">
                   <div class="overflow-hidden">
                     <h2 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>콜드룸 자동 견적서</h2>
@@ -368,7 +367,7 @@
             </div>
             <div class="col-lg-12 pr-lg-4 mb-6">
               <div class="media" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/assets/img/detail/icons/warehouse.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
+                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/warehouse.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body" style="text-align:left;">
                   <div class="overflow-hidden">
                     <h2 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>가치를 보관하는 금고, 콜드룸 제작</h2>
@@ -392,7 +391,7 @@
             </div>
             <div class="col-lg-12 pr-lg-4 mb-6">
               <div class="media" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/assets/img/detail/icons/pin_drop.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
+                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/pin_drop.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body" style="text-align:left;">
                   <div class="overflow-hidden">
                     <h2 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>앞보다는 뒤를 보는 서비스, 위치기반 A/S 시스템</h2>
@@ -419,7 +418,7 @@
             </div>
             <div class="col-lg-12 pr-lg-4 mb-6">
               <div class="media" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/assets/img/detail/icons/fact_check.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
+                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/fact_check.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body" style="text-align:left;">
                   <div class="overflow-hidden">
                     <h2 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>70%의 사후관리를 위한 이력 추적 시스템 RMS</h2>
@@ -446,7 +445,7 @@
             </div>
             <div class="col-lg-12 pr-lg-4 mb-6">
               <div class="media" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/assets/img/detail/icons/update.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
+                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/update.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body" style="text-align:left;">
                   <div class="overflow-hidden">
                     <h2 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>콜드룸의 숙제 해결, 인공지능 제상 시스템 ADS</h2>
@@ -547,7 +546,7 @@
       <!-- ============================================-->
 
             <footer class="page-footer" style="z-index:9999;">
-              <div class="bg-holder" style="background-image:url(/assets/img/sidebars/about-s.jpg);background-position: 0 27%; transform: scale(1.1);">
+              <div class="bg-holder" style="background-image:url(/static/assets/img/sidebars/about-s.jpg);background-position: 0 27%; transform: scale(1.1);">
               </div>
               <!--/.bg-holder-->
 
@@ -565,8 +564,8 @@
           </div>
           
           <div class="col-lg-3 col-12 t-0 order-0 order-lg-1 position-absolute position-lg-relative">
-            <div class="h-lg-100vh sticky-top py-4 sticky-area"><span class="btn-close"><img class="d-none d-lg-block times" src="/assets/img/times.svg" width="25" alt=""/><img class="d-lg-none" src="/assets/img/times-black.svg" width="18" alt=""/></span>
-              <div class="bg-holder" style="background-image:url(/assets/img/sidebars/about-s.jpg);">
+            <div class="h-lg-100vh sticky-top py-4 sticky-area"><span class="btn-close"><img class="d-none d-lg-block times" src="/static/assets/img/times.svg" width="25" alt=""/><img class="d-lg-none" src="/static/assets/img/times-black.svg" width="18" alt=""/></span>
+              <div class="bg-holder" style="background-image:url(/static/assets/img/sidebars/about-s.jpg);">
               </div>
               <!--/.bg-holder-->
 
@@ -602,15 +601,15 @@
 	         				<div class="product_size product_info_item">
 	      					<div class="owl-carousel owl-theme owl-dots-inner owl-theme-white h-100" data-options='{"items":1,"autoplay":true,"loop":true,"autoplayHoverPause":true,"animateOut":"fadeOut","nav":true}' data-zanim-lg='{"animation":"zoom-out","delay":0}' data-zanim-trigger="scroll">
 				                <div class="min-vh-lg-100 py-9">
-				                  <div class="bg-holder" style="border-radius:10px;background-image:url(/assets/img/detail/headers/header-30.png);"></div>
+				                  <div class="bg-holder" style="border-radius:10px;background-image:url(/static/assets/img/detail/headers/header-30.png);"></div>
 				                  <!--/.bg-holder-->
 				                </div>
 				                <div class="min-vh-lg-100 py-9">
-				                  <div class="bg-holder" style="border-radius:10px;background-image:url(/assets/img/detail/headers/header-20.jpg);"></div>
+				                  <div class="bg-holder" style="border-radius:10px;background-image:url(/static/assets/img/detail/headers/header-20.jpg);"></div>
 				                  <!--/.bg-holder-->
 				                </div>
 				                <div class="min-vh-lg-100 py-9">
-				                  <div class="bg-holder" style="border-radius:10px;background-image:url(/assets/img/detail/headers/header-10.jpg);"></div>
+				                  <div class="bg-holder" style="border-radius:10px;background-image:url(/static/assets/img/detail/headers/header-10.jpg);"></div>
 				                  <!--/.bg-holder-->
 				                </div>
 			                </div>
@@ -623,15 +622,15 @@
          				<div class="product_size product_info_item product_info_item_mobile">
        					<div class="owl-carousel owl-theme owl-dots-inner owl-theme-white h-100" data-options='{"items":1,"autoplay":true,"loop":true,"autoplayHoverPause":true,"animateOut":"fadeOut","nav":true}' data-zanim-lg='{"animation":"zoom-out","delay":0}' data-zanim-trigger="scroll">
 				                <div class="min-vh-lg-100 py-9">
-				                  <div class="bg-holder" style="border-radius:10px;background-image:url(/assets/img/detail/headers/header-30.png);"></div>
+				                  <div class="bg-holder" style="border-radius:10px;background-image:url(/static/assets/img/detail/headers/header-30.png);"></div>
 				                  <!--/.bg-holder-->
 				                </div>
 				                <div class="min-vh-lg-100 py-9">
-				                  <div class="bg-holder" style="border-radius:10px;background-image:url(/assets/img/detail/headers/header-20.jpg);"></div>
+				                  <div class="bg-holder" style="border-radius:10px;background-image:url(/static/assets/img/detail/headers/header-20.jpg);"></div>
 				                  <!--/.bg-holder-->
 				                </div>
 				                <div class="min-vh-lg-100 py-9">
-				                  <div class="bg-holder" style="border-radius:10px;background-image:url(/assets/img/detail/headers/header-10.jpg);"></div>
+				                  <div class="bg-holder" style="border-radius:10px;background-image:url(/static/assets/img/detail/headers/header-10.jpg);"></div>
 				                  <!--/.bg-holder-->
 				                </div>
 			                </div>
@@ -700,7 +699,6 @@
 	              					<select id="purchese" name="purchese" required="required">
 								      <option value="0" selected disabled>구매형태</option>
 								      <option value="purchese01">구입</option>
-								      <option value="purchese02">렌탈</option>
 								   </select>
               					</div>
             				</div>
@@ -744,7 +742,7 @@
 <div class="popup_layer" id="popup_layer" style="display: none;">
   <div class="popup_box">
       <div style="height: 10px; width: 375px; float: top;">
-        <a href="javascript:closePop();"><img src="/assets/img/detail/illustration/ic_close.svg" class="m_header-banner-close" width="30px" height="30px"></a>
+        <a href="javascript:closePop();"><img src="/static/assets/img/detail/illustration/ic_close.svg" class="m_header-banner-close" width="30px" height="30px"></a>
       </div>
       <!--팝업 컨텐츠 영역-->
       <div class="popup_cont">
@@ -769,7 +767,7 @@
 
 
             <footer class="page-footer">
-              <div class="bg-holder" style="background-image:url(/assets/img/sidebars/ai-s.jpg);background-position: 0 41%; transform: scale(1.1);">
+              <div class="bg-holder" style="background-image:url(/static/assets/img/sidebars/ai-s.jpg);background-position: 0 41%; transform: scale(1.1);">
               </div>
               <div class="row justify-content-center">
                 <div class="col-lg-10">
@@ -781,8 +779,8 @@
             </footer>
           </div>
           <div class="col-lg-3 col-12 t-0 order-0 order-lg-1 position-absolute position-lg-relative">
-            <div class="h-lg-100vh sticky-top py-4 sticky-area"><span class="btn-close"><img class="d-none d-lg-block times" src="/assets/img/times.svg" width="25" alt=""/><img class="d-lg-none" src="/assets/img/times-black.svg" width="18" alt=""/></span>
-              <div class="bg-holder" style="background-image:url(/assets/img/sidebars/ai-s.jpg);">
+            <div class="h-lg-100vh sticky-top py-4 sticky-area"><span class="btn-close"><img class="d-none d-lg-block times" src="/static/assets/img/times.svg" width="25" alt=""/><img class="d-lg-none" src="/static/assets/img/times-black.svg" width="18" alt=""/></span>
+              <div class="bg-holder" style="background-image:url(/static/assets/img/sidebars/ai-s.jpg);">
               </div>
               <!--/.bg-holder-->
 
@@ -802,7 +800,7 @@
 		          <div class="row">
 		            <div class="col-lg-6 px-0 order-lg-2">
 		              <div class="sticky-top vh-lg-100 py-1">
-		                <div class="waranch" style="background-image:url(/assets/img/detail/coldroom-img.png);" data-zanim-trigger="scroll" data-zanim-lg='{"animation":"zoom-out-slide-left","delay":0.4}'></div>
+		                <div class="waranch" style="background-image:url(/static/assets/img/detail/coldroom-img.png);" data-zanim-trigger="scroll" data-zanim-lg='{"animation":"zoom-out-slide-left","delay":0.4}'></div>
 		                <!--/.bg-holder-->
 		              </div>
 		            </div>
@@ -825,8 +823,8 @@
 	                      
 		                  </p>
 		                  <div class="row mt-5">
-		                    <div class="col-6"><img class="rounded img-fluid" src="/assets/img/detail/safe.png" alt="" data-zanim-xs='{"delay":0.6,"animation":"zoom-in"}' data-zanim-trigger="scroll" /></div>
-		                    <div class="col-6"><img class="rounded img-fluid" src="/assets/img/detail/safety01.png" alt="" data-zanim-xs='{"delay":0.7,"animation":"zoom-in"}' data-zanim-trigger="scroll" /></div>
+		                    <div class="col-6"><img class="rounded img-fluid" src="/static/assets/img/detail/safe.png" alt="" data-zanim-xs='{"delay":0.6,"animation":"zoom-in"}' data-zanim-trigger="scroll" /></div>
+		                    <div class="col-6"><img class="rounded img-fluid" src="/static/assets/img/detail/safety01.png" alt="" data-zanim-xs='{"delay":0.7,"animation":"zoom-in"}' data-zanim-trigger="scroll" /></div>
 		                  </div>
 		                  
 		                  <!-- 이력추적으로 관리된다 -->
@@ -856,8 +854,8 @@
 		                    </a>
 		                  </p>
 		                  <div class="row mt-5">
-		                    <div class="col-6"><img class="rounded img-fluid" src="/assets/img/detail/housedt-01.png" alt="" data-zanim-xs='{"delay":0.6,"animation":"zoom-in"}' data-zanim-trigger="scroll" /></div>
-		                    <div class="col-6"><img class="rounded img-fluid" src="/assets/img/detail/housedt-02.png" alt="" data-zanim-xs='{"delay":0.7,"animation":"zoom-in"}' data-zanim-trigger="scroll" /></div>
+		                    <div class="col-6"><img class="rounded img-fluid" src="/static/assets/img/detail/housedt-01.png" alt="" data-zanim-xs='{"delay":0.6,"animation":"zoom-in"}' data-zanim-trigger="scroll" /></div>
+		                    <div class="col-6"><img class="rounded img-fluid" src="/static/assets/img/detail/housedt-02.png" alt="" data-zanim-xs='{"delay":0.7,"animation":"zoom-in"}' data-zanim-trigger="scroll" /></div>
 		                  </div>
 		                  
 		                  <!-- 2배의 보증기간 -->
@@ -886,8 +884,8 @@
 							<h4>콜드룸, 이젠 제품이 아닌 가치를 보관하세요.</h4>
 		                  </p>
 		                  <div class="row mt-5" style="margin-bottom: 7.5rem;">
-		                    <div class="col-6"><img class="rounded img-fluid" src="/assets/img/detail/2yeardt-01.png" alt="" data-zanim-xs='{"delay":0.6,"animation":"zoom-in"}' data-zanim-trigger="scroll" /></div>
-		                    <div class="col-6"><img class="rounded img-fluid" src="/assets/img/detail/safety.png" alt="" data-zanim-xs='{"delay":0.7,"animation":"zoom-in"}' data-zanim-trigger="scroll" /></div>
+		                    <div class="col-6"><img class="rounded img-fluid" src="/static/assets/img/detail/2yeardt-01.png" alt="" data-zanim-xs='{"delay":0.6,"animation":"zoom-in"}' data-zanim-trigger="scroll" /></div>
+		                    <div class="col-6"><img class="rounded img-fluid" src="/static/assets/img/detail/safety.png" alt="" data-zanim-xs='{"delay":0.7,"animation":"zoom-in"}' data-zanim-trigger="scroll" /></div>
 		                  </div>
 		                  
 		                  <div style="margin-top:7.5rem;">
@@ -948,8 +946,8 @@
 							  케어가 시작 됩니다.
 		                  </p>
 		                  <div class="row mt-5" style="margin-bottom: 7.5rem;">
-		                    <div class="col-6"><img class="rounded img-fluid" src="/assets/img/detail/imgq02.png" alt="" data-zanim-xs='{"delay":0.6,"animation":"zoom-in"}' data-zanim-trigger="scroll" /></div>
-		                    <div class="col-6"><img class="rounded img-fluid" src="/assets/img/detail/imgq01.png" alt="" data-zanim-xs='{"delay":0.7,"animation":"zoom-in"}' data-zanim-trigger="scroll" /></div>
+		                    <div class="col-6"><img class="rounded img-fluid" src="/static/assets/img/detail/imgq02.png" alt="" data-zanim-xs='{"delay":0.6,"animation":"zoom-in"}' data-zanim-trigger="scroll" /></div>
+		                    <div class="col-6"><img class="rounded img-fluid" src="/static/assets/img/detail/imgq01.png" alt="" data-zanim-xs='{"delay":0.7,"animation":"zoom-in"}' data-zanim-trigger="scroll" /></div>
 		                  </div>
 		                </div>
 		              </div>
@@ -980,7 +978,7 @@
 		    </div>
 
             <footer class="page-footer" style="z-index:9999;">
-              <div class="bg-holder" style="background-image:url(/assets/img/sidebars/warehouse-s.jpg);background-position: 0 27%; transform: scale(1.1);">
+              <div class="bg-holder" style="background-image:url(/static/assets/img/sidebars/warehouse-s.jpg);background-position: 0 27%; transform: scale(1.1);">
               </div>
               <!--/.bg-holder-->
 
@@ -998,8 +996,8 @@
           </div>
           
           <div class="col-lg-3 col-12 t-0 order-0 order-lg-1 position-absolute position-lg-relative">
-            <div class="h-lg-100vh sticky-top py-4 sticky-area"><span class="btn-close"><img class="d-none d-lg-block times" src="/assets/img/times.svg" width="25" alt=""/><img class="d-lg-none" src="/assets/img/times-black.svg" width="18" alt=""/></span>
-              <div class="bg-holder" style="background-image:url(/assets/img/sidebars/warehouse-s.jpg);">
+            <div class="h-lg-100vh sticky-top py-4 sticky-area"><span class="btn-close"><img class="d-none d-lg-block times" src="/static/assets/img/times.svg" width="25" alt=""/><img class="d-lg-none" src="/static/assets/img/times-black.svg" width="18" alt=""/></span>
+              <div class="bg-holder" style="background-image:url(/static/assets/img/sidebars/warehouse-s.jpg);">
               </div>
               <!--/.bg-holder-->
 
@@ -1090,7 +1088,7 @@
 
 
             <footer class="page-footer">
-              <div class="bg-holder"  style="background-image:url(/assets/img/sidebars/golden-s.jpg);background-position: 0 37%; transform: scale(1.1);">
+              <div class="bg-holder"  style="background-image:url(/static/assets/img/sidebars/golden-s.jpg);background-position: 0 37%; transform: scale(1.1);">
               </div>
               <!--/.bg-holder-->
 
@@ -1110,8 +1108,8 @@
             </footer>
           </div>
           <div class="col-lg-3 col-12 t-0 order-0 order-lg-1 position-absolute position-lg-relative">
-            <div class="h-lg-100vh sticky-top py-4 sticky-area"><span class="btn-close"><img class="d-none d-lg-block times" src="/assets/img/times.svg" width="25" alt=""/><img class="d-lg-none" src="/assets/img/times-black.svg" width="18" alt=""/></span>
-              <div class="bg-holder" style="background-image:url(/assets/img/sidebars/golden-s.jpg);">
+            <div class="h-lg-100vh sticky-top py-4 sticky-area"><span class="btn-close"><img class="d-none d-lg-block times" src="/static/assets/img/times.svg" width="25" alt=""/><img class="d-lg-none" src="/static/assets/img/times-black.svg" width="18" alt=""/></span>
+              <div class="bg-holder" style="background-image:url(/static/assets/img/sidebars/golden-s.jpg);">
               </div>
               <!--/.bg-holder-->
 
@@ -1132,7 +1130,7 @@
 	            <div class="col-lg-6 px-0 order-lg-2" data-zanim-lg='{"animation":"slide-left","delay":0.4}' data-zanim-trigger="scroll">
 	              <div class="owl-carousel owl-theme owl-dots-inner owl-theme-white h-100" data-options='{"items":1,"autoplay":true,"loop":true,"autoplayHoverPause":true,"animateOut":"fadeOut","nav":true}' data-zanim-lg='{"animation":"zoom-out","delay":0}' data-zanim-trigger="scroll">
 	                <div class="min-vh-lg-100 py-9">
-	                  <div class="bg-holder" style="background-image:url(/assets/img/detail/headers/rms-header.jpg);"></div>
+	                  <div class="bg-holder" style="background-image:url(/static/assets/img/detail/headers/rms-header.jpg);"></div>
 	                  <!--/.bg-holder-->
 	                </div>
 	              </div>
@@ -1167,7 +1165,7 @@
 	          <div class="row inner">
 	            <div class="col-12 pl-lg-7" style="padding-bottom: 7.5rem;">
 	              <div class="row align-items-end">
-	                <div class="col-lg-6 order-lg-2 text-center"><img class="img-fluid" src="/assets/img/detail/illustration/rmsdts-01.svg" alt="" width="400" /></div>
+	                <div class="col-lg-6 order-lg-2 text-center"><img class="img-fluid" src="/static/assets/img/detail/illustration/rmsdts-01.svg" alt="" width="400" /></div>
 	                <div class="col-lg-6 border-lg-left border-lg-bottom border-300 pb-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
 	                  <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">01</span>
 	                    <h3>위치? 모델명? 사진?</h3>
@@ -1180,7 +1178,7 @@
 	                </div>
 	              </div>
 	              <div class="row">
-	                <div class="col-lg-6 border-lg-right border-lg-bottom border-300 text-center py-lg-8"><img class="img-fluid" src="/assets/img/detail/illustration/rmsdt-02.svg" alt="" width="400" /></div>
+	                <div class="col-lg-6 border-lg-right border-lg-bottom border-300 text-center py-lg-8"><img class="img-fluid" src="/static/assets/img/detail/illustration/rmsdt-02.svg" alt="" width="400" /></div>
 	                <div class="col-lg-6 mt-4 mt-lg-0 mb-8 mb-lg-0 my-lg-11">
 	                  <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">02</span>
 	                    <h3>기억에 의존</h3>
@@ -1192,7 +1190,7 @@
 	                </div>
 	              </div>
 	              <div class="row">
-	                <div class="col-lg-6 order-lg-2 text-center align-self-center"><img class="img-fluid" src="/assets/img/detail/illustration/rmsdt-03.svg" alt="" width="400" /></div>
+	                <div class="col-lg-6 order-lg-2 text-center align-self-center"><img class="img-fluid" src="/static/assets/img/detail/illustration/rmsdt-03.svg" alt="" width="400" /></div>
 	                <div class="col-lg-6 border-lg-left border-lg-bottom border-300 py-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
 	                  <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">03</span>
 	                    <h3>체계 없는 A/S 요청</h3>
@@ -1204,7 +1202,7 @@
 	                </div>
 	              </div>
 	              <div class="row overflow-hidden pb-1">
-	                <div class="col-lg-6 border-lg-right border-lg-bottom border-300 text-center py-lg-8"><img class="img-fluid" src="/assets/img/detail/illustration/rmsdta-04.svg" alt="" width="400" /></div>
+	                <div class="col-lg-6 border-lg-right border-lg-bottom border-300 text-center py-lg-8"><img class="img-fluid" src="/static/assets/img/detail/illustration/rmsdta-04.svg" alt="" width="400" /></div>
 	                <div class="col-lg-6 align-self-center mt-4 mt-lg-0 mt-lg-8">
 	                  <div class="process-item process-item-last ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">04</span>
 	                    <h3>12자리 숫자</h3>
@@ -1216,7 +1214,7 @@
 	                </div>
 	              </div>
 	              <div class="row">
-	                <div class="col-lg-6 order-lg-2 text-center align-self-center"><img class="img-fluid" src="/assets/img/detail/illustration/rmsdt-05.svg" alt="" width="400" /></div>
+	                <div class="col-lg-6 order-lg-2 text-center align-self-center"><img class="img-fluid" src="/static/assets/img/detail/illustration/rmsdt-05.svg" alt="" width="400" /></div>
 	                <div class="col-lg-6 border-lg-left border-300 border-lg-bottom py-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
 	                  <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">05</span>
 	                    <h3>냉동기의 모든 정보 기억</h3>
@@ -1228,7 +1226,7 @@
 	                </div>
 	              </div>
 	              <div class="row overflow-hidden pb-1">
-	                <div class="col-lg-6 border-lg-right border-300 text-center py-lg-8"><img class="img-fluid" src="/assets/img/detail/illustration/rmsdt-06.svg" alt="" width="400" /></div>
+	                <div class="col-lg-6 border-lg-right border-300 text-center py-lg-8"><img class="img-fluid" src="/static/assets/img/detail/illustration/rmsdt-06.svg" alt="" width="400" /></div>
 	                <div class="col-lg-6 align-self-center mt-4 mt-lg-0 mt-lg-8">
 	                  <div class="process-item process-item-last ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">06</span>
 	                    <h3>냉동기기 이력추적관리 시스템, RMS</h3>
@@ -1255,7 +1253,7 @@
             </div>
             <div class="col-lg-5 pr-lg-4 mb-4">
               <div class="media" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/assets/img/detail/icons/corporate_fare.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
+                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/corporate_fare.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body">
                   <div class="overflow-hidden">
                     <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>체계적으로 냉동기를 관리하고 싶은 기업</h4>
@@ -1270,7 +1268,7 @@
             </div>
             <div class="col-lg-5 pr-lg-4 mb-4">
               <div class="media" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/assets/img/detail/icons/construction.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
+                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/construction.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body">
                   <div class="overflow-hidden">
                     <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>유지보수 전문 업체</h4>
@@ -1298,7 +1296,7 @@
 	          </div>
 	          <div class="row align-items-center justify-content-center">
 	           
-	            <div class="col-sm-8 col-lg-4 mt-4 mt-lg-0 px-lg-4"><img class="w-100 rounded" src="/assets/img/detail/46rms.png" alt="" data-zanim-xs='{"animation":"zoom-out","delay":0.1}' data-zanim-trigger="scroll" /></div>
+	            <div class="col-sm-8 col-lg-4 mt-4 mt-lg-0 px-lg-4"><img class="w-100 rounded" src="/static/assets/img/detail/46rms.png" alt="" data-zanim-xs='{"animation":"zoom-out","delay":0.1}' data-zanim-trigger="scroll" /></div>
 	            <div class="col-sm-8 col-lg-4 mt-5 mt-lg-0 pl-lg-3 pl-xl-4">
 	              <div class="overflow-hidden">
 	                <h4 class="mb-3" data-zanim-xs='{"delay":0.2}' data-zanim-trigger="scroll">걱정없는 사후관리</h4>
@@ -1336,7 +1334,7 @@
             </div>
             <div class="col-lg-12 pr-lg-4 mb-4">
               <div class="media" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/assets/img/detail/icons/memory.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
+                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/memory.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body" style="text-align:left;">
                   <div class="overflow-hidden">
                     <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>모든정보 기억</h4>
@@ -1351,7 +1349,7 @@
             </div>
             <div class="col-lg-12 pr-lg-4 mb-4">
               <div class="media" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/assets/img/detail/icons/constructiona.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
+                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/constructiona.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body" style="text-align:left;">
                   <div class="overflow-hidden">
                     <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>수리정보 기록</h4>
@@ -1366,7 +1364,7 @@
             </div>
             <div class="col-lg-12 pr-lg-4 mb-4">
               <div class="media" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/assets/img/detail/icons/database.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
+                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/database.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body" style="text-align:left;">
                   <div class="overflow-hidden">
                     <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>정보유지</h4>
@@ -1381,7 +1379,7 @@
             </div>
             <div class="col-lg-12 pr-lg-4 mb-4">
               <div class="media" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/assets/img/detail/icons/warehouse.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
+                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/warehouse.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body" style="text-align:left;">
                   <div class="overflow-hidden">
                     <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>다수관리 용이</h4>
@@ -1396,7 +1394,7 @@
             </div>
             <div class="col-lg-12 pr-lg-4 mb-4">
               <div class="media" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/assets/img/detail/icons/all_inbox.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
+                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/all_inbox.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body" style="text-align:left;">
                   <div class="overflow-hidden">
                     <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>쿨리닉 케어</h4>
@@ -1435,7 +1433,7 @@
 	    </div>
 
             <footer class="page-footer">
-              <div class="bg-holder" style="background-image:url(/assets/img/sidebars/rms-s.jpg);background-position: 0 37%; transform: scale(1.1);">
+              <div class="bg-holder" style="background-image:url(/static/assets/img/sidebars/rms-s.jpg);background-position: 0 37%; transform: scale(1.1);">
               </div>
               <!--/.bg-holder-->
 
@@ -1450,8 +1448,8 @@
             </footer>
           </div>
           <div class="col-lg-3 col-12 t-0 order-0 order-lg-1 position-absolute position-lg-relative">
-            <div class="h-lg-100vh sticky-top py-4 sticky-area"><span class="btn-close"><img class="d-none d-lg-block times" src="/assets/img/times.svg" width="25" alt=""/><img class="d-lg-none" src="/assets/img/times-black.svg" width="18" alt=""/></span>
-              <div class="bg-holder" style="background-image:url(/assets/img/sidebars/rms-s.jpg);">
+            <div class="h-lg-100vh sticky-top py-4 sticky-area"><span class="btn-close"><img class="d-none d-lg-block times" src="/static/assets/img/times.svg" width="25" alt=""/><img class="d-lg-none" src="/static/assets/img/times-black.svg" width="18" alt=""/></span>
+              <div class="bg-holder" style="background-image:url(/static/assets/img/sidebars/rms-s.jpg);">
               </div>
               <!--/.bg-holder-->
 
@@ -1474,7 +1472,7 @@
 	            <div class="col-lg-6 px-0 order-lg-2" data-zanim-lg='{"animation":"slide-left","delay":0.4}' data-zanim-trigger="scroll">
 	              <div class="owl-carousel owl-theme owl-dots-inner owl-theme-white h-100" data-options='{"items":1,"autoplay":true,"loop":true,"autoplayHoverPause":true,"animateOut":"fadeOut","nav":true}' data-zanim-lg='{"animation":"zoom-out","delay":0}' data-zanim-trigger="scroll">
 	                <div class="min-vh-lg-100 py-9">
-	                  <div class="bg-holder" style="background-image:url(/assets/img/detail/headers/ads.jpg);"></div>
+	                  <div class="bg-holder" style="background-image:url(/static/assets/img/detail/headers/ads.jpg);"></div>
 	                  <!--/.bg-holder-->
 	                </div>
 	              </div>
@@ -1506,7 +1504,7 @@
 		          </div>
 		          <div class="row align-items-center justify-content-center">
 		           
-		            <div class="col-sm-8 col-lg-4 mt-4 mt-lg-0 px-lg-4"><img class="w-100 rounded" src="/assets/img/detail/46andper.png" alt="" data-zanim-xs='{"animation":"zoom-out","delay":0.1}' data-zanim-trigger="scroll" /></div>
+		            <div class="col-sm-8 col-lg-4 mt-4 mt-lg-0 px-lg-4"><img class="w-100 rounded" src="/static/assets/img/detail/46andper.png" alt="" data-zanim-xs='{"animation":"zoom-out","delay":0.1}' data-zanim-trigger="scroll" /></div>
 		            <div class="col-sm-8 col-lg-4 mt-5 mt-lg-0 pl-lg-3 pl-xl-4">
 		              <div class="overflow-hidden">
 		                <h3 class="mb-3" data-zanim-xs='{"delay":0.2}' data-zanim-trigger="scroll">콜드룸 증발기는요</h3>
@@ -1540,7 +1538,7 @@
 	          <div class="row inner">
 	            <div class="col-12 pl-lg-7">
 	              <div class="row align-items-end">
-	                <div class="col-lg-6 order-lg-2 text-center align-self-center"><img class="img-fluid" src="/assets/img/detail/illustration/adsdt-01.svg" alt="" width="400" /></div>
+	                <div class="col-lg-6 order-lg-2 text-center align-self-center"><img class="img-fluid" src="/static/assets/img/detail/illustration/adsdt-01.svg" alt="" width="400" /></div>
 	                <div class="col-lg-6 border-lg-left border-lg-bottom border-300 pb-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
 	                  <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">01</span>
 	                    <h3>모자랄바엔 과하게, 최악보다는 차악</h3>
@@ -1563,7 +1561,7 @@
 	                </div>
 	              </div>
 	              <div class="row">
-	                <div class="col-lg-6 border-lg-right border-lg-bottom border-300 text-center py-lg-8"><img class="img-fluid" src="/assets/img/detail/illustration/adsdt-02.svg" alt="" width="400" /></div>
+	                <div class="col-lg-6 border-lg-right border-lg-bottom border-300 text-center py-lg-8"><img class="img-fluid" src="/static/assets/img/detail/illustration/adsdt-02.svg" alt="" width="400" /></div>
 	                <div class="col-lg-6 mt-4 mt-lg-0 mb-8 mb-lg-0 my-lg-11">
 	                  <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">02</span>
 	                    <h3>직접 보는게 가장 정확합니다</h3>
@@ -1577,7 +1575,7 @@
 	                </div>
 	              </div>
 	              <div class="row">
-	                <div class="col-lg-6 order-lg-2 text-center align-self-center"><img class="img-fluid" src="/assets/img/detail/illustration/adsdt-03.svg" alt="" width="400" /></div>
+	                <div class="col-lg-6 order-lg-2 text-center align-self-center"><img class="img-fluid" src="/static/assets/img/detail/illustration/adsdt-03.svg" alt="" width="400" /></div>
 	                <div class="col-lg-6 border-lg-left border-lg-bottom border-300 py-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
 	                  <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">03</span>
 	                    <h3>ADS는 이러한 일들을 합니다</h3>
@@ -1604,7 +1602,7 @@
 	                </div>
 	              </div>
 	              <div class="row">
-	                <div class="col-lg-6 border-lg-right border-lg-bottom border-300 text-center py-lg-8"><img class="img-fluid" src="/assets/img/detail/illustration/adsdt-04.svg" alt="" width="400" /></div>
+	                <div class="col-lg-6 border-lg-right border-lg-bottom border-300 text-center py-lg-8"><img class="img-fluid" src="/static/assets/img/detail/illustration/adsdt-04.svg" alt="" width="400" /></div>
 	                <div class="col-lg-6 mt-4 mt-lg-0 mb-8 mb-lg-0 my-lg-11">
 	                  <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">04</span>
 	                    <h3>ADS 도입</h3>
@@ -1618,7 +1616,7 @@
 	                </div>
 	              </div>
 	              <div class="row">
-	                <div class="col-lg-6 order-lg-2 text-center align-self-center"><img class="img-fluid" src="/assets/img/detail/illustration/adsdt-05.svg" alt="" width="400" /></div>
+	                <div class="col-lg-6 order-lg-2 text-center align-self-center"><img class="img-fluid" src="/static/assets/img/detail/illustration/adsdt-05.svg" alt="" width="400" /></div>
 	                <div class="col-lg-6 border-lg-left border-300 py-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
 	                  <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">05</span>
 	                    <h3>ADS 도입 절차</h3>
@@ -1671,7 +1669,7 @@
             </div>
             <div class="col-lg-12 pr-lg-4 mb-4">
               <div class="media" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/assets/img/detail/icons/downloading.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
+                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/downloading.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body" style="text-align:left;">
                   <div class="overflow-hidden">
                     <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>70%이상 절감</h4>
@@ -1686,7 +1684,7 @@
             </div>
             <div class="col-lg-12 pr-lg-4 mb-4">
               <div class="media" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/assets/img/detail/icons/thermostat_F.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
+                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/thermostat_F.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body" style="text-align:left;">
                   <div class="overflow-hidden">
                     <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>온도상승 최소화</h4>
@@ -1701,7 +1699,7 @@
             </div>
             <div class="col-lg-12 pr-lg-4 mb-4">
               <div class="media" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/assets/img/detail/icons/moving.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
+                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/moving.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body" style="text-align:left;">
                   <div class="overflow-hidden">
                     <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>히터수명 최대</h4>
@@ -1716,7 +1714,7 @@
             </div>
             <div class="col-lg-12 pr-lg-4 mb-4">
               <div class="media" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/assets/img/detail/icons/package.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
+                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/package.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body" style="text-align:left;">
                   <div class="overflow-hidden">
                     <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>제품가치 상승</h4>
@@ -1731,7 +1729,7 @@
             </div>
             <div class="col-lg-12 pr-lg-4 mb-4">
               <div class="media" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/assets/img/detail/icons/work_history.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
+                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/work_history.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body" style="text-align:left;">
                   <div class="overflow-hidden">
                     <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>보관기간 상승</h4>
@@ -1746,7 +1744,7 @@
             </div>
             <div class="col-lg-12 pr-lg-4 mb-4">
               <div class="media" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/assets/img/detail/icons/fireplace.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
+                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/fireplace.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body" style="text-align:left;">
                   <div class="overflow-hidden">
                     <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>위험성 감소</h4>
@@ -1761,7 +1759,7 @@
             </div>
             <div class="col-lg-12 pr-lg-4 mb-4">
               <div class="media" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/assets/img/detail/icons/price_check.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
+                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/price_check.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body" style="text-align:left;">
                   <div class="overflow-hidden">
                     <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>비용감소</h4>
@@ -1776,7 +1774,7 @@
             </div>
             <div class="col-lg-12 pr-lg-4 mb-4">
               <div class="media" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/assets/img/detail/icons/downloadin.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
+                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/downloadin.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body" style="text-align:left;">
                   <div class="overflow-hidden">
                     <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>탄소배출량 감소</h4>
@@ -1815,7 +1813,7 @@
 	    </div>
 		
 		           <footer class="page-footer">
-		             <div class="bg-holder" style="background-image:url(/assets/img/sidebars/ads-s.jpg);background-position: 0 37%; transform: scale(1.1);">
+		             <div class="bg-holder" style="background-image:url(/static/assets/img/sidebars/ads-s.jpg);background-position: 0 37%; transform: scale(1.1);">
 		             </div>
 		             <!--/.bg-holder-->
 		
@@ -1834,8 +1832,8 @@
 		         
 		         
 		         <div class="col-lg-3 col-12 t-0 order-0 order-lg-1 position-absolute position-lg-relative">
-		           <div class="h-lg-100vh sticky-top py-4 sticky-area"><span class="btn-close"><img class="d-none d-lg-block times" src="/assets/img/times.svg" width="25" alt=""/><img class="d-lg-none" src="/assets/img/times-black.svg" width="18" alt=""/></span>
-		             <div class="bg-holder" style="background-image:url(/assets/img/sidebars/ads-s.jpg);">
+		           <div class="h-lg-100vh sticky-top py-4 sticky-area"><span class="btn-close"><img class="d-none d-lg-block times" src="/static/assets/img/times.svg" width="25" alt=""/><img class="d-lg-none" src="/static/assets/img/times-black.svg" width="18" alt=""/></span>
+		             <div class="bg-holder" style="background-image:url(/static/assets/img/sidebars/ads-s.jpg);">
 		             </div>
 		             <!--/.bg-holder-->
 		
@@ -1860,15 +1858,15 @@
 	            <div class="col-lg-6 px-0 order-lg-2" data-zanim-lg='{"animation":"slide-left","delay":0.4}' data-zanim-trigger="scroll">
 	              <div class="owl-carousel owl-theme owl-dots-inner owl-theme-white h-100" data-options='{"items":1,"autoplay":true,"loop":true,"autoplayHoverPause":true,"animateOut":"fadeOut","nav":true}' data-zanim-lg='{"animation":"zoom-out","delay":0}' data-zanim-trigger="scroll">
 	                <div class="min-vh-lg-100 py-9">
-	                  <div class="bg-holder" style="background-image:url(/assets/img/detail/headers/header-3.jpg);"></div>
+	                  <div class="bg-holder" style="background-image:url(/static/assets/img/detail/headers/header-3.jpg);"></div>
 	                  <!--/.bg-holder-->
 	                </div>
 	                <div class="min-vh-lg-100 py-9">
-	                  <div class="bg-holder" style="background-image:url(/assets/img/detail/headers/header-2.jpg);"></div>
+	                  <div class="bg-holder" style="background-image:url(/static/assets/img/detail/headers/header-2.jpg);"></div>
 	                  <!--/.bg-holder-->
 	                </div>
 	                <div class="min-vh-lg-100 py-9">
-	                  <div class="bg-holder" style="background-image:url(/assets/img/detail/headers/header-12.jpg);"></div>
+	                  <div class="bg-holder" style="background-image:url(/static/assets/img/detail/headers/header-12.jpg);"></div>
 	                  <!--/.bg-holder-->
 	                </div>
 	              </div>
@@ -1916,7 +1914,7 @@
 	                <p class="font-italic lead" data-zanim-xs='{"delay":0.2}' data-zanim-trigger="scroll">A robust set of layouts, built-in elements, colors, typography, and css helpers &mdash; rigorously tested and optimized, gives you the perfect starting point for landing pages<br class="d-none d-xl-block" />and stylish business websites.</p>
 	              </div>
 	            </div>
-	            <div class="col-sm-8 col-lg-4 mt-4 mt-lg-0 px-lg-4"><img class="w-100 rounded" src="/assets/img/detail/creative.jpg" alt="" data-zanim-xs='{"animation":"zoom-out","delay":0.1}' data-zanim-trigger="scroll" /></div>
+	            <div class="col-sm-8 col-lg-4 mt-4 mt-lg-0 px-lg-4"><img class="w-100 rounded" src="/static/assets/img/detail/creative.jpg" alt="" data-zanim-xs='{"animation":"zoom-out","delay":0.1}' data-zanim-trigger="scroll" /></div>
 	            <div class="col-sm-8 col-lg-4 mt-5 mt-lg-0 pl-lg-3 pl-xl-4">
 	              <div class="overflow-hidden">
 	                <h4 class="mb-3" data-zanim-xs='{"delay":0.2}' data-zanim-trigger="scroll">bootstrap 4 + much more</h4>
@@ -1933,7 +1931,7 @@
 	 <section class="py-0 inner" id="default-cta-1">
 	        <div class="container">
 	          <div class="position-absolute overflow-hidden a-0">
-	            <div class="bg-holder overlay rounded" style="background-image:url(/assets/img/detail/headers/header-16.jpg);" data-zanim-trigger="scroll" data-zanim-lg='{"animation":"zoom-out","delay":0}'></div>
+	            <div class="bg-holder overlay rounded" style="background-image:url(/static/assets/img/detail/headers/header-16.jpg);" data-zanim-trigger="scroll" data-zanim-lg='{"animation":"zoom-out","delay":0}'></div>
 	            <!--/.bg-holder-->
 	          </div>
 	          <div class="row justify-content-center text-center py-7">
@@ -1957,7 +1955,7 @@
             </div>
             <div class="col-lg-5 pr-lg-4 mb-4">
               <div class="media" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/assets/img/detail/icons/bootstrap.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
+                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/bootstrap.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body">
                   <div class="overflow-hidden">
                     <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>bootstrap 4.x</h4>
@@ -1970,7 +1968,7 @@
             </div>
             <div class="col-lg-5 pr-lg-4 mb-4">
               <div class="media" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/assets/img/detail/icons/icon-target.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
+                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/icon-target.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body">
                   <div class="overflow-hidden">
                     <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>responsive CSS helper classes</h4>
@@ -1983,7 +1981,7 @@
             </div>
             <div class="col-lg-5 pr-lg-4 mb-4">
               <div class="media" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/assets/img/detail/icons/favorites-button.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
+                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/favorites-button.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body">
                   <div class="overflow-hidden">
                     <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>32 sets of elements</h4>
@@ -1996,7 +1994,7 @@
             </div>
             <div class="col-lg-5 pr-lg-4 mb-4">
               <div class="media" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/assets/img/detail/icons/icon-line-chart.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
+                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/icon-line-chart.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body">
                   <div class="overflow-hidden">
                     <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>buttery smooth animation</h4>
@@ -2009,7 +2007,7 @@
             </div>
             <div class="col-lg-5 pr-lg-4 mb-4 mb-lg-0">
               <div class="media" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/assets/img/detail/icons/multi-purpose.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
+                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/multi-purpose.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body">
                   <div class="overflow-hidden">
                     <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>modular &amp; multipurpose</h4>
@@ -2022,7 +2020,7 @@
             </div>
             <div class="col-lg-5 pr-lg-4">
               <div class="media" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/assets/img/detail/icons/icon-coding.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
+                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/icon-coding.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body">
                   <div class="overflow-hidden">
                     <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>familiar markup</h4>
@@ -2054,7 +2052,7 @@
 	          <div class="row inner">
 	            <div class="col-12 pl-lg-7" style="padding-bottom: 7.5rem;">
 	              <div class="row align-items-end">
-	                <div class="col-lg-6 order-lg-2 text-center"><img class="img-fluid" src="/assets/img/detail/illustration/process-01.svg" alt="" width="400" /></div>
+	                <div class="col-lg-6 order-lg-2 text-center"><img class="img-fluid" src="/static/assets/img/detail/illustration/process-01.svg" alt="" width="400" /></div>
 	                <div class="col-lg-6 border-lg-left border-lg-bottom border-300 pb-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
 	                  <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">01</span>
 	                    <h3>plan</h3>
@@ -2063,7 +2061,7 @@
 	                </div>
 	              </div>
 	              <div class="row">
-	                <div class="col-lg-6 border-lg-right border-lg-bottom border-300 text-center py-lg-8"><img class="img-fluid" src="/assets/img/detail/illustration/process-02.svg" alt="" width="400" /></div>
+	                <div class="col-lg-6 border-lg-right border-lg-bottom border-300 text-center py-lg-8"><img class="img-fluid" src="/static/assets/img/detail/illustration/process-02.svg" alt="" width="400" /></div>
 	                <div class="col-lg-6 mt-4 mt-lg-0 mb-8 mb-lg-0 my-lg-8">
 	                  <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">02</span>
 	                    <h3>design</h3>
@@ -2072,7 +2070,7 @@
 	                </div>
 	              </div>
 	              <div class="row">
-	                <div class="col-lg-6 order-lg-2 text-center align-self-center"><img class="img-fluid" src="/assets/img/detail/illustration/process-03.svg" alt="" width="400" /></div>
+	                <div class="col-lg-6 order-lg-2 text-center align-self-center"><img class="img-fluid" src="/static/assets/img/detail/illustration/process-03.svg" alt="" width="400" /></div>
 	                <div class="col-lg-6 border-lg-left border-lg-bottom border-300 py-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
 	                  <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">03</span>
 	                    <h3>develop</h3>
@@ -2081,7 +2079,7 @@
 	                </div>
 	              </div>
 	              <div class="row overflow-hidden pb-1">
-	                <div class="col-lg-6 border-lg-right border-300 text-center py-lg-8"><img class="img-fluid" src="/assets/img/detail/illustration/process-04.svg" alt="" width="400" /></div>
+	                <div class="col-lg-6 border-lg-right border-300 text-center py-lg-8"><img class="img-fluid" src="/static/assets/img/detail/illustration/process-04.svg" alt="" width="400" /></div>
 	                <div class="col-lg-6 align-self-center mt-4 mt-lg-0 mt-lg-8">
 	                  <div class="process-item process-item-last ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">04</span>
 	                    <h3>deploy</h3>
@@ -2119,7 +2117,7 @@
 	      <section class="overflow-hidden py-0" id="default-cta-2">
 	        <div class="container">
 	          <div class="position-absolute overflow-hidden a-0">
-	            <div class="bg-holder overlay overlay-2 rounded" style="background-image:url(/assets/img/detail/headers/header-47.jpg);" data-zanim-trigger="scroll" data-zanim-lg='{"animation":"zoom-out","delay":0}'></div>
+	            <div class="bg-holder overlay overlay-2 rounded" style="background-image:url(/static/assets/img/detail/headers/header-47.jpg);" data-zanim-trigger="scroll" data-zanim-lg='{"animation":"zoom-out","delay":0}'></div>
 	            <!--/.bg-holder-->
 	          </div>
 	          <div class="row align-items-center justify-content-center text-center py-8">
@@ -2182,7 +2180,7 @@
 	    </div>
 
             <footer class="page-footer">
-              <div class="bg-holder" style="background-image:url(/assets/img/sidebars/starter.jpg);background-position: 0 25%; transform: scale(1.1);">
+              <div class="bg-holder" style="background-image:url(/static/assets/img/sidebars/starter.jpg);background-position: 0 25%; transform: scale(1.1);">
               </div>
               <!--/.bg-holder-->
 
@@ -2198,8 +2196,8 @@
           </div>
           
           <div class="col-lg-3 col-12 t-0 order-0 order-lg-1 position-absolute position-lg-relative">
-            <div class="h-lg-100vh sticky-top py-4 sticky-area"><span class="btn-close"><img class="d-none d-lg-block times" src="/assets/img/times.svg" width="25" alt=""/><img class="d-lg-none" src="/assets/img/times-black.svg" width="18" alt=""/></span>
-              <div class="bg-holder" style="background-image:url(/assets/img/sidebars/starter.jpg);">
+            <div class="h-lg-100vh sticky-top py-4 sticky-area"><span class="btn-close"><img class="d-none d-lg-block times" src="/static/assets/img/times.svg" width="25" alt=""/><img class="d-lg-none" src="/static/assets/img/times-black.svg" width="18" alt=""/></span>
+              <div class="bg-holder" style="background-image:url(/static/assets/img/sidebars/starter.jpg);">
               </div>
               <!--/.bg-holder-->
 
@@ -2222,7 +2220,7 @@
 	            <div class="col-lg-6 px-0 order-lg-2" data-zanim-lg='{"animation":"slide-left","delay":0.4}' data-zanim-trigger="scroll">
 	              <div class="owl-carousel owl-theme owl-dots-inner owl-theme-white h-100" data-options='{"items":1,"autoplay":true,"loop":true,"autoplayHoverPause":true,"animateOut":"fadeOut","nav":true}' data-zanim-lg='{"animation":"zoom-out","delay":0}' data-zanim-trigger="scroll">
 	                <div class="min-vh-lg-100 py-9">
-	                  <div class="bg-holder" style="background-image:url(/assets/img/detail/headers/golden-header.jpg);"></div>
+	                  <div class="bg-holder" style="background-image:url(/static/assets/img/detail/headers/golden-header.jpg);"></div>
 	                  <!--/.bg-holder-->
 	                </div>
 	              </div>
@@ -2259,7 +2257,7 @@
             </div>
             <div class="col-lg-5 pr-lg-4 mb-4">
               <div class="media" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/assets/img/detail/icons/warehouse.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
+                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/warehouse.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body">
                   <div class="overflow-hidden">
                     <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>언제나 불안한 콜드룸</h4>
@@ -2275,7 +2273,7 @@
             </div>
             <div class="col-lg-5 pr-lg-4 mb-4">
               <div class="media" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/assets/img/detail/icons/person_search.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
+                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/person_search.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body">
                   <div class="overflow-hidden">
                     <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>50년간 똑같은 A/S 방식</h4>
@@ -2291,7 +2289,7 @@
             </div>
             <div class="col-lg-5 pr-lg-4 mb-4">
               <div class="media" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/assets/img/detail/icons/sentiment_dissatisfied.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
+                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/sentiment_dissatisfied.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body">
                   <div class="overflow-hidden">
                     <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>막연한 기다림</h4>
@@ -2307,7 +2305,7 @@
             </div>
             <div class="col-lg-5 pr-lg-4 mb-4">
               <div class="media" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/assets/img/detail/icons/settings_suggest_black.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
+                <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/settings_suggest_black.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body">
                   <div class="overflow-hidden">
                     <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>시스템이 필요합니다</h4>
@@ -2349,7 +2347,7 @@
 	          <div class="row inner">
 	            <div class="col-12 pl-lg-7">
 	              <div class="row align-items-end">
-	                <div class="col-lg-6 order-lg-2 text-center align-self-center"><img class="img-fluid" src="/assets/img/detail/illustration/asdt-01.svg" alt="" width="400" /></div>
+	                <div class="col-lg-6 order-lg-2 text-center align-self-center"><img class="img-fluid" src="/static/assets/img/detail/illustration/asdt-01.svg" alt="" width="400" /></div>
 	                <div class="col-lg-6 border-lg-left border-lg-bottom border-300 pb-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
 	                  <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">01</span>
 	                    <h3>상품의 가치를 지키는 A/S 로켓 매칭</h3>
@@ -2368,7 +2366,7 @@
 	                </div>
 	              </div>
 	              <div class="row">
-	                <div class="col-lg-6 border-lg-right border-lg-bottom border-300 text-center py-lg-8"><img class="img-fluid" src="/assets/img/detail/illustration/asdt-02.svg" alt="" width="400" /></div>
+	                <div class="col-lg-6 border-lg-right border-lg-bottom border-300 text-center py-lg-8"><img class="img-fluid" src="/static/assets/img/detail/illustration/asdt-02.svg" alt="" width="400" /></div>
 	                <div class="col-lg-6 mt-4 mt-lg-0 mb-8 mb-lg-0 my-lg-8">
 	                  <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">02</span>
 	                    <h3>약은 약사에게, 14가지의 전문분야 파트너</h3>
@@ -2383,7 +2381,7 @@
 	                </div>
 	              </div>
 	              <div class="row">
-	                <div class="col-lg-6 order-lg-2 text-center align-self-center"><img class="img-fluid" src="/assets/img/detail/illustration/asdt-03.svg" alt="" width="400" /></div>
+	                <div class="col-lg-6 order-lg-2 text-center align-self-center"><img class="img-fluid" src="/static/assets/img/detail/illustration/asdt-03.svg" alt="" width="400" /></div>
 	                <div class="col-lg-6 border-lg-left border-lg-bottom border-300 py-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
 	                  <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">03</span>
 	                    <h3>흔들리지 않는 기준, 수리 단가표 CPL</h3>
@@ -2402,7 +2400,7 @@
 	                </div>
 	              </div>
 	              <div class="row">
-	                <div class="col-lg-6 border-lg-right border-lg-bottom border-300 text-center py-lg-8"><img class="img-fluid" src="/assets/img/detail/illustration/asdt-04.svg" alt="" width="400" /></div>
+	                <div class="col-lg-6 border-lg-right border-lg-bottom border-300 text-center py-lg-8"><img class="img-fluid" src="/static/assets/img/detail/illustration/asdt-04.svg" alt="" width="400" /></div>
 	                <div class="col-lg-6 align-self-center mt-4 mt-lg-0 mt-lg-8" style="margin-bottom: 7.5rem !important;">
 	                  <div class="process-item process-item-last ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">04</span>
 	                    <h3>쿨리닉이 고객을 보호하는 방법</h3>
@@ -2419,7 +2417,7 @@
 	                </div>
 	              </div>
 	              <div class="row">
-	                <div class="col-lg-6 order-lg-2 text-center align-self-center"><img class="img-fluid" src="/assets/img/detail/illustration/asdt-05.svg" alt="" width="400" /></div>
+	                <div class="col-lg-6 order-lg-2 text-center align-self-center"><img class="img-fluid" src="/static/assets/img/detail/illustration/asdt-05.svg" alt="" width="400" /></div>
 	                <div class="col-lg-6 border-lg-left border-lg-bottom border-300 py-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
 	                  <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">05</span>
 	                    <h3>콜드매니저</h3>
@@ -2431,7 +2429,7 @@
 	                </div>
 	              </div>
 	              <div class="row" style="margin-bottom:7.5rem;">
-	                <div class="col-lg-6 border-lg-right border-300 text-center py-lg-8"><img class="img-fluid" src="/assets/img/detail/illustration/asdta-06.svg" alt="" width="400" /></div>
+	                <div class="col-lg-6 border-lg-right border-300 text-center py-lg-8"><img class="img-fluid" src="/static/assets/img/detail/illustration/asdta-06.svg" alt="" width="400" /></div>
 	                <div class="col-lg-6 align-self-center mt-4 mt-lg-0 mt-lg-8" >
 	                  <div class="process-item process-item-last ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">06</span>
 	                    <h3>파트너, 어떻게 함께할 수 있나요?</h3>
@@ -2480,7 +2478,7 @@
 	    </div>
 
             <footer class="page-footer" style="z-index:9998;">
-              <div class="bg-holder" style="background-image:url(/assets/img/sidebars/golden-s.jpg);background-position: 0 19%; transform: scale(1.1);"></div>
+              <div class="bg-holder" style="background-image:url(/static/assets/img/sidebars/golden-s.jpg);background-position: 0 19%; transform: scale(1.1);"></div>
               <div class="row justify-content-center">
                 <div class="col-lg-10">
                   <div class="row align-items-center">
@@ -2490,8 +2488,8 @@
             </footer>
           </div>
           <div class="col-lg-3 col-12 t-0 order-0 order-lg-1 position-absolute position-lg-relative">
-            <div class="h-lg-100vh sticky-top py-4 sticky-area"><span class="btn-close"><img class="d-none d-lg-block times" src="/assets/img/times.svg" width="25" alt=""/><img class="d-lg-none" src="/assets/img/times-black.svg" width="18" alt=""/></span>
-              <div class="bg-holder" style="background-image:url(/assets/img/sidebars/golden-s.jpg);">
+            <div class="h-lg-100vh sticky-top py-4 sticky-area"><span class="btn-close"><img class="d-none d-lg-block times" src="/static/assets/img/times.svg" width="25" alt=""/><img class="d-lg-none" src="/static/assets/img/times-black.svg" width="18" alt=""/></span>
+              <div class="bg-holder" style="background-image:url(/static/assets/img/sidebars/golden-s.jpg);">
               </div>
               <h1 class="page-title">A/S</h1>
             </div>
@@ -2500,7 +2498,7 @@
       </div>
       
       <div id="loading" style="margin-left: 0px;">
-	    <img src="/assets/img/lodding.gif">
+	    <img src="/static/assets/img/lodding.gif">
 	    <p style="color:#fff;">견적서 산출 중 입니다.<br/>잠시만 기다려주세요.</p>
 	  </div>
     </main>
@@ -2509,25 +2507,25 @@
    	 	$('#loading').hide();
     </script>
     
-    <script src="/assets/js/bootstrap.js"></script>
-	<script src="/assets/js/detail/jquery.min.js"></script>
-    <script src="/assets/js/plugins.js"></script>
-    <script src="/assets/lib/loaders.css/loaders.css.js?ver=1"></script>
-    <script src="/assets/js/stickyfill.min.js"></script>
-    <script src="/assets/lib/detail/is_js/is.min.js"></script>
-    <script src="/assets/lib/jtap/jquery.tap.js"></script>
-    <script src="/assets/js/detail/rellax.min.js"></script>
-    <script src="/assets/lib/fancybox/jquery.fancybox.min.js"></script>
-    <script src="/assets/lib/owl.carousel/owl.carousel.js"></script>
-    <script src="/assets/lib/lightbox2/js/lightbox.min.js?ver=1"></script>
+    <script src="/static/assets/js/bootstrap.js"></script>
+	<script src="/static/assets/js/detail/jquery.min.js"></script>
+    <script src="/static/assets/js/plugins.js"></script>
+    <script src="/static/assets/lib/loaders.css/loaders.css.js?ver=1"></script>
+    <script src="/static/assets/js/stickyfill.min.js"></script>
+    <script src="/static/assets/lib/detail/is_js/is.min.js"></script>
+    <script src="/static/assets/lib/jtap/jquery.tap.js"></script>
+    <script src="/static/assets/js/detail/rellax.min.js"></script>
+    <script src="/static/assets/lib/fancybox/jquery.fancybox.min.js"></script>
+    <script src="/static/assets/lib/owl.carousel/owl.carousel.js"></script>
+    <script src="/static/assets/lib/lightbox2/js/lightbox.min.js?ver=1"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser-polyfill.min.js"></script>
-    <script src="/assets/js/detail/progressbar.min.js"></script>
-    <script src="/assets/js/detail/comm_detail.js"></script>
-    <script src="/assets/js/detail/mainest.js"></script>
-    <script src="/assets/js/theme.js"></script>
-	<script src="/assets/js/main/slides.min.js?ver=1"></script>
-	<script src="/assets/js/slides.js?ver=1"></script>
-	<script src="/assets/js/main/swiper.min.js?ver=1"></script>
+    <script src="/static/assets/js/detail/progressbar.min.js"></script>
+    <script src="/static/assets/js/detail/comm_detail.js"></script>
+    <script src="/static/assets/js/detail/mainest.js"></script>
+    <script src="/static/assets/js/theme.js?ver=3"></script>
+	<script src="/static/assets/js/main/slides.min.js?ver=2"></script>
+	<script src="/static/assets/js/slides.js?ver=2"></script>
+	<script src="/static/assets/js/main/swiper.min.js?ver=2"></script>
   </body>
   <iframe name='blankifr' style='display:none;'></iframe>
 

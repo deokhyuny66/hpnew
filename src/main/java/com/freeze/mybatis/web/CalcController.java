@@ -675,7 +675,7 @@ public class CalcController {
 		String sub_priceProc = request.getParameter("sub_priceProc");
 		String cdu_unit_priceProc = request.getParameter("cdu_unit_priceProc");
 		String cooler_unit_priceProc = request.getParameter("cooler_unit_priceProc");
-		String control_unit_priceProc = request.getParameter("control_unit_priceProc");
+		String controll_unit_priceProc = request.getParameter("controll_unit_priceProc");
 		String ex_valve_unit_priceProc = request.getParameter("ex_valve_unit_priceProc");
 		String elec_valve_unit_priceProc = request.getParameter("elec_valve_unit_priceProc");
 		String op_assis1_unit_priceProc = request.getParameter("op_assis1_unit_priceProc");
@@ -742,7 +742,7 @@ public class CalcController {
 		model.addAttribute("sub_priceProc",sub_priceProc);
 		model.addAttribute("cdu_unit_priceProc",cdu_unit_priceProc);
 		model.addAttribute("cooler_unit_priceProc",cooler_unit_priceProc);
-		model.addAttribute("control_unit_priceProc",control_unit_priceProc);
+		model.addAttribute("controll_unit_priceProc",controll_unit_priceProc);
 		model.addAttribute("ex_valve_unit_priceProc",ex_valve_unit_priceProc);
 		model.addAttribute("elec_valve_unit_priceProc",elec_valve_unit_priceProc);
 		model.addAttribute("op_assis1_unit_priceProc",op_assis1_unit_priceProc);
@@ -892,15 +892,15 @@ public class CalcController {
 		door_price = msize_price; //도어 가격
 		base_price = (int) (floor_area * Integer.parseInt(calcPriceEntity.get(0).getBase())); //베이스 가격
 		sub_price = (int) (total_area * Integer.parseInt(calcPriceEntity.get(0).getSub())); //부자재 가격
-		int total_price = panel_price + door_price + base_price + sub_price;
+		int total_base_price = panel_price + door_price + base_price + sub_price;
 		temper_type = cmd.getTempVal().substring(0,2);
 		List<CalcSettingEntity> calcSettingEntity = service.getCalcSetting(pyls,temper_type);
+		
 		//Price Model
 		model.addAttribute("panel_price",decFormat.format(panel_price));
 		model.addAttribute("door_price",decFormat.format(door_price));
 		model.addAttribute("base_price",decFormat.format(base_price));
 		model.addAttribute("sub_price",decFormat.format(sub_price));
-		model.addAttribute("total_price",decFormat.format(total_price));
 
 		//Setting Model
 		model.addAttribute("pinid",calcSettingEntity.get(0).getPinid());
@@ -965,9 +965,8 @@ public class CalcController {
 		vp18 = (calcSettingEntity.get(0).getManday3_unit_price()).isEmpty() ? 0 : Integer.parseInt(calcSettingEntity.get(0).getManday3_unit_price());
 		vp19 = (calcSettingEntity.get(0).getManday4_unit_price()).isEmpty() ? 0 : Integer.parseInt(calcSettingEntity.get(0).getManday4_unit_price());
 		
-		total_price += vp1 + vp2 + vp3 + vp4 + vp5 + vp6 + vp7 + 
-				vp8 + vp9 + vp10 + vp11 + vp12 + vp13 + vp14 + vp15 + vp16 + vp17 + vp18 + vp19
-				+ panel_price + door_price + base_price + sub_price;
+		int total_price = vp1 + vp2 + vp3 + vp4 + vp5 + vp6 + vp7 + 
+				vp8 + vp9 + vp10 + vp11 + vp12 + vp13 + vp14 + vp15 + vp16 + vp17 + vp18 + vp19 + total_base_price;
 		model.addAttribute("total_price",total_price);
 		
 		//Input Model

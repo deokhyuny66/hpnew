@@ -13,7 +13,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Tables</title>
+    <title>쿨리닉 관리 화면(AI)</title>
 
     <!-- Custom fonts for this template -->
     <link href="/static/assets/vendor/admsp/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

@@ -1,4 +1,5 @@
 package com.freeze.mybatis.web;
+
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -11,6 +12,8 @@ import org.mybatis.logging.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -46,581 +49,6 @@ public class CalcController {
 	public String home() throws Exception {
 		return "nav-eight-item-four-column";
 	}
-	
-	@RequestMapping("/admsp/")
-	public String index() throws Exception {
-		return "/admsp/index";
-	}
-	
-//	데이터 세팅 - 구역 DB에서 전체 데이터 조회해서 최종 VIEW에 뿌리기
-//  여기에서 최종적으로 Service 등록해주고 Object를 전달해줘야 VIEW에 뿌릴수 있음.
-	@RequestMapping("/admsp/products-list")
-	public String productsList(HttpServletRequest request, Model model) throws Exception {
-		List<CalcBaseEntity> calcBaseEntity = service.getBaseCDU();
-		List<CalcCDUEntity> calcCDUEntity = service.getCalcCDU();
-		List<CalcCoolerEntity> calcCoolerEntity = service.getCalcCooler();
-		List<CalcControllEntity> calcControllEntity = service.getCalcControll();
-		List<CalcExvalveEntity> calcExvalveEntity = service.getCalcExvalve();
-		List<CalcElecvalveEntity> calcElecvalveEntity = service.getCalcElecvalve();
-		List<CalcOpassisEntity> calcOpassisEntity = service.getCalcOpassis();
-		List<CalcMandaysEntity> calcMandaysEntity = service.getCalcMandays();
-		model.addAttribute("calcBaseEntity", calcBaseEntity);
-		model.addAttribute("cduEntitylist", calcCDUEntity);
-		model.addAttribute("coolerEntitylist", calcCoolerEntity);
-		model.addAttribute("controllEntitylist", calcControllEntity);
-		model.addAttribute("exvalveEntitylist", calcExvalveEntity);
-		model.addAttribute("elecvalveEntitylist", calcElecvalveEntity);
-		model.addAttribute("opassisEntitylist", calcOpassisEntity);
-		model.addAttribute("mandaysEntitylist", calcMandaysEntity);
-		return "/admsp/products-list";
-	}
-	
-//	데이터 세팅 - CDU Products All
-	@RequestMapping(value="/admsp/cduAllAjax", method=RequestMethod.POST)
-	public @ResponseBody void sendAjaxGetCDUAll(@RequestBody CalcViewEntity view) throws Exception {
-		service.updateCduProductsAll(view);
-	}
-	
-//	데이터 세팅 - CDU Products
-	 @RequestMapping(value="/admsp/cduAjax", method=RequestMethod.POST) 
-	 public @ResponseBody String sendAjaxGetCDUOne(@RequestBody CalcCDUEntity cdu, String cdu_ctn) throws Exception {
-		 List<CalcCDUEntity> calcCDUEntity = service.getOneCalcCDU(cdu.getPid());
-		 String getUnitPrice = calcCDUEntity.get(0).getUnit_price();
-		 if(getUnitPrice.equals(null) || getUnitPrice.equals("") || getUnitPrice.equals(0) || getUnitPrice.equals("0")) {
-			 return "";
-		 }else {
-			 return calcCDUEntity.get(0).getUnit_price(); 
-		 }
-	 }
-	 
-//	데이터 세팅 - Cooler Products All
- 	@RequestMapping(value="/admsp/coolerAllAjax", method=RequestMethod.POST)
-	public @ResponseBody void sendAjaxGetCoolerAll(@RequestBody CalcViewEntity view) throws Exception {
-		service.updateCoolerProductsAll(view);
-	}
-	
-// 	데이터 세팅 - Cooler Products
-	 @RequestMapping(value="/admsp/coolerAjax", method=RequestMethod.POST) 
-	 public @ResponseBody String sendAjaxGetCoolerOne(@RequestBody CalcCoolerEntity cooler, String cooler_ctn) throws Exception {
-		 List<CalcCoolerEntity> calcCoolerEntity = service.getOneCalcCooler(cooler.getPid());
-		 String getUnitPrice = calcCoolerEntity.get(0).getUnit_price();
-		 if(getUnitPrice.equals(null) || getUnitPrice.equals("") || getUnitPrice.equals(0) || getUnitPrice.equals("0")) {
-			 return "";
-		 }else {
-			 return calcCoolerEntity.get(0).getUnit_price();
-		 }
-	 }
-	 
-//	데이터 세팅 - Controll Products All
- 	@RequestMapping(value="/admsp/controllAllAjax", method=RequestMethod.POST)
-	public @ResponseBody void sendAjaxGetControllAll(@RequestBody CalcViewEntity view) throws Exception {
-		service.updateControllProductsAll(view);
-	}
-	
-//	 데이터 세팅 - Controll Products
-	 @RequestMapping(value="/admsp/controllAjax", method=RequestMethod.POST) 
-	 public @ResponseBody String sendAjaxGetControllOne(@RequestBody CalcControllEntity controll, String controll_ctn) throws Exception {
-		 List<CalcControllEntity> calcControllEntity = service.getOneCalcControll(controll.getPid());
-		 String getUnitPrice = calcControllEntity.get(0).getUnit_price();
-		 if(getUnitPrice.equals(null) || getUnitPrice.equals("") || getUnitPrice.equals(0) || getUnitPrice.equals("0")) {
-			 return "";
-		 }else {
-			 return calcControllEntity.get(0).getUnit_price();
-		 }
-	 }
-	 
-//		데이터 세팅 - Exvalve Products All
-	 	@RequestMapping(value="/admsp/exvalveAllAjax", method=RequestMethod.POST)
-		public @ResponseBody void sendAjaxGetExvalveAll(@RequestBody CalcViewEntity view) throws Exception {
-			service.updateExvalveProductsAll(view);
-		}
-		
-//		 데이터 세팅 - Exvalve Products
-		 @RequestMapping(value="/admsp/exvalveAjax", method=RequestMethod.POST) 
-		 public @ResponseBody String sendAjaxGetExvalveOne(@RequestBody CalcExvalveEntity exvalve, String exvalve_ctn) throws Exception {
-			 List<CalcExvalveEntity> calcExvalveEntity = service.getOneCalcExvalve(exvalve.getPid());
-			 String getUnitPrice = calcExvalveEntity.get(0).getUnit_price();
-			 if(getUnitPrice.equals(null) || getUnitPrice.equals("") || getUnitPrice.equals(0) || getUnitPrice.equals("0")) {
-				 return "";
-			 }else {
-				 return calcExvalveEntity.get(0).getUnit_price();
-			 }
-		 }
-		 
-//		데이터 세팅 - Elecvalve Products All
-	 	@RequestMapping(value="/admsp/elecvalveAllAjax", method=RequestMethod.POST)
-		public @ResponseBody void sendAjaxGetElecvalveAll(@RequestBody CalcViewEntity view) throws Exception {
-			service.updateElecvalveProductsAll(view);
-		}
-		
-//		데이터 세팅 - Elecvalve Products
-		 @RequestMapping(value="/admsp/elecvalveAjax", method=RequestMethod.POST) 
-		 public @ResponseBody String sendAjaxGetElecvalveOne(@RequestBody CalcElecvalveEntity elecvalve, String elecvalve_ctn) throws Exception {
-			 List<CalcElecvalveEntity> calcElecvalveEntity = service.getOneCalcElecvalve(elecvalve.getPid());
-			 String getUnitPrice = calcElecvalveEntity.get(0).getUnit_price();
-			 if(getUnitPrice.equals(null) || getUnitPrice.equals("") || getUnitPrice.equals(0) || getUnitPrice.equals("0")) {
-				 return "";
-			 }else {
-				 return calcElecvalveEntity.get(0).getUnit_price();
-			 }
-		 }
-
-//		데이터 세팅 - Opassis1 Products All
-	 	@RequestMapping(value="/admsp/opassis1AllAjax", method=RequestMethod.POST)
-		public @ResponseBody void sendAjaxGetOpassis1All(@RequestBody CalcViewEntity view) throws Exception {
-			service.updateOpassis1ProductsAll(view);
-		}
-			
-//		데이터 세팅 - Opassis1 Products
-		 @RequestMapping(value="/admsp/opassis1Ajax", method=RequestMethod.POST) 
-		 public @ResponseBody String sendAjaxGetOpassis1One(@RequestBody CalcOpassisEntity opassis, String opassis_ctn) throws Exception {
-			 List<CalcOpassisEntity> calcOpassisEntity = service.getOneCalcOpassis(opassis.getPid());
-			 String getUnitPrice = calcOpassisEntity.get(0).getUnit_price();
-			 if(getUnitPrice.equals(null) || getUnitPrice.equals("") || getUnitPrice.equals(0) || getUnitPrice.equals("0")) {
-				 return "";
-			 }else {
-				 return calcOpassisEntity.get(0).getUnit_price();
-			 }
-		 }
-		 
-//		데이터 세팅 - Opassis2 Products All
-	 	@RequestMapping(value="/admsp/opassis2AllAjax", method=RequestMethod.POST)
-		public @ResponseBody void sendAjaxGetOpassis2All(@RequestBody CalcViewEntity view) throws Exception {
-			service.updateOpassis2ProductsAll(view);
-		}
-			
-//		데이터 세팅 - Opassis2 Products
-		 @RequestMapping(value="/admsp/opassis2Ajax", method=RequestMethod.POST) 
-		 public @ResponseBody String sendAjaxGetOpassis2One(@RequestBody CalcOpassisEntity opassis, String opassis_ctn) throws Exception {
-			 List<CalcOpassisEntity> calcOpassisEntity = service.getOneCalcOpassis(opassis.getPid());
-			 String getUnitPrice = calcOpassisEntity.get(0).getUnit_price();
-			 if(getUnitPrice.equals(null) || getUnitPrice.equals("") || getUnitPrice.equals(0) || getUnitPrice.equals("0")) {
-				 return "";
-			 }else {
-				 return calcOpassisEntity.get(0).getUnit_price();
-			 }
-		 }
-		 
-//		데이터 세팅 - Opassis3 Products All
-	 	@RequestMapping(value="/admsp/opassis3AllAjax", method=RequestMethod.POST)
-		public @ResponseBody void sendAjaxGetOpassis3All(@RequestBody CalcViewEntity view) throws Exception {
-			service.updateOpassis3ProductsAll(view);
-		}
-			
-//		데이터 세팅 - Opassis3 Products
-		 @RequestMapping(value="/admsp/opassis3Ajax", method=RequestMethod.POST) 
-		 public @ResponseBody String sendAjaxGetOpassis3One(@RequestBody CalcOpassisEntity opassis, String opassis_ctn) throws Exception {
-			 List<CalcOpassisEntity> calcOpassisEntity = service.getOneCalcOpassis(opassis.getPid());
-			 String getUnitPrice = calcOpassisEntity.get(0).getUnit_price();
-			 if(getUnitPrice.equals(null) || getUnitPrice.equals("") || getUnitPrice.equals(0) || getUnitPrice.equals("0")) {
-				 return "";
-			 }else {
-				 return calcOpassisEntity.get(0).getUnit_price();
-			 }
-		 }
-		 
-//		데이터 세팅 - Opassis4 Products All
-	 	@RequestMapping(value="/admsp/opassis4AllAjax", method=RequestMethod.POST)
-		public @ResponseBody void sendAjaxGetOpassis4All(@RequestBody CalcViewEntity view) throws Exception {
-			service.updateOpassis4ProductsAll(view);
-		}
-			
-//		데이터 세팅 - Opassis4 Products
-		 @RequestMapping(value="/admsp/opassis4Ajax", method=RequestMethod.POST) 
-		 public @ResponseBody String sendAjaxGetOpassis4One(@RequestBody CalcOpassisEntity opassis, String opassis_ctn) throws Exception {
-			 List<CalcOpassisEntity> calcOpassisEntity = service.getOneCalcOpassis(opassis.getPid());
-			 String getUnitPrice = calcOpassisEntity.get(0).getUnit_price();
-			 if(getUnitPrice.equals(null) || getUnitPrice.equals("") || getUnitPrice.equals(0) || getUnitPrice.equals("0")) {
-				 return "";
-			 }else {
-				 return calcOpassisEntity.get(0).getUnit_price();
-			 }
-		 }
-		 
-//		데이터 세팅 - Opassis5 Products All
-	 	@RequestMapping(value="/admsp/opassis5AllAjax", method=RequestMethod.POST)
-		public @ResponseBody void sendAjaxGetOpassis5All(@RequestBody CalcViewEntity view) throws Exception {
-			service.updateOpassis5ProductsAll(view);
-		}
-			
-//		데이터 세팅 - Opassis5 Products
-		 @RequestMapping(value="/admsp/opassis5Ajax", method=RequestMethod.POST) 
-		 public @ResponseBody String sendAjaxGetOpassis5One(@RequestBody CalcOpassisEntity opassis, String opassis_ctn) throws Exception {
-			 List<CalcOpassisEntity> calcOpassisEntity = service.getOneCalcOpassis(opassis.getPid());
-			 String getUnitPrice = calcOpassisEntity.get(0).getUnit_price();
-			 if(getUnitPrice.equals(null) || getUnitPrice.equals("") || getUnitPrice.equals(0) || getUnitPrice.equals("0")) {
-				 return "";
-			 }else {
-				 return calcOpassisEntity.get(0).getUnit_price();
-			 }
-		 }
-		 
-//		데이터 세팅 - Opassis6 Products All
-	 	@RequestMapping(value="/admsp/opassis6AllAjax", method=RequestMethod.POST)
-		public @ResponseBody void sendAjaxGetOpassis6All(@RequestBody CalcViewEntity view) throws Exception {
-			service.updateOpassis6ProductsAll(view);
-		}
-			
-//		데이터 세팅 - Opassis5 Products
-		 @RequestMapping(value="/admsp/opassis6Ajax", method=RequestMethod.POST) 
-		 public @ResponseBody String sendAjaxGetOpassis6One(@RequestBody CalcOpassisEntity opassis, String opassis_ctn) throws Exception {
-			 List<CalcOpassisEntity> calcOpassisEntity = service.getOneCalcOpassis(opassis.getPid());
-			 String getUnitPrice = calcOpassisEntity.get(0).getUnit_price();
-			 if(getUnitPrice.equals(null) || getUnitPrice.equals("") || getUnitPrice.equals(0) || getUnitPrice.equals("0")) {
-				 return "";
-			 }else {
-				 return calcOpassisEntity.get(0).getUnit_price();
-			 }
-		 }
-		 
-//		데이터 세팅 - Opassis7 Products All
-	 	@RequestMapping(value="/admsp/opassis7AllAjax", method=RequestMethod.POST)
-		public @ResponseBody void sendAjaxGetOpassis7All(@RequestBody CalcViewEntity view) throws Exception {
-			service.updateOpassis7ProductsAll(view);
-		}
-			
-//		데이터 세팅 - Opassis7 Products
-		 @RequestMapping(value="/admsp/opassis7Ajax", method=RequestMethod.POST) 
-		 public @ResponseBody String sendAjaxGetOpassis7One(@RequestBody CalcOpassisEntity opassis, String opassis_ctn) throws Exception {
-			 List<CalcOpassisEntity> calcOpassisEntity = service.getOneCalcOpassis(opassis.getPid());
-			 String getUnitPrice = calcOpassisEntity.get(0).getUnit_price();
-			 if(getUnitPrice.equals(null) || getUnitPrice.equals("") || getUnitPrice.equals(0) || getUnitPrice.equals("0")) {
-				 return "";
-			 }else {
-				 return calcOpassisEntity.get(0).getUnit_price();
-			 }
-		 }
-		 
-//		데이터 세팅 - Opassis8 Products All
-	 	@RequestMapping(value="/admsp/opassis8AllAjax", method=RequestMethod.POST)
-		public @ResponseBody void sendAjaxGetOpassis8All(@RequestBody CalcViewEntity view) throws Exception {
-			service.updateOpassis8ProductsAll(view);
-		}
-			
-//		데이터 세팅 - Opassis8 Products
-		 @RequestMapping(value="/admsp/opassis8Ajax", method=RequestMethod.POST) 
-		 public @ResponseBody String sendAjaxGetOpassis8One(@RequestBody CalcOpassisEntity opassis, String opassis_ctn) throws Exception {
-			 List<CalcOpassisEntity> calcOpassisEntity = service.getOneCalcOpassis(opassis.getPid());
-			 String getUnitPrice = calcOpassisEntity.get(0).getUnit_price();
-			 if(getUnitPrice.equals(null) || getUnitPrice.equals("") || getUnitPrice.equals(0) || getUnitPrice.equals("0")) {
-				 return "";
-			 }else {
-				 return calcOpassisEntity.get(0).getUnit_price();
-			 }
-		 }
-		 
-//		데이터 세팅 - Opassis9 Products All
-	 	@RequestMapping(value="/admsp/opassis9AllAjax", method=RequestMethod.POST)
-		public @ResponseBody void sendAjaxGetOpassis9All(@RequestBody CalcViewEntity view) throws Exception {
-			service.updateOpassis9ProductsAll(view);
-		}
-			
-//		데이터 세팅 - Opassis8 Products
-		 @RequestMapping(value="/admsp/opassis9Ajax", method=RequestMethod.POST) 
-		 public @ResponseBody String sendAjaxGetOpassis9One(@RequestBody CalcOpassisEntity opassis, String opassis_ctn) throws Exception {
-			 List<CalcOpassisEntity> calcOpassisEntity = service.getOneCalcOpassis(opassis.getPid());
-			 String getUnitPrice = calcOpassisEntity.get(0).getUnit_price();
-			 if(getUnitPrice.equals(null) || getUnitPrice.equals("") || getUnitPrice.equals(0) || getUnitPrice.equals("0")) {
-				 return "";
-			 }else {
-				 return calcOpassisEntity.get(0).getUnit_price();
-			 }
-		 }
-		 
-//		데이터 세팅 - Opassis10 Products All
-	 	@RequestMapping(value="/admsp/opassis10AllAjax", method=RequestMethod.POST)
-		public @ResponseBody void sendAjaxGetOpassis10All(@RequestBody CalcViewEntity view) throws Exception {
-			service.updateOpassis10ProductsAll(view);
-		}
-			
-//		데이터 세팅 - Opassis10 Products
-		 @RequestMapping(value="/admsp/opassis10Ajax", method=RequestMethod.POST) 
-		 public @ResponseBody String sendAjaxGetOpassis10One(@RequestBody CalcOpassisEntity opassis, String opassis_ctn) throws Exception {
-			 List<CalcOpassisEntity> calcOpassisEntity = service.getOneCalcOpassis(opassis.getPid());
-			 String getUnitPrice = calcOpassisEntity.get(0).getUnit_price();
-			 if(getUnitPrice.equals(null) || getUnitPrice.equals("") || getUnitPrice.equals(0) || getUnitPrice.equals("0")) {
-				 return "";
-			 }else {
-				 return calcOpassisEntity.get(0).getUnit_price();
-			 }
-		 }
-		 
-//		데이터 세팅 - Mandays1 Products All
-	 	@RequestMapping(value="/admsp/manday1AllAjax", method=RequestMethod.POST)
-		public @ResponseBody void sendAjaxGetMandays1All(@RequestBody CalcViewEntity view) throws Exception {
-			service.updateMandays1ProductsAll(view);
-		}
-			
-//		데이터 세팅 - Mandays1 Products
-		 @RequestMapping(value="/admsp/manday1Ajax", method=RequestMethod.POST) 
-		 public @ResponseBody String sendAjaxGetMandays1One(@RequestBody CalcMandaysEntity manday, String manday_ctn) throws Exception {
-			 List<CalcMandaysEntity> calcMandaysEntity = service.getOneCalcMandays(manday.getPid());
-			 String getUnitPrice = calcMandaysEntity.get(0).getUnit_price();
-			 if(getUnitPrice.equals(null) || getUnitPrice.equals("") || getUnitPrice.equals(0) || getUnitPrice.equals("0")) {
-				 return "";
-			 }else {
-				 return calcMandaysEntity.get(0).getUnit_price();
-			 }
-		 }
-		 
-//		데이터 세팅 - Mandays2 Products All
-	 	@RequestMapping(value="/admsp/manday2AllAjax", method=RequestMethod.POST)
-		public @ResponseBody void sendAjaxGetMandays2All(@RequestBody CalcViewEntity view) throws Exception {
-			service.updateMandays2ProductsAll(view);
-		}
-			
-//		데이터 세팅 - Mandays2 Products
-		 @RequestMapping(value="/admsp/manday2Ajax", method=RequestMethod.POST) 
-		 public @ResponseBody String sendAjaxGetMandays2One(@RequestBody CalcMandaysEntity manday, String manday_ctn) throws Exception {
-			 List<CalcMandaysEntity> calcMandaysEntity = service.getOneCalcMandays(manday.getPid());
-			 String getUnitPrice = calcMandaysEntity.get(0).getUnit_price();
-			 if(getUnitPrice.equals(null) || getUnitPrice.equals("") || getUnitPrice.equals(0) || getUnitPrice.equals("0")) {
-				 return "";
-			 }else {
-				 return calcMandaysEntity.get(0).getUnit_price();
-			 }
-		 }
-		 
-//		데이터 세팅 - Mandays3 Products All
-	 	@RequestMapping(value="/admsp/manday3AllAjax", method=RequestMethod.POST)
-		public @ResponseBody void sendAjaxGetMandays3All(@RequestBody CalcViewEntity view) throws Exception {
-			service.updateMandays3ProductsAll(view);
-		}
-			
-//		데이터 세팅 - Mandays3 Products
-		 @RequestMapping(value="/admsp/manday3Ajax", method=RequestMethod.POST) 
-		 public @ResponseBody String sendAjaxGetMandays3One(@RequestBody CalcMandaysEntity manday, String manday_ctn) throws Exception {
-			 List<CalcMandaysEntity> calcMandaysEntity = service.getOneCalcMandays(manday.getPid());
-			 String getUnitPrice = calcMandaysEntity.get(0).getUnit_price();
-			 if(getUnitPrice.equals(null) || getUnitPrice.equals("") || getUnitPrice.equals(0) || getUnitPrice.equals("0")) {
-				 return "";
-			 }else {
-				 return calcMandaysEntity.get(0).getUnit_price();
-			 }
-		 }
-		 
-//		데이터 세팅 - Mandays4 Products All
-	 	@RequestMapping(value="/admsp/manday4AllAjax", method=RequestMethod.POST)
-		public @ResponseBody void sendAjaxGetMandays4All(@RequestBody CalcViewEntity view) throws Exception {
-			service.updateMandays4ProductsAll(view);
-		}
-			
-//		데이터 세팅 - Mandays4 Products
-		 @RequestMapping(value="/admsp/manday4Ajax", method=RequestMethod.POST) 
-		 public @ResponseBody String sendAjaxGetMandays4One(@RequestBody CalcMandaysEntity manday, String manday_ctn) throws Exception {
-			 List<CalcMandaysEntity> calcMandaysEntity = service.getOneCalcMandays(manday.getPid());
-			 String getUnitPrice = calcMandaysEntity.get(0).getUnit_price();
-			 if(getUnitPrice.equals(null) || getUnitPrice.equals("") || getUnitPrice.equals(0) || getUnitPrice.equals("0")) {
-				 return "";
-			 }else {
-				 return calcMandaysEntity.get(0).getUnit_price();
-			 }
-		 }
- 
-//	데이터 세팅 - 화면에서 최초 버튼 클릭 시 AJAX 처음으로 Request 호출하는 곳 
-	@RequestMapping("/admsp/productsRq")
-	public String cduRq(HttpServletRequest request) throws Exception {
-		return "/admsp/productsRq";
-	}
-	 
-
-//	DB 구역별 가격 업데이트
-	@RequestMapping("/admsp/cduProc")
-	public void cduProc(HttpServletRequest request) throws Exception {
-		CalcCDUEntity cduEnty = new CalcCDUEntity();
-		cduEnty.setPid(request.getParameter("cduPid"));
-		cduEnty.setPurchase_price(request.getParameter("cduPurchase"));
-		cduEnty.setUnit_price(request.getParameter("cduUnit"));
-		service.updateCalcCDU(cduEnty.getPid(),cduEnty.getPurchase_price(),cduEnty.getUnit_price());
-	}
-	@RequestMapping("/admsp/coolerProc")
-	public void coolerProc(HttpServletRequest request) throws Exception {
-		CalcCoolerEntity coolerEnty = new CalcCoolerEntity();
-		coolerEnty.setPid(request.getParameter("coolerPid"));
-		coolerEnty.setPurchase_price(request.getParameter("coolerPurchase"));
-		coolerEnty.setUnit_price(request.getParameter("coolerUnit"));
-		service.updateCalcCooler(coolerEnty.getPid(),coolerEnty.getPurchase_price(),coolerEnty.getUnit_price());
-	}
-	@RequestMapping("/admsp/controllProc")
-	public void controllProc(HttpServletRequest request) throws Exception {
-		CalcControllEntity controllEnty = new CalcControllEntity();
-		controllEnty.setPid(request.getParameter("controllPid"));
-		controllEnty.setPurchase_price(request.getParameter("controllPurchase"));
-		controllEnty.setUnit_price(request.getParameter("controllUnit"));
-		service.updateCalcControll(controllEnty.getPid(),controllEnty.getPurchase_price(),controllEnty.getUnit_price());
-	}
-	@RequestMapping("/admsp/exvalveProc")
-	public void exvalveProc(HttpServletRequest request) throws Exception {
-		CalcExvalveEntity exvalveEnty = new CalcExvalveEntity();
-		exvalveEnty.setPid(request.getParameter("exvalvePid"));
-		exvalveEnty.setPurchase_price(request.getParameter("exvalvePurchase"));
-		exvalveEnty.setUnit_price(request.getParameter("exvalveUnit"));
-		service.updateCalcExvalve(exvalveEnty.getPid(),exvalveEnty.getPurchase_price(),exvalveEnty.getUnit_price());
-	}
-	
-	@RequestMapping("/admsp/elecvalveProc")
-	public void elecvalveProc(HttpServletRequest request) throws Exception {
-		CalcElecvalveEntity elecvalveEnty = new CalcElecvalveEntity();
-		elecvalveEnty.setPid(request.getParameter("elecvalvePid"));
-		elecvalveEnty.setPurchase_price(request.getParameter("elecvalvePurchase"));
-		elecvalveEnty.setUnit_price(request.getParameter("elecvalveUnit"));
-		service.updateCalcElecvalve(elecvalveEnty.getPid(),elecvalveEnty.getPurchase_price(),elecvalveEnty.getUnit_price());
-	}
-	@RequestMapping("/admsp/opassisProc")
-	public void opassisProc(HttpServletRequest request) throws Exception {
-		CalcOpassisEntity opassisEnty = new CalcOpassisEntity();
-		opassisEnty.setPid(request.getParameter("opassisPid"));
-		opassisEnty.setPurchase_price(request.getParameter("opassisPurchase"));
-		opassisEnty.setUnit_price(request.getParameter("opassisUnit"));
-		service.updateCalcOpassis(opassisEnty.getPid(),opassisEnty.getPurchase_price(),opassisEnty.getUnit_price());
-	}
-	@RequestMapping("/admsp/mandayProc")
-	public void mandaysProc(HttpServletRequest request) throws Exception {
-		CalcMandaysEntity mandaysEnty = new CalcMandaysEntity();
-		mandaysEnty.setPid(request.getParameter("mandayPid"));
-		mandaysEnty.setPurchase_price(request.getParameter("mandayPurchase"));
-		mandaysEnty.setUnit_price(request.getParameter("mandayUnit"));
-		service.updateCalcMandays(mandaysEnty.getPid(),mandaysEnty.getPurchase_price(),mandaysEnty.getUnit_price());
-	}
-	
-//	DB 구역별로 리스트 뿌리기
-	@RequestMapping("/admsp/cdu-list")
-	public String cduList(HttpServletRequest request, Model model) throws Exception {
-		List<CalcCDUEntity> calcCDUEntity = service.getCalcCDU();
-		model.addAttribute("cduEntitylist", calcCDUEntity);
-		return "/admsp/cdu-list";
-	}
-	@RequestMapping("/admsp/cooler-list")
-	public String coolerList(HttpServletRequest request, Model model) throws Exception {
-		List<CalcCoolerEntity> calcCoolerEntity = service.getCalcCooler();
-		model.addAttribute("coolerEntitylist", calcCoolerEntity);
-		return "/admsp/cooler-list";
-	}
-	@RequestMapping("/admsp/controll-list")
-	public String controllList(HttpServletRequest request, Model model) throws Exception {
-		List<CalcControllEntity> calcControllEntity = service.getCalcControll();
-		model.addAttribute("controllEntitylist", calcControllEntity);
-		return "/admsp/controll-list";
-	}
-	@RequestMapping("/admsp/exvalve-list")
-	public String exvalveList(HttpServletRequest request, Model model) throws Exception {
-		List<CalcExvalveEntity> calcExvalveEntity = service.getCalcExvalve();
-		model.addAttribute("exvalveEntitylist", calcExvalveEntity);
-		return "/admsp/exvalve-list";
-	}
-	@RequestMapping("/admsp/elecvalve-list")
-	public String elecvalveList(HttpServletRequest request, Model model) throws Exception {
-		List<CalcElecvalveEntity> calcElecvalveEntity = service.getCalcElecvalve();
-		model.addAttribute("elecvalveEntitylist", calcElecvalveEntity);
-		return "/admsp/elecvalve-list";
-	}
-	
-	@RequestMapping("/admsp/opassis-list")
-	public String opassisList(HttpServletRequest request, Model model) throws Exception {
-		List<CalcOpassisEntity> calcOpassisEntity = service.getCalcOpassis();
-		model.addAttribute("opassisEntitylist", calcOpassisEntity);
-		return "/admsp/opassis-list";
-	}
-	@RequestMapping("/admsp/mandays-list")
-	public String mandaysList(HttpServletRequest request, Model model) throws Exception {
-		List<CalcMandaysEntity> calcMandaysEntity = service.getCalcMandays();
-		model.addAttribute("mandaysEntitylist", calcMandaysEntity);
-		return "/admsp/mandays-list";
-	}
-	
-	
-	
-	@RequestMapping("/admsp/blank")
-	public String blank() throws Exception {
-		return "/admsp/blank";
-	}
-	
-	@RequestMapping("/admsp/cards")
-	public String cards() throws Exception {
-		return "/admsp/cards";
-	}
-	
-	@RequestMapping("/admsp/forgot-password")
-	public String forgotPassword() throws Exception {
-		return "/admsp/forgot-password";
-	}
-	
-	@RequestMapping("/admsp/login")
-	public String login() throws Exception {
-		return "/admsp/login";
-	}
-	
-	@RequestMapping("/admsp/charts")
-	public String charts() throws Exception {
-		return "/admsp/charts";
-	}
-	
-	@RequestMapping("/admsp/404")
-	public String notfonud() throws Exception {
-		return "/admsp/404";
-	}
-	
-	@RequestMapping("/admsp/register")
-	public String register() throws Exception {
-		return "/admsp/register";
-	}
-	
-	@RequestMapping("/admsp/utilities-animation")
-	public String utilitiesAnimation() throws Exception {
-		return "/admsp/utilities-animation";
-	}
-	
-	@RequestMapping("/admsp/utilities-border")
-	public String utilitiesBorder() throws Exception {
-		return "/admsp/utilities-border";
-	}
-	
-	@RequestMapping("/admsp/utilities-color")
-	public String utilitiesColor() throws Exception {
-		return "/admsp/utilities-color";
-	}
-	
-	@RequestMapping("/admsp/utilities-other")
-	public String utilitiesOther() throws Exception {
-		return "/admsp/utilities-other";
-	}
-	
-	@RequestMapping("/admsp/buttons")
-	public String buttons() throws Exception {
-		return "/admsp/buttons";
-	}
-	
-	@RequestMapping("/privacy-consent")
-	public String privacy() throws Exception {
-		return "privacy-consent";
-	}
-	
-	@RequestMapping("/terms-service")
-	public String terms() throws Exception {
-		return "terms-service";
-	}
-	
-	@RequestMapping("/contactProc")
-	public String contactProc(HttpServletRequest request, Model model) throws Exception {
-		String companyNM = request.getParameter("companyNM");
-		String nameNM = request.getParameter("nameNM");
-		String callNumber = request.getParameter("callNumber");
-		String emailNM = request.getParameter("emailNM");
-		String typeNM = request.getParameter("typeNM");
-		String contactType = request.getParameter("contactType");
-		String contents = request.getParameter("contents");
-		
-		model.addAttribute("companyNM",companyNM);
-		model.addAttribute("nameNM",nameNM);
-		model.addAttribute("callNumber",callNumber);
-		model.addAttribute("emailNM",emailNM);
-		model.addAttribute("typeNM",typeNM);
-		model.addAttribute("contactType",contactType);
-		model.addAttribute("contents",contents);
-		
-		return "contactProc";
-	}
-	
 	
 //	견적서 상세 부분
 	@RequestMapping("/ai-calcProc")
@@ -781,8 +209,8 @@ public class CalcController {
 		long floor_area; //바닥면적
 		double total_area; //전체면적
 		double py;long pyl;String pyls; //평수환산
-		int msize_price = 0;int panel_price = 0;int door_price = 0;int base_price = 0;int sub_price = 0; //가격 출력
-	
+		int msize_price = 0;int chpy = 0;int panel_price = 0;int door_price = 0;int base_price = 0;int sub_price = 0; //가격 출력
+		
 		//가로, 세로, 높이
 		cmd.setWidVal(request.getParameter("wid"));
 		cmd.setVertVal(request.getParameter("vert"));
@@ -804,6 +232,12 @@ public class CalcController {
 		py = floor_area / 3.3;
 		pyl = Math.round(py); 
 		pyls = String.valueOf(pyl);
+		
+		chpy = Integer.parseInt(pyls);
+		
+		if(chpy > 100) {
+			return "redirect:/#ai";
+		}
 		
 		/* INPUT STORE DATA */	
 		if(cmd.getStoreVal().equals("storelist01")){
@@ -984,4 +418,58 @@ public class CalcController {
 		
 		return "ai-calc";
 	}	
+	
+
+	@RequestMapping("/admsp/forgot-password")
+	public String forgotPassword() throws Exception {
+		return "/admsp/forgot-password";
+	}
+	
+	@RequestMapping("/admsp/login")
+	public String login() throws Exception {
+		return "/admsp/login";
+	}
+	
+	@RequestMapping("/admsp/404")
+	public String notfonud() throws Exception {
+		return "/admsp/404";
+	}
+	
+	@RequestMapping("/admsp/register")
+	public String register() throws Exception {
+		return "/admsp/register";
+	}
+	
+	@RequestMapping("/privacy-consent")
+	public String privacy() throws Exception {
+		return "privacy-consent";
+	}
+	
+	@RequestMapping("/terms-service")
+	public String terms() throws Exception {
+		return "terms-service";
+	}
+	
+	@RequestMapping("/contactProc")
+	public String contactProc(HttpServletRequest request, Model model) throws Exception {
+		String companyNM = request.getParameter("companyNM");
+		String nameNM = request.getParameter("nameNM");
+		String callNumber = request.getParameter("callNumber");
+		String emailNM = request.getParameter("emailNM");
+		String typeNM = request.getParameter("typeNM");
+		String contactType = request.getParameter("contactType");
+		String contents = request.getParameter("contents");
+		
+		model.addAttribute("companyNM",companyNM);
+		model.addAttribute("nameNM",nameNM);
+		model.addAttribute("callNumber",callNumber);
+		model.addAttribute("emailNM",emailNM);
+		model.addAttribute("typeNM",typeNM);
+		model.addAttribute("contactType",contactType);
+		model.addAttribute("contents",contents);
+		
+		return "contactProc";
+	}
+	
+	
 }

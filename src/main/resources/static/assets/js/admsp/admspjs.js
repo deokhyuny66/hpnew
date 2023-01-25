@@ -91,24 +91,20 @@
     	var cdu_ctn = $(cdu_cntChecker).val();
     	var param = {"pid":cdu_pid, "cdu_ctn":cdu_ctn};
        	 $.ajax({
-       			anyne:true,
+				anyne:true,
        			type:'POST',
-       			contentType: 'application/json',
-       			
-       			data: JSON.stringify(param),
+       			contentType:'application/json',
        			url:"/admsp/cduAjax",
-       			
-       			dataType: "text",
+       			data:JSON.stringify(param),
+       			dataType:"text",
        			success : function(data) {
        				if(cdu_ctn == "undefined" || cdu_ctn == null || cdu_ctn == ""){
        					cdu_ctn = 1;
-       				}else {
-       					
        				}
        				$("#"+cduUnitPriceId).val(data*cdu_ctn);  
        			},
        			error: function(jqXHR, textStatus, errorThrown) {
-       				alert("오류가 발생했습니다.");
+       				alert("오류가 발생했습니다!");
        			}
        		});
     }

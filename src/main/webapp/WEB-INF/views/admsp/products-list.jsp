@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Tables</title>
+    <title>쿨리닉 관리 화면(AI)</title>
 
     <!-- Custom fonts for this template -->
     <link href="/static/assets/vendor/admsp/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -31,6 +31,7 @@
     	padding-left: 20px !important;
     }
     </style>
+    
 </head>
 
 <body id="page-top">
@@ -984,13 +985,15 @@
             </div>
         </div>
     </div>
-
+    
     <!-- Bootstrap core JavaScript-->
     <script src="/static/assets/js/admsp/admspjs.js"></script>
+    
+    <script src="/static/assets/vendor/admsp/jquery/jquery.js"></script>
     <script src="/static/assets/vendor/admsp/jquery/jquery.min.js"></script>
+    <!--  script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script -->
     <script src="/static/assets/vendor/admsp/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
     <!-- Core plugin JavaScript-->
     <script src="/static/assets/vendor/admsp/jquery-easing/jquery.easing.min.js"></script>
 
@@ -1003,6 +1006,7 @@
 
     <!-- Page level custom scripts -->
     <script src="/static/assets/js/admsp/demo/datatables-demo.js"></script>
+    
 </body>
 
 </html>

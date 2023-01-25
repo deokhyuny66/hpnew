@@ -36,9 +36,7 @@
 	</select>
 	<select id="getCalcMandays" resultType="com.freeze.mybatis.vo.CalcMandaysEntity">
 		select * from mandays_t
-	</select>				
-	
-	
+	</select>
 	
 	<!-- 데이터 세팅 - 제품 가격 하나만 AJAX로 가져오기 -->
 	<select id="getOneCalcCDU" resultType="com.freeze.mybatis.vo.CalcCDUEntity">

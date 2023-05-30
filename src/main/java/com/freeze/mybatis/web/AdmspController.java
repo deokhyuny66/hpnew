@@ -50,6 +50,8 @@ public class AdmspController {
 //  여기에서 최종적으로 Service 등록해주고 Object를 전달해줘야 VIEW에 뿌릴수 있음.
 	@RequestMapping(value = "/admsp/products-list")
 	public String productsList(HttpServletRequest request, Model model) throws Exception {
+		
+		List<CalcSettingEntity> calcSettingEntity = service.getCalcSettingAll();
 		List<CalcBaseEntity> calcBaseEntity = service.getBaseCDU();
 		List<CalcCDUEntity> calcCDUEntity = service.getCalcCDU();
 		List<CalcCoolerEntity> calcCoolerEntity = service.getCalcCooler();
@@ -58,6 +60,7 @@ public class AdmspController {
 		List<CalcElecvalveEntity> calcElecvalveEntity = service.getCalcElecvalve();
 		List<CalcOpassisEntity> calcOpassisEntity = service.getCalcOpassis();
 		List<CalcMandaysEntity> calcMandaysEntity = service.getCalcMandays();
+		model.addAttribute("calcSettingEntity", calcSettingEntity);
 		model.addAttribute("calcBaseEntity", calcBaseEntity);
 		model.addAttribute("cduEntitylist", calcCDUEntity);
 		model.addAttribute("coolerEntitylist", calcCoolerEntity);
@@ -66,6 +69,7 @@ public class AdmspController {
 		model.addAttribute("elecvalveEntitylist", calcElecvalveEntity);
 		model.addAttribute("opassisEntitylist", calcOpassisEntity);
 		model.addAttribute("mandaysEntitylist", calcMandaysEntity);
+		
 		return "/admsp/products-list";
 	}
 	

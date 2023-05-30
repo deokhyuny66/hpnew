@@ -3,6 +3,7 @@ package com.freeze.mybatis.web;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -10,30 +11,29 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.web.firewall.DefaultHttpFirewall;
+import org.springframework.security.web.firewall.HttpFirewall;
 import org.springframework.security.web.header.writers.StaticHeadersWriter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-
 	
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
+    	http.authorizeRequests()
         		.antMatchers("/").permitAll()
         		.antMatchers("/admsp/**").hasRole("ADMIN")
         		.anyRequest().authenticated()
-        .and()
-        .formLogin()
-            /*.loginPage("/admsp/login")
-            .loginProcessingUrl("/loginProc")
-            .usernameParameter("id")
-            .passwordParameter("pw")*/
+    	//다시 Security 로그인 사용하려면 살려야 함 (Start)
+    	.and()
+        	.formLogin()
             .defaultSuccessUrl("/admsp/products-list", true)
             .permitAll()
         .and()
             .logout().invalidateHttpSession(true);
+    	//다시 Security 로그인 사용하려면 살려야 함 (End)
         http.csrf().disable(); //해당 부분을 안해줘서 @ResponseBody 를 URL을 못찾았던거임. 
     }
     
@@ -45,6 +45,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
    public void configure(WebSecurity web) throws Exception {
    	//web.ignoring().requestMatchers(PathRequest.toStaticResources().atCommonLocations());
        web.ignoring() .antMatchers("/resources/static/**")
+        .antMatchers("/popup/**")
         .antMatchers("/ai-calc/**")
        	.antMatchers("/ai-calcProc/**")
        	.antMatchers("/privacy-consent/**")
@@ -57,15 +58,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
        	.antMatchers("/static/assets/vendor/admsp/**")
        	.antMatchers("/static/assets/lib/**")
        	.antMatchers("/static/assets/php/**");
+       	web.httpFirewall(defaultHttpFirewall());
+   }
+   
+   @Bean
+   public HttpFirewall defaultHttpFirewall() {
+	   return new DefaultHttpFirewall();
    }
     
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-
-        auth.inMemoryAuthentication()
-                .withUser("sylee")
-                .password("{noop}Eownwnsla12!@")
-                .roles("ADMIN");
-    }
-    
+	@Autowired
+	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+	
+	    auth.inMemoryAuthentication()
+	            .withUser("sylee")
+	            .password("{noop}Eownwnsla12!@")
+	            .roles("ADMIN");
+	}
 }

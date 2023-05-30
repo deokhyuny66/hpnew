@@ -3,6 +3,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<% 
+	String[] cduArray = null;
+	cduArray = new String[] {"1.5HP / 왕복동 / 단상", "2HP / 왕복동 / 단상"};
+	System.out.println(cduArray[1]);
+%>            
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,17 +20,17 @@
     <title>쿨리닉 관리 화면(AI)</title>
 
     <!-- Custom fonts for this template -->
-    <link href="/static/assets/vendor/admsp/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="/assets/vendor/admsp/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="/static/assets/css/admsp/sb-admin-2.min.css" rel="stylesheet">
+    <link href="/assets/css/admsp/sb-admin-2.min.css" rel="stylesheet">
 
     <!-- Custom styles for this page -->
-    <link href="/static/assets/vendor/admsp/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-    <link href="/static/assets/css/admsp/admsp.css?ver=3" rel="stylesheet">
+    <link href="/assets/vendor/admsp/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="/assets/css/admsp/admsp.css?ver=3" rel="stylesheet">
     <style>
     div.table-responsive>div.dataTables_wrapper>div.row {
     	padding-left: 20px !important;
@@ -210,7 +215,7 @@
                                 </h6>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="/static/assets/img/admsp/undraw_profile_1.svg"
+                                        <img class="rounded-circle" src="/assets/img/admsp/undraw_profile_1.svg"
                                             alt="...">
                                         <div class="status-indicator bg-success"></div>
                                     </div>
@@ -222,7 +227,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="/static/assets/img/admsp/undraw_profile_2.svg"
+                                        <img class="rounded-circle" src="/assets/img/admsp/undraw_profile_2.svg"
                                             alt="...">
                                         <div class="status-indicator"></div>
                                     </div>
@@ -234,7 +239,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="/static/assets/img/admsp/undraw_profile_3.svg"
+                                        <img class="rounded-circle" src="/assets/img/admsp/undraw_profile_3.svg"
                                             alt="...">
                                         <div class="status-indicator bg-warning"></div>
                                     </div>
@@ -268,7 +273,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
                                 <img class="img-profile rounded-circle"
-                                    src="/static/assets/img/admsp/undraw_profile.svg">
+                                    src="/assets/img/admsp/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -532,13 +537,15 @@
                                             	</div>
                                             </td>
                                             
-                                            <!-- CDU -->                                          	
+                                            <!-- CDU -->                  	
                                             <td>	  
                                             	<select name="cduSelect${statusNo.index}" id="cduSelect${statusNo.index}" onchange="checkerCDUSelectFn(this.id,'${base.pntid}')">
-                                            	<c:forEach var="data" items="${cduEntitylist}">
-												    <option value="${data.pid}" <c:if test="${data.pid eq 'CDUP001'}">selected</c:if>>${data.cdu}</option><%-- 이 PID로 Query 조회 함 --%>
+                                            	<c:forEach var="data" items="${cduEntitylist}" varStatus="statusNm">	
+											    	<option value="${data.pid}" <c:if test="${data.cdu eq 'TEST'} ">selected</c:if>>${data.cdu}</option><%-- 이 PID로 Query 조회 함 --%>
+													<!-- calcSettingEntity -->   
 												</c:forEach>
 												</select>
+												<p>Label Text[${statusNo.index}]</p>
                                             </td>
                                             <td>	                                            	
                                             	<select name="cduSelectCnt${statusNo.index}" id="cduSelectCnt${statusNo.index}" onchange="checkerCDUCntSelectFn(this.id)">
@@ -987,25 +994,25 @@
     </div>
     
     <!-- Bootstrap core JavaScript-->
-    <script src="/static/assets/js/admsp/admspjs.js"></script>
+    <script src="/assets/js/admsp/admspjs.js"></script>
     
-    <script src="/static/assets/vendor/admsp/jquery/jquery.js"></script>
-    <script src="/static/assets/vendor/admsp/jquery/jquery.min.js"></script>
+    <script src="/assets/vendor/admsp/jquery/jquery.js"></script>
+    <script src="/assets/vendor/admsp/jquery/jquery.min.js"></script>
     <!--  script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script -->
-    <script src="/static/assets/vendor/admsp/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/vendor/admsp/bootstrap/js/bootstrap.bundle.min.js"></script>
     
     <!-- Core plugin JavaScript-->
-    <script src="/static/assets/vendor/admsp/jquery-easing/jquery.easing.min.js"></script>
+    <script src="/assets/vendor/admsp/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="/static/assets/js/admsp/sb-admin-2.min.js"></script>
+    <script src="/assets/js/admsp/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="/static/assets/vendor/admsp/datatables/jquery.dataTables.min.js"></script>
-    <script src="/static/assets/vendor/admsp/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="/assets/vendor/admsp/datatables/jquery.dataTables.min.js"></script>
+    <script src="/assets/vendor/admsp/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="/static/assets/js/admsp/demo/datatables-demo.js"></script>
+    <script src="/assets/js/admsp/demo/datatables-demo.js"></script>
     
 </body>
 

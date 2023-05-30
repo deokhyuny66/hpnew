@@ -1,3 +1,4 @@
+<%@page import="org.springframework.security.web.server.header.StrictTransportSecurityServerHttpHeadersWriter"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="java.lang.reflect.Array"%>
@@ -9,6 +10,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> <!-- JSTL POM 추가 및 해당 라인 추가 -->
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%
+	Thread.sleep(6000);
 	request.setCharacterEncoding("utf-8");
 %>
 <!DOCTYPE html>
@@ -18,6 +20,9 @@
 <title>쿨리닉</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
  <link href="/static/assets/css/main/slides.css?ver=2" rel="stylesheet" type="text/css">
+ <link rel="apple-touch-icon" sizes="180x180" href="/static/assets/img/favicons/logos.png">
+ <link rel="icon" type="image/png" sizes="32x32" href="/static/assets/img/favicons/logos.png">
+ <link rel="icon" type="image/png" sizes="16x16" href="/static/assets/img/favicons/logos.png">
  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css?ver=2" rel="stylesheet" type="text/css">
  <link href="/static/assets/css/theme.css?ver=8" rel="stylesheet">
  <link href="/static/assets/lib/prismjs/prism.css?ver=2" rel="stylesheet">
@@ -28,8 +33,16 @@
  <link href="/static/assets/css/calc/comm_calc.css?ver=2" rel="stylesheet" type="text/css">
  <link href="https://fonts.googleapis.com/css?family=PT+Mono%7cPT+Serif:400,400i%7cLato:100,300,400,700,800,900" rel="stylesheet">
 <style>
-@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
-
+@import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
+* {
+	font-family: 'NanumSquare';
+	font-weight: 700;
+	-ms-user-select: none; 
+	-moz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
 @media screen and (min-width: 769px) {
 	#loadings {
 	  	width: 80%;
@@ -108,7 +121,7 @@ footer .page-wrapper {
   top: 50%; 
   left: 50%;
   transform: translate(-50%, -50%);
-  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  font-family: 'NanumSquare';
   font-weight: 700;
   text-align: center;
   text-decoration: none;
@@ -166,7 +179,8 @@ footer .page-wrapper {
 
 #rentalReqForm .good-job {
   text-align: center;
-  font-family: 'Montserrat', Arial,       Helvetica, sans-serif;
+  font-family: 'NanumSquare';
+  font-weight: 700;
   color: #e2525c;
 }
 #rentalReqForm .good-job .fa-thumbs-o-up {
@@ -306,7 +320,7 @@ textarea {
 	      <section>
 	      <div id="wrapsv">
 			<header id="headersv" class="row_flex">
-    			<h2>AI 자동견적 계산기</h2>
+    			<h2 style="font-family: 'NanumSquare';font-weight: 800;">AI 자동견적 계산기</h2>
   			</header>
 		  	<section id="sectionsv">
    			<form action="/ai-calcProc" name="rentalReqForm" id="rentalReqForm" method="post" onsubmit="return submitCheck();">
@@ -373,10 +387,10 @@ textarea {
      			<div class="row_flex">
        				<div class="addition" style="width:100%;">
          				<div class="product_size product_info_item">
-	      					<h3>견적서 내용</h3>
+	      					<h3 style="font-family: 'NanumSquare';font-weight: 800;">견적서 내용</h3>
 	           				<table id="20ftMasterList">
-		             			<th class="br_l">항목</th>
-					            <th colspan="3">세부내역</th>
+		             			<th class="br_l" style="font-family: 'NanumSquare';font-weight: 800;">항목</th>
+					            <th colspan="3" style="font-family: 'NanumSquare';font-weight: 800;">세부내역</th>
 		             			<tr>
 					               	<td>바닥면적</td>
 					               	<td colspan="3">${floor_area}</td>
@@ -484,10 +498,10 @@ textarea {
 	           				</table>
          				</div>
          				<div class="product_size product_info_item">
-	      					<h3>견적서 금액</h3>
+	      					<h3 style="font-family: 'NanumSquare';font-weight: 800;">견적서 금액</h3>
 	           				<table id="20ftMasterList">
-		             			<th class="br_l">항목</th>
-		             			<th colspan="3">견적금액<span>(단위:원)</span></th>
+		             			<th class="br_l" style="font-family: 'NanumSquare';font-weight: 800;">항목</th>
+		             			<th colspan="3" style="font-family: 'NanumSquare';font-weight: 800;">견적금액<span>(단위:원)</span></th>
 		             			<tr>
 					               	<td>우레탄 판넬</td>
 					               	<td colspan="3">${panel_price}</td>
@@ -581,8 +595,8 @@ textarea {
 					                <td colspan="3" class="blurEffect stop-dragging"><fmt:formatNumber value="${manday4_unit_price}" pattern="#,###"/></td>
 					            </tr>
 					            <tr>
-					                <th>총 금액</th>
-					                <th colspan="3"><fmt:formatNumber value="${total_price}" pattern="#,###"/></th>
+					                <th style="font-family: 'NanumSquare';font-weight: 800;">총 금액</th>
+					                <th colspan="3" style="font-family: 'NanumSquare';font-weight: 800;"><fmt:formatNumber value="${total_price}" pattern="#,###"/></th>
 					            </tr>
 	           				</table>
 	           				<h5 style="color:#777;">해당 견적서는 일부 내역과 금액만 표시되는 스탠다드 견적서이며, 
@@ -706,7 +720,7 @@ textarea {
               </div>
               <!--/.bg-holder-->
 
-              <h1 class="page-title">AI 자동견적</h1>
+              <h1 class="page-title">자동견적</h1>
             </div>
           </div>
         </div>

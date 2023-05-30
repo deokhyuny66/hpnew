@@ -23,6 +23,7 @@ public class CalcService
 {
     @Autowired
     private CalcDAO mapper;
+    private CalcSettingEntity mapperSetting;
     
 //  사용자 입력
     public List<CalcSettingEntity> getCalcSetting(@Param("returns_py") final String returns_py, @Param("temper_type") final String temper_type) throws Exception {
@@ -116,6 +117,10 @@ public class CalcService
     
     
 //  DB구역별 - 데이터 전체 조회
+    
+    public List<CalcSettingEntity> getCalcSettingAll() throws Exception { 
+        return this.mapper.getCalcSettingAll();
+    }
     public List<CalcBaseEntity> getBaseCDU() throws Exception { 
         return this.mapper.getCalcBase();
     }

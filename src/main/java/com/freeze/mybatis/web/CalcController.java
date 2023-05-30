@@ -445,6 +445,11 @@ public class CalcController {
 		return "privacy-consent";
 	}
 	
+	@RequestMapping("/popup")
+	public String popup() throws Exception {
+		return "popup";
+	}
+	
 	@RequestMapping("/terms-service")
 	public String terms() throws Exception {
 		return "terms-service";

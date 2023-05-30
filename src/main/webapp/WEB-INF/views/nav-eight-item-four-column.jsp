@@ -32,15 +32,17 @@
     <link rel="stylesheet" type="text/css" href="/static/assets/css/calc/commons.css?ver=3">
     <link rel="stylesheet" type="text/css" href="/static/assets/css/calc/est.css?ver=4">
     <link rel="stylesheet" type="text/css" href="/static/assets/css/calc/comm_calc.css?ver=2">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=PT+Mono%7cPT+Serif:400,400i%7cLato:100,300,400,700,800,900">
+    <!-- <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=PT+Mono%7cPT+Serif:400,400i%7cLato:100,300,400,700,800,900"> -->
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
     
     <style>
+    @import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
     * {
-   		font-family: 'NanumSquareRound';
+   		font-family: 'NanumSquare';
+   		font-weight: 700;
    		-ms-user-select: none; 
 	  	-moz-user-select: -moz-none;
 	  	-khtml-user-select: none;
@@ -48,12 +50,12 @@
 	  	user-select: none;
     }
 
-    @font-face {
+   /*  @font-face {
 	    font-family: 'NanumSquareRound';
 	    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
 	    font-weight: normal;
 	    font-style: normal;
-	}
+	} */
 
 	@media screen and (max-width: 768px) {
 		#loading {
@@ -71,12 +73,21 @@
 		#loading > p {
 	    	position: absolute;
 	    	top: 57%;
-	    	left: 35%;
+	    	left: 20%;
 	    	z-index: 101;
 	    	font-color: #fff;
 		}
 		.popup_box{position: relative;top:50%;left:50%; border-radius: 2%;overflow: auto; overflow-x: hidden;width:335px;transform:translate(-50%, -50%);z-index:1002;box-sizing:border-box;background:#fff;box-shadow: 2px 5px 10px 0px rgba(0,0,0,0.35);-webkit-box-shadow: 2px 5px 10px 0px rgba(0,0,0,0.35);-moz-box-shadow: 2px 5px 10px 0px rgba(0,0,0,0.35);}
 		.popup_box .popup_cont {padding:30px;line-height:1.4rem;font-size:14px; }
+				
+		#loading > img {
+		  	position: absolute;
+		  	top: 42%;
+		  	left: 28%;
+		  	z-index: 100;
+		  	width: 150px;
+		  	height: 100px;
+		}
 	}
 	@media screen and (min-width: 769px) {
 		#loading {
@@ -100,14 +111,17 @@
 		}
 		.popup_box{position: relative;top:50%;left:37%; overflow: auto; border-radius: 3%;width:375px;transform:translate(-50%, -50%);z-index:1002;box-sizing:border-box;background:#fff;box-shadow: 2px 5px 10px 0px rgba(0,0,0,0.35);-webkit-box-shadow: 2px 5px 10px 0px rgba(0,0,0,0.35);-moz-box-shadow: 2px 5px 10px 0px rgba(0,0,0,0.35);}
 		.popup_box .popup_cont {padding:50px;line-height:1.4rem;font-size:14px; }
+				
+		#loading > img {
+		  	position: absolute;
+		  	top: 34%;
+		  	left: 41%;
+		  	z-index: 100;
+		  	width: 250px;
+		  	height: 200px;
+		}
 	}
 	
-	#loading > img {
-	  	position: absolute;
-	  	top: 50%;
-	  	left: 47%;
-	  	z-index: 100;
-	}
 
 	/*popup*/
 	.popup_layer {position:fixed;top:0;left:0;z-index: 10000; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.4); }
@@ -146,7 +160,11 @@
 	</script>
 	
   	</head>
-<!-- body onload="onload()"-->
+  	
+	<!-- EventPopupModal -->
+	<script>
+	//window.open('/popup', 'target', 'top=100, left=300, width=400, height=400, toolbar=no, menubar=no, location=no, status=no, scrollbars=no, resizable=no');
+	</script>
 <body>
     <main>
       
@@ -221,7 +239,7 @@
         <div class="container" style="height:0px;">
           <div class="row min-vh-90 align-items-center py-8 justify-content-center text-center">
             <div class="col-lg-8 col-xl-7" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-               <h1 class="fs-3 fs-sm-4 fs-md-5 text-white parallax display-4" data-rellax-speed="4"><span class="overflow-hidden d-block"><span class="d-inline-block font-weight-black" style="margin-bottom:20px;font-family: 'OTWelcomeBA';margin-top:30px;" data-zanim-xs='{"delay":0.1}'> <!--  냉동공조 산업영역의 혁신을 더하다 -->  </span></span></span><span class="overflow-hidden d-block"><!-- <span class="d-inline-block font-weight-black text-underline mb-1" data-zanim-xs='{"delay":0.3}'>COOLINIC</span> --></span></h1>
+               <h1 class="fs-3 fs-sm-4 fs-md-5 text-white parallax display-4" data-rellax-speed="4"><span class="overflow-hidden d-block"><span class="d-inline-block font-weight-black" style="margin-bottom:20px;font-family: 'NanumSquare', sans-serif';margin-top:30px;" data-zanim-xs='{"delay":0.1}'> <!--  냉동공조 산업영역의 혁신을 더하다 -->  </span></span></span><span class="overflow-hidden d-block"><!-- <span class="d-inline-block font-weight-black text-underline mb-1" data-zanim-xs='{"delay":0.3}'>COOLINIC</span> --></span></h1>
             </div>
           </div><a class="indicator indicator-down" data-zanim-timeline='{"delay":1}' data-zanim-trigger="scroll" href="#target-down" data-fancyscroll="data-fancyscroll" data-offset="60"><span class="indicator-arrow indicator-arrow-one" data-zanim-xs='{"from":{"opacity":0,"y":15},"to":{"opacity":1,"y":-5,"scale":1},"ease":"Back.easeOut","duration":0.4,"delay":0.25}'></span><span class="indicator-arrow indicator-arrow-two" data-zanim-xs='{"from":{"opacity":0,"y":15},"to":{"opacity":1,"y":-5,"scale":1},"ease":"Back.easeOut","duration":0.4,"delay":0.5}'></span></a>
         </div><!-- end of .container-->
@@ -235,7 +253,7 @@
 	        <div class="container">
 	           <div class="row justify-content-center text-center mb-6">
 	            <div class="col-lg-6" style="margin-top: 7rem;">
-	              <h2 class="fs-3 fs-sm-4 mb-3" style="font-size:2rem;">쿨리닉은 콜드체인<br/>전문 브랜드 입니다</h2>
+	              <h2 class="fs-3 fs-sm-4 mb-3" style="font-size:2rem;font-family: 'NanumSquare';font-weight: 800;">쿨리닉은 콜드체인<br/>전문 브랜드 입니다</h2>
 
 	              <hr class="hr-short mt-5 border-300" />
 	            </div>
@@ -246,7 +264,7 @@
 	                <div class="col-lg-6 order-lg-2 text-center align-self-center"><img class="img-fluid" src="/static/assets/img/detail/illustration/aboutdt-01.svg" alt="" width="400" /></div>
 	                <div class="col-lg-6 border-lg-left border-lg-bottom border-300 pb-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
 	                  <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">01</span>
-	                    <h3>콜드체인 영역은 왜, 전문브랜드가 없을까요?</h3>
+	                    <h3 style="font-family: 'NanumSquare';font-weight: 800;">콜드체인 영역은 왜, 전문브랜드가 없을까요?</h3>
 	                    <hr class="hr-short mt-3 border-300" style="margin-left: 0;width:3.4rem;"/>
 	                    콜드체인 산업의 가장 큰 영역을 차지하는 콜드룸(저온저장고)는 
 						인테리어 시장과 마찬가지로 소규모의 사업체가 주축을 이루고,
@@ -264,7 +282,7 @@
 	                <div class="col-lg-6 border-lg-right border-lg-bottom border-300 text-center py-lg-8"><img class="img-fluid" src="/static/assets/img/detail/illustration/aboutdt-02.svg" alt="" width="400" /></div>
 	                <div class="col-lg-6 mt-4 mt-lg-0 mb-8 mb-lg-0 my-lg-8">
 	                  <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">02</span>
-	                    <h3>수요와 공급의 해결, 플랫폼</h3>
+	                    <h3 style="font-family: 'NanumSquare';font-weight: 800;">수요와 공급의 해결, 플랫폼</h3>
 	                    <hr class="hr-short mt-3 border-300" style="margin-left: 0;width:3.4rem;"/>
 	                    <p>
 	                    플랫폼은 수요자와 공급자의 연결하여 불편함을 해결하고
@@ -281,7 +299,7 @@
 	                <div class="col-lg-6 order-lg-2 text-center align-self-center"><img class="img-fluid" src="/static/assets/img/detail/illustration/aboutdt-030.png" alt="" width="400" /></div>
 	                <div class="col-lg-6 border-lg-left border-lg-bottom border-300 py-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
 	                  <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">03</span>
-	                    <h3>일의 표준화, 기준을 제시합니다</h3>
+	                    <h3 style="font-family: 'NanumSquare';font-weight: 800;">일의 표준화, 기준을 제시합니다</h3>
 	                    <hr class="hr-short mt-3 border-300" style="margin-left: 0;width:3.4rem;"/>
 	                    <p>
 	                    50년의 짧은 콜드체인 시장은 아직 표준화 되지 못했고
@@ -297,7 +315,7 @@
 	                <div class="col-lg-6 border-lg-right border-300 text-center py-lg-8"><img class="img-fluid" src="/static/assets/img/detail/illustration/mice.png" alt="" width="400" /></div>
 	                <div class="col-lg-6 mt-4 mt-lg-0 mb-8 mb-lg-0 my-lg-8">
 	                  <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">04</span>
-	                    <h3>독보적인 시스템을 더합니다</h3>
+	                    <h3 style="font-family: 'NanumSquare';font-weight: 800;">독보적인 시스템을 더합니다</h3>
 	                    <hr class="hr-short mt-3 border-300" style="margin-left: 0;width:3.4rem;"/>
 	                    <p>
 			    모바일로 목마름을 해결하는 시대에 살고 있습니다.<br><br>
@@ -323,7 +341,7 @@
 	      <div>
 		      <div>
             <div class="col-lg-9" style="max-width: 100%;">
-		    	<h2 style="font-size:2rem;">쿨리닉의 독보적인 5가지 시스템을 확인해 보세요</h2>
+		    	<h2 style="font-size:2rem;font-family: 'NanumSquare';font-weight: 800;">쿨리닉의 독보적인 5가지 시스템을 확인해 보세요</h2>
             </div>
           </div>
           
@@ -344,7 +362,7 @@
                 <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/calculate.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body" style="text-align:left;">
                   <div class="overflow-hidden">
-                    <h2 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>콜드룸 자동 견적서</h2>
+                    <h2 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}' style="font-family: 'NanumSquare';font-weight: 800;">콜드룸 자동 견적서</h2>
                     <hr class="hr-short" style="color:black; margin-left: 0;width:3.4rem;"/>
                   </div>
                   <div class="overflow-hidden">
@@ -371,7 +389,7 @@
                 <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/warehouse.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body" style="text-align:left;">
                   <div class="overflow-hidden">
-                    <h2 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>가치를 보관하는 금고, 콜드룸 제작</h2>
+                    <h2 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}' style="font-family: 'NanumSquare';font-weight: 800;">가치를 보관하는 금고, 콜드룸 제작</h2>
                     <hr class="hr-short" style="color:black; margin-left: 0;width:3.4rem;"/>
                   </div>
                   <div class="overflow-hidden">
@@ -395,7 +413,7 @@
                 <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/pin_drop.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body" style="text-align:left;">
                   <div class="overflow-hidden">
-                    <h2 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>앞보다는 뒤를 보는 서비스, 위치기반 A/S 시스템</h2>
+                    <h2 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}' style="font-family: 'NanumSquare';font-weight: 800;">앞보다는 뒤를 보는 서비스, 위치기반 A/S 시스템</h2>
                     <hr class="hr-short" style="color:black; margin-left: 0;width:3.4rem;"/>
                   </div>
                   <div class="overflow-hidden">
@@ -422,7 +440,7 @@
                 <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/fact_check.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body" style="text-align:left;">
                   <div class="overflow-hidden">
-                    <h2 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>70%의 사후관리를 위한 이력 추적 시스템 RMS</h2>
+                    <h2 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}' style="font-family: 'NanumSquare';font-weight: 800;">70%의 사후관리를 위한 이력 추적 시스템 RMS</h2>
                     <hr class="hr-short" style="color:black; margin-left: 0;width:3.4rem;"/>
                   </div>
                   <div class="overflow-hidden">
@@ -449,7 +467,7 @@
                 <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/update.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body" style="text-align:left;">
                   <div class="overflow-hidden">
-                    <h2 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>콜드룸의 숙제 해결, 인공지능 제상 시스템 ADS</h2>
+                    <h2 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}' style="font-family: 'NanumSquare';font-weight: 800;">콜드룸의 숙제 해결, 인공지능 제상 시스템 ADS</h2>
                     <hr class="hr-short" style="color:black; margin-left: 0;width:3.4rem;"/>
                   </div>
                   <div class="overflow-hidden">
@@ -587,7 +605,7 @@
 	      <section>
 	      <div id="wrapsv">
 			<header id="headersv" class="row_flex">
-    			<h2>AI 자동견적 계산기</h2>
+    			<h2 style="font-family: 'NanumSquare';font-weight: 800;">AI 자동견적 계산기</h2>
   			</header>
 			
 		  	<section id="sectionsv">
@@ -638,7 +656,7 @@
          				</div>
 
          				<div class="cont_box tab_common_cont">
-              					<h3>저온창고의 정보를 입력해주세요.</h3>
+              					<h3 style="font-family: 'NanumSquare';font-weight: 800;">저온창고의 정보를 입력해주세요.</h3>
               					<h6 style="padding-left: 10px;">저온창고의 정보 입력만으로 쉽게 자동 견적서를 확인하실 수 있습니다.</h6>
               					<div class="item">
                 					<input type="text" id="wid" name="wid" placeholder="가로(mm)" onchange="inputValueWidChange();" required>
@@ -810,7 +828,7 @@
 		              
 		                <div class="col-lg-10">
 		                  <p class="dropcap" data-zanim-xs='{"delay":0.5}' data-zanim-trigger="scroll">
-		                  <h4 class="fs-4 fs-md-5 mb-0" data-zanim-xs='{"delay":0.4}' data-zanim-trigger="scroll" style="font-size:1.5rem;">
+		                  <h4 class="fs-4 fs-md-5 mb-0" data-zanim-xs='{"delay":0.4}' data-zanim-trigger="scroll" style="font-size:1.5rem;font-family: 'NanumSquare';font-weight: 800;">
 		                      A/S에 용의한 콜드룸을 만듭니다
 		                  </h4>
 		                  <br/><br/>
@@ -832,14 +850,14 @@
 		                  <div style="margin-top:7.5rem;"><!-- class="mb-5" -->
 		                    <div class="overflow-hidden">
 		                      <blockquote class="blockquote text-center my-3 border p-5 px-xl-7 border-300 rounded" data-zanim-xs='{"delay":0.1}' data-zanim-trigger="scroll">
-			                    <p class="blockquote-content" style="font-size:1.7rem;">
+			                    <p class="blockquote-content" style="font-size:1.7rem;font-family: 'NanumSquare';font-weight: 800;">
 			                    기억력 좋은<br/>똑똑한 콜드룸
 			                    </p>
 			                  </blockquote>
 		                    </div>
 		                  </div>
 		                  <p class="dropcap" data-zanim-xs='{"delay":0.5}' data-zanim-trigger="scroll">
-		                  <h4 class="fs-4 fs-md-5 mb-0" data-zanim-xs='{"delay":0.4}' data-zanim-trigger="scroll" style="font-size:1.5rem;">
+		                  <h4 class="fs-4 fs-md-5 mb-0" data-zanim-xs='{"delay":0.4}' data-zanim-trigger="scroll" style="font-size:1.5rem;font-family: 'NanumSquare';font-weight: 800;">
 		                      언제가 될지 모르는 한번을 위해<br/>모두를 기록합니다
 		                  </h4><br/>
 		                  <br/>
@@ -863,14 +881,14 @@
 		                  <div style="margin-top:7.5rem;">
 		                    <div class="overflow-hidden">
 		                      <blockquote class="blockquote text-center my-3 border p-5 px-xl-7 border-300 rounded" data-zanim-xs='{"delay":0.1}' data-zanim-trigger="scroll">
-			                    <p class="blockquote-content" style="font-size:1.7rem;">
+			                    <p class="blockquote-content" style="font-size:1.7rem;font-family: 'NanumSquare';font-weight: 800;">
 			                    더 안심할수 있도록,<br/>1년 보다는 2년
 			                    </p>
 			                  </blockquote>
 		                    </div>
 		                  </div>
 		                  <p class="dropcap" data-zanim-xs='{"delay":0.5}' data-zanim-trigger="scroll">
-		                  <h4 class="fs-4 fs-md-5 mb-0" data-zanim-xs='{"delay":0.4}' data-zanim-trigger="scroll" style="font-size:1.5rem;">
+		                  <h4 class="fs-4 fs-md-5 mb-0" data-zanim-xs='{"delay":0.4}' data-zanim-trigger="scroll" style="font-size:1.5rem;font-family: 'NanumSquare';font-weight: 800;">
 		                      책임감은 자신감으로부터,<br/>국내 최대 워런티를 보장합니다
 		                  </h4>
 		                  <br/><br/>
@@ -892,14 +910,14 @@
 		                  <div style="margin-top:7.5rem;">
 		                    <div class="overflow-hidden">
 		                      <blockquote class="blockquote text-center my-3 border p-5 px-xl-7 border-300 rounded" data-zanim-xs='{"delay":0.1}' data-zanim-trigger="scroll">
-			                    <p class="blockquote-content" style="font-size:1.7rem;">
+			                    <p class="blockquote-content" style="font-size:1.7rem;font-family: 'NanumSquare';font-weight: 800;">
 			                    SERVICE PROCESS
 			                    </p>
 			                  </blockquote>
 		                    </div>
 		                  </div>
 		                  <p class="dropcap" data-zanim-xs='{"delay":0.5}' data-zanim-trigger="scroll">
-		                  <h4 class="fs-4 fs-md-5 mb-0" data-zanim-xs='{"delay":0.4}' data-zanim-trigger="scroll" style="font-size:1.5rem;">
+		                  <h4 class="fs-4 fs-md-5 mb-0" data-zanim-xs='{"delay":0.4}' data-zanim-trigger="scroll" style="font-size:1.5rem;font-family: 'NanumSquare';font-weight: 800;">
 		                      쿨리닉의 모든 서비스는<br> 매뉴얼에 따라 체계적으로 진행 됩니다
 		                  </h4>
 		                  <br/><br/>
@@ -1144,7 +1162,7 @@
 	                  </div>
 	                  <div class="overflow-hidden">
 	                    <h1 class="display-3 fs-5" data-zanim-xs='{"delay":0.2}' style="padding-top:5px;">
-	                    <span style="font-size:3.3rem;">단 한번을</span><br /><span class="font-weight-light" style="font-size:3.3rem;">위한 기록</span></h1>
+	                    <span style="font-size:3.3rem;font-family: 'NanumSquare';font-weight: 800;">단 한번을</span><br /><span class="font-weight-light" style="font-size:3.3rem;font-family: 'NanumSquare';font-weight: 700;">위한 기록</span></h1>
 	                  </div>
 	                </div>
 	              </div>
@@ -1159,7 +1177,7 @@
 	        <div class="container">
 	          <div class="row justify-content-center text-center mb-6">
 	            <div class="col-lg-6" style="margin-top: 7rem;">
-	              <h2 class="fs-3 fs-sm-4 mb-3" style="font-size:2rem;">숫자만으로 요청되는<br/>빠른 A/S</h2>
+	              <h2 class="fs-3 fs-sm-4 mb-3" style="font-size:2rem;font-family: 'NanumSquare';font-weight: 800;">숫자만으로 요청되는<br/>빠른 A/S</h2>
 	              <hr class="hr-short mt-5 border-300" />
 	            </div>
 	          </div>
@@ -1169,7 +1187,7 @@
 	                <div class="col-lg-6 order-lg-2 text-center"><img class="img-fluid" src="/static/assets/img/detail/illustration/rmsdts-01.svg" alt="" width="400" /></div>
 	                <div class="col-lg-6 border-lg-left border-lg-bottom border-300 pb-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
 	                  <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">01</span>
-	                    <h3>위치? 모델명? 사진?</h3>
+	                    <h3 style="font-family: 'NanumSquare';font-weight: 800;">위치? 모델명? 사진?</h3>
 	                    <hr class="hr-short mt-3 border-300" style="margin-left: 0;width:3.4rem;"/>
 	                    <p>
 	                    어디있는지도 모르는 냉동기의 생소한 모델명을 불러줘야 하고, 
@@ -1182,7 +1200,7 @@
 	                <div class="col-lg-6 border-lg-right border-lg-bottom border-300 text-center py-lg-8"><img class="img-fluid" src="/static/assets/img/detail/illustration/rmsdt-02.svg" alt="" width="400" /></div>
 	                <div class="col-lg-6 mt-4 mt-lg-0 mb-8 mb-lg-0 my-lg-11">
 	                  <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">02</span>
-	                    <h3>기억에 의존</h3>
+	                    <h3 style="font-family: 'NanumSquare';font-weight: 800;">기억에 의존</h3>
 	                    <hr class="hr-short mt-3 border-300" style="margin-left: 0;width:3.4rem;"/>
 	                    <p>
 	                    고장 이력이나 이전에 조치받았던 내용을 떠올리며 이력을 설명 해야 하기도 하죠.
@@ -1194,7 +1212,7 @@
 	                <div class="col-lg-6 order-lg-2 text-center align-self-center"><img class="img-fluid" src="/static/assets/img/detail/illustration/rmsdt-03.svg" alt="" width="400" /></div>
 	                <div class="col-lg-6 border-lg-left border-lg-bottom border-300 py-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
 	                  <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">03</span>
-	                    <h3>체계 없는 A/S 요청</h3>
+	                    <h3 style="font-family: 'NanumSquare';font-weight: 800;">체계 없는 A/S 요청</h3>
 	                    <hr class="hr-short mt-3 border-300" style="margin-left: 0;width:3.4rem;"/>
 	                    <p>
 	                    A/S 요청.. 왜 이렇게 할수밖에 없을까요?
@@ -1206,7 +1224,7 @@
 	                <div class="col-lg-6 border-lg-right border-lg-bottom border-300 text-center py-lg-8"><img class="img-fluid" src="/static/assets/img/detail/illustration/rmsdta-04.svg" alt="" width="400" /></div>
 	                <div class="col-lg-6 align-self-center mt-4 mt-lg-0 mt-lg-8">
 	                  <div class="process-item process-item-last ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">04</span>
-	                    <h3>12자리 숫자</h3>
+	                    <h3 style="font-family: 'NanumSquare';font-weight: 800;">12자리 숫자</h3>
 	                    <hr class="hr-short mt-3 border-300" style="margin-left: 0;width:3.4rem;"/>
 	                    <p style="margin-bottom:10rem;">
 	                    RMS 바코드에 부착된 12자리 숫자만 불러주세요.
@@ -1218,7 +1236,7 @@
 	                <div class="col-lg-6 order-lg-2 text-center align-self-center"><img class="img-fluid" src="/static/assets/img/detail/illustration/rmsdt-05.svg" alt="" width="400" /></div>
 	                <div class="col-lg-6 border-lg-left border-300 border-lg-bottom py-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
 	                  <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">05</span>
-	                    <h3>냉동기의 모든 정보 기억</h3>
+	                    <h3 style="font-family: 'NanumSquare';font-weight: 800;">냉동기의 모든 정보 기억</h3>
 	                    <hr class="hr-short mt-3 border-300" style="margin-left: 0;width:3.4rem;"/>
 	                    <p>
 	                    냉동기의 사양, 주문 옵션, 시공정보와 고장 이력까지 기억합니다.
@@ -1230,7 +1248,7 @@
 	                <div class="col-lg-6 border-lg-right border-300 text-center py-lg-8"><img class="img-fluid" src="/static/assets/img/detail/illustration/rmsdt-06.svg" alt="" width="400" /></div>
 	                <div class="col-lg-6 align-self-center mt-4 mt-lg-0 mt-lg-8">
 	                  <div class="process-item process-item-last ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">06</span>
-	                    <h3>냉동기기 이력추적관리 시스템, RMS</h3>
+	                    <h3 style="font-family: 'NanumSquare';font-weight: 800;">냉동기기 이력추적관리 시스템, RMS</h3>
 	                    <hr class="hr-short mt-3 border-300" style="margin-left: 0;width:3.4rem;"/>
 	                    <p>
 	                    RMS는 현재 운용중인 콜드룸이나 냉동기에도, 
@@ -1250,14 +1268,14 @@
         <div class="container">
           <div class="row justify-content-center inner">
             <div class="col-12 mb-5 mb-md-7 text-center" style="margin-top: 7rem;">
-              <h2 class="fs-3 fs-sm-4" style="font-size:2rem;"><span>제대로 관리 하고싶은 분들을 위합니다</span></h2>
+              <h2 class="fs-3 fs-sm-4" style="font-size:2rem;font-family: 'NanumSquare';font-weight: 800;"><span>제대로 관리 하고 싶은 분들을 위합니다</span></h2>
             </div>
             <div class="col-lg-5 pr-lg-4 mb-4">
               <div class="media" data-zanim-timeline="{}" data-zanim-trigger="scroll">
                 <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/corporate_fare.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body">
                   <div class="overflow-hidden">
-                    <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>체계적으로 냉동기를 관리하고 싶은 기업</h4>
+                    <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}' style="font-family: 'NanumSquare';font-weight: 800;">체계적으로 냉동기를 관리하고 싶은 기업</h4>
                   </div>
                   <div class="overflow-hidden">
                     <p data-zanim-xs='{"delay":0.2,"animation":"slide-right"}'>
@@ -1272,7 +1290,7 @@
                 <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/construction.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body">
                   <div class="overflow-hidden">
-                    <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>유지보수 전문 업체</h4>
+                    <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}' style="font-family: 'NanumSquare';font-weight: 800;">유지보수 전문 업체</h4>
                   </div>
                   <div class="overflow-hidden">
                     <p data-zanim-xs='{"delay":0.2,"animation":"slide-right"}'>
@@ -1292,7 +1310,7 @@
 	        <div class="container">
 	          <div class="row align-items-center justify-content-center">
 	            <div class="col-12 mb-2 mb-lg-5 text-center">
-	              <h2 class="fs-3"><span style="font-size:1.5rem;">정보를 확인하고 미리 준비하면<br/>A/S는 46% 빨라집니다</span></h2>
+	              <h2 class="fs-3"><span style="font-size:1.5rem;font-family: 'NanumSquare';font-weight: 800;">정보를 확인하고 미리 준비하면<br/>A/S는 46% 빨라집니다</span></h2>
 	            </div>
 	          </div>
 	          <div class="row align-items-center justify-content-center">
@@ -1300,7 +1318,7 @@
 	            <div class="col-sm-8 col-lg-4 mt-4 mt-lg-0 px-lg-4"><img class="w-100 rounded" src="/static/assets/img/detail/46rms.png" alt="" data-zanim-xs='{"animation":"zoom-out","delay":0.1}' data-zanim-trigger="scroll" /></div>
 	            <div class="col-sm-8 col-lg-4 mt-5 mt-lg-0 pl-lg-3 pl-xl-4">
 	              <div class="overflow-hidden">
-	                <h4 class="mb-3" data-zanim-xs='{"delay":0.2}' data-zanim-trigger="scroll">걱정없는 사후관리</h4>
+	                <h4 class="mb-3" data-zanim-xs='{"delay":0.2}' data-zanim-trigger="scroll" style="font-family: 'NanumSquare';font-weight: 800;">걱정없는 사후관리</h4>
 		            <hr class="hr-short mt-3 border-300" style="margin-left: 0;width:3.4rem;"/>
 	              </div>
 	              <div class="overflow-hidden">
@@ -1331,14 +1349,14 @@
 	            
 	            
 	        <div class="col-12 mb-5 mb-md-7 text-center">
-              <h2 class="fs-3 fs-sm-4"><span style="font-size:2rem;text-decoration:underline;text-underline-position:under;">이렇게 바뀔꺼에요</span></h2>
+              <h2 class="fs-3 fs-sm-4"><span style="font-size:2rem;text-decoration:underline;text-underline-position:under;font-family: 'NanumSquare';font-weight: 800;">이렇게 바뀔꺼에요</span></h2>
             </div>
             <div class="col-lg-12 pr-lg-4 mb-4">
               <div class="media" data-zanim-timeline="{}" data-zanim-trigger="scroll">
                 <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/memory.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body" style="text-align:left;">
                   <div class="overflow-hidden">
-                    <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>모든정보 기억</h4>
+                    <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}' style="font-family: 'NanumSquare';font-weight: 800;">모든정보 기억</h4>
                   </div>
                   <div class="overflow-hidden">
                     <p data-zanim-xs='{"delay":0.2,"animation":"slide-right"}'>
@@ -1353,7 +1371,7 @@
                 <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/constructiona.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body" style="text-align:left;">
                   <div class="overflow-hidden">
-                    <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>수리정보 기록</h4>
+                    <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}' style="font-family: 'NanumSquare';font-weight: 800;">수리정보 기록</h4>
                   </div>
                   <div class="overflow-hidden">
                     <p data-zanim-xs='{"delay":0.2,"animation":"slide-right"}'>
@@ -1368,7 +1386,7 @@
                 <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/database.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body" style="text-align:left;">
                   <div class="overflow-hidden">
-                    <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>정보유지</h4>
+                    <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}' style="font-family: 'NanumSquare';font-weight: 800;">정보유지</h4>
                   </div>
                   <div class="overflow-hidden">
                     <p data-zanim-xs='{"delay":0.2,"animation":"slide-right"}'>
@@ -1383,7 +1401,7 @@
                 <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/warehouse.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body" style="text-align:left;">
                   <div class="overflow-hidden">
-                    <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>다수관리 용이</h4>
+                    <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}' style="font-family: 'NanumSquare';font-weight: 800;">다수관리 용이</h4>
                   </div>
                   <div class="overflow-hidden">
                     <p data-zanim-xs='{"delay":0.2,"animation":"slide-right"}'>
@@ -1398,7 +1416,7 @@
                 <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/all_inbox.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body" style="text-align:left;">
                   <div class="overflow-hidden">
-                    <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>쿨리닉 케어</h4>
+                    <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}' style="font-family: 'NanumSquare';font-weight: 800;">쿨리닉 케어</h4>
                   </div>
                   <div class="overflow-hidden">
                     <p data-zanim-xs='{"delay":0.2,"animation":"slide-right"}'>
@@ -1482,11 +1500,11 @@
 	              <div class="row align-items-center justify-content-center h-100">
 	                <div class="col-lg-10 text-black text-center text-lg-left" data-zanim-timeline="{}" data-zanim-trigger="scroll">
 	                  <div class="overflow-hidden">
-	                    <h4 class="text-uppercase font-weight-normal ls text-white bg-dark p-1 rounded d-inline-block" data-zanim-xs='{"delay":0.1}'>THE &nbsp;COOLINIC</h4>
+	                    <h4 class="text-uppercase font-weight-normal ls text-white bg-dark p-1 rounded d-inline-block" data-zanim-xs='{"delay":0.1}' style="font-family: 'NanumSquare';font-weight: 700;">THE &nbsp;COOLINIC</h4>
 	                  </div>
 	                  <div class="overflow-hidden">
 			  <h1 class="display-3 fs-5" data-zanim-xs='{"delay":0.2}' style="padding-top:5px;">
-	                <span style="font-size:3.3rem;">직접 보는</span><br /><span class="font-weight-light" style="font-size:3.3rem;">스마트 ADS</span></h1>
+	                <span style="font-size:3.3rem;font-family: 'NanumSquare';font-weight: 800;">직접 보는</span><br /><span class="font-weight-light" style="font-size:3.3rem;font-family: 'NanumSquare';font-weight: 700;">스마트 ADS</span></h1>
 	                  </div>
 	                </div>
 	              </div>
@@ -1500,7 +1518,7 @@
 		        <div class="container">
 		          <div class="row align-items-center justify-content-center">
 		            <div class="col-12 mb-2 mb-lg-5 text-center">
-		              <h2><span style="font-size:2rem;">하루에 6번 따뜻한 콜드룸</span></h2>
+		              <h2><span style="font-size:2rem;font-family: 'NanumSquare';font-weight: 800;">하루에 6번 따뜻한 콜드룸</span></h2>
 		            </div>
 		          </div>
 		          <div class="row align-items-center justify-content-center">
@@ -1508,7 +1526,7 @@
 		            <div class="col-sm-8 col-lg-4 mt-4 mt-lg-0 px-lg-4"><img class="w-100 rounded" src="/static/assets/img/detail/46andper.png" alt="" data-zanim-xs='{"animation":"zoom-out","delay":0.1}' data-zanim-trigger="scroll" /></div>
 		            <div class="col-sm-8 col-lg-4 mt-5 mt-lg-0 pl-lg-3 pl-xl-4">
 		              <div class="overflow-hidden">
-		                <h3 class="mb-3" data-zanim-xs='{"delay":0.2}' data-zanim-trigger="scroll">콜드룸 증발기는요</h3>
+		                <h3 class="mb-3" data-zanim-xs='{"delay":0.2}' data-zanim-trigger="scroll" style="font-family: 'NanumSquare';font-weight: 800;">콜드룸 증발기는요</h3>
 			            <hr class="hr-short mt-3 border-300" style="margin-left: 0;width:3.4rem;"/>
 		              </div>
 		              <div class="overflow-hidden">
@@ -1519,7 +1537,7 @@
 						대부분 히터를 이용해서 제상 작업 하고, 콜드룸의 온도를 상승 시키며,
 						온도상승은 보관 제품의 품질을 떨어트립니다.
 						<br/><br/>
-						<b>상의 유무를 정확히 확인하여 제상 작업을 수행할 수 있다면, 온도 편차는 최소화 하고 품질은 상승합니다.</b>
+						상의 유무를 정확히 확인하여 제상 작업을 수행할 수 있다면, 온도 편차는 최소화 하고 품질은 상승합니다.
 		                </p>
 		              </div>
 		            </div>
@@ -1532,7 +1550,7 @@
 	        <div class="container">
 	          <div class="row justify-content-center text-center mb-6">
 	            <div class="col-lg-6" style="margin-top: 7rem;">
-	              <h2 class="fs-3 fs-sm-4 mb-3" style="font-size:2rem;">직접 보고<br/>판단하는 ADS</h2>
+	              <h2 class="fs-3 fs-sm-4 mb-3" style="font-size:2rem;font-family: 'NanumSquare';font-weight: 800;">직접 보고<br/>판단하는 ADS</h2>
 	              <hr class="hr-short mt-5 border-300" />
 	            </div>
 	          </div>
@@ -1542,12 +1560,12 @@
 	                <div class="col-lg-6 order-lg-2 text-center align-self-center"><img class="img-fluid" src="/static/assets/img/detail/illustration/adsdt-01.svg" alt="" width="400" /></div>
 	                <div class="col-lg-6 border-lg-left border-lg-bottom border-300 pb-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
 	                  <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">01</span>
-	                    <h3>모자랄바엔 과하게, 최악보다는 차악</h3>
+	                    <h3 style="font-family: 'NanumSquare';font-weight: 800;">모자랄바엔 과하게, 최악보다는 차악</h3>
 	                    <hr class="hr-short mt-3 border-300" style="margin-left: 0;width:3.4rem;"/>
 	                    <p>
 	                    수증기는 차가운 증발기에 얼어붙어 상이 됩니다.
 						<br/><br/>
-	                    <h4>과함 & 차악</h4>
+	                    <h4 style="font-family: 'NanumSquare';font-weight: 800;">과함 & 차악</h4>
 	                    <hr class="hr-short mt-3 border-300" style="margin-left: 0;width:3.4rem;"/>
 						증발기의 상은 치명적이라 상의 누적을 막기 위한 제상 작업은 
 						모자랄바엔 과하게 수행하는 것이 일반적입니다.
@@ -1565,7 +1583,7 @@
 	                <div class="col-lg-6 border-lg-right border-lg-bottom border-300 text-center py-lg-8"><img class="img-fluid" src="/static/assets/img/detail/illustration/adsdt-02.svg" alt="" width="400" /></div>
 	                <div class="col-lg-6 mt-4 mt-lg-0 mb-8 mb-lg-0 my-lg-11">
 	                  <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">02</span>
-	                    <h3>직접 보는게 가장 정확합니다</h3>
+	                    <h3 style="font-family: 'NanumSquare';font-weight: 800;">직접 보는게 가장 정확합니다</h3>
 	                    <hr class="hr-short mt-3 border-300" style="margin-left: 0;width:3.4rem;"/>
 	                    <p>
 	                    이런 이야기를 합니다.<br/>
@@ -1579,24 +1597,24 @@
 	                <div class="col-lg-6 order-lg-2 text-center align-self-center"><img class="img-fluid" src="/static/assets/img/detail/illustration/adsdt-03.svg" alt="" width="400" /></div>
 	                <div class="col-lg-6 border-lg-left border-lg-bottom border-300 py-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
 	                  <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">03</span>
-	                    <h3>ADS는 이러한 일들을 합니다</h3>
+	                    <h3 style="font-family: 'NanumSquare';font-weight: 800;">ADS는 이러한 일들을 합니다</h3>
 	                    <hr class="hr-short mt-3 border-300" style="margin-left: 0;width:3.4rem;"/>
 	                    <p>
 	                    <br/>
-	                    <h4>첫째. </h4>
+	                    <h4 style="font-family: 'NanumSquare';font-weight: 800;">첫째. </h4>
 						<hr class="hr-short mt-3 border-300" style="margin-left: 0;width:3.4rem;"/>
 						상의 유무를 카메라를 통해 직접 봅니다.
 						<br/><br/>
-						<h4>둘째. </h4>
+						<h4 style="font-family: 'NanumSquare';font-weight: 800;">둘째. </h4>
 	                    <hr class="hr-short mt-3 border-300" style="margin-left: 0;width:3.4rem;"/>
 						모니터링을 통해 상의 유무를 확인하고 제상 시점을 인공지능이 판단합니다.
 						<br/><br/>
-						<h4>셋째. </h4>
+						<h4 style="font-family: 'NanumSquare';font-weight: 800;">셋째. </h4>
 	                    <hr class="hr-short mt-3 border-300" style="margin-left: 0;width:3.4rem;"/>
 						제상이 꼭 필요할때 작업을 수행하고, 상이 제거되면 중지시킵니다.
 						<br/><br/>
 	                    <hr class="hr-short mt-3 border-300" style="margin-left: 0;width:3.4rem;"/>
-						<h4>ADS는 이러한 작업들로 상의 유무를 정확히 확인하여 제상 작업을 수행하고, 70% 이상의 
+						<h4 style="font-family: 'NanumSquare';font-weight: 800;">ADS는 이러한 작업들로 상의 유무를 정확히 확인하여 제상 작업을 수행하고, 70% 이상의 
 						에너지와 전기요금을 절감과 콜드룸의 온도편차를 최소화 합니다.</h4>
 	                    </p>
 	                  </div>
@@ -1606,7 +1624,7 @@
 	                <div class="col-lg-6 border-lg-right border-lg-bottom border-300 text-center py-lg-8"><img class="img-fluid" src="/static/assets/img/detail/illustration/adsdt-04.svg" alt="" width="400" /></div>
 	                <div class="col-lg-6 mt-4 mt-lg-0 mb-8 mb-lg-0 my-lg-11">
 	                  <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">04</span>
-	                    <h3>ADS 도입</h3>
+	                    <h3 style="font-family: 'NanumSquare';font-weight: 800;">ADS 도입</h3>
 	                    <hr class="hr-short mt-3 border-300" style="margin-left: 0;width:3.4rem;"/>
 	                    <p>
 	                    ADS는 신규로 콜드룸을 설치하는 경우에도,
@@ -1620,31 +1638,31 @@
 	                <div class="col-lg-6 order-lg-2 text-center align-self-center"><img class="img-fluid" src="/static/assets/img/detail/illustration/adsdt-05.svg" alt="" width="400" /></div>
 	                <div class="col-lg-6 border-lg-left border-300 py-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
 	                  <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">05</span>
-	                    <h3>ADS 도입 절차</h3>
+	                    <h3 style="font-family: 'NanumSquare';font-weight: 800;">ADS 도입 절차</h3>
 	                    <hr class="hr-short mt-3 border-300" style="margin-left: 0;width:3.4rem;"/>
 	                    <p>
 	                    <br/>
-	                    <h4>1. 신청</h4>
+	                    <h4 style="font-family: 'NanumSquare';font-weight: 800;">1. 신청</h4>
 						<hr class="hr-short mt-3 border-300" style="margin-left: 0;width:3.4rem;"/>
 						ADS 도입요청 버튼을 눌러 내용을 기재해 주세요. (1분)
 						<br/><br/><br/>
-	                    <h4>2. 상담</h4>
+	                    <h4 style="font-family: 'NanumSquare';font-weight: 800;">2. 상담</h4>
 						<hr class="hr-short mt-3 border-300" style="margin-left: 0;width:3.4rem;"/>
 						콜드매니저가 배정되어 상담이 이루어 집니다. (30분)
 						<br/><br/><br/>
-						<h4>3. 미팅</h4>
+						<h4 style="font-family: 'NanumSquare';font-weight: 800;">3. 미팅</h4>
 	                    <hr class="hr-short mt-3 border-300" style="margin-left: 0;width:3.4rem;"/>
 						신규 현장이 아닌경우 현장 답사가 이루어 집니다. (1일)
 						<br/><br/><br/>
-						<h4>4. 계약</h4>
+						<h4 style="font-family: 'NanumSquare';font-weight: 800;">4. 계약</h4>
 	                    <hr class="hr-short mt-3 border-300" style="margin-left: 0;width:3.4rem;"/>
 						견적과 계약이 이루어 집니다. (1주일)
 						<br/><br/><br/>
-						<h4>5. 설치</h4>
+						<h4 style="font-family: 'NanumSquare';font-weight: 800;">5. 설치</h4>
 	                    <hr class="hr-short mt-3 border-300" style="margin-left: 0;width:3.4rem;"/>
 						자격을 득한 전문 시공팀에 의해 시공 됩니다. (1일)
 						<br/><br/><br/>
-						<h4>6. 완료</h4>
+						<h4 style="font-family: 'NanumSquare';font-weight: 800;">6. 완료</h4>
 	                    <hr class="hr-short mt-3 border-300" style="margin-left: 0;width:3.4rem;"/>
 						ADS 제상 시스템이 시작 됩니다. (제상시작)
 	                    </p>
@@ -1666,14 +1684,14 @@
 	            
 	            
 	        <div class="col-12 mb-5 mb-md-7 text-center">
-              <h2 class="fs-3 fs-sm-4"><span style="font-size:2rem;text-decoration:underline;text-underline-position:under;">이렇게 바뀔꺼에요</span></h2>
+              <h2 class="fs-3 fs-sm-4"><span style="font-size:2rem;text-decoration:underline;text-underline-position:under;font-family: 'NanumSquare';font-weight: 800;">이렇게 바뀔꺼에요</span></h2>
             </div>
             <div class="col-lg-12 pr-lg-4 mb-4">
               <div class="media" data-zanim-timeline="{}" data-zanim-trigger="scroll">
                 <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/downloading.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body" style="text-align:left;">
                   <div class="overflow-hidden">
-                    <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>70%이상 절감</h4>
+                    <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}' style="font-family: 'NanumSquare';font-weight: 800;">70%이상 절감</h4>
                   </div>
                   <div class="overflow-hidden">
                     <p data-zanim-xs='{"delay":0.2,"animation":"slide-right"}'>
@@ -1688,7 +1706,7 @@
                 <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/thermostat_F.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body" style="text-align:left;">
                   <div class="overflow-hidden">
-                    <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>온도상승 최소화</h4>
+                    <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}' style="font-family: 'NanumSquare';font-weight: 800;">온도상승 최소화</h4>
                   </div>
                   <div class="overflow-hidden">
                     <p data-zanim-xs='{"delay":0.2,"animation":"slide-right"}'>
@@ -1703,7 +1721,7 @@
                 <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/moving.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body" style="text-align:left;">
                   <div class="overflow-hidden">
-                    <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>히터수명 최대</h4>
+                    <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}' style="font-family: 'NanumSquare';font-weight: 800;">히터수명 최대</h4>
                   </div>
                   <div class="overflow-hidden">
                     <p data-zanim-xs='{"delay":0.2,"animation":"slide-right"}'>
@@ -1718,7 +1736,7 @@
                 <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/package.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body" style="text-align:left;">
                   <div class="overflow-hidden">
-                    <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>제품가치 상승</h4>
+                    <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}' style="font-family: 'NanumSquare';font-weight: 800;">제품가치 상승</h4>
                   </div>
                   <div class="overflow-hidden">
                     <p data-zanim-xs='{"delay":0.2,"animation":"slide-right"}'>
@@ -1733,7 +1751,7 @@
                 <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/work_history.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body" style="text-align:left;">
                   <div class="overflow-hidden">
-                    <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>보관기간 상승</h4>
+                    <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}' style="font-family: 'NanumSquare';font-weight: 800;">보관기간 상승</h4>
                   </div>
                   <div class="overflow-hidden">
                     <p data-zanim-xs='{"delay":0.2,"animation":"slide-right"}'>
@@ -1748,7 +1766,7 @@
                 <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/fireplace.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body" style="text-align:left;">
                   <div class="overflow-hidden">
-                    <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>위험성 감소</h4>
+                    <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}' style="font-family: 'NanumSquare';font-weight: 800;">위험성 감소</h4>
                   </div>
                   <div class="overflow-hidden">
                     <p data-zanim-xs='{"delay":0.2,"animation":"slide-right"}'>
@@ -1763,7 +1781,7 @@
                 <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/price_check.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body" style="text-align:left;">
                   <div class="overflow-hidden">
-                    <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>비용감소</h4>
+                    <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}' style="font-family: 'NanumSquare';font-weight: 800;">비용감소</h4>
                   </div>
                   <div class="overflow-hidden">
                     <p data-zanim-xs='{"delay":0.2,"animation":"slide-right"}'>
@@ -1778,7 +1796,7 @@
                 <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/downloadin.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body" style="text-align:left;">
                   <div class="overflow-hidden">
-                    <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>탄소배출량 감소</h4>
+                    <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}' style="font-family: 'NanumSquare';font-weight: 800;">탄소배출량 감소</h4>
                   </div>
                   <div class="overflow-hidden">
                     <p data-zanim-xs='{"delay":0.2,"animation":"slide-right"}'>
@@ -2230,10 +2248,11 @@
 	              <div class="row align-items-center justify-content-center h-100">
 	                <div class="col-lg-10 text-black text-center text-lg-left" data-zanim-timeline="{}" data-zanim-trigger="scroll">
 	                  <div class="overflow-hidden">
-	                    <h4 class="text-uppercase font-weight-normal ls text-white bg-dark p-1 rounded d-inline-block" data-zanim-xs='{"delay":0.1}'>THE &nbsp;COOLINIC</h4>
+	                    <h4 class="text-uppercase font-weight-normal ls text-white bg-dark p-1 rounded d-inline-block" data-zanim-xs='{"delay":0.1}' style="font-family: 'NanumSquare';font-weight: 700;">THE &nbsp;COOLINIC</h4>
 	                  </div>
 	                  <div class="overflow-hidden">
-	                    <h1 class="display-3 fs-5" data-zanim-xs='{"delay":0.2}'><span style="font-size:3.3rem;">제대로 된</span><br /><span class="font-weight-light" style="font-size:3.3rem;">A/S 시스템</span></h1>
+	                    <h1 class="display-3 fs-5" data-zanim-xs='{"delay":0.2}'><span style="font-size:3.3rem;font-family: 'NanumSquare';font-weight: 800;">제대로 된</span><br /><span class="font-weight-light" style="font-size:3.3rem;
+	                    font-family: 'NanumSquare';font-weight: 700;">A/S 시스템</span></h1>
 	                  </div>
 	                </div>
 	              </div>
@@ -2253,7 +2272,7 @@
         <div class="container">
           <div class="row justify-content-center inner" style="padding-bottom: 7.5rem;">
             <div class="col-12 mb-5 mb-md-7 text-center" style="margin-top: 7rem;">
-              <h2 class="fs-3 fs-sm-4" style="font-size:2rem;"><span>우리가 아니어도 괜찮아요<br/>
+              <h2 class="fs-3 fs-sm-4" style="font-size:2rem;font-family: 'NanumSquare';font-weight: 800;"><span>우리가 아니어도 괜찮아요<br/>
 					하지만 제대로 된 A/S 시스템은 필요합니다</span></h2>
             </div>
             <div class="col-lg-5 pr-lg-4 mb-4">
@@ -2261,7 +2280,7 @@
                 <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/warehouse.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body">
                   <div class="overflow-hidden">
-                    <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>언제나 불안한 콜드룸</h4>
+                    <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'style="font-family: 'NanumSquare';font-weight: 800;">언제나 불안한 콜드룸</h4>
                   </div>
                   <div class="overflow-hidden">
                     <p data-zanim-xs='{"delay":0.2,"animation":"slide-right"}'>
@@ -2277,7 +2296,7 @@
                 <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/person_search.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body">
                   <div class="overflow-hidden">
-                    <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>50년간 똑같은 A/S 방식</h4>
+                    <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}' style="font-family: 'NanumSquare';font-weight: 800;">50년간 똑같은 A/S 방식</h4>
                   </div>
                   <div class="overflow-hidden">
                     <p data-zanim-xs='{"delay":0.2,"animation":"slide-right"}'>
@@ -2293,7 +2312,7 @@
                 <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/sentiment_dissatisfied.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body">
                   <div class="overflow-hidden">
-                    <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>막연한 기다림</h4>
+                    <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}' style="font-family: 'NanumSquare';font-weight: 800;">막연한 기다림</h4>
                   </div>
                   <div class="overflow-hidden">
                     <p data-zanim-xs='{"delay":0.2,"animation":"slide-right"}'>
@@ -2309,7 +2328,7 @@
                 <div class="overflow-hidden consize"><img class="media-img mr-3 mr-sm-4 consize-img" src="/static/assets/img/detail/icons/settings_suggest_black.svg" alt="" data-zanim-xs='{"delay":0.2,"animation":"slide-right"}' /></div>
                 <div class="media-body">
                   <div class="overflow-hidden">
-                    <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}'>시스템이 필요합니다</h4>
+                    <h4 class="mb-2" data-zanim-xs='{"delay":0.1,"animation":"slide-right"}' style="font-family: 'NanumSquare';font-weight: 800;">시스템이 필요합니다</h4>
                   </div>
                   <div class="overflow-hidden">
                     <p data-zanim-xs='{"delay":0.2,"animation":"slide-right"}'>
@@ -2341,7 +2360,7 @@
 	        <div class="container">
 	           <div class="row justify-content-center text-center mb-6">
 	            <div class="col-lg-6" style="margin-top: 7rem;">
-	              <h2 class="fs-3 fs-sm-4 mb-3" style="font-size:2rem;">이런 부분들이 다릅니다</h2>
+	              <h2 class="fs-3 fs-sm-4 mb-3" style="font-size:2rem;font-family: 'NanumSquare';font-weight: 800;">이런 부분들이 다릅니다</h2>
 	              <hr class="hr-short mt-5 border-300" />
 	            </div>
 	          </div>
@@ -2351,12 +2370,12 @@
 	                <div class="col-lg-6 order-lg-2 text-center align-self-center"><img class="img-fluid" src="/static/assets/img/detail/illustration/asdt-01.svg" alt="" width="400" /></div>
 	                <div class="col-lg-6 border-lg-left border-lg-bottom border-300 pb-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
 	                  <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">01</span>
-	                    <h3>상품의 가치를 지키는 A/S 로켓 매칭</h3>
+	                    <h3 style="font-family: 'NanumSquare';font-weight: 800;">상품의 가치를 지키는 A/S 로켓 매칭</h3>
 	                    <hr class="hr-short mt-3 border-300" style="margin-left: 0;width:3.4rem;"/>
 	                    <p>
 	                    고장으로 인해 보관 제품이 상하는 일은 상상하고 싶지 않습니다.
 	                    <br/><br/>
-	                    <h4>쿨리닉의 A/S 시스템</h4>
+	                    <h4 style="font-family: 'NanumSquare';font-weight: 800;">쿨리닉의 A/S 시스템</h4>
 	                    <hr class="hr-short mt-3 border-300" style="margin-left: 0;width:3.4rem;"/>
 						쿨리닉의 A/S 시스템은 요청 즉시 고객과 가까운 전문가를 연결합니다.<br><br>
 						반경 50키로 내의 전문가(파트너)를 모바일 APP으로 호출합니다.<br><br>
@@ -2370,7 +2389,7 @@
 	                <div class="col-lg-6 border-lg-right border-lg-bottom border-300 text-center py-lg-8"><img class="img-fluid" src="/static/assets/img/detail/illustration/asdt-02.svg" alt="" width="400" /></div>
 	                <div class="col-lg-6 mt-4 mt-lg-0 mb-8 mb-lg-0 my-lg-8">
 	                  <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">02</span>
-	                    <h3>약은 약사에게, 14가지의 전문분야 파트너</h3>
+	                    <h3 style="font-family: 'NanumSquare';font-weight: 800;">약은 약사에게, 14가지의 전문분야 파트너</h3>
 	                    <hr class="hr-short mt-3 border-300" style="margin-left: 0;width:3.4rem;"/>
 	                    <p>
 	                    내과와 외과가 다르듯 전문분야는 명확합니다.<br/><br/>
@@ -2385,7 +2404,7 @@
 	                <div class="col-lg-6 order-lg-2 text-center align-self-center"><img class="img-fluid" src="/static/assets/img/detail/illustration/asdt-03.svg" alt="" width="400" /></div>
 	                <div class="col-lg-6 border-lg-left border-lg-bottom border-300 py-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
 	                  <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">03</span>
-	                    <h3>흔들리지 않는 기준, 수리 단가표 CPL</h3>
+	                    <h3 style="font-family: 'NanumSquare';font-weight: 800;">흔들리지 않는 기준, 수리 단가표 CPL</h3>
 	                    <hr class="hr-short mt-3 border-300" style="margin-left: 0;width:3.4rem;"/>
 	                    <p>
 	                    기준 없이 즉흥적으로 책정되는 수리비용은 없습니다.
@@ -2404,7 +2423,7 @@
 	                <div class="col-lg-6 border-lg-right border-lg-bottom border-300 text-center py-lg-8"><img class="img-fluid" src="/static/assets/img/detail/illustration/asdt-04.svg" alt="" width="400" /></div>
 	                <div class="col-lg-6 align-self-center mt-4 mt-lg-0 mt-lg-8" style="margin-bottom: 7.5rem !important;">
 	                  <div class="process-item process-item-last ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">04</span>
-	                    <h3>쿨리닉이 고객을 보호하는 방법</h3>
+	                    <h3 style="font-family: 'NanumSquare';font-weight: 800;">쿨리닉이 고객을 보호하는 방법</h3>
 	                    <hr class="hr-short mt-3 border-300" style="margin-left: 0;width:3.4rem;"/>
 	                    <p>
 	                    수리에 관한 보고서는 본사 기술팀에서 모니터링 됩니다. 
@@ -2421,7 +2440,7 @@
 	                <div class="col-lg-6 order-lg-2 text-center align-self-center"><img class="img-fluid" src="/static/assets/img/detail/illustration/asdt-05.svg" alt="" width="400" /></div>
 	                <div class="col-lg-6 border-lg-left border-lg-bottom border-300 py-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
 	                  <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">05</span>
-	                    <h3>콜드매니저</h3>
+	                    <h3 style="font-family: 'NanumSquare';font-weight: 800;">콜드매니저</h3>
 	                    <hr class="hr-short mt-3 border-300" style="margin-left: 0;width:3.4rem;"/>
 	                    <p>
 	                    쿨리닉의 내 콜드매니저는 콜드룸 시공 감리, 전담기업 유지보수, 난이도 높은 고장 수리, 파트너의 지원요청 등 의 일을 합니다.
@@ -2433,19 +2452,19 @@
 	                <div class="col-lg-6 border-lg-right border-300 text-center py-lg-8"><img class="img-fluid" src="/static/assets/img/detail/illustration/asdta-06.svg" alt="" width="400" /></div>
 	                <div class="col-lg-6 align-self-center mt-4 mt-lg-0 mt-lg-8" >
 	                  <div class="process-item process-item-last ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">06</span>
-	                    <h3>파트너, 어떻게 함께할 수 있나요?</h3>
+	                    <h3 style="font-family: 'NanumSquare';font-weight: 800;">파트너, 어떻게 함께할 수 있나요?</h3>
 	                    <hr class="hr-short mt-3 border-300" style="margin-left: 0;width:3.4rem;"/>
 	                    <p>
-	                    <h4>첫째. 증빙서류 제출</h4>
+	                    <h4 style="font-family: 'NanumSquare';font-weight: 800;">첫째. 증빙서류 제출</h4>
 	                    <hr class="hr-short mt-3 border-300" style="margin-left: 0;width:3.4rem;"/>
 	                    사업자 등록증과 기술력을 증빙할 수 있는 서류들과 함께 
 	                    냉동 공조 전문가는 쿨리닉 파트너로 승인 요청을 합니다.
 	                    <br/><br/>
-	                    <h4>둘째. 전문분야 등록</h4>
+	                    <h4 style="font-family: 'NanumSquare';font-weight: 800;">둘째. 전문분야 등록</h4>
 	                    <hr class="hr-short mt-3 border-300" style="margin-left: 0;width:3.4rem;"/>
 						전문분야와 자격증 유무, 지역, 활동 시간 등 절차를 거쳐 파트너 승인 요청을 합니다.
 						<br/><br/>
-	                    <h4>셋째. 승인 후 파트너 활동</h4>
+	                    <h4 style="font-family: 'NanumSquare';font-weight: 800;">셋째. 승인 후 파트너 활동</h4>
 	                    <hr class="hr-short mt-3 border-300" style="margin-left: 0;width:3.4rem;"/>
 						14가지로 분류되어 있고, 활동이 가능한 시간 등 조금은 까다로운 가입 절차를 거쳐
 						승인팀의 승인 후 파트너 활동이 가능합니다.
@@ -2499,8 +2518,8 @@
       </div>
       
       <div id="loading" style="margin-left: 0px;">
-	    <img src="/static/assets/img/lodding.gif">
-	    <p style="color:#fff;">견적서 산출 중 입니다.<br/>잠시만 기다려주세요.</p>
+	    <img src="/static/assets/img/lodding2.gif">
+	    <p style="color:#fff;">AI 자동견적서를 산출 중 입니다.<br/>잠시만 기다려주세요 :)</p>
 	  </div>
     </main>
     
@@ -2529,5 +2548,4 @@
 	<script src="/static/assets/js/main/swiper.min.js?ver=2"></script>
   </body>
   <iframe name='blankifr' style='display:none;'></iframe>
-
 </html>

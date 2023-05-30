@@ -34,6 +34,7 @@ public interface CalcDAO
     List<CalcMandaysEntity> getOneCalcMandays(String pid);
 
 //  DB 구역별 전체 조회    
+    List<CalcSettingEntity> getCalcSettingAll();
     List<CalcBaseEntity> getCalcBase();    
     List<CalcCDUEntity> getCalcCDU();
     List<CalcCoolerEntity> getCalcCooler();
